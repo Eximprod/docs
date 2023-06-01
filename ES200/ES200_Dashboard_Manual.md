@@ -1,4 +1,4 @@
-# ES200 Configuration Manual <!-- omit from toc -->
+# ES200 Dashboard Manual <!-- omit from toc -->
 
 [**Table of Contents:**](#toc)
 - [1. Introduction](#1-introduction)

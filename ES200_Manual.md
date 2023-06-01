@@ -1,268 +1,50 @@
-**Distribution control**
+# ES200 Configuration Manual <!-- omit from toc -->
 
+[**Table of Contents:**](#toc)
+- [1. Introduction](#1-introduction)
+  - [1.1 Legal Information](#11-legal-information)
+  - [1.2 General dispositions](#12-general-dispositions)
+  - [1.3. Terminology](#13-terminology)
+  - [1.4. Abbreviations](#14-abbreviations)
+- [2. The ES200 Unit](#2-the-es200-unit)
+  - [2.1 Use cases](#21-use-cases)
+  - [2.2 System architecture](#22-system-architecture)
+  - [2.3 Supported comunication protocols](#23-supported-comunication-protocols)
+- [3. Installing the ES200 Dashboard](#3-installing-the-es200-dashboard)
+- [4. Configuring the database using the ES200 Dashboard](#4-configuring-the-database-using-the-es200-dashboard)
+  - [4.1 Database configuration interface](#41-database-configuration-interface)
+    - [4.1.1 Main toolbar](#411-main-toolbar)
+    - [4.1.2 Secondary toolbar](#412-secondary-toolbar)
+    - [4.1.3 Equipment list](#413-equipment-list)
+    - [4.1.4 Equipment settings](#414-equipment-settings)
+    - [4.1.5 Database table](#415-database-table)
+    - [4.1.6 Errors table](#416-errors-table)
+  - [4.2 Adding and editing entities in the database](#42-adding-and-editing-entities-in-the-database)
+    - [4.2.1 Command centers](#421-command-centers)
+    - [4.2.2 Intelligent Electronic Devices](#422-intelligent-electronic-devices)
+    - [4.2.3 Points](#423-points)
+    - [4.2.4 Editing the table entries for a Command Center](#424-editing-the-table-entries-for-a-command-center)
+    - [4.2.5 Editing the table entries for an IED](#425-editing-the-table-entries-for-an-ied)
+  - [4.3 Downloading and uploading the database to ES200](#43-downloading-and-uploading-the-database-to-es200)
+    - [4.3.1 Downloading the database](#431-downloading-the-database)
+  - [](#)
+- [7. Setting up communication with IED](#7-setting-up-communication-with-ied)
+  - [7.1. Modbus](#71-modbus)
+  - [7.2.DNP3.0](#72dnp30)
+  - [7.3. IEC 61850 Ed1](#73-iec-61850-ed1)
+  - [7.4. IEC 61850 Ed2](#74-iec-61850-ed2)
+- [8. Setting up communication with the command center](#8-setting-up-communication-with-the-command-center)
+  - [8.1. IEC 60870-5-104](#81-iec-60870-5-104)
+  - [8.2. Modbus](#82-modbus)
 
-<table>
-  <tr>
-   <td>
-    Type
-   </td>
-   <td>
-    Distribution
-   </td>
-  </tr>
-  <tr>
-   <td>
-    External
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
+# 1. Introduction
 
-
-**Subversions**
-
-
-<table>
-  <tr>
-   <td>Version
-   </td>
-   <td>
-    Date
-   </td>
-   <td>
-    Type
-   </td>
-   <td>
-    Author
-   </td>
-  </tr>
-  <tr>
-   <td>1.0
-   </td>
-   <td>August 2008
-   </td>
-   <td>Creation
-   </td>
-   <td>Eugen Stoianovici
-<p>
-Rajiv Oberoi
-   </td>
-  </tr>
-  <tr>
-   <td>1.1
-   </td>
-   <td>July 2009
-   </td>
-   <td>Revision
-   </td>
-   <td>Dragos Vasile
-   </td>
-  </tr>
-  <tr>
-   <td>2.0
-   </td>
-   <td>September 2011
-   </td>
-   <td>Revision
-   </td>
-   <td>Horia Garlonta
-   </td>
-  </tr>
-  <tr>
-   <td>3.0
-   </td>
-   <td>December 2011
-   </td>
-   <td>Revision
-   </td>
-   <td>Horia Garlonta
-   </td>
-  </tr>
-  <tr>
-   <td>3.1
-   </td>
-   <td>March 2012
-   </td>
-   <td>Revision
-   </td>
-   <td>Horia Garlonta
-   </td>
-  </tr>
-  <tr>
-   <td>3.2
-   </td>
-   <td>May 2014
-   </td>
-   <td>Revision (IEC 104)
-   </td>
-   <td>Radu Pintilie
-   </td>
-  </tr>
-  <tr>
-   <td>3.3
-   </td>
-   <td>August 2015
-   </td>
-   <td>Revision (IEC 104)
-   </td>
-   <td>Adrian Trofinov
-   </td>
-  </tr>
-  <tr>
-   <td>4.0
-   </td>
-   <td>September 2016
-   </td>
-   <td>Linux IOx version
-   </td>
-   <td>Adrian Trofinov
-   </td>
-  </tr>
-  <tr>
-   <td>4.1
-   </td>
-   <td>May 2017
-   </td>
-   <td>Revision
-   </td>
-   <td>Calin Prodea
-   </td>
-  </tr>
-  <tr>
-   <td>4.2
-   </td>
-   <td>October 2017
-   </td>
-   <td>Revision (LoRaWAN)
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>4.3
-   </td>
-   <td>November 2017
-   </td>
-   <td>Revision (Dashboard)
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>5.0
-   </td>
-   <td>June 2018
-   </td>
-   <td>Revision
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>6.0
-   </td>
-   <td>October 2019
-   </td>
-   <td>Revision
-   </td>
-   <td>Cristian Coman
-   </td>
-  </tr>
-  <tr>
-   <td>7.0
-   </td>
-   <td>July 2022
-   </td>
-   <td>Revision
-   </td>
-   <td>Cristian Barbu
-   </td>
-  </tr>
-</table>
-
-
-**Authors**
-
-
-<table>
-  <tr>
-   <td>
-    Name
-   </td>
-   <td>
-    Notes
-   </td>
-  </tr>
-  <tr>
-   <td>Dragos Vasile
-   </td>
-   <td><a href="mailto:dragos.vasile@epg.ro">dragos.vasile@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Horia Garlonta
-   </td>
-   <td><a href="mailto:horia.garlonta@epg.ro">horia.garlonta@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Adrian Trofinov
-   </td>
-   <td><a href="mailto:adrian.trofinov@epg.ro">adrian.trofinov@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Calin Prodea
-   </td>
-   <td><a href="mailto:calin.prodea@epg.ro">calin.prodea@epg.ro</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>Radu Pintilie
-   </td>
-   <td><a href="mailto:radu.pintilie@epg.ro">radu.pintilie@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Georgiana Vlădulescu
-   </td>
-   <td><a href="mailto:georgiana.vladulescu@inovium.ro">georgiana.vladulescu@inovium.ro</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>Cristian Coman
-   </td>
-   <td><span style="text-decoration:underline;">cristian.coman@inovium.ro</span>
-   </td>
-  </tr>
-  <tr>
-   <td>Cristian Barbu
-   </td>
-   <td><span style="text-decoration:underline;">cristian.barbu@epg.ro</span>
-   </td>
-  </tr>
-</table>
-
-
-
-# **Content:**
-
-
-[TOC]
-
-
-
-
-1. **About the manual**
-
-ES200 is the ideal solution for the automation of field equipment. Using modern and secure communication and automation standards, the ES200 is designed to efficiently operate power grids, oil and gas devices, manufacturing units, smart city solutions and so on.
+ES200 is the ideal solution for the automation of field equipment. Using modern and secure communication and automation standards, the ES200 is designed to efficiently operate power grids, oil and gas devices, manufacturing units, smart city solutions and so on.  
 
 To configure the ES200 solution, we designed a Dashboard that helps edit the database that stores the configuration settings required by the ES200. This document explains how to use the Dashboard to generate the ES200 database. 
 
 
-
-    1. **_Legal Information_**
+## 1.1 Legal Information
 
 The information in this document is subject to change without prior notice and is not a commitment on the part of the supplier. Eximprod does not take responsibility for the use of the information in this document. 
 
@@ -272,18 +54,15 @@ The software described in this document is licensed and may only be used in acco
 
 The information in this document cannot be reproduced or copied without the written permission of Eximprod and the content cannot be given to a third party for unauthorized use.
 
-
-
-    2. **_General dispositions_**
+## 1.2 General dispositions
 
 This document provides information about the ES200 Dashboard software and its main features. The information available in this manual is intended for personnel who will use this product to configure different components or for current use.
 
 
 
-    3. **_Terminology_**
+## 1.3. Terminology
 
 This document contains a set of terms that specify important or safety information.
-
 
 <table>
   <tr>
@@ -379,9 +158,7 @@ This document contains a set of terms that specify important or safety informati
 </table>
 
 
-
-
-    4. **_Abbreviations_**
+## 1.4. Abbreviations
 
 Below is a list of abbreviations used throughout the document.
 
@@ -500,7 +277,7 @@ Below is a list of abbreviations used throughout the document.
 
 
 
-2. **The ES200 Unit**
+# 2. The ES200 Unit
 
 ES200 is a control, monitoring and data acquisition. It is the ideal solution both for automation and control of transformation, power or connection points and for local SCADA systems.
 
@@ -510,7 +287,7 @@ ES200 is able to run, deploy and operate at the Network Edge, while securely iso
 
 
 
-    5. **_ Use cases_**
+## 2.1 Use cases
 
 ES200 features monitoring, control and communication gateway functions. The system allows the capture of intelligent protection (IED signals), as well as the direct acquisition of digital signals. The ES200 has a wide range of standard protocols (detailed in section 2.4) for monitoring and transmitting information to the higher level. Also, ES200 can store a history of up to 500,000 events stored in non-volatile memory that are described by:
 
@@ -520,33 +297,18 @@ ES200 features monitoring, control and communication gateway functions. The syst
 * Source of the event;
 * Condition before the event;
 * Condition after event;
-    6. **_ System architecture_**
+
+## 2.2 System architecture
 
 The next figures show a general application architecture and an example of a deployment architecture.
 
+<img src="images/ES200_System_Architecture.png"  width="500" height="300"></p>
+Figure 2: The ES200 system architecture
 
+<img src="images/ES200_Deployment_Architecture.png"  width="500" height="300"></p>
+Figure 3: Example of ES200 deployment architecture
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-**Figure 2: The ES200 system architecture**
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
-**Figure 3: Example of ES200 deployment architecture**
-
-
-
-    7. **_Supported comunication protocols_**
+## 2.3 Supported comunication protocols
 
 Communications protocols supported by the ES200 include Modbus, DNP3, IEC 60870-5-104 and IEC 61850. These protocols are currently being used by a wide range of modern protection equipment and IEDs, therefore our solution can be easily deployed with existing equipment. Also, the list of available communication protocols is expanding, other protocols being developed on demand.
 
@@ -636,167 +398,96 @@ Depending on the hardware platform that supports it, the ES200 can directly cont
   </tr>
 </table>
 
+Table 2: ES200 supported communication protocols
 
-**Table 2: ES200 supported communication protocols**
-
-
-
-3. **Installing the ES200 Dashboard**
+# 3. Installing the ES200 Dashboard
 
 A wizard has been configured to guide you through the installation process. First, you must double click the installation icon:
 
+<img src="images/Dashboard_Installation_Icon.png" ></p>
 
+The first window of the installer is the one in Figure 4: Install wizard. In order to start the installation process, click Next.
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.jpg "image_tooltip")
-
-
-The first window of the installer is the one in Figure 4: Install wizard (1)Figure 4. In order to start the installation process, click Next.
-
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.jpg "image_tooltip")
-
-
-**Figure 4: Install wizard (1)**
+<img src="images/Install_Wizard1.png" ></p>
+Figure 4: Install wizard
 
 Afterwards, you will be prompted to select the location where you want the program to be installed. We recommend keeping the default file location, as shown in Figure 5. If you wish to choose a different directory, click the Browse button and navigate to the intended file location. After the file destination is chosen, click Next.
 
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.jpg "image_tooltip")
-
-
-**Figure 5: Install wizard (2)**
+<img src="images/Install_Wizard2.png"></p>
+Figure 5: Install wizard (2)
 
 After that, the wizard will ask you to confirm installation, as shown in Figure 6. You can do so by clicking Next. The software will be installed in the chosen (or default) location and the wizard will inform you of the success of the installations, as shown in Figure 7. You can then close the wizard by clicking the Finish button.
 
+<img src="images/Install_Wizard3.png"></p>
+Figure 6: Install wizard (3)
 
+<img src="images/Install_Wizard4.png"></p>
+Figure 7: Install wizard (4)
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.jpg "image_tooltip")
-
-
-**Figure 6: Install wizard (3)**
-
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.jpg "image_tooltip")
-
-
-**Figure 7: Install wizard (4)**
-
-
-
-4. Configuring the database using the ES200 Dashboard
+# 4. Configuring the database using the ES200 Dashboard
 
 The data required for the ES200 application to run properly is retrieved from a database. Each unit is delivered with an application for viewing and editing the database.
 
-
-
-    8. **_ Database configuration interface_**
+## 4.1 Database configuration interface
 
 The database configuration interface main menu is illustrated in Figure 8.
 
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.png "image_tooltip")
-
-
-**Figure 8: ES200 database configuration interface**
+<img src="images/Database_Configuration_Interface.png"></p>
+Figure 8: ES200 database configuration interface
 
 The main application areas are highlighted in colored boxes as follows (Figure 9):
 
+1. Main toolbar
+2. Secondary toolbar
+3. Equipment list
+4. Equipment settings
+5. Database table
+6. Errors table
 
+<img src="images/Database_Configuration_Interface_Highlights.png"></p>
+Figure 9: ES200 database configuration interface highlights
 
-* Main toolbar (1);
-* Secondary toolbar (2);
-* Equipment list (3);
-* Equipment settings (4)
-* Database table (5);
-* Errors table (6);
-
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.png "image_tooltip")
-**Figure 9: ES200 database configuration interface highlights**
-
-
-
-        1. **_Main toolbar (1)_**
+### 4.1.1 Main toolbar
 * File – allows you to open, save, download/upload projects or exit the application.
 * Edit – allows you to add new devices, either slave or master and the license, author and description of the database you are configuring.
 * Tools- allows you to change the current language of the application.
 * Help – gives you more information about the application you are using.
 * The buttons on the right – allow you to minimize or maximize the app window or close the app altogether.
-        2. **_Secondary toolbar (2)_**
+
+### 4.1.2 Secondary toolbar
 * New Project – opens a new project tab (using the latest database configuration version)
 * Open Project – opens a browsing window for you to navigate the directory system and select the database you want to view/modify
 * Save Project – saves your current work in the database file you have opened
-        3. **_Equipment list (3)_**
+
+### 4.1.3 Equipment list
 * Command Centers – a list of all the CCs that currently exist in the database
 * Intelligent Electronic Device – a list of all the IEDs that currently exist in the database
 * MultiDataMaster – a list of all MultiDataMaster devices that exist in the database.
-        4. **_Equipment settings (4)_**
 
+### 4.1.4 Equipment settings
 If you select an equipment (CC or IED), the window in the lower left corner will have the following submenus:
-
-
 
 * Unit info - information about the selected equipment ( name, channel etc.). The editable fields can be changed according to new requirements.
 * Equipment Properties - additional information about the selected equipment and the communication protocol it uses. Each field has a help text that will show when you hover over the field name.
 * Channel Settings – information regarding the channel (Serial/TCP) used by the equipment for communication purposes. 
-        5. **_Database table (5)_**
 
+### 4.1.5 Database table
 A table-like interface that offers information about the points of the selected equipment. By double clicking a field, you can change its content either by selecting one of the given options (when the field has certain content restrictions) or by manually inputting the new content.
 
-
-
-        6. **_Errors table (6)_**
-
+### 4.1.6 Errors table
 In this table you can see the configuration errors of a database. For example: equipment with the same name, duplicate points etc.
 
+## 4.2 Adding and editing entities in the database
 
-
-    9. **_Adding and editing entities in the database_**
-        7. **_Command centers: _**
-
+### 4.2.1 Command centers
 You can add a new CC device by using the Add slave device option from the Edit button in the Main Toolbar, and selecting the protocol you want the new Command Center to use. Afterwards, you will be able to add additional creation information in the designated area (Figure 10).
 
 An alternative method is to right-click Command Centers and click the Add Device button, selecting the protocol in the EquipmentProcess drop down menu.
 
-
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.png "image_tooltip")
-
-
-**Figure 10**: ES200 database configuration interface – adding a new Command Center
+<img src="images/Database_Configuration_Add_New_Command_Center.png"></p>
+Figure 10: ES200 database configuration interface – adding a new Command Center
 
 The editable fields are:
-
-
 
 * Equipment Name - the name you want the equipment to have so it is easy to identify;
 * Equipment Process – from a drop-down menu, you can select which protocol you want this Command Center to use;
@@ -807,25 +498,9 @@ The editable fields are:
     * Channel Type – from the drop-down menu, you can select if you want the Command Center to communicate using a Serial or a TCP connection. Depending on your selection, you will have specific connection properties to edit. (Figure 11);
     * Channel Description – a short sentence that can help you identify the channel and its settings.
 
-
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.png "image_tooltip")
-
-
-
-
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image12.png "image_tooltip")
-
-
-**Figure 11: Serial and TCP connection options**
-
-
+<img src="images/Serial_Settings.png"></p>
+<img src="images/TCP_Settings.png"></p>
+Figure 11: Serial and TCP connection options
 
 1. The Serial Channel has the following editable parameters:
     * BAUDRATE – the speed of the connection (bits/second);
@@ -843,39 +518,21 @@ The editable fields are:
 
 All these settings can be edited after the creation of the Command Center. You can do so by clicking on the specific slave you want to modify and then change the settings in the tabs from the Equipment Settings section (as shown in Figure 12)
 
-
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image13.png "image_tooltip")
-
-
-**Figure 12**: ES200 database configuration interface – editing a Command Center
+<img src="images/Database_Configuration_Edit_Command_Center.png"></p>
+Figure 12: ES200 database configuration interface – editing a Command Center
 
 A Command Center can be deleted by clicking on it, then right-clicking it and selecting Delete equipment. Alternatively, you can select am equipment and use the Delete key.
 
-
-
-        8. **_Intelligent Electronic Devices_**
+### 4.2.2 Intelligent Electronic Devices
 
 Adding an IED is similar to adding a Command Center. By clicking the Edit button and selecting Add master device, you will be asked to select the protocol you want the new device to use. Then, the process is identical to the previous chapter, as shown in Figure 13.
 
 An alternative method is selecting and right-clicking Intelligent Electronic Device and selecting Add Device. The protocol can later be selected from the Equipment Process drop down menu.
 
-
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image14.png "image_tooltip")
-
-
-**Figure 13**: ES200 database configuration interface – adding a Remote Terminal Unit
+<img src="images/Database_Configuration_Add_IED.png"></p>
+Figure 13: ES200 database configuration interface – adding an Intelligent Electronic Device
 
 The editable fields are:
-
-
 
 * Equipment Name - the name you want the equipment to have so it is easy to identify;
 * Equipment Process – from a drop-down menu, you can select which protocol you want this IED to use;
@@ -887,8 +544,6 @@ The editable fields are:
     * Channel Description – a short sentence that can help you identify the channel and its settings.
 
 Depending on which channel you selected, the parameters that you have to fill in are different and are explaind in the following lists:
-
-
 
 1. The Serial Channel has the following editable parameters:
     * BAUDRATE – the speed of the connection (bits/second);
@@ -906,79 +561,47 @@ Depending on which channel you selected, the parameters that you have to fill in
 
 All these settings can be edited after the creation of the IED. You can do so by clicking on the specific master you want to modify and then change the settings in the settings submenus from the lower left part of the window, just like you would do if you wanted to modify the properties of a Command Center.
 
-
-
-        9. **_Points_**
-
+### 4.2.3 Points
 The procedure for adding a new point to either a Command Center or a Intelligent Electronic Device is extremely similar. 
 
 The first step is to expand the equipment’s point options by clicking on the arrow to its left. Afterwards, by selecting and then right-clicking the desired point type, you can select the Add point(s) option, that will open a dialogue box (Figure 14) where you can input:
 
-
-
 * Starting Address – the address of the first point you wish to add;
 * Number of Points – the number of points you wish to add.
 
-
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image15.png "image_tooltip")
-
-
-**Figure 14**: ES200 database configuration interface – adding a point
+<img src="images/Database_Configuration_Add_Point.png"></p>
+Figure 14: ES200 database configuration interface – adding a point
 
 After the addition, the new points will appear in the table belonging to the equipment where they were added. The editing process will be covered in the next chapter. In order to delete a point, you can select the row in the table by clicking on it and then right-clicking it and selecting the Delete item option.
 
-
-
-        10. **_ Editing the table entries for a Command Center_**
-
+### 4.2.4 Editing the table entries for a Command Center
 In the table in the right of the selected Command Center, you can view or edit the points that the Command Center will receive. Every editable value can be modified by double-clicking the cell you wish to edit. The editable columns of the table are:
-
-
 
 * ADDRESS – The address of the point
 * Master Variable Name – The name of the correspondent of the point in the Master’s point list. The new value can be selected from a drop-down menu. Selecting a master point will make the row become white.
-        11. **_Editing the table entries for an IED_**
 
+### 4.2.5 Editing the table entries for an IED
 The table in the right of the selected IED can be used to edit the points that the IED will send. Every editable value can be modified by double-clicking the cell you wish to edit. 
 
-
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image16.png "image_tooltip")
-
-
-**Figure 15**: ES200 database configuration interface – editing an IED point
+<img src="images/Database_Configuration_Edit_Point.png"></p>
+Figure 15: ES200 database configuration interface – editing an IED point
 
 The editable columns of the table are:
-
-
 
 * ADDRESS – The address of the point. 
 * Description – a short phrase that can help the identify and understand the purpose of the points. 
 * Variable Name – the name of the variable stored in the point
-    10. _ Downloading and uploading the database to ES200_
-        12. **_Downloading the database_**
+
+## 4.3 Downloading and uploading the database to ES200
+### 4.3.1 Downloading the database
 
 In some use cases, the database that is currently in use on the ES200 will need to be modified. In order to do that, you must import it locally and edit it with the Dashboard application. For this, use the File -> Download Project menu. This will open a window in which you can enter the required connection information.
 
-
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image17.png "image_tooltip")
-
+<img src="images/Database_Configuration_Connect_Remote.png"></p>
 
 **Figure 16: ES200 database configuration interface – connecting to ES Remote**
 
 After entering your credentials, you will be asked to navigate through your own computer and select where you want the remote database to be saved and what name you want it to have. 
-
 
 
         13. **_Uploading the database_**

@@ -2,105 +2,105 @@
 
 [**Table of Contents:**](#toc)
 - [1. Introduction](#1-introduction)
-  - [1.1 Legal Information](#11-legal-information)
-  - [1.2 General dispositions](#12-general-dispositions)
+  - [1.1. Legal Information](#11-legal-information)
+  - [1.2. General dispositions](#12-general-dispositions)
   - [1.3. Terminology](#13-terminology)
   - [1.4. Abbreviations](#14-abbreviations)
 - [2. The ES200 Unit](#2-the-es200-unit)
-  - [2.1 Use cases](#21-use-cases)
-  - [2.2 System architecture](#22-system-architecture)
-  - [2.3 Supported comunication protocols](#23-supported-comunication-protocols)
+  - [2.1. Use cases](#21-use-cases)
+  - [2.2. System architecture](#22-system-architecture)
+  - [2.3. Supported comunication protocols](#23-supported-comunication-protocols)
 - [3. Installing the ES200 Dashboard](#3-installing-the-es200-dashboard)
 - [4. Configuring the database using the ES200 Dashboard](#4-configuring-the-database-using-the-es200-dashboard)
-  - [4.1 Database configuration interface](#41-database-configuration-interface)
-    - [4.1.1 Main toolbar](#411-main-toolbar)
-    - [4.1.2 Secondary toolbar](#412-secondary-toolbar)
-    - [4.1.3 Equipment list](#413-equipment-list)
-    - [4.1.4 Equipment settings](#414-equipment-settings)
-    - [4.1.5 Database table](#415-database-table)
-    - [4.1.6 Errors table](#416-errors-table)
-  - [4.2 Adding and editing entities in the database](#42-adding-and-editing-entities-in-the-database)
-    - [4.2.1 Command centers](#421-command-centers)
-    - [4.2.2 Intelligent Electronic Devices](#422-intelligent-electronic-devices)
-    - [4.2.3 Points](#423-points)
-    - [4.2.4 Editing the table entries for a Command Center](#424-editing-the-table-entries-for-a-command-center)
-    - [4.2.5 Editing the table entries for an IED](#425-editing-the-table-entries-for-an-ied)
-  - [4.3 Downloading and uploading the database to ES200](#43-downloading-and-uploading-the-database-to-es200)
-    - [4.3.1 Downloading the database](#431-downloading-the-database)
-    - [4.3.2 Uploading the database](#432-uploading-the-database)
-  - [4.4 Viewing the points](#44-viewing-the-points)
-  - [4.5 Sending commands](#45-sending-commands)
-  - [4.6 Force points value](#46-force-points-value)
+  - [4.1. Database configuration interface](#41-database-configuration-interface)
+    - [4.1.1. Main toolbar](#411-main-toolbar)
+    - [4.1.2. Secondary toolbar](#412-secondary-toolbar)
+    - [4.1.3. Equipment list](#413-equipment-list)
+    - [4.1.4. Equipment settings](#414-equipment-settings)
+    - [4.1.5. Database table](#415-database-table)
+    - [4.1.6. Errors table](#416-errors-table)
+  - [4.2. Adding and editing entities in the database](#42-adding-and-editing-entities-in-the-database)
+    - [4.2.1. Command centers](#421-command-centers)
+    - [4.2.2. Intelligent Electronic Devices](#422-intelligent-electronic-devices)
+    - [4.2.3. Points](#423-points)
+    - [4.2.4. Editing the table entries for a Command Center](#424-editing-the-table-entries-for-a-command-center)
+    - [4.2.5. Editing the table entries for an IED](#425-editing-the-table-entries-for-an-ied)
+  - [4.3. Downloading and uploading the database to ES200](#43-downloading-and-uploading-the-database-to-es200)
+    - [4.3.1. Downloading the database](#431-downloading-the-database)
+    - [4.3.2. Uploading the database](#432-uploading-the-database)
+  - [4.4. Viewing the points](#44-viewing-the-points)
+  - [4.5. Sending commands](#45-sending-commands)
+  - [4.6. Force points value](#46-force-points-value)
 - [5. Configuration example](#5-configuration-example)
-  - [5.1 Hypothetic use case](#51-hypothetic-use-case)
-  - [5.2 IED configuration](#52-ied-configuration)
-  - [5.3 Command Center Configuration](#53-command-center-configuration)
-  - [5.4 Saving and uploading the project](#54-saving-and-uploading-the-project)
+  - [5.1. Hypothetic use case](#51-hypothetic-use-case)
+  - [5.2. IED configuration](#52-ied-configuration)
+  - [5.3. Command Center Configuration](#53-command-center-configuration)
+  - [5.4. Saving and uploading the project](#54-saving-and-uploading-the-project)
 - [6. Utilities](#6-utilities)
-  - [6.1 Exporting and importing templates](#61-exporting-and-importing-templates)
-    - [6.1.1 Export](#611-export)
-    - [6.1.2 Import](#612-import)
-  - [6.2 Project version conversion](#62-project-version-conversion)
-    - [6.2.1 Project download](#621-project-download)
-    - [6.2.2 Version change](#622-version-change)
-    - [6.2.3 Project versions differences](#623-project-versions-differences)
-      - [6.2.3.1 Differences between versions 1.3 - 1.5](#6231-differences-between-versions-13---15)
-        - [6.2.3.1.1 ModbusMaster](#62311-modbusmaster)
-        - [6.2.3.1.2 DNP3Master](#62312-dnp3master)
-        - [6.2.3.1.3 IEC61850](#62313-iec61850)
-        - [6.2.3.1.4 IEC104Slave](#62314-iec104slave)
-        - [6.2.3.1.5 ModbusSlave](#62315-modbusslave)
-        - [6.2.3.1.6 IEC104Master](#62316-iec104master)
-        - [6.2.3.1.7 MultiDataMaster](#62317-multidatamaster)
-        - [6.2.3.1.8 JSON\_MQTT](#62318-json_mqtt)
-      - [6.2.3.2 Differences between versions 1.5 - 2.0](#6232-differences-between-versions-15---20)
-        - [6.2.3.2.1 DNP3Master](#62321-dnp3master)
-        - [6.2.3.2.2 DNP3Slave](#62322-dnp3slave)
-      - [6.2.3.3 Differences between versions 2.0 - 2.1](#6233-differences-between-versions-20---21)
-        - [6.2.3.3.1 DNP3Master](#62331-dnp3master)
-  - [6.3 Change the language](#63-change-the-language)
-  - [6.3 Logic block editor](#63-logic-block-editor)
-    - [6.4.1 Functionality description of automation blocks](#641-functionality-description-of-automation-blocks)
-      - [6.4.1.1 ResetDominantBistable (SET/RESET)](#6411-resetdominantbistable-setreset)
-      - [6.4.1.2 TON](#6412-ton)
-      - [6.4.1.3 TOF](#6413-tof)
-      - [6.4.1.4 Functions for statistical determinations: MAX, MIN, AVG, DISP](#6414-functions-for-statistical-determinations-max-min-avg-disp)
+  - [6.1. Exporting and importing templates](#61-exporting-and-importing-templates)
+    - [6.1.1. Export](#611-export)
+    - [6.1.2. Import](#612-import)
+  - [6.2. Project version conversion](#62-project-version-conversion)
+    - [6.2.1. Project download](#621-project-download)
+    - [6.2.2. Version change](#622-version-change)
+    - [6.2.3. Project versions differences](#623-project-versions-differences)
+      - [6.2.3.1. Differences between versions 1.3 - 1.5](#6231-differences-between-versions-13---15)
+        - [6.2.3.1.1. ModbusMaster](#62311-modbusmaster)
+        - [6.2.3.1.2. DNP3Master](#62312-dnp3master)
+        - [6.2.3.1.3. IEC61850](#62313-iec61850)
+        - [6.2.3.1.4. IEC104Slave](#62314-iec104slave)
+        - [6.2.3.1.5. ModbusSlave](#62315-modbusslave)
+        - [6.2.3.1.6. IEC104Master](#62316-iec104master)
+        - [6.2.3.1.7. MultiDataMaster](#62317-multidatamaster)
+        - [6.2.3.1.8. JSON\_MQTT](#62318-json_mqtt)
+      - [6.2.3.2. Differences between versions 1.5 - 2.0](#6232-differences-between-versions-15---20)
+        - [6.2.3.2.1. DNP3Master](#62321-dnp3master)
+        - [6.2.3.2.2. DNP3Slave](#62322-dnp3slave)
+      - [6.2.3.3. Differences between versions 2.0 - 2.1](#6233-differences-between-versions-20---21)
+        - [6.2.3.3.1. DNP3Master](#62331-dnp3master)
+  - [6.3. Change the language](#63-change-the-language)
+  - [6.3. Logic block editor](#63-logic-block-editor)
+    - [6.4.1. Functionality description of automation blocks](#641-functionality-description-of-automation-blocks)
+      - [6.4.1.1. ResetDominantBistable (SET/RESET)](#6411-resetdominantbistable-setreset)
+      - [6.4.1.2. TON](#6412-ton)
+      - [6.4.1.3. TOF](#6413-tof)
+      - [6.4.1.4. Functions for statistical determinations: MAX, MIN, AVG, DISP](#6414-functions-for-statistical-determinations-max-min-avg-disp)
 - [7. Setting up communication with IED](#7-setting-up-communication-with-ied)
-  - [7.1 Modbus](#71-modbus)
-    - [7.1.1 General configuration of the communication channel](#711-general-configuration-of-the-communication-channel)
-    - [7.1.2 General RTU configuration](#712-general-rtu-configuration)
-    - [7.1.3 Adding Discrete Input Register digital inputs](#713-adding-discrete-input-register-digital-inputs)
-    - [7.1.4 Adding Coil digital controls](#714-adding-coil-digital-controls)
-    - [7.1.5 Adding analog input sizes - Input Register](#715-adding-analog-input-sizes---input-register)
-    - [7.1.6 Addition of analogue command sizes - Holding Register](#716-addition-of-analogue-command-sizes---holding-register)
+  - [7.1. Modbus](#71-modbus)
+    - [7.1.1. General configuration of the communication channel](#711-general-configuration-of-the-communication-channel)
+    - [7.1.2. General RTU configuration](#712-general-rtu-configuration)
+    - [7.1.3. Adding Discrete Input Register digital inputs](#713-adding-discrete-input-register-digital-inputs)
+    - [7.1.4. Adding Coil digital controls](#714-adding-coil-digital-controls)
+    - [7.1.5. Adding analog input sizes - Input Register](#715-adding-analog-input-sizes---input-register)
+    - [7.1.6. Addition of analogue command sizes - Holding Register](#716-addition-of-analogue-command-sizes---holding-register)
   - [7.2. DNP3.0](#72-dnp30)
     - [7.2.1. General configuration of the communication channel](#721-general-configuration-of-the-communication-channel)
-    - [7.2.2 RTU General Configuration](#722-rtu-general-configuration)
-    - [7.2.3 Adding digital sizes](#723-adding-digital-sizes)
-    - [7.2.4 Adding analogue sizes](#724-adding-analogue-sizes)
-    - [7.2.5 Adding commands](#725-adding-commands)
-  - [7.3 IEC 61850 Ed1](#73-iec-61850-ed1)
-    - [7.3.1 General configuration of the communication channel](#731-general-configuration-of-the-communication-channel)
-    - [7.3.2 General configuration of the IED connection](#732-general-configuration-of-the-ied-connection)
-    - [7.3.3 Digital and analogue size editing](#733-digital-and-analogue-size-editing)
-    - [7.3.4 Editing commands](#734-editing-commands)
-    - [7.3.5 Reports editing IEC61850](#735-reports-editing-iec61850)
+    - [7.2.2. RTU General Configuration](#722-rtu-general-configuration)
+    - [7.2.3. Adding digital sizes](#723-adding-digital-sizes)
+    - [7.2.4. Adding analogue sizes](#724-adding-analogue-sizes)
+    - [7.2.5. Adding commands](#725-adding-commands)
+  - [7.3. IEC 61850 Ed1](#73-iec-61850-ed1)
+    - [7.3.1. General configuration of the communication channel](#731-general-configuration-of-the-communication-channel)
+    - [7.3.2. General configuration of the IED connection](#732-general-configuration-of-the-ied-connection)
+    - [7.3.3. Digital and analogue size editing](#733-digital-and-analogue-size-editing)
+    - [7.3.4. Editing commands](#734-editing-commands)
+    - [7.3.5. Reports editing IEC61850](#735-reports-editing-iec61850)
   - [7.4. IEC 61850 Ed2](#74-iec-61850-ed2)
     - [7.4.1. General configuration of the communication channel](#741-general-configuration-of-the-communication-channel)
     - [7.4.2. General RTU configuration](#742-general-rtu-configuration)
-    - [7.4.3 Digital and analogue size editing](#743-digital-and-analogue-size-editing)
-    - [7.4.4 Editing commands](#744-editing-commands)
-    - [7.4.5 Editing reports](#745-editing-reports)
+    - [7.4.3. Digital and analogue size editing](#743-digital-and-analogue-size-editing)
+    - [7.4.4. Editing commands](#744-editing-commands)
+    - [7.4.5. Editing reports](#745-editing-reports)
 - [8. Setting up communication with the command center](#8-setting-up-communication-with-the-command-center)
-  - [8.1 IEC 60870-5-104](#81-iec-60870-5-104)
-    - [8.1.1 General configuration of the communication channel](#811-general-configuration-of-the-communication-channel)
-    - [8.1.2 General configuration of CC](#812-general-configuration-of-cc)
-    - [8.1.3 Adding digital sizes](#813-adding-digital-sizes)
-    - [8.1.4 Adding analogue sizes](#814-adding-analogue-sizes)
+  - [8.1. IEC 60870-5-104](#81-iec-60870-5-104)
+    - [8.1.1. General configuration of the communication channel](#811-general-configuration-of-the-communication-channel)
+    - [8.1.2. General configuration of CC](#812-general-configuration-of-cc)
+    - [8.1.3. Adding digital sizes](#813-adding-digital-sizes)
+    - [8.1.4. Adding analogue sizes](#814-adding-analogue-sizes)
     - [8.1.5. Adding commands](#815-adding-commands)
-  - [8.2 Modbus](#82-modbus)
-    - [8.2.1 General configuration of the communication channel](#821-general-configuration-of-the-communication-channel)
-    - [8.2.2 General configuration of CC](#822-general-configuration-of-cc)
+  - [8.2. Modbus](#82-modbus)
+    - [8.2.1. General configuration of the communication channel](#821-general-configuration-of-the-communication-channel)
+    - [8.2.2. General configuration of CC](#822-general-configuration-of-cc)
     - [8.2.3. Adding digital, analogue and command sizes](#823-adding-digital-analogue-and-command-sizes)
 
 # 1. Introduction
@@ -110,7 +110,7 @@ ES200 is the ideal solution for the automation of field equipment. Using modern 
 To configure the ES200 solution, we designed a Dashboard that helps edit the database that stores the configuration settings required by the ES200. This document explains how to use the Dashboard to generate the ES200 database. 
 
 
-## 1.1 Legal Information
+## 1.1. Legal Information
 
 The information in this document is subject to change without prior notice and is not a commitment on the part of the supplier. Eximprod does not take responsibility for the use of the information in this document. 
 
@@ -120,7 +120,7 @@ The software described in this document is licensed and may only be used in acco
 
 The information in this document cannot be reproduced or copied without the written permission of Eximprod and the content cannot be given to a third party for unauthorized use.
 
-## 1.2 General dispositions
+## 1.2. General dispositions
 
 This document provides information about the ES200 Dashboard software and its main features. The information available in this manual is intended for personnel who will use this product to configure different components or for current use.
 
@@ -353,7 +353,7 @@ ES200 is able to run, deploy and operate at the Network Edge, while securely iso
 
 
 
-## 2.1 Use cases
+## 2.1. Use cases
 
 ES200 features monitoring, control and communication gateway functions. The system allows the capture of intelligent protection (IED signals), as well as the direct acquisition of digital signals. The ES200 has a wide range of standard protocols (detailed in section 2.4) for monitoring and transmitting information to the higher level. Also, ES200 can store a history of up to 500,000 events stored in non-volatile memory that are described by:
 
@@ -364,7 +364,7 @@ ES200 features monitoring, control and communication gateway functions. The syst
 * Condition before the event;
 * Condition after event;
 
-## 2.2 System architecture
+## 2.2. System architecture
 
 The next figures show a general application architecture and an example of a deployment architecture.
 
@@ -374,7 +374,7 @@ Figure 2: The ES200 system architecture
 <img src="images/ES200_Deployment_Architecture.png"  width="500" height="300"></p>
 Figure 3: Example of ES200 deployment architecture
 
-## 2.3 Supported comunication protocols
+## 2.3. Supported comunication protocols
 
 Communications protocols supported by the ES200 include Modbus, DNP3, IEC 60870-5-104 and IEC 61850. These protocols are currently being used by a wide range of modern protection equipment and IEDs, therefore our solution can be easily deployed with existing equipment. Also, the list of available communication protocols is expanding, other protocols being developed on demand.
 
@@ -494,7 +494,7 @@ Figure 7: Install wizard (4)
 
 The data required for the ES200 application to run properly is retrieved from a database. Each unit is delivered with an application for viewing and editing the database.
 
-## 4.1 Database configuration interface
+## 4.1. Database configuration interface
 
 The database configuration interface main menu is illustrated in Figure 8.
 
@@ -513,39 +513,39 @@ The main application areas are highlighted in colored boxes as follows (Figure 9
 <img src="images/Database_Configuration_Interface_Highlights.png"></p>
 Figure 9: ES200 database configuration interface highlights
 
-### 4.1.1 Main toolbar
+### 4.1.1. Main toolbar
 * File – allows you to open, save, download/upload projects or exit the application.
 * Edit – allows you to add new devices, either slave or master and the license, author and description of the database you are configuring.
 * Tools- allows you to change the current language of the application.
 * Help – gives you more information about the application you are using.
 * The buttons on the right – allow you to minimize or maximize the app window or close the app altogether.
 
-### 4.1.2 Secondary toolbar
+### 4.1.2. Secondary toolbar
 * New Project – opens a new project tab (using the latest database configuration version)
 * Open Project – opens a browsing window for you to navigate the directory system and select the database you want to view/modify
 * Save Project – saves your current work in the database file you have opened
 
-### 4.1.3 Equipment list
+### 4.1.3. Equipment list
 * Command Centers – a list of all the CCs that currently exist in the database
 * Intelligent Electronic Device – a list of all the IEDs that currently exist in the database
 * MultiDataMaster – a list of all MultiDataMaster devices that exist in the database.
 
-### 4.1.4 Equipment settings
+### 4.1.4. Equipment settings
 If you select an equipment (CC or IED), the window in the lower left corner will have the following submenus:
 
 * Unit info - information about the selected equipment ( name, channel etc.). The editable fields can be changed according to new requirements.
 * Equipment Properties - additional information about the selected equipment and the communication protocol it uses. Each field has a help text that will show when you hover over the field name.
 * Channel Settings – information regarding the channel (Serial/TCP) used by the equipment for communication purposes. 
 
-### 4.1.5 Database table
+### 4.1.5. Database table
 A table-like interface that offers information about the points of the selected equipment. By double clicking a field, you can change its content either by selecting one of the given options (when the field has certain content restrictions) or by manually inputting the new content.
 
-### 4.1.6 Errors table
+### 4.1.6. Errors table
 In this table you can see the configuration errors of a database. For example: equipment with the same name, duplicate points etc.
 
-## 4.2 Adding and editing entities in the database
+## 4.2. Adding and editing entities in the database
 
-### 4.2.1 Command centers
+### 4.2.1. Command centers
 You can add a new CC device by using the Add slave device option from the Edit button in the Main Toolbar, and selecting the protocol you want the new Command Center to use. Afterwards, you will be able to add additional creation information in the designated area (Figure 10).
 
 An alternative method is to right-click Command Centers and click the Add Device button, selecting the protocol in the EquipmentProcess drop down menu.
@@ -589,7 +589,7 @@ Figure 12: ES200 database configuration interface – editing a Command Center
 
 A Command Center can be deleted by clicking on it, then right-clicking it and selecting Delete equipment. Alternatively, you can select am equipment and use the Delete key.
 
-### 4.2.2 Intelligent Electronic Devices
+### 4.2.2. Intelligent Electronic Devices
 
 Adding an IED is similar to adding a Command Center. By clicking the Edit button and selecting Add master device, you will be asked to select the protocol you want the new device to use. Then, the process is identical to the previous chapter, as shown in Figure 13.
 
@@ -627,7 +627,7 @@ Depending on which channel you selected, the parameters that you have to fill in
 
 All these settings can be edited after the creation of the IED. You can do so by clicking on the specific master you want to modify and then change the settings in the settings submenus from the lower left part of the window, just like you would do if you wanted to modify the properties of a Command Center.
 
-### 4.2.3 Points
+### 4.2.3. Points
 The procedure for adding a new point to either a Command Center or a Intelligent Electronic Device is extremely similar. 
 
 The first step is to expand the equipment’s point options by clicking on the arrow to its left. Afterwards, by selecting and then right-clicking the desired point type, you can select the Add point(s) option, that will open a dialogue box (Figure 14) where you can input:
@@ -640,13 +640,13 @@ Figure 14: ES200 database configuration interface – adding a point
 
 After the addition, the new points will appear in the table belonging to the equipment where they were added. The editing process will be covered in the next chapter. In order to delete a point, you can select the row in the table by clicking on it and then right-clicking it and selecting the Delete item option.
 
-### 4.2.4 Editing the table entries for a Command Center
+### 4.2.4. Editing the table entries for a Command Center
 In the table in the right of the selected Command Center, you can view or edit the points that the Command Center will receive. Every editable value can be modified by double-clicking the cell you wish to edit. The editable columns of the table are:
 
 * ADDRESS – The address of the point
 * Master Variable Name – The name of the correspondent of the point in the Master’s point list. The new value can be selected from a drop-down menu. Selecting a master point will make the row become white.
 
-### 4.2.5 Editing the table entries for an IED
+### 4.2.5. Editing the table entries for an IED
 The table in the right of the selected IED can be used to edit the points that the IED will send. Every editable value can be modified by double-clicking the cell you wish to edit. 
 
 <img src="images/Database_Configuration_Edit_Point.png"></p>
@@ -658,8 +658,8 @@ The editable columns of the table are:
 * Description – a short phrase that can help the identify and understand the purpose of the points. 
 * Variable Name – the name of the variable stored in the point
 
-## 4.3 Downloading and uploading the database to ES200
-### 4.3.1 Downloading the database
+## 4.3. Downloading and uploading the database to ES200
+### 4.3.1. Downloading the database
 
 In some use cases, the database that is currently in use on the ES200 will need to be modified. In order to do that, you must import it locally and edit it with the Dashboard application. For this, use the File -> Download Project menu. This will open a window in which you can enter the required connection information.
 
@@ -670,13 +670,13 @@ Figure 16: ES200 database configuration interface – connecting to ES Remote**
 After entering your credentials, you will be asked to navigate through your own computer and select where you want the remote database to be saved and what name you want it to have. 
 
 
-### 4.3.2 Uploading the database
+### 4.3.2. Uploading the database
 
 After editing a database, in order to use it with the ES200 application, you must upload it to the system running ES200. You can do this from the Dashboard application by using the File -> Upload Project menu. Just like when importing a database, you will be asked for the information necessary to establish a connection. 
 
 After entering the required information, you will be asked to select which local file you want to upload to the system. The location in which it is updated is standard, therefore its unnecessary for you to select it.
 
-## 4.4 Viewing the points
+## 4.4. Viewing the points
 
 The Dashboard offers you an interface where you can see the points’ status. This interface – called Entity Viewer – also allows you to send commands to the points. To access this interface, use the File -> New EntityViewer and connect to an equipment running the ES200.
 
@@ -709,7 +709,7 @@ Figure 19: Entity Viewer - Starting button
 
 When a new project is uploaded, the processes are restarted, therefore, it is necessary for the Entity Viewer to be manually started to start the connection with the ES200.
 
-## 4.5 Sending commands
+## 4.5. Sending commands
 
 In order to send command to any of the points, you can use the EntityViewer interface. Next to each output point value, there is a textbox cell where you can write the command you want to send. These cells are on the Command column. Only the cells corresponding to points that can receive commands are active textbox cells that can be edited. 
 
@@ -723,7 +723,7 @@ If there are multiple commands sent on  the same point, the actual label will be
 <img src="images/Entity_Viewer_Multiple_Commands.png"></p>
 Figure 21: ES200 EntityViewer – multiple commands on the same point
 
-## 4.6 Force points value
+## 4.6. Force points value
 Point value forcing is a feature usually used for testing. In order to do it, you have to fill the field under the “Value” of the “Input” points and then press Enter. Once forced, a point will be labeled accordingly in the status column.
 
 <img src="images/Entity_Viewer_Force_Point_Value.png"></p>
@@ -732,7 +732,8 @@ Figure 22: ES200 EntityViewer – force point value
 To stop a point value from being forced, press the “x” icon inside the “Forced Value” label. This way, the point value will come back to its initial value after about 10 seconds, if the points are valid.
 
 # 5. Configuration example
-## 5.1 Hypothetic use case
+
+## 5.1. Hypothetic use case
 
 Let’s assume you want to gather data from a Modbus equipment and you want to send that data to a Command Center using the IEC 104 protocol. To do this, we will need to create the two pieces of equipment in the Dashboard, add the points to each of them and connect the points. This chapter will show you how to do that. 
 
@@ -741,7 +742,7 @@ First, you need to start a new project. To do that, click File -> New Project an
 <img src="images/File_New_Project.png"></p>
 Figure 23: ES200 configuration example – New Project
 
-## 5.2 IED configuration
+## 5.2. IED configuration
 
 In order to create the Modbus Equipment, right click on the Intelligent Electronic Device button and select Add Device. Alternatively, you can use Edit -> Add Master Device -> Modbus Master.
 
@@ -757,7 +758,7 @@ The dialogue box for adding the 10 points is shown in the next figure. This is t
 <img src="images/Config_Example_Add_DI_Points.png"></p>
 Figure 25: ES200 configuration example – Adding 10 points to an IED
 
-## 5.3 Command Center Configuration
+## 5.3. Command Center Configuration
 
 In order to onfigure the Command Center, we must first create it. To do this, right click the Command Center button and select Add item. 
 
@@ -777,27 +778,27 @@ Now that we have created the points, we need to connect them to the points from 
 <img src="images/Config_Example_Connect_Points.png"></p>
 Figure 27: ES200 configuration example – Connecting the points
 
-## 5.4 Saving and uploading the project
+## 5.4. Saving and uploading the project
 
 After finishing the configuration, you can either save the file locally, using the File-> Save option or you can send the file directly to the equipment running the ES200 using the File -> Upload project option. In the pop-up window, write the necessary information for connecting to the router and your credentials. Then, the file will be exported.
 
 # 6. Utilities
 
-## 6.1 Exporting and importing templates
+## 6.1. Exporting and importing templates
 
-### 6.1.1 Export
+### 6.1.1. Export
 A template is a copy of an equipment configuration. To create a template (.epgt file), right click on the equipment na,e press “Export template” and save it.
 
-### 6.1.2 Import
+### 6.1.2. Import
 To import a template, either create a new project or import it into an already existing project. To do that, open the “Edit” menu, select “Import template” and select the desired “.epgt” file. It is important for the template version to correspond with the actual project version. Otherwise, a conversion will be necessary. (see the project version conversion document) 
 
-##  6.2 Project version conversion
+##  6.2. Project version conversion
 There are multiple versions for the project, the newest having backward compatibility. However, sometimes it is desired for the project version to be changed. To do that,m simply press the “Edit” button-> “Convert version to:” and select the desired (and available version).
 
 <img src="images/Convert_Version.png"></p>
 Figure 28: Project version conversion
 
-### 6.2.1 Project download
+### 6.2.1. Project download
 
 To download a project that needs to have its version changed, the Dashboard application is used.
 
@@ -811,7 +812,7 @@ Pick the save location and set a name, as shown in the following figure.
 <img src="images/Download_Project_Browse.png"></p>
 Figura 30: Location picking for project saving
 
-### 6.2.2 Version change
+### 6.2.2. Version change
 
 Open the project with the Dashboard application using “File” -> “Open Project” or using the button “Open Projec” from the application interface.
 
@@ -822,18 +823,18 @@ Figure 31: Project conversion
 
 A new project called “Name.epgd [previous version] -> [1.5] will be opened and saved.
 
-### 6.2.3 Project versions differences
+### 6.2.3. Project versions differences
 Between various project versions there are differences such as:
 
 * Subtractions or additions of equipment property fields
 * Default value changes
 * Substraction or addition of point property fields
 
-#### 6.2.3.1 Differences between versions 1.3 - 1.5
+#### 6.2.3.1. Differences between versions 1.3 - 1.5
 
 For every new property, there has been added a Help Text to further explain their functionality.
 
-##### 6.2.3.1.1 ModbusMaster
+##### 6.2.3.1.1. ModbusMaster
 The following equipment properties have been substracted:
 * ProcessRestartTimeout
 * ValidityTimeout
@@ -845,7 +846,7 @@ The following point properties have been subtracted:
 The following equipment properties have been added:
 * MaxRequestRetries
 
-##### 6.2.3.1.2 DNP3Master
+##### 6.2.3.1.2. DNP3Master
 The following equipment properties have been added:
 * ChannelResponseTimeout
 * LinkConfirmTimeout
@@ -858,7 +859,7 @@ The following point properties have been added:
 
 The following default values have been changed
 * LinkStatusInterval [setat la 10000]
-##### 6.2.3.1.3 IEC61850
+##### 6.2.3.1.3. IEC61850
 The following equipment properties have been substracted:
 * Path
 * FileLogPath
@@ -868,7 +869,7 @@ The following default values have been changed:
 * SSEL [set to 0001]
 * TSEL [set to 0001]
 
-##### 6.2.3.1.4 IEC104Slave
+##### 6.2.3.1.4. IEC104Slave
 The following equipment properties have been substracted:
 * FileLogPath
 * MonitoredPath
@@ -881,13 +882,13 @@ The following equipment properties have been added:
 * FileMonitorPath
 * FilesEncoderMonitorPath
 
-##### 6.2.3.1.5 ModbusSlave
+##### 6.2.3.1.5. ModbusSlave
 The following point properties have been substracted:
     * DefaultValue
     * DataType
     * MeasurementUnit
 
-##### 6.2.3.1.6 IEC104Master
+##### 6.2.3.1.6. IEC104Master
 * The following point properties have been substracted:
     * DefaultValue
 
@@ -899,15 +900,15 @@ The following equipment properties have been added:
 * HasFilesDecoder
 * FilesDecoderStorePath
 
-##### 6.2.3.1.7 MultiDataMaster
+##### 6.2.3.1.7. MultiDataMaster
 * Analog Output (AO) points have been added
 
-##### 6.2.3.1.8 JSON_MQTT
+##### 6.2.3.1.8. JSON_MQTT
 * The addition of MQTT Master
 
-#### 6.2.3.2 Differences between versions 1.5 - 2.0
+#### 6.2.3.2. Differences between versions 1.5 - 2.0
 
-##### 6.2.3.2.1 DNP3Master
+##### 6.2.3.2.1. DNP3Master
 The following equipment properties have been substracted:
 * AutoTimeSync
 * AutoEnableUnsol
@@ -922,23 +923,22 @@ The following equipment properties have been added:
 * EnableUnsol
 * IntegrityPollInterval
 
-##### 6.2.3.2.2 DNP3Slave
+##### 6.2.3.2.2. DNP3Slave
 * CyclicPeriod property has been substracted
 
+#### 6.2.3.3. Differences between versions 2.0 - 2.1
 
-#### 6.2.3.3 Differences between versions 2.0 - 2.1
-
-##### 6.2.3.3.1 DNP3Master
+##### 6.2.3.3.1. DNP3Master
 QualifierCode property has been added
 
-## 6.3 Change the language
+## 6.3. Change the language
 
 The language can be changed by accessing “Tools” -> “Options” -> “Language” and select the desired language.
 
 <img src="images/Change_Language.png"></p>
 Figura 31: Language changing options
 
-## 6.3 Logic block editor
+## 6.3. Logic block editor
 
 MultiDataMaster is a module that can be used to implement specific automation logic, similar to those implemented in a PLC (Programmable Logic Controller). AAR (Automatic Reserve Arrangement) type automation can be implemented, double variables can be created for switchgear positions by adding simple (Boolean) variables, summations of analog values, and various conditionings.
 
@@ -963,9 +963,9 @@ Figure 34: Accessing the configuration menu of the logical blocks in the MDM
 
 Pressing the button shown in figure 34, within the MultiDataMaster points configuration, will open a window that allows editing the logical blocks for that point, as shown in figure 33.
 
-### 6.4.1 Functionality description of automation blocks
+### 6.4.1. Functionality description of automation blocks
 
-#### 6.4.1.1 ResetDominantBistable (SET/RESET)
+#### 6.4.1.1. ResetDominantBistable (SET/RESET)
 Function used to implement conditioned autometers.
 
 <img src="images/Reset_Dominant_Bistable.png"></p>
@@ -1024,7 +1024,7 @@ The Q1 output is reset if the Reset1 input is set, regardless of the state of th
 
 
 
-#### 6.4.1.2 TON
+#### 6.4.1.2. TON
 
 A timer that results in a delay in the activation of the output signal Q by a time interval settable by the PT parameter. The condition is that the IN input remains active for the time interval PT.
 
@@ -1085,7 +1085,7 @@ The operation is described in the diagrams below:
 
 <img src="images/Multi_Data_Master_TON_Diagram.png"></p>
 
-#### 6.4.1.3 TOF
+#### 6.4.1.3. TOF
 Timer that results in keeping the output signal Q active for a time interval settable by the PT parameter, even if the input signal IN has become inactive.
 
 <img src="images/Multi_Data_Master_TOF.png"></p>
@@ -1145,7 +1145,7 @@ The operation is described in the diagrams below:
 
 <img src="images/Multi_Data_Master_TOF_Diagram.png"></p>
 
-#### 6.4.1.4 Functions for statistical determinations: MAX, MIN, AVG, DISP
+#### 6.4.1.4. Functions for statistical determinations: MAX, MIN, AVG, DISP
 
 Blocks can be used to calculate the arithmetic mean, minimum, maximum or dispersion for a quantity monitored by the ES200 over a settable time interval (WindowSize) and measured at a frequency (sample rate) defined by the SampleTime(ms) parameter.
 
@@ -1211,9 +1211,9 @@ Description of exit signals from the block:
 
 # 7. Setting up communication with IED
 
-## 7.1 Modbus
+## 7.1. Modbus
 
-### 7.1.1 General configuration of the communication channel
+### 7.1.1. General configuration of the communication channel
 
 After adding a new IED and configuring as described in section 4.2, we will have the information below available for editing.
 
@@ -1246,7 +1246,7 @@ Additionally:
 * Port 2 - /dev/ttyS2 (IR809)
 * Port 3 - /dev/ttyTun0 (IR1101)
 
-### 7.1.2 General RTU configuration
+### 7.1.2. General RTU configuration
 
 <img src="images/General_RTU_Configuration.png"></p>
 
@@ -1264,7 +1264,7 @@ Additionally:
 * CriticalInterval - Certain addresses may be set to be read at a time interval other than that intended for general Modbus-specific entity types.
 * MaxGroupLength - the maximum number of addresses that form an address group that will be polled with a single polling message (can be any value 0-120).
 
-### 7.1.3 Adding Discrete Input Register digital inputs
+### 7.1.3. Adding Discrete Input Register digital inputs
 
 Discrete Input Register margins are commonly used for binary margins on Modbus communication.
 
@@ -1282,7 +1282,7 @@ IsCritical - allows the entity to be placed in a special group of addresses to b
 
 
 
-### 7.1.4 Adding Coil digital controls
+### 7.1.4. Adding Coil digital controls
 
 Coil sizes are commonly used to perform commands on Modbus communication
 
@@ -1301,7 +1301,7 @@ Coil sizes are commonly used to perform commands on Modbus communication
 * CommandValidationPoint - List of the TAGs of entities (binary or analogue inputs) separated by a comma, which are to be affected by the performance of the command in question.
 * IsCritical - allows the entity to be placed in a special group of Coil addresses that will be read periodically at the CriticalInterval set in the general configuration area.
 
-### 7.1.5 Adding analog input sizes - Input Register
+### 7.1.5. Adding analog input sizes - Input Register
 
 * Address - Address of the Discrete Input Register binary information read from the slave equipment. If the information is read from a Discret Input Register word this column is filled with -1.
 * Description - Detailed description of the entity being retrieved - for internal use (e.g.: Maximum protection operation step 1).
@@ -1311,7 +1311,7 @@ Coil sizes are commonly used to perform commands on Modbus communication
 * ValueType - data type associated with analogue quantities (signed, unsigned, floating point) - the description of the data type should be found in the relay documentation
 
 
-### 7.1.6 Addition of analogue command sizes - Holding Register
+### 7.1.6. Addition of analogue command sizes - Holding Register
 * Holding Register margins are commonly used for analogue command margins on Modbus communication
 * Address - The address of the Holding Register binary information read from the slave equipment. Description - Detailed description of the entity being retrieved - for internal use (e.g. power limit setting)
 * Variable Name - Fill in a unique TAG for each signal. This TAG will be the internal identifier for the respective command and will be used within the saved processes and for the realization of automation logic
@@ -1356,7 +1356,7 @@ Additionally:
   * Port 2 - /dev/ttyS2 (IR809)
   * Port 3 - /dev/ttyTun0 (IR1101)
 
-### 7.2.2 RTU General Configuration
+### 7.2.2. RTU General Configuration
 
 <img src="images/Add_New_IED_Equipment_Properties.png"></p>
 
@@ -1377,19 +1377,19 @@ Additionally:
 * LinkConfirmMode - allows setting the mode of waiting for application level confirmation messages. Possible values are NEVER (only confirmation of unsolicited messages transmitted by slaves), SOMETIMES, ALWAYS (requires confirmation for all messages transmitted between master and slaves). If NEVER is set the link level verification mechanism (LINK) configured by the LinkStatusInterval and LinkConfirmTimeout parameters remains in place. It is important that the equivalent parameter in the IED is set to the same value (NEVER, SOMETIMES or ALWAYS) as in the ES200
 * MaxRequestRetries - The maximum number of requests sent to the IED that have not been answered after the timeout intervals set above have expired before the connection is terminated by DNP3Master
 
-### 7.2.3 Adding digital sizes
+### 7.2.3. Adding digital sizes
 
 * Address - Address of the Binary input information taken from the FDI. The address map can be created by configuring the IED using the specific configuration sw or in the IED technical documentation
 * Description - Detailed description of the retrieved entity - for internal use (e.g.: Maximum protection operation step 1)
 * Variable Name - Fill in a unique TAG for each signal. This TAG will be the internal identifier for that signal and will be used within the saved processes and for the realization of automation logic
 
-### 7.2.4 Adding analogue sizes
+### 7.2.4. Adding analogue sizes
 
 * Address - The address of the analogue input information taken from the IED. The address map can be created by configuring the IED using the specific configuration sw or in the IED technical documentation
 * Description - Detailed description of the retrieved entity - for internal use (e.g. Current value phase A)
 * Variable Name - Fill in a unique TAG for each signal. This TAG will be the internal identifier for that signal and will be used within the saved processes and for the realization of automation logic
 
-### 7.2.5 Adding commands
+### 7.2.5. Adding commands
 
 * Address - Address of the binary output information read from the slave equipment. Description - Detailed description of the retrieved entity - for internal use (e.g. Separator command)
 * Variable Name - Fill in a unique TAG for each signal. This TAG will be the internal identifier for the respective command and will be used in the save processes and for the realization of automation logic
@@ -1397,9 +1397,9 @@ Additionally:
 * Pulse Duration - Pulse command duration (ms)
 * Mode - Control pattern for the commands. There are 3 possible values Direct operate, Direct operate no ack, Select before Execute.The type of command model used depends on the IED configuration (made with specific configuration sw or documented in the IED technical specification)
 
-## 7.3 IEC 61850 Ed1
+## 7.3. IEC 61850 Ed1
 
-### 7.3.1 General configuration of the communication channel
+### 7.3.1. General configuration of the communication channel
 
 Adding a new IED that will communicate using the IEC-61850 communication protocol requires a different procedure than adding IEDs on MOdbus, DNP3 and IEC104 protocols.
 
@@ -1413,7 +1413,7 @@ Choose, individually, the addresses to be imported. We recommend choosing addres
 
 <img src="images/Add_New_IED_61850_Import.png"></p>
 
-### 7.3.2 General configuration of the IED connection
+### 7.3.2. General configuration of the IED connection
 
 After adding a new IED and configuring as described above, we will have the general TCP channel level information available for editing with the IED. From this window the IP and port of the equipment connection can be changed.
 
@@ -1425,7 +1425,7 @@ The general IED communication parameters for the IEC61850-8 (MMS) connection are
 
 We recommend keeping the default values for the other (MMS connection specific) parameters in this window.
 
-### 7.3.3 Digital and analogue size editing
+### 7.3.3. Digital and analogue size editing
 
 In the Measurements section we will find the digital and analogue state quantities imported according to the procedure in 5.3.1. They can be edited and new entities can be added manually according to the procedure in 4.2.3.
 
@@ -1438,7 +1438,7 @@ The structure of a status address according to IEC61850 is as follows:
   * AddressName - IEC61850 protocol address of the entity to be monitored
   * Poll Interval - In case a quantity is not part of the data sets associated with the event reports due to the IED not being configured correctly, there is the possibility to retrieve its status by repeated polling at a time interval set by this parameter
 
-### 7.3.4 Editing commands
+### 7.3.4. Editing commands
 
 The Controls section contains the controls imported according to the procedure in point 5.3.1. They can be edited and new entities can be added manually according to the procedure in point 4.2.3.
 
@@ -1450,7 +1450,7 @@ The structure of a status address according to IEC61850 is as follows:
   * Variable Name - Fill in a unique TAG for each signal. This TAG will be the internal identifier for that signal and will be used in saved processes and for automation logic
   * AddressName - IEC61850 protocol address of the entity to be controlled
 
-### 7.3.5 Reports editing IEC61850
+### 7.3.5. Reports editing IEC61850
 
 In the case of adding an FDI (section 5.3.1) the reports are automatically added to the Reports section with the properties configured according to the .scd file.
 
@@ -1510,7 +1510,7 @@ To set up the automatic extraction mechanism of the record files (osilograms) it
 * FileLifeSpan - time period (h) after the files downloaded from the IED are deleted from the HW platform where the ES200 runs
 * MaxFileSize - The maximum allowed size (in bytes) for downloaded record files. This must be less than 104857600 and greater than 0.
 
-### 7.4.3 Digital and analogue size editing
+### 7.4.3. Digital and analogue size editing
 
 In the Measurements section we will find the digital and analogue state quantities imported according to the procedure in 5.4.1. They can be edited and new entities can be added manually according to the procedure in 4.2.3.
 
@@ -1525,7 +1525,7 @@ The structure of a status address according to IEC61850 is as follows:
   * Poll Interval - In case a quantity is not part of the data sets associated with the event reports due to the non compliant configuration of the FDI, there is the possibility to retrieve its status by repeated queries at a time interval set by this parameter
   * TriggerDownload - Enabling this parameter associated with an entity allows the automatic extraction from the IED of the oscilloperturbogram (COMTRADE) log files when the status of that entity changes
 
-### 7.4.4 Editing commands
+### 7.4.4. Editing commands
 
 The Controls section contains the imported commands according to the procedure in point 5.4.1. They can be edited (AddressName field) and new entities can be added manually according to the procedure in point 4.2.3.
 
@@ -1538,7 +1538,7 @@ The structure of a status address according to IEC61850 is as follows:
   * AddressName - IEC61850 protocol address of the entity to be controlled
   * OriginCategory - indicates the source of the command. We recommend using the option - Remote Control
 
-### 7.4.5 Editing reports
+### 7.4.5. Editing reports
 
 In case of adding an FDI (section 5.4.1) the reports are automatically added to the Reports section with the properties configured according to the .scl file.
 
@@ -1560,9 +1560,9 @@ The address of a report on IEC61850 has the following structure:
 
 # 8. Setting up communication with the command center
 
-## 8.1 IEC 60870-5-104
+## 8.1. IEC 60870-5-104
 
-### 8.1.1 General configuration of the communication channel
+### 8.1.1. General configuration of the communication channel
 
 The window below configures the main properties of the TCP communication channel between the ES200 and the command center. The name of the control center (Equipment name) and its general description (EquipmenDescription) do not influence the specific communication characteristics of the IEC-69870-5-104 protocol.
 
@@ -1575,7 +1575,7 @@ After adding a new command center and configuring as described in section 4.2.1,
 * IP : IP address of the command center - we recommend that this field remains blank. The IP address of the control center can be filled in this field if it is desired to ensure the exclusivity of the IEC-104 connection between the ES200 and the control center having the IP address in question.
 * Port : the TCP port through which the TCP/IP communication with the equipment is made (for IEC-104 the most used port is 2404).
 
-### 8.1.2 General configuration of CC
+### 8.1.2. General configuration of CC
 
 <img src="images/Add_New_IED_104_Equipement.png"></p>
 
@@ -1591,7 +1591,7 @@ After adding a new command center and configuring as described in section 4.2.1,
 * CyclicPeriod [ms] - General interval representing the period used to send quantities with cyclic set as transmission mode. The other modes for sending magnitudes as an event are a change in jitter or validity
 * CyclicAfterGi - if this parameter is set, the es200 will no longer send to the master sizes with cyclic transmission mode set (in the table corresponding to the size type) cyclic requests before the first general query request issued by the master
 
-### 8.1.3 Adding digital sizes
+### 8.1.3. Adding digital sizes
 
 Single-Point Information and Double-Point Information sections are used, depending on the type of information to be transmitted to the command center.
 
@@ -1605,7 +1605,7 @@ The entities whose state is to be sent to the command center are those taken fro
 * Validity - Enabling this option allows the IEC-104 slave process in the ES200 to initiate the sending of an event to the command centre when the quality of the monitored entity information changes
 * Cyclic - Enabling this option allows the IEC-104 slave process in the ES200 to initiate the cyclic sending, with the periodicity set by the CyclicPeriod parameter (paragraph 6.1.2), of the status and quality information related to the entity in question. We do not recommend using this option, as IEC-104 is a protocol based on spontaneous transmission of status changes in the form of events.
 
-### 8.1.4 Adding analogue sizes
+### 8.1.4. Adding analogue sizes
 
 Normalized, Scaled, Short Floating sections are used depending on the type of analogue size information to be transmitted to the control center.
 
@@ -1634,9 +1634,9 @@ The commands to be received from the command center are what will be sent to the
 * CmdMode - represents the control model - With Select (Select Before Operate), Without Select (Direct Operate). If the control model set in the dispatcher is not known, the Any option is used
 * CmdQualifier - represents the qualifier property of the control. Possible values for this field - Default, Short pulse, Long pulse, Persistent. The command qualifier type must be identical to the equivalent command in the command center. If the control model set in the dispatcher is not known the Any option is used
 
-## 8.2 Modbus
+## 8.2. Modbus
 
-### 8.2.1 General configuration of the communication channel
+### 8.2.1. General configuration of the communication channel
 
 The window below configures the main properties of the TCP communication channel between the ES200 and the command center. The control center name (Equipment name) and the general description of the control center (Equipment Description) do not influence the specific communication characteristics of the Modbus TCP protocol. It is necessary to fill in the TCP port to be used. The IP address is not required to connect to the control center. The IP address of the control center can be filled in this field if it is desired to ensure the exclusivity of the Modbus TCP connection between the ES200 and the control center having the IP address in question.
 
@@ -1647,7 +1647,7 @@ After adding a new command center and configuring as described in section 4.2.1,
 * IP : IP address of the command center - we recommend that this field remains blank. The IP address of the control center can be filled in this field if it is desired to ensure the exclusivity of the Modbus connection between the ES200 and the control center having the IP address in question
 * Port : TCP port through which the TCP/IP communication with the equipment is made (for Modbus TCP the most used port is 10502).
 
-### 8.2.2 General configuration of CC
+### 8.2.2. General configuration of CC
 
 <img src="images/Add_New_IED_Modbus_Equipment.png"></p>
 

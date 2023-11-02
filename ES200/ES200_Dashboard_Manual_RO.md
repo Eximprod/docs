@@ -1,401 +1,8 @@
-<!-- Copy and paste the converted output. -->
-
-<!-----
-
-You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see inline alerts.
-* ERRORs: 0
-* WARNINGs: 0
-* ALERTS: 90
-
-Conversion time: 23.433 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β34
-* Thu Nov 02 2023 01:05:53 GMT-0700 (PDT)
-* Source doc: ES200 Dashboard - Manual de utilizare
-* Tables are currently converted to HTML tables.
-* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
-
-
-WARNING:
-You have 2 H1 headings. You may want to use the "H1 -> H2" option to demote all headings by one level.
-
------>
-
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 90.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-<a href="#gdcalert9">alert9</a>
-<a href="#gdcalert10">alert10</a>
-<a href="#gdcalert11">alert11</a>
-<a href="#gdcalert12">alert12</a>
-<a href="#gdcalert13">alert13</a>
-<a href="#gdcalert14">alert14</a>
-<a href="#gdcalert15">alert15</a>
-<a href="#gdcalert16">alert16</a>
-<a href="#gdcalert17">alert17</a>
-<a href="#gdcalert18">alert18</a>
-<a href="#gdcalert19">alert19</a>
-<a href="#gdcalert20">alert20</a>
-<a href="#gdcalert21">alert21</a>
-<a href="#gdcalert22">alert22</a>
-<a href="#gdcalert23">alert23</a>
-<a href="#gdcalert24">alert24</a>
-<a href="#gdcalert25">alert25</a>
-<a href="#gdcalert26">alert26</a>
-<a href="#gdcalert27">alert27</a>
-<a href="#gdcalert28">alert28</a>
-<a href="#gdcalert29">alert29</a>
-<a href="#gdcalert30">alert30</a>
-<a href="#gdcalert31">alert31</a>
-<a href="#gdcalert32">alert32</a>
-<a href="#gdcalert33">alert33</a>
-<a href="#gdcalert34">alert34</a>
-<a href="#gdcalert35">alert35</a>
-<a href="#gdcalert36">alert36</a>
-<a href="#gdcalert37">alert37</a>
-<a href="#gdcalert38">alert38</a>
-<a href="#gdcalert39">alert39</a>
-<a href="#gdcalert40">alert40</a>
-<a href="#gdcalert41">alert41</a>
-<a href="#gdcalert42">alert42</a>
-<a href="#gdcalert43">alert43</a>
-<a href="#gdcalert44">alert44</a>
-<a href="#gdcalert45">alert45</a>
-<a href="#gdcalert46">alert46</a>
-<a href="#gdcalert47">alert47</a>
-<a href="#gdcalert48">alert48</a>
-<a href="#gdcalert49">alert49</a>
-<a href="#gdcalert50">alert50</a>
-<a href="#gdcalert51">alert51</a>
-<a href="#gdcalert52">alert52</a>
-<a href="#gdcalert53">alert53</a>
-<a href="#gdcalert54">alert54</a>
-<a href="#gdcalert55">alert55</a>
-<a href="#gdcalert56">alert56</a>
-<a href="#gdcalert57">alert57</a>
-<a href="#gdcalert58">alert58</a>
-<a href="#gdcalert59">alert59</a>
-<a href="#gdcalert60">alert60</a>
-<a href="#gdcalert61">alert61</a>
-<a href="#gdcalert62">alert62</a>
-<a href="#gdcalert63">alert63</a>
-<a href="#gdcalert64">alert64</a>
-<a href="#gdcalert65">alert65</a>
-<a href="#gdcalert66">alert66</a>
-<a href="#gdcalert67">alert67</a>
-<a href="#gdcalert68">alert68</a>
-<a href="#gdcalert69">alert69</a>
-<a href="#gdcalert70">alert70</a>
-<a href="#gdcalert71">alert71</a>
-<a href="#gdcalert72">alert72</a>
-<a href="#gdcalert73">alert73</a>
-<a href="#gdcalert74">alert74</a>
-<a href="#gdcalert75">alert75</a>
-<a href="#gdcalert76">alert76</a>
-<a href="#gdcalert77">alert77</a>
-<a href="#gdcalert78">alert78</a>
-<a href="#gdcalert79">alert79</a>
-<a href="#gdcalert80">alert80</a>
-<a href="#gdcalert81">alert81</a>
-<a href="#gdcalert82">alert82</a>
-<a href="#gdcalert83">alert83</a>
-<a href="#gdcalert84">alert84</a>
-<a href="#gdcalert85">alert85</a>
-<a href="#gdcalert86">alert86</a>
-<a href="#gdcalert87">alert87</a>
-<a href="#gdcalert88">alert88</a>
-<a href="#gdcalert89">alert89</a>
-<a href="#gdcalert90">alert90</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-**MQTT-Distribuție**
-
-
-<table>
-  <tr>
-   <td>Tip
-   </td>
-   <td>Distribuție
-   </td>
-  </tr>
-  <tr>
-   <td>Extern
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
+# ES200 Manual de utilizare <!-- omit from toc -->
 
 
 
-    **Versiuni ale documentului**
-
-
-<table>
-  <tr>
-   <td>Versiune
-   </td>
-   <td>Dată
-   </td>
-   <td>Descriere
-   </td>
-   <td>Autor
-   </td>
-  </tr>
-  <tr>
-   <td>1.0
-   </td>
-   <td>August 2008
-   </td>
-   <td>Crearea documentului
-   </td>
-   <td>Eugen Stoianovici
-<p>
-Rajiv Oberoi
-   </td>
-  </tr>
-  <tr>
-   <td>1.1
-   </td>
-   <td>Iulie 2009
-   </td>
-   <td>Revizie
-   </td>
-   <td>Dragoș Vasile
-   </td>
-  </tr>
-  <tr>
-   <td>2.0
-   </td>
-   <td>Septembrie 2011
-   </td>
-   <td>Revizie
-   </td>
-   <td>Horia Gârlonța
-   </td>
-  </tr>
-  <tr>
-   <td>3.0
-   </td>
-   <td>Decembrie 2011
-   </td>
-   <td>Revizie
-   </td>
-   <td>Horia Gârlonța
-   </td>
-  </tr>
-  <tr>
-   <td>3.1
-   </td>
-   <td>Martie 2012
-   </td>
-   <td>Revizie
-   </td>
-   <td>Horia Gârlonța
-   </td>
-  </tr>
-  <tr>
-   <td>3.2
-   </td>
-   <td>Mai 2014
-   </td>
-   <td>Revizie (IEC 104)
-   </td>
-   <td>Radu Pintilie
-   </td>
-  </tr>
-  <tr>
-   <td>3.3
-   </td>
-   <td>August 2015
-   </td>
-   <td>Revizie (IEC 104)
-   </td>
-   <td>Adrian Trofinov
-   </td>
-  </tr>
-  <tr>
-   <td>4.0
-   </td>
-   <td>Septembrie 2016
-   </td>
-   <td>Revizie (Linux IOx)
-   </td>
-   <td>Adrian Trofinov
-   </td>
-  </tr>
-  <tr>
-   <td>4.1
-   </td>
-   <td>Mai 2017
-   </td>
-   <td>Revizie
-   </td>
-   <td>Călin Prodea
-   </td>
-  </tr>
-  <tr>
-   <td>4.2
-   </td>
-   <td>Octombrie 2017
-   </td>
-   <td>Revizie (LoRaWAN)
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>4.3
-   </td>
-   <td>Noiembrie 2017
-   </td>
-   <td>Revizie (Dashboard)
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>5.0
-   </td>
-   <td>Iunie 2018
-   </td>
-   <td>Revizie
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>5.1
-   </td>
-   <td>Februarie 2019
-   </td>
-   <td>Traducere
-   </td>
-   <td>Georgiana Vlădulescu
-   </td>
-  </tr>
-  <tr>
-   <td>6.0
-   </td>
-   <td>October 2019
-   </td>
-   <td>Revizie
-   </td>
-   <td>Cristian Coman
-   </td>
-  </tr>
-  <tr>
-   <td>7.0
-   </td>
-   <td>Iulie 2022
-   </td>
-   <td>Revizie
-   </td>
-   <td>Cristian Barbu
-   </td>
-  </tr>
-</table>
-
-
-**Autori**
-
-
-<table>
-  <tr>
-   <td>Nume
-   </td>
-   <td>E-mail
-   </td>
-  </tr>
-  <tr>
-   <td>Dragoș Vasile
-   </td>
-   <td><a href="mailto:dragos.vasile@epg.ro">dragos.vasile@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Horia Gârlonța
-   </td>
-   <td><a href="mailto:horia.garlonta@epg.ro">horia.garlonta@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Adrian Trofinov
-   </td>
-   <td><a href="mailto:adrian.trofinov@epg.ro">adrian.trofinov@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Calin Prodea
-   </td>
-   <td><a href="mailto:calin.prodea@epg.ro">calin.prodea@epg.ro</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>Radu Pintilie
-   </td>
-   <td><a href="mailto:radu.pintilie@epg.ro">radu.pintilie@epg.ro</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Georgiana Vlădulescu
-   </td>
-   <td><a href="mailto:georgiana.vladulescu@inovium.ro">georgiana.vladulescu@inovium.ro</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>Cristian Coman
-   </td>
-   <td><span style="text-decoration:underline;">cristian.coman@inovium.ro</span>
-   </td>
-  </tr>
-  <tr>
-   <td>Cristian Barbu
-   </td>
-   <td><span style="text-decoration:underline;">cristian.barbu@epg.ro</span>
-   </td>
-  </tr>
-</table>
-
-
-
-
-
-# 
-    Conținut
-
-
-[TOC]
-
-
-
-# 
-    
-
-
-
-1. Despre acest manual
+# 1. Despre acest manual
 
 ES200 este un software care rulează pe echipamente Cisco IOx. Împreună, software-ul și hardware-ul alcătuiesc o unitate care controlează, monitorizează și face achiziții de date pe echipamente din domeniul utilităților și/sau pe alte tipuri de echipamente industriale. Practic, ES200 este un RTU (Remote Terminal Unit) virtual de generația a 4-a (Internet of Things).
 
@@ -405,7 +12,7 @@ Pentru a putea configura soluția noastră, am creat un Dashboard cu ajutorul c�
 
 
 
-    1. Informații legale
+## 1.1. Informații legale
 
 Informațiile cuprinse în acest document se pot schimba fără avertisment anterior și nu constituie o obligație din partea furnizorului. Eximprod nu își asumă responsabilitatea pentru modul cum este utilizată informația din acest document.
 
@@ -417,13 +24,13 @@ Informația cuprinsă în acest document nu poate fi reprodusă sau copiată fă
 
 
 
-    2. Dispoziții generale
+## 1.2. Dispoziții generale
 
 Acest document conține informații despre software-ul ES200, aplicația Dashboard și funcționalitățile lor. Informațiile cuprinse în acest manual sunt destinate personalului calificat, care va folosi acest software pentru a configura diverse componente sau pentru vizualizarea unor informații.
 
 
 
-    3. Terminologie
+## 1.3. Terminologie
 
 Acest document conține un set de termeni care se referă la informații importante sau legate de siguranță:
 
@@ -521,10 +128,7 @@ Acest document conține un set de termeni care se referă la informații importa
   </tr>
 </table>
 
-
-
-
-    4. Abrevieri
+## 1.4. Abrevieri
 
 Tabelul de mai jos conține o listă de abrevieri folosite de-a lungul documentului.
 
@@ -643,7 +247,7 @@ Tabelul de mai jos conține o listă de abrevieri folosite de-a lungul documentu
 
 
 
-1. Unitatea ES200
+# 2. Unitatea ES200
 
 ES200 este o unitate de control, monitorizare și achiziție de date. Este o soluție ideală atât pentru automatizare, cât și pentru controlul punctelor din** **sistemele SCADA locale.
 
@@ -653,44 +257,25 @@ ES200 este capabil să ruleze și să opereze la marginea rețelei (Network Edge
 
 
 
-    5. Exemple de aplicații practice
+## 2.1. Exemple de aplicații practice
 
 ES200 are funcții de monitorizare, de control și de gateway de comunicare. Sistemul permite captarea semnalelor de protecție de la IED-uri, precum și achiziția directă a semnalelor digitale. De asemenea, soluția noastră poate folosi o gamă largă de protocoale de comunicație (detalii în secțiunea 2.4) pentru monitorizarea și transmiterea de informație. De asemenea, ES200 poate stoca un istoric de până la 500.000 de evenimente într-o memorie nonvolatilă. Aceste log-uri cuprind următoarele informații:
 
 
 
-* 
-Tag-ul care stochează momentul exact al producerii evenimentului (cu acuratețe de 1 milisecundă);
+* Tag-ul care stochează momentul exact al producerii evenimentului (cu acuratețe de 1 milisecundă);
+* Sursa evenimentului;
+* Condițiile dinaintea producerii evenimentului;
+* Condițiile de după producerea evenimentului;
 
-
-* 
-Sursa evenimentului;
-
-
-* 
-Condițiile dinaintea producerii evenimentului;
-
-
-* 
-Condițiile de după producerea evenimentului;
-
-
-    6. Hardware-ul specific
+## 2.2. Hardware-ul specific
 
 Cisco IR809 este un router destinat posturilor de transformare, care funcționează alături de ES200 pentru a crea un RTU virtual. Împreună, această unitate colectează date de la aparatele de măsură inteligente la care se conectează și trimite aceste date către un centru de comandă. Unitatea poate fi folosită și pentru a trimite comenzi către IED-uri.
 
 ES200 a fost creat pentru a rula pe routerele Cisco IR809, Cisco IR829 sau Cisco IR1101, dar si pe alternative precum Phoenix Contact sau eManager., în funcție de context și de funcționalitățile dorite. Software-ul rulează în containerul constituit de mașina virtuală IOx existentă pe platforma hardware Cisco.
 
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-**Figura 1: Routerul CISCO IR1101**
-
+<img src="images/2.2_Image_RO.png"  width="500" height="300"></p>
+Figura 1: Routerul CISCO IR1101
 
 <table>
   <tr>
@@ -760,33 +345,18 @@ ES200 a fost creat pentru a rula pe routerele Cisco IR809, Cisco IR829 sau Cisco
 
 
 
-    7.  Arhitectura sistemului
+## 2.3. Arhitectura sistemului
 
 Următoarele imagini prezintă arhitectura generală a soluției și un exemplu de arhitectură în care este folosit ES200.
 
 
+<img src="images/ES200_System_Architecture.png"  width="500" height="300"></p>
+Figura 2: Arhitectura sistemului ES200
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/ES200_Deployment_Architecture.png"  width="500" height="300"></p>
+Figura 3: Exemplu de arhitectură care integrează ES200
 
-
-![alt_text](images/image2.png "image_tooltip")
-
-
-**Figura 2: Arhitectura sistemului ES200**
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
-
-
-**Figura 3: Exemplu de arhitectură care integrează ES200**
-
-
-
-    8. Protocoale de comunicație suportate
+## 2.4. Protocoale de comunicație suportate
 
 Protocoalele de comunicație suportate de ES200 includ protocoale precum Modbus, DNP3, IEC 60870-5-104 și IEC 61850. Aceste protocoale sunt folosite de o gamă largă de echipamente de protecție și IED-uri moderne, prin urmare soluția noastră poate fi integrată foarte ușor cu echipamentele deja existente. În plus, lista de protocoale de comunicație suportate se extinde constant, alte protocoale putând fi implementate la cerere.
 
@@ -873,29 +443,16 @@ Protocoalele de comunicație suportate de ES200 includ protocoale precum Modbus,
 
 
 
-2. Instalarea ES200 Dashboard
+# 3. Instalarea ES200 Dashboard
 
 Un wizard a fost configurat pentru vă ghida de-a lungul procesului de instalare. În primul rând, trebuie să dați dublu click pe iconița de instalare din figura de mai jos:
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.jpg "image_tooltip")
-
+<img src="images/Dashboard_Installation_Icon.png" ></p>
 
 Prima fereastră a wizard-ului de instalare este cea din Figura 4. Pentru a începe procesul de instalare, apăsați butonul Next.
 
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.jpg "image_tooltip")
-
-
-**Figura 4: Wizard de instalare (1)**
+<img src="images/Install_Wizard1.png" ></p>
+Figura 4: Wizard de instalare (1)
 
 Ulterior, vi se va cere să selectați fișierul unde doriți să vi se instaleze programul. Vă recomandăm să păstrați destinația implicită, care apare în Figura 5. Dacă doriți să alegeți alt fișier, apăsați butonul Browse și navigați la fișierul dorit. După ce ați ales destinația unde doriți să fie instalat fișierul, apăsați butonul Next.
 

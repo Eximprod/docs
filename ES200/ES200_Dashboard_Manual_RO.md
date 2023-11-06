@@ -489,14 +489,13 @@ După acest pas, wizardul vă va cere să confirmați instalarea (Figura 6). Put
 **Figura 7: Wizard de instalare (4)**
 
 
-
-3. Configurarea bazei de date folosind Dashboard-ul
+# 4. Configurarea bazei de date folosind Dashboard-ul
 
 Informațiile și setările necesare pentru ca aplicația ES200 să poată rula sunt salvate într-o bază de date. Fiecare unitate este livrată cu o aplicație (Dashboard) destinată editării respectivei baze de date.
 
 
 
-    9.  Interfața de configurare
+## 4.1 Interfața de configurare
 
 Interfața aplicației de configurare a bazei de date este ilustrată în Figura 8.
 
@@ -512,30 +511,12 @@ Interfața aplicației de configurare a bazei de date este ilustrată în Figura
 
 Secțiunile principale ale aplicației sunt delimitate în Figura 9 și sunt următoarele:
 
-
-
-* 
-Toolbar-ul principal (1);
-
-
-* 
-Toolbar-ul secundar (2);
-
-
-* 
-Lista de echipamente (3);
-
-
-* 
-Setările echipamentelor (4)
-
-
-* 
-Tabelul de puncte (5);
-
-
-* 
-Tabelul de erori (6);
+* Toolbar-ul principal (1);
+* Toolbar-ul secundar (2);
+* Lista de echipamente (3);
+* Setările echipamentelor (4)
+* Tabelul de puncte (5);
+* Tabelul de erori (6);
 
 
 <p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
@@ -547,8 +528,7 @@ Tabelul de erori (6);
 **Figura 9: Secțiunile interfeței de configurare**
 
 
-
-        1. Toolbar-ul principal (1)
+### 4.1.1. Toolbar-ul principal (1)
 
 Toolbar-ul principal conține următoarele butoane:
 
@@ -574,7 +554,7 @@ Help – oferă informații suplimentare despre aplicația Dashboard.
 Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, precum și închiderea aplicației.
 
 
-        2. Toolbar-ul secundar (2)
+        1. Toolbar-ul secundar (2)
 
 Toolbar-ul secundar conține următoarele butoane:
 

@@ -10,7 +10,7 @@ ES200 este soluția ideală pentru automatizarea echipamentelor industriale. Sol
 
 Pentru a putea configura soluția noastră, am creat un Dashboard cu ajutorul căruia se poate edita baza de date care conține configurația și setările necesare software-ului ES200. Acest manual explică modul de folosire al Dashboard-ului.
 
-
+test
 
 ## 1.1. Informații legale
 

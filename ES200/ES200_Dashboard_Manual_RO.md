@@ -1,7 +1,6 @@
 # ES200 Manual de utilizare <!-- omit from toc -->
 
 
-
 # 1. Despre acest manual
 
 ES200 este un software care rulează pe echipamente Cisco IOx. Împreună, software-ul și hardware-ul alcătuiesc o unitate care controlează, monitorizează și face achiziții de date pe echipamente din domeniul utilităților și/sau pe alte tipuri de echipamente industriale. Practic, ES200 este un RTU (Remote Terminal Unit) virtual de generația a 4-a (Internet of Things).
@@ -10,9 +9,9 @@ ES200 este soluția ideală pentru automatizarea echipamentelor industriale. Sol
 
 Pentru a putea configura soluția noastră, am creat un Dashboard cu ajutorul căruia se poate edita baza de date care conține configurația și setările necesare software-ului ES200. Acest manual explică modul de folosire al Dashboard-ului.
 
-test
 
 ## 1.1. Informații legale
+
 
 Informațiile cuprinse în acest document se pot schimba fără avertisment anterior și nu constituie o obligație din partea furnizorului. Eximprod nu își asumă responsabilitatea pentru modul cum este utilizată informația din acest document.
 
@@ -22,13 +21,9 @@ Software-ul descris în acest document este licențiat și poate fi folosit doar
 
 Informația cuprinsă în acest document nu poate fi reprodusă sau copiată fără permisiunea scrisă a Eximprod-ului și conținutul nu poate fi transmis către o altă entitate pentru utilizare neautorizată.
 
-
-
 ## 1.2. Dispoziții generale
 
 Acest document conține informații despre software-ul ES200, aplicația Dashboard și funcționalitățile lor. Informațiile cuprinse în acest manual sunt destinate personalului calificat, care va folosi acest software pentru a configura diverse componente sau pentru vizualizarea unor informații.
-
-
 
 ## 1.3. Terminologie
 
@@ -245,8 +240,6 @@ Tabelul de mai jos conține o listă de abrevieri folosite de-a lungul documentu
 </table>
 
 
-
-
 # 2. Unitatea ES200
 
 ES200 este o unitate de control, monitorizare și achiziție de date. Este o soluție ideală atât pentru automatizare, cât și pentru controlul punctelor din** **sistemele SCADA locale.
@@ -254,7 +247,6 @@ ES200 este o unitate de control, monitorizare și achiziție de date. Este o sol
 Soluția noastră funcționează pe o arhitectură distribuită, împreună cu software-ul și echipamentele folosite uzual în industrie. Totuși, ES200 este compatibil cu multiple tipuri de echipamente, indiferent de vechimea lor, fiind așadar o soluție versatilă care îmbunătățește substanțial securitatea și funcțiile de automatizare.
 
 ES200 este capabil să ruleze și să opereze la marginea rețelei (Network Edge) și să izoleze microserviciile SCADA de orice alt proces. De asemenea, permite extragerea, centralizarea, procesarea și stocarea datelor, comportându-se ca un gateway de SCADA.
-
 
 
 ## 2.1. Exemple de aplicații practice
@@ -341,8 +333,7 @@ Figura 1: Routerul CISCO IR1101
 </table>
 
 
-**Tabelul 1: Referințe pentru routerul Cisco IR809**
-
+Tabelul 1: Referințe pentru routerul Cisco IR809
 
 
 ## 2.3. Arhitectura sistemului
@@ -458,35 +449,19 @@ Ulterior, vi se va cere să selectați fișierul unde doriți să vi se instalez
 
 
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image6.jpg "image_tooltip")
-
-
-**Figura 5: Wizard de instalare (2)**
+<img src="images/Figure_5.png" ></p>
+Figura 5: Wizard de instalare (2)
 
 După acest pas, wizardul vă va cere să confirmați instalarea (Figura 6). Puteți confirma apăsând butonul Next. Software-ul va fi instalat la destinația aleasă (sau la cea implicită) și wizard-ul vă va informa de succesul instalării (Figura 7). Pentru a închide wizard-ul, apăsați butonul Finish.
 
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.jpg "image_tooltip")
-
-
-**Figura 6: Wizard de instalare (3)**
+<img src="images/Figure_6.png"></p>
+Figura 6: Wizard de instalare (3)
 
 
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.jpg "image_tooltip")
-
-
-**Figura 7: Wizard de instalare (4)**
+<img src="images/Figure_7.png"></p>
+Figura 7: Wizard de instalare (4)
 
 
 # 4. Configurarea bazei de date folosind Dashboard-ul
@@ -494,20 +469,13 @@ După acest pas, wizardul vă va cere să confirmați instalarea (Figura 6). Put
 Informațiile și setările necesare pentru ca aplicația ES200 să poată rula sunt salvate într-o bază de date. Fiecare unitate este livrată cu o aplicație (Dashboard) destinată editării respectivei baze de date.
 
 
-
 ## 4.1 Interfața de configurare
 
 Interfața aplicației de configurare a bazei de date este ilustrată în Figura 8.
 
 
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.png "image_tooltip")
-
-
-**Figura 8: Interfața de configurare a bazei de date**
+<img src="images/Figure_8.png"></p>
+Figura 8: Interfața de configurare a bazei de date
 
 Secțiunile principale ale aplicației sunt delimitate în Figura 9 și sunt următoarele:
 
@@ -519,13 +487,8 @@ Secțiunile principale ale aplicației sunt delimitate în Figura 9 și sunt urm
 * Tabelul de erori (6);
 
 
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.png "image_tooltip")
-
-
-**Figura 9: Secțiunile interfeței de configurare**
+<img src="images/Figure_9.png"></p>
+Figura 9: Secțiunile interfeței de configurare
 
 
 ### 4.1.1. Toolbar-ul principal (1)
@@ -554,7 +517,7 @@ Help – oferă informații suplimentare despre aplicația Dashboard.
 Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, precum și închiderea aplicației.
 
 
-        1. Toolbar-ul secundar (2)
+### 4.1.2. Toolbar-ul secundar (2)
 
 Toolbar-ul secundar conține următoarele butoane:
 
@@ -572,7 +535,7 @@ Open Project – deschide o nouă fereastră care permite navigarea prin structu
 Save Project – salvează configurația curentă în fișierul de baze de date deschis (dacă este vorba de un proiect nou-creat, o fereastră de navigare va permite selectarea destinației de salvare)
 
 
-        3. Lista de echipamente (3)
+### 4.1.3. Lista de echipamente (3)
 
 În lista de echipamente, acestea sunt grupate în următoarele categorii:
 
@@ -590,7 +553,7 @@ Intelligent Electronic Device – o listă a tuturor IED-urilor din baza de date
 Data Management Services – echipamentul de tip MultiDataMaster din baza de date.
 
 
-        4. Setările echipamentelor (4)
+### 4.1.4.Setările echipamentelor (4)
 
 La selectarea unui echipament (fie el centru de comandă sau IED), secțiunea setărilor echipamentului va avea următoarele sub-meniuri:
 
@@ -608,34 +571,26 @@ Equipment Properties – informații adiționale despre echipamentul selectat ș
 Channel Settings – informații despre canalul (Serial sau TCP) folosit de echipament pentru comunicare. 
 
 
-        5. Tabelul de puncte (5)
+### 4.1.5. Tabelul de puncte (5)
 
 Această secțiune conține o interfață tabelară care oferă informații despre punctele echipamentului selectat. Apăsând dublu-click pe un câmp al tabelului, celula selectată astfel devine editabilă și conținutul acesteia poate fi modificat fie prin selectarea unei opțiuni (atunci când câmpul respectiv are anumite restricții), fie prin modificarea manuală a informației.
 
 
-
-        6. Tabelul de erori (6)
+### 4.1.6. Tabelul de erori (6)
 
 În acest tabel puteți vedea erorile de configurare ale unei baze de date. De exemplu: echipamente cu același nume, puncte duplicate etc.
 
 
-
-    10. Adăugarea de echipamente în baza de date
-        7. Centre de comandă: 
+## 4.2. Adăugarea de echipamente în baza de date
+### 4.2.1. Centre de comandă: 
 
 Pentru adăugarea unui nou echipament de tip Command Center, se poate selecta opțiunea Add Slave Device din meniul butonului Edit (din toolbar-ul principal). Ulterior, va fi necesară selectarea protocolului de comunicație al centrului de comandă, urmând să se poată configura și alte setări ale echipamentului în interfața ilustrată în Figura 10.
 
 Alternativ, un echipament nou poate fi adăugat și apăsând dreapta-click pe secțiunea Command Center a listei de echipamente și apoi prin apăsarea butonului Add Device. Ulterior, protocolul poate fi selectat din submeniul Equipment Process.
 
 
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.png "image_tooltip")
-
-
-**Figura 10**: Adăugarea unui nou centru de comandă (Command Center)
+<img src="images/Figure_10.png"></p>
+Figura 10: Adăugarea unui nou centru de comandă (Command Center)
 
 Câmpurile editabile din interfața prezentată în Figura 10 sunt:
 
@@ -673,23 +628,11 @@ Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comuni
 Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
 
 
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_11_1.png">
 
+<img src="images/Figure_11.png">
 
-![alt_text](images/image12.png "image_tooltip")
-
-
-
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image13.png "image_tooltip")
-
-
-**Figura 11: Setările pentru conexiunile serială respectiv TCP**
-
-
+Figura 11: Setările pentru conexiunile serială respectiv TCP
 
 1. 
 Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
@@ -721,8 +664,8 @@ Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambe
 
 
 
-2. 
-Opțiunea TCP Channel are următorii parametri editabili:
+
+2.
 
 
     * 
@@ -734,11 +677,7 @@ PORT – portul folosit de echipament pentru comunicația TCP
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebui editat și se modifică setările sale din secțiunea Equipment Settings, după cum este ilustrat în Figura 12.
 
 
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image14.png "image_tooltip")
+<img src="images/Figure_12.png">
 
 
 **Figura 12**: Editarea unui centru de comandă (Command Center)
@@ -746,22 +685,17 @@ Toate aceste setări pot fi editate și după crearea echipamentului. Pentru mod
 Ștergerea unui centru de comandă se poate face prin selectarea acestuia, apoi click-dreapta și selectarea opțiunii Delete equipment. Alternativ, se poate selecta echipamentul și apoi se poate apăsa tasta DeleteDetele.
 
 
-
-        8. IED-uri
+### 4.2.2. IED-uri
 
 Adăugarea unui IED este similară cu adăugarea unui nou centru de comandă. Se poate realiza prin apăsarea opțiunii Add Master Device din meniul Edit, urmând să fie selectat protocolul de comunicare dorit din sub-meniul apărut. Ulterior, procesul este identic cu acela din capitolul anterior, după cum este ilustrat și în Figura 13.
 
 O metodă alternativă este apăsarea click-dreapta pe secțiunea Intelligent Electronic Device din lista de echipamente și selectarea opțiunii Add Device. Protocolul de comunicare folosit poate fi selectat ulterior din sub-meniul Equipment Process.
 
 
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image15.png "image_tooltip")
+<img src="images/Figure_13.png">
 
 
-**Figura 13**: Adăugarea unui IED
+Figura 13: Adăugarea unui IED
 
 Câmpurile editabile din interfața prezentată în Figura 13 sunt:
 
@@ -844,8 +778,7 @@ PORT – portul folosit de echipament pentru comunicația TCP
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebuie editat și se modifică setările sale din secțiunea Equipment Settings, exact la fel ca în cazul editării setărilor unui centru de comandă.
 
 
-
-        9. Adăugarea și editarea de elemente (binare, analogice, comenzi)
+### 4.2.3. Adăugarea și editarea de elemente (binare, analogice, comenzi)
 
 Procedura pentru adăugarea elementelor monitorizate de la nivelul unui echipament, este similară pentru un centru de comandă și un IED. Primul pas este expandarea opțiunilor echipamentului făcând click pe săgeata din stânga numelui acestuia. Ulterior, prin selectarea și apăsarea dreapta-click pe tipul de punct dorit, se poate selecta opțiunea Add point(s), care va deschide o nouă fereastră, ilustrată în Figura 14.
 
@@ -861,19 +794,15 @@ Starting Address – adresa primului punct pe care dorești să-l adaugi echipam
 Number of Points – numărul de puncte care se vor adăuga. Adresele lor se vor aloca în mod crescător începând cu adresa setată la Starting Address.
 
 
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_14.png">
 
 
-![alt_text](images/image16.png "image_tooltip")
-
-
-**Figura 14**: Adăugarea unui punct
+Figura 14: Adăugarea unui punct
 
 După adăugarea punctelor, acestea apar în tabelul corespunzător echipamentului căruia i-au fost adăugate. Procesul de editare va fi explicat în capitolul următor. Pentru ștergerea unui punct, se va selecta rândul corespunzător printr-un click la capătul din stânga al rândului, apoi se va apăsa fie tasta Delete, fie dreapta-click pe capătul rândului și se va selecta opțiunea Delete.
 
 
-
-        10. Editarea punctelor unui centru de comandă
+### 4.2.4. Editarea punctelor unui centru de comandă
 
 În tabelul din dreapta centrului de comandă selectat, se pot vizualiza sau edita punctele care vor fi trimise către respectivul echipament. Fiecare câmp editabil poate fi modificat apăsând dublu-click pe celula respectivă. Câmpurile editabile sunt următoarele:
 
@@ -887,16 +816,12 @@ ADDRESS – adresa punctului
 Master Variable Name – numele punctului corespunzător din lista punctelor Masterului corespunzător. Numele va fi selectat dintr-un sub-meniu. Selectarea unui punct va face ca rândul să devină alb.  
 
 
-        11. Editarea punctelor unui IED
+### 4.2.5. Editarea punctelor unui IED
 
 Tabelul din dreapta echipamentului selectat poate fi folosit pentru editarea punctelor pe care IED-ul le va trimite către echipament. Fiecare câmp editabil poate fi modificat prin dublu-click pe celula respectivă. 
 
 
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image17.png "image_tooltip")
+<img src="images/Figure_15.png">
 
 
 **Figura 15**: Editarea punctului unui IED
@@ -916,18 +841,13 @@ Description – câteva cuvinte care ajută la identificarea punctului și a sco
 * 
 Variable Name – numele punctului
 
-
-    11.  Descărcarea și încărcarea bazei de date în ES200
-        12. Descărcarea bazei de date
+## 4.3. Descărcarea și încărcarea bazei de date în ES200
+### 4.3.1. Descărcarea bazei de date
 
 În anumite cazuri de utilizare, baza de date de pe echipamentul pe care rulează ES200 va trebui modificată. Pentru asta, baza de date trebuie importată local și editată cu aplicația Dashboard. Pentru descărcarea locală, se folosește meniul File -> Download Project. Acesta va deschide o fereastră de navigare unde se vor introduce datele de conectare la echipamentul pe care se găsește baza de date.
 
 
-
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image18.png "image_tooltip")
+<img src="images/Figure_16.png">
 
 
 **Figura 16: Crearea unui conexiuni la ES Remote**
@@ -935,25 +855,19 @@ Variable Name – numele punctului
 După introducerea datelor de conectare, va apărea o fereastră de navigare prin structura de fișiere locală, care permite selectarea destinației unde va fi salvată baza de date. De asemenea, aceasta poate fi denumită astfel încât să fie ușor identificabilă. 
 
 
-
-        13. Încărcarea bazei de date
+### 4.3.2. Încărcarea bazei de date
 
 După editarea bazei de date, aceasta trebuie încărcată pe echipamentul unde rulează ES200. Pentru asta, se folosește meniul File -> Upload Project. La fel ca în cazul descărcării unei baze de date, se vor cere datele de conectare la echipamentul unde va fi încărcată baza de date.
 
 Ulterior introducerii credențialelor, cu ajutorul unei ferestre de navigare se va putea selecta fișierul de pe mașina locală care va fi încărcat pe echipamentul pe care rulează ES200.
 
 
-
-    12. Vizualizarea punctelor.
+## 4.4. Vizualizarea punctelor.
 
 Dashboard-ul pune la dispoziția utilizatorilor o interfață unde se poate vedea statusul punctelor. Aceasta se numește Entity Viewer și poate fi folosită și pentru a trimite comenzi către echipament. Pentru accesarea acestei interfețe se folosește meniul File -> New EntityViewer și se introduc datele de conectare către un echipament pe care rulează ES200.
 
 
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image19.png "image_tooltip")
+<img src="images/Figure_17.png">
 
 
 **Figura 17: ES200 EntitiyViewer – conectarea la un echipament pe care rulează ES200**
@@ -961,11 +875,7 @@ Dashboard-ul pune la dispoziția utilizatorilor o interfață unde se poate vede
 După conectarea la echipament, se poate vizualiza statusul punctelor și alte informații utile. 
 
 
-
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image20.png "image_tooltip")
+<img src="images/Figure_18.png">
 
 
 **Figura 18: ES200 EntityViewer – interfața EntitifyViewer**
@@ -990,10 +900,7 @@ In dreapta acestuia poate fi identificat indicatorul de timp “ES200 Time”. A
 
 Indicatorul verde din stanga barei de status prezinta statusul conexiunii. Acesta este verde daca exista conexiune intre masina pe care ruleaza aplicatia si ES200 si rosu daca nu.
 
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image21.png "image_tooltip")
+<img src="images/Figure_19.png">
 
 
 **Figura 19: Butonul de pornire **
@@ -1001,19 +908,14 @@ Indicatorul verde din stanga barei de status prezinta statusul conexiunii. Acest
  La încărcarea unei baze de date noua, procesele se restarteaza, astfel, este nevoie ca Entity Viewer-ul sa fie pornit manual pentru a relua conexiunea cu ES200. 
 
 
-
-    13.  Trimiterea comenzilor
+## 4.5. Trimiterea comenzilor
 
 Pentru a trimite comenzi către puncte, se poate folosi interfața Entity Viewer. În dreapta celulei care conține valoarea punctului, se poate scrie comanda care va fi trimisă. Aceste celule pentru comenzi se găsesc în coloana Command. Doar celulele de pe rândurile punctelor care pot fi comandate sunt celule editabile. Dublu-click pe o astfel de celulă va permite editarea.
 
 După scrierea comenzii dorite și apăsarea tastei Enter, comanda va fi trimisă și rezultatul va apărea în coloana Status. Comenzile pot fi executate doar pe puncte de tip “Output”.
 
 
-
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image22.png "image_tooltip")
+<img src="images/Figure_20.png">
 
 
 **Figura 20: ES200 EntityViewer – trimiterea unei comenzi**
@@ -1021,27 +923,18 @@ După scrierea comenzii dorite și apăsarea tastei Enter, comanda va fi trimis�
 Daca se trimit mai multe comenzi pe acelasi punct, eticheta actuala va fi inlocuita de cea mai recenta, iar in dreapta acesteia va aparea numarul de comenzi ce au fost trimise pana atunci.
 
  
-
-<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image23.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image23.png "image_tooltip")
+<img src="images/Figure_21.png">
 
 
 **Figura 21: ES200 EntityViewer – trimiterea mai multor comenzi pe acelasi punct**
 
 
-
-    14.  Fortarea de puncte
+## 4.6. Fortarea de puncte
 
 Fortarea de puncte este o caracteristica folosita de cele mai multe ori pentru testare. Pentru a o efectua, este nevoie sa se completeze campul de text de sub coloana “Value” a punctelor de Input (doar pentru punctele de Input este valabila) si apoi sa se apese tasta Enter. Odata fortat, un punct va avea aceasta eticheta sub coloana de status. 
 
 
-
-<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image24.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image24.png "image_tooltip")
+<img src="images/Figure_22.png">
 
 
 **Figura 22: ES200 EntityViewer – fortarea de puncte**
@@ -1049,20 +942,12 @@ Fortarea de puncte este o caracteristica folosita de cele mai multe ori pentru t
 Pentru a opri fortarea unui punct, se apasa pictograma “x” din interiorul etichetei de “Forced Value”. Astfel, punctul va reveni la valoarea dinainte de fortare dupa aproximativ 10 secunde, daca punctele au o conexiune valida.
 
 
-
-4.  Configurarea comunicatiei cu IED 
-    15. Modbus
-
-
-
-        14. 
-Configurare generală a canalului de comunicatie
+# 5. Configurarea comunicatiei cu IED 
+## 5.1. Modbus
+### 5.1.1. Configurare generală a canalului de comunicatie
 
 
-<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image25.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image25.png "image_tooltip")
+<img src="images/Figure_23.png">
 
 
 După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
@@ -1070,11 +955,7 @@ După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4
 **În cazul în care canalul este de tip TCP:**
 
 
-
-<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image26.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image26.png "image_tooltip")
+<img src="images/Figure_24.png">
 
 
 **Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
@@ -1086,11 +967,7 @@ După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4
 In cazul in care canalul de comunicație este de tip serial:
 
 
-
-<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image27.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image27.png "image_tooltip")
+<img src="images/Figure_25.png">
 
 
 Regasim setarile specifice unei comunicatii seriale:
@@ -1118,15 +995,10 @@ Suplimentar:
 **Port 3**  - /dev/ttyTun0 (IR1101)
 
 
-
-        15. 
-Configurarea generala a RTU
+### 5.1.2. Configurarea generala a RTU
 
 
-<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image28.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image28.png "image_tooltip")
+<img src="images/Figure_26.png">
 
 
 **SlaveAddr** – adresa slave-ului de Modbus – este definită la nivelul PLC sau al releului de protectie
@@ -1156,9 +1028,8 @@ InputRegInterval - Intervalul de timp la care master-ul de Modbus din ES200 trim
 **MaxGroupLength** - numărul maxim de adrese care formează un grup de adrese care va fi interogat cu un singur mesaj de polling (poate avea orice valoare 0-120).
 
 
+### 5.1.3. Adaugarea intrărilor digitale de tip Discrete Input Register 
 
-        16. 
-Adaugarea intrărilor digitale de tip Discrete Input Register 
 Marimile de tip Discrete Input Register sunt in mod curent utilizate pentru marimilor de tip binar pe comunicația de tip Modbus.
 
 **Address**  – Adresa informației binare de tip Discret Input Register citită din echipamentul slave. Dacă informația este citită dintr-un word de tip Discret Input Register aceasta coloana de completează cu valoarea -1. 
@@ -1178,9 +1049,8 @@ Marimile de tip Discrete Input Register sunt in mod curent utilizate pentru mari
 **IsCritical **- permite încadrarea entității într-un grup special de adrese care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
+### 5.1.4. Adăugarea comenzilor digitale de tip Coil 
 
-        17. 
-Adăugarea comenzilor digitale de tip Coil 
 Marimile de tip Coil sunt în mod curent utilizate pentru efectuarea comenzilor pe comunicația de tip Modbus
 
 **Address**  – Adresa informației binare de tip Coil citită din echipamentul slave. Dacă informația este citită dintr-un word de tip Discret Input Register aceasta coloana de completează cu valoarea -1. 
@@ -1206,9 +1076,8 @@ Dacă acest camp este completat, campul Address ar trebui completat cu valoarea 
 **IsCritical **- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
+### 5.1.5. Adăugarea marimilor tip intrări analogice - Input Register
 
-        18. 
-Adăugarea marimilor tip intrări analogice - Input Register
 **Address**  – Adresa informației binare de tip Discret Input Register citită din echipamentul slave. Dacă informația este citită dintr-un word de tip Discret Input Register aceasta coloana de completează cu valoarea -1. 
 
 **Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protectie maximal treapta 1).
@@ -1222,9 +1091,8 @@ Adăugarea marimilor tip intrări analogice - Input Register
 **ValueType**  - tipul de data asociat mărimi analogice (cu semn, fără semn, floating point) – descrierea tipului de data ar trebui sa o regasim in documentația releului.
 
 
+### 5.1.6. Adaugarea marimilor tip comenzi analogice - Holding Register
 
-        19. 
-Adaugarea marimilor tip comenzi analogice - Holding Register
 Marimile de tip Holding Register sunt în mod curent utilizate pentru marimilor de tip comenzi analogice pe comunicația de tip Modbus.
 
 **Address**  – Adresa informației binare de tip Holding Register citită din echipamentul slave. **Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Setare limita putere).
@@ -1246,29 +1114,17 @@ Marimile de tip Holding Register sunt în mod curent utilizate pentru marimilor 
 **IsCritical **- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
-
-    16. DNP3.0
-
-
-
-        20. 
- Configurare generală a canalului de comunicatie
+## 5.2. DNP3.0 
+### 5.2.1. Configurare generală a canalului de comunicatie
 
 
-<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image29.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image29.png "image_tooltip")
+<img src="images/Figure_27.png">
 
 
 După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
 
-
-<p id="gdcalert30" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image30.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert31">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image30.png "image_tooltip")
+<img src="images/Figure_28.png">
 
 
 **Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
@@ -1280,11 +1136,7 @@ După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4
 În cazul în care canalul de comunicație este de tip serial:
 
 
-
-<p id="gdcalert31" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image31.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert32">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image31.png "image_tooltip")
+<img src="images/Figure_29.png">
 
 
 Regasim setarile specifice unei comunicatii seriale:
@@ -1312,15 +1164,10 @@ Suplimentar:
 **Port 3**  - /dev/ttyTun0 (IR1101)
 
 
-
-        21. 
- Configurarea generala a RTU
+### 5.2.2. Configurarea generala a RTU
 
 
-<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image32.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image32.png "image_tooltip")
+<img src="images/Figure_30.png">
 
 
 **Source** - reprezinta ID numeric a master-ului de comunicatie dintr-o sesiune de DNP3.0, internă pentru protocolul DNP3.In echipamentele ce comunica pe DNP3.0 este necesar setarea adresei sursa(master) și a adresei destinatie (oustation sau slave);
@@ -1356,9 +1203,8 @@ Suplimentar:
 **MaxRequestRetries** - Numărul maxim de cereri trimise către IED la care nu s-a primit răspuns după expirarea intervalelor de timeout setate mai sus înainte ca conexiunea să fie  întrerupta de DNP3Master
 
 
+### 5.2.3. Adaugarea marimilor digitale
 
-        22. 
-Adaugarea marimilor digitale
 **Address**  – Adresa informației de tip Binary input preluate din IED. Harta de adrese poate fi creata prin configurare IED cu ajutorul sw de configurare specific sau în documentația tehnică a IED.
 
 **Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protectie maximal treapta 1).
@@ -1366,9 +1212,8 @@ Adaugarea marimilor digitale
 **Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
 
+### 5.2.4. Adăugarea marimilor analogice
 
-        23. 
-Adăugarea marimilor analogice
 **Address**  – Adresa informației de tip Analogic input preluate din IED. Harta de adrese poate fi creata prin configurare IED cu ajutorul sw de configurare specific sau în documentația tehnică a IED.
 
 **Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Valoare curent faza A).
@@ -1376,9 +1221,8 @@ Adăugarea marimilor analogice
 **Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal si va fi utilizat in cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
 
+### 5.2.5. Adăugarea comenzilor
 
-        24. 
-Adăugarea comenzilor
 **Address**  – Adresa informației binare de tip binary output citită din echipamentul slave. **Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Comanda Separator).
 
 **Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivă comanda și va fi utilizat în cadrul proceselor salve și pentru realizarea unor logici de automatizare.
@@ -1390,16 +1234,11 @@ Adăugarea comenzilor
 **Mode** - Modelul de control pentru comenzi. Regasim 3 valori posibile **Direct operate, Direct operate no ack, Select before Execute.Tipul de model de comanda utilizat depinde de configurația IED (realizata cu sw de configurare specific sau documentată în specificatia tehnica a IED).**
 
 
-
-    17.  IEC 61850 Ed1
-        25.  Configurarea generală a canalului de comunicatie
-
+## 5.3. IEC 61850 Ed1
+### 5.3.1. Configurarea generală a canalului de comunicatie
 
 
-<p id="gdcalert33" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image33.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image33.png "image_tooltip")
+<img src="images/Figure_31.png">
 
 
 Adaugarea unui nou IED care va comunica folosind protocolul de comunicatie IEC-61850 presupune o procedura diferită de adăugarea IED pe protocoalele MOdbus, DNP3 și IEC104.
@@ -1409,52 +1248,33 @@ Procedura de configurarea clientului de IEC61850 permite importul adreselor (car
 După adaugarea unui IED nou, setarea numelui IED și a IP de conectare (portul este de obicei 102 pe IEC61850) se apăsa butonul Browse și se alege fisieru .scl cu descrierea adreselor IED în cauză.
 
 
-
-<p id="gdcalert34" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image34.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image34.png "image_tooltip")
+<img src="images/Figure_32.png">
 
 
 Se aleg, individual, adresele care se doresc a fi importate. Recomandăm alegerea adreselor care se afla în seturile de date asociate rapoartelor de evenimente de la nivelul IED. Pentru aceasta se alege opțiunea “Points in reports (including commands) din modulul de import a fișierelor .scl. Se selecteaza adresele dorite și se apăsa butonul Insert.
 
 
-
-<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image35.png "image_tooltip")
+<img src="images/Figure_33.png">
 
 
-
-
-        26.  Configurarea generala a conexiunii cu IED
+### 5.3.2. Configurarea generala a conexiunii cu IED
 
 După adaugarea unui nou IED și configurarea conform descrierii de mai sus, vom avea disponibile pentru a fi editate informațiile generale de la nivel de canal de comunicatie TCP cu IED. Din aceasta fereastra poate fi modificat IP si portul de conectare a echipamentului.
 
 
-
-<p id="gdcalert36" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image36.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert37">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image36.png "image_tooltip")
+<img src="images/Figure_34.png">
 
 
 Parametrii generali de comunicatie cu IED pentru conexiunea IEC61850-8 (MMS) se configurează din fereastra de mai jos. În campul EguipmentName se completeaza numele IED setat de obicei cu ajutorul sw de configurare a IED. **Completarea incorectă a numelui IED (EquipmentName) nu va permite realizarea legăturii de comunicație dintre clientul IEC 61850 din ES200 si IED (avand rol de server în arhitectura standard IEC 61850).**
 
 
-
-<p id="gdcalert37" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image37.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert38">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image37.png "image_tooltip")
+<img src="images/Figure_35.png">
 
 
 **Recomandăm păstrare valorilor default pentru ceilalti parmetrii (specifici conexiunii MMS) din aceasta fereastra.**
 
 
-
-        27. Editarea marimilor digitale si analogice
+### 5.3.3. Editarea marimilor digitale si analogice
 
 În secțiunea Measurements vom regasi mărimile de stare digitale și analogice importate conform procedurii de la punctul 5.3.1. Acestea pot fi editate și pot fi adaugate manual noi entități conform procedurii de la punctul 4.2.3.
 
@@ -1475,8 +1295,7 @@ Campurile din secțiunea Measurements au următoarea semnificație:
 **Poll Interval** - În cazul o mărime nu face parte din seturile de date asociate rapoartelor de evenimete din cauza configurarii neconforme a IED, exista posibilitatea de preluare a stării acesteia prin interogari repetate la un interval de timp setat prin acest parametru.
 
 
-
-        28. Editarea comenzilor
+### 5.3.4. Editarea comenzilor
 
 Secțiunea Controls contine comenzile importate conform procedurii de la punctul 5.3.1.Acestea pot fi editate și pot fi adaugate manual noi entități conform procedurii de la punctul 4.2.3.
 
@@ -1495,17 +1314,12 @@ Campurile din secțiunea Controls au următoarea semnificație:
 **AddressName** - adresa de protocol IEC61850 a entitatii ce se dorește a fi comandata;
 
 
-
-        29. Editarea rapoartelor IEC61850
+### 5.3.5. Editarea rapoartelor IEC61850
 
 În cazul adăugării unui IED (punctul 5.3.1)  rapoartele sunt adăugate automat  în secțiunea Reports avand proprietățile configurate conform fișierului .scl.
 
 
-
-<p id="gdcalert38" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image38.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert39">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image38.png "image_tooltip")
+<img src="images/Figure_36.png">
 
 
 **ReferenceRCB**  - Adresa IEC61850 a raportului in cauză. Aceasta adresa este importata din fișierul. scl și contine setul de date în care se regasesc parțial sau în totalitate adresele din secțiunea Measurements;
@@ -1529,9 +1343,8 @@ Campurile din secțiunea Controls au următoarea semnificație:
 **ReportID** - Valoarea default este 0. Recomandăm utilizarea acestei valori.
 
 
-
-    18.  IEC 61850 Ed2
-        30.  Configurarea generală a canalului de comunicatie
+## 5.4. IEC 61850 Ed2
+### 5.4.1. Configurarea generală a canalului de comunicatie
 
 Adaugarea unui nou IED care va comunica folosind protocolul de comunicatie IEC-61850 Ed2 presupune o procedura diferită de adăugarea IED pe protocoalele Modbus, DNP3 și IEC104.
 
@@ -1540,45 +1353,29 @@ Procedura de configurarea clientului IEC61850 Ed2 permite importul adreselor (ca
 După adaugarea unui IED nou, setarea numelui IED și a IP de conectare (portul este de obicei 102 pe IEC61850 Ed2) se apăsa butonul Browse și se alege fisieru .scl cu descrierea adreselor IED în cauză.
 
 
-
-<p id="gdcalert39" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image39.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert40">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image39.png "image_tooltip")
+<img src="images/Figure_37.png">
 
 
 Se aleg, individual, adresele care se doresc a fi importate. Recomandăm alegerea adreselor care se afla în seturile de date asociate rapoartelor de evenimente de la nivelul IED. Pentru aceasta se alege opțiunea “Points în reports (including commands) din modulul de import a fișierelor .scl. Se selecteaza adresele dorite și se apăsa butonul Insert.
 
 
-
-<p id="gdcalert40" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image40.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert41">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image40.png "image_tooltip")
+<img src="images/Figure_38.png">
 
 
-
-
-        31.  Configurarea generala a RTU
+### 5.4.2. Configurarea generala a RTU
 
 După adaugarea unui nou IED și configurarea conform descrierii de mai sus, vom avea disponibile pentru a fi editate informațiile generale de la nivel de canal de comunicatie TCP cu IED. Din aceasta fereastra poate fi modificat IP si portul de conectare a echipamentului.
 
 
 
-<p id="gdcalert41" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image41.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert42">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image41.png "image_tooltip")
+<img src="images/Figure_39.png">
 
 
 Parametrii generali de comunicatie cu IED pentru conexiunea IEC61850-8 Ed2 (MMS) se configurează din fereastra de mai jos. În campul EguipmentName se completeaza numele IED setat de obicei cu ajutorul sw de configurare a IED. **Completarea incorectă a numelui IED (EquipmentName) nu va permite realizarea legăturii de comunicație dintre clientul IEC 61850 din ES200 si IED (avand rol de server în arhitectura standard IEC 61850).**
 
 
 
-<p id="gdcalert42" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image42.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert43">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image42.png "image_tooltip")
+<img src="images/Figure_40.png">
 
 
 **Recomandăm păstrare valorilor default urmatorii parametrii (specifici conexiunii MMS) din aceasta fereastra:**
@@ -1610,8 +1407,7 @@ FileLifeSpan - Perioada de timp (h) după ce fișierele descărcate de pe IED su
 MaxFileSize - Dimensiunea maximă permisă (în octeți) pentru fișierele cu inregistrari descărcate. Aceasta trebuie să fie mai mică decât 104857600 și mai mare decât 0.
 
 
-
-        32. Editare marimilor digitale și analogice
+### 5.4.3. Editare marimilor digitale și analogice
 
 În secțiunea Measurements vom regasi mărimile de stare digitale și analogice importate conform procedurii de la punctul 5.4.1. Acestea pot fi editate și pot fi adaugate manual noi entități conform procedurii de la punctul 4.2.3.
 
@@ -1635,7 +1431,7 @@ Campurile din secțiunea Measurements au următoarea semnificație:
 
 
 
-        33. Editarea comenzilor
+### 5.4.4. Editarea comenzilor
 
 Secțiunea Controls contine comenzile importate conform procedurii de la punctul 5.4.1.Acestea pot fi editate (campul **AddressName**) și pot fi adaugate manual noi entități conform procedurii de la punctul 4.2.3.
 
@@ -1656,17 +1452,12 @@ Campurile din secțiunea Controls au următoarea semnificație:
 **OriginCategory** - indica sursa comenzii. **Recomandăm utilizarea opțiunii -  Remote Control.**
 
 
-
-        34. Editarea rapoartelor
+### 5.4.5. Editarea rapoartelor
 
 În cazul adăugării unui IED (punctul 5.4.1)  rapoartele sunt adăugate automat  în secțiunea Reports avand proprietățile configurate conform fișierului .scl.
 
 
-
-<p id="gdcalert43" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image43.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert44">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image43.png "image_tooltip")
+<img src="images/Figure_41.png">
 
 
 **IntegrityPeriod - **Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
@@ -1690,26 +1481,17 @@ Adresa unui raport pe IEC61850 are urmatoarea structura:
 IED nameLogical Device/LLN0.tip”_raport(BR sauRP).DO (ex: I09FTLD0/LLN0.BR.rcbStatUrgA).
 
 
-
-    19. IEC-60870-5-104
-        35.  Configurare generală a canalului de comunicație
-
+## 5.5. IEC-60870-5-104
+### 5.5.1. Configurare generală a canalului de comunicație
 
 
-<p id="gdcalert44" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image44.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert45">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image44.png "image_tooltip")
+<img src="images/Figure_42.png">
 
 
 După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
 
-
-<p id="gdcalert45" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image45.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert46">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image45.png "image_tooltip")
+<img src="images/Figure_43.png">
 
 
 **Channel Description** - denumirea canalului de comunicație. Nu afectează comunicația cu dispozitivele ajutand la organizarea informațiilor.
@@ -1719,15 +1501,10 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 **Port** : portul TCP prin care se realizează comunicația TCP/IP cu echipamentul (pt IEC-60870-5-104 cel mai utilizat este portul 2404).
 
 
-
-        36.  Configurarea generala a RTU
-
+### 5.5.2. Configurarea generala a RTU
 
 
-<p id="gdcalert46" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image46.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert47">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image46.png "image_tooltip")
+<img src="images/Figure_44.png">
 
 
 **T1-AckPeriod [ms]** - intervalul de timp de așteptare a unui răspuns de confirmare de la IED (slave) de IEC104. După expirarea acestui interval fără recepția unui pachet de IEC-104 de la slave-ul de comunicație, legătura de comunicație este întreruptă;
@@ -1769,8 +1546,7 @@ offlinePoolPeriod [ms] - Timpul după care se încearcă o reconectare pe protoc
 **ClockSyncInterval (ms)** – intervalul de timp la care va fi transmisa o comanda de sincronizare de timp  de către master către slave. Comenzile de sincronizare de timp se pot emite si in cazul in care exista diferențe semnificative de timp intre master si slave.
 
 
-
-        37. Adăugarea mărimilor digitale simple, de tip double (ex:echipamente de comutație) sau a celor analogice
+### 5.5.3. Adăugarea mărimilor digitale simple, de tip double (ex:echipamente de comutație) sau a celor analogice
 
 Se utilizează secțiunile **Single-Point Information (SPI) si Double-Point Information (DPI)** pentru entitățile binare si duble si secțiunile Normalized, Scaled si Short-Floating pentru entitățile de tip mărimi analogice.
 
@@ -1787,8 +1563,7 @@ ASDU specific mărimilor analogice definite de standardul IEC-60870-5-104 si imp
 **HasTimeTag** – parametrul indica daca mărimea care va fi preluata de la IED este însoțita de eticheta de timp a IED sau aceasta va fi asociata entității de către ES200
 
 
-
-        38. Adăugarea comenzilor
+### 5.5.4. Adăugarea comenzilor
 
 Se utilizează secțiunile Single-Point Command și Double-Point Command, funcție de tipul de comenzi ce se doresc a fi transmise către IED-uri.
 
@@ -1801,18 +1576,13 @@ Protocolul IEC-60870-5-104 implementat de ES200 permite utilizarea a 2 tipuri de
 **CmdQualifier** - reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din IED (slave). În cazul în care modelul de control setat în IED  nu este cunoscut se utilizează opțiunea Any. **Acest câmp nu este utilizat in cazul comozilor de tip setpoint.**
 
 
-
-    20. MQTT
-        39. Configurare generală a canalului de comunicație
+## 5.6. MQTT
+### 5.6.1. Configurare generală a canalului de comunicație
 
 După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
 
-
-<p id="gdcalert47" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image47.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert48">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image47.png "image_tooltip")
+<img src="images/Figure_45.png">
 
 
 **Equipment Name** - denumirea masterului de comunicație MQTT. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor;
@@ -1834,8 +1604,7 @@ ReceiveTopic – Descrierea topic-ului clientului prin care se recepționează d
 Plugin – poți fi utilizate diferite tipuri de implementări custom de MQTT (Sparkplug, Veribox sau default).
 
 
-
-        40. Adăugarea mărimilor digitale simple( mărimi boolene) 
+### 5.6.2. Adăugarea mărimilor digitale simple( mărimi boolene) 
 
 Acestea sunt completate in secțiunea **Json Boolean** aferent Masterului de MQTT in Dashboard.
 
@@ -1848,8 +1617,7 @@ Acestea sunt completate in secțiunea **Json Boolean** aferent Masterului de MQT
 **JSONPointer **– poate fi asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/contatctx  (ex: /PT10/senzor1/contact1)
 
 
-
-        41. Adăugarea mărimilor analogice (numerice)
+### 5.6.3. Adăugarea mărimilor analogice (numerice)
 
 Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQTT in Dashboard.
 
@@ -1862,16 +1630,11 @@ Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQT
 **JSONPointer **– este asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/temeratura (ex: /PT10/senzor1/temperatura).
 
 
-
-    21. IEC-60870-5-101
-        42.  Configurare generală a canalului de comunicație
-
+## 5.7. IEC-60870-5-101
+### 5.7.1. Configurare generală a canalului de comunicație
 
 
-<p id="gdcalert48" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image48.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert49">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image48.png "image_tooltip")
+<img src="images/Figure_46.png">
 
 
 Parametrii generali din configurație pentru un Master de IEC-101 din ES200 sunt:
@@ -1907,11 +1670,7 @@ RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmi
 După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
 
-
-<p id="gdcalert49" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image49.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert50">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image49.png "image_tooltip")
+<img src="images/Figure_47.png">
 
 
 LinkMode – ES200 folosește întotdeauna opțiune Unbalaced. Acesta este utilizată pentru comunicația pe linii seriale tip RS485 pe care pot fi conectate mai multe echipamente slave de iec-101;
@@ -1971,8 +1730,7 @@ InfoObjAddrSize - dimensiunea in octeți a IOA (Information Object Address) din 
 LinkAddressSize - dimensiunea in octeți a adresei nivelului de legătură.
 
 
-
-        43. Adăugarea mărimilor de stare digitale si analogice
+### 5.7.2. Adăugarea mărimilor de stare digitale si analogice
 
 Se utilizează secțiunile **Single-Point Information (SPI) si Double-Point Information (DPI)** pentru entitățile binare si duble si secțiunile Normalized, Scaled si Short-Floating pentru entitățile de tip mărimi analogice.
 
@@ -1989,8 +1747,7 @@ ASDU specific mărimilor analogice definite de standardul IEC-60870-5-101 si imp
 **HasTimeTag** – parametrul indica daca mărimea care va fi preluata de la IED este însoțita de eticheta de timp a IED sau aceasta va fi asociata entității de către ES200
 
 
-
-        44. Adăugarea comenzilor
+### 5.7.3. Adăugarea comenzilor
 
 Se utilizează secțiunile Single-Point Command și Double-Point Command, funcție de tipul de comenzi ce se doresc a fi transmise către IED-uri.
 
@@ -2003,18 +1760,13 @@ Protocolul IEC-60870-5-101 implementat de ES200 permite utilizarea a 2 tipuri de
 **CmdQualifier** - reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din IED (slave). În cazul în care modelul de control setat în IED  nu este cunoscut se utilizează opțiunea Any. **Acest câmp nu este utilizat in cazul comozilor de tip setpoint.**
 
 
-
-5. Configurarea comunicației cu centrul de comanda
-    22. IEC 68870-5-104
-        45. Configurare generală a canalului de comunicație
+# 6. Configurarea comunicației cu centrul de comanda
+## 6.1. IEC 68870-5-104
+### 6.1.1. Configurare generală a canalului de comunicație
 
 În fereastră de mai sus se configurează proprietățile principale ale canalului de comunicatie TCP dintre ES200 și centrul de comanda. Denumirea centrului de comanda (Equimpment name) si descrierea generala a acestuia (Equipment Description) nu influențează caracteristicile de comunicație specifice IEC-60870-5-104. 
 
-<p id="gdcalert50" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image50.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert51">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image50.png "image_tooltip")
-t 
+<img src="images/Figure_48.png">
 
 Este necesara completarea portului TCP care urmeaza sa fie utilizat. Completarea adresei IP nu este necesara pentru realizarea legăturii cu centrul de comanda. Adresa IP a centrului de comanda poate fi completata în acest camp dacă se dorește sa se asigure exclusivitatea conexiunii pe IEC-104 dintre ES200 și centrul de comanda avand adresa |IP în cauză.
 
@@ -2027,15 +1779,10 @@ După adaugarea unui nou centru de comanda și configurarea conform descrierii d
 **Port** : portul TCP prin care se realizează comunicația TCP/IP cu echipamentul (pt IEC-104 cel mai utilizat este portul 2404).
 
 
-
-        46. Configurarea generala a CC
-
+### 6.1.2. Configurarea generala a CC
 
 
-<p id="gdcalert51" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image51.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert52">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image51.png "image_tooltip")
+<img src="images/Figure_49.png">
 
 
 **ASDUADDR** - adresa comuna a ASDU (Application service data unit). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie IEC-104) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol. Precizăm ca dimensiunea ASDU este 2 bytes și dimensiunea IOA este de 3 bytes;
@@ -2061,8 +1808,7 @@ După adaugarea unui nou centru de comanda și configurarea conform descrierii d
 **CyclicAfterGi** - dacă acest parametru este setat, es200 nu va mai trimite către master mărimi cu mod de transmisie ciclica setata (în tabelul corespunzător tipului de mărime) cereri ciclice înainte de prima cerere de interogare generala emisa de catre master.
 
 
-
-        47. Adăugarea marimilor digitale
+### 6.1.3. Adăugarea marimilor digitale
 
 Se utilizează secțiunile Single-Point Information si Double-Point Information, funcție de tipul de informații ce se doresc a fi transmise către centrul de comanda.
 
@@ -2071,11 +1817,7 @@ Protocolul IEC-60870-5-104 permite utilizarea a 2 tipuri de mărimi de stare  - 
 Entitățile a căror stare se dorește a fi trimisă către centru de comanda sunt cele preluate din IED-uri si si vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informatia este completat automat dupa alegerea entitatii.
 
 
-
-<p id="gdcalert52" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image52.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert53">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image52.png "image_tooltip")
+<img src="images/Figure_50.png">
 
 
 **Address** – Adresa informației de tip Binary input ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
@@ -2086,7 +1828,7 @@ Entitățile a căror stare se dorește a fi trimisă către centru de comanda s
 
 
 
-        48. Adăugarea marimilor analogice
+### 6.1.4. Adăugarea marimilor analogice
 
 Se utilizează secțiunile Normalized, Scaled, Short Floating funcție de tipul de informații de tip mărimi analogice ce se doresc a fi transmise către centrul de comanda.
 
@@ -2096,10 +1838,7 @@ Marimile analogice a căror stare se dorește a fi trimisă către centru de com
 
 
 
-<p id="gdcalert53" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image53.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert54">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image53.png "image_tooltip")
+<img src="images/Figure_51.png">
 
 
 **Address** – Adresa informației de tip mărime analogică ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
@@ -2114,7 +1853,7 @@ Marimile analogice a căror stare se dorește a fi trimisă către centru de com
 
 
 
-        49. Adăugarea comenzilor
+### 6.1.5. Adăugarea comenzilor
 
 Se utilizează secțiunile Single-Point Command și Double-Point Command, funcție de tipul de comenzi ce se doresc a fi receptionate de la centrul de comanda și ulterior transmise către IED-uri.
 
@@ -2124,10 +1863,7 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 
 
 
-<p id="gdcalert54" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image54.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert55">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image54.png "image_tooltip")
+<img src="images/Figure_52.png">
 
 
 **Address** – Adresa informației de tip comanda ce urmează sa fie transmisă de către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea comenzii de către ES200;
@@ -2140,17 +1876,14 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 
 
 
-    23. Modbus
-        50. Configurare generală a canalului de comunicatie
+## 6.2. Modbus
+### 6.2.1. Configurare generală a canalului de comunicatie
 
 În fereastră de mai sus se configurează proprietățile principale ale canalului de comunicatie TCP dintre ES200 și centrul de comanda. Denumirea centrului de comanda (Equimpment name) si descrierea generala a acestuia (Equipment Description) nu influențează caracteristicile de comunicatie specifice protocolului Modbus TCP. 
 
 
 
-<p id="gdcalert55" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image55.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert56">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image55.png "image_tooltip")
+<img src="images/Figure_53.png">
 
 
 Este necesara completarea portului TCP care urmeaza sa fie utilizat. Completarea adresei IP nu este necesara pentru realizarea legăturii cu centrul de comanda. Adresa IP a centrului de comanda poate fi completata în acest camp dacă se dorește sa se asigure exclusivitatea conexiunii pe Modbus TCP dintre ES200 și centrul de comanda avand adresa |IP în cauză.
@@ -2163,25 +1896,16 @@ După adaugarea unui nou centru de comanda și configurarea conform descrierii d
 
 **Port** : portul TCP prin care se realizeaza comunicatia TCP/IP cu echipamentul (pt Modbus TCP cel mai utilizat este portul 10502).
 
+### 6.2.2. Configurarea generala a CC
 
-
-        51. Configurarea generala a CC
-
-
-
-<p id="gdcalert56" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image56.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert57">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image56.png "image_tooltip")
+<img src="images/Figure_54.png">
 
 
 **SLAVEID** - adresa de protocol a ES200 avand rol de slave legătura cu centrul de comanda(master). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie Modbus) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol.
 
 ModbusType - Singura setare acceptata este TCP.
 
-
-
-        52. Adaugarea marimilor digitale, analogice și comenzi
+### 6.2.3. Adaugarea marimilor digitale, analogice și comenzi
 
 Entitățile a căror stare se dorește a fi trimisă către centru de comanda sunt cele preluate din IED-uri si si vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informatia este completat automat dupa alegerea entitatii.
 
@@ -2191,23 +1915,12 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 
 
 
-<p id="gdcalert57" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image57.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert58">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_55.png">
 
+## 6.3. DNP3.0
+### 6.3.1. Configurare generală a canalului de comunicație
 
-![alt_text](images/image57.png "image_tooltip")
-
-
-
-
-    24. DNP3.0
-        53. Configurare generală a canalului de comunicație
-
-
-
-<p id="gdcalert58" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image58.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert59">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image58.png "image_tooltip")
+<img src="images/Figure_56.png">
 
 
 
@@ -2229,15 +1942,9 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
     **Port** : portul TCP prin care se realizează comunicația TCP/IP cu echipamentul (pt DNP3 cel mai utilizat este portul 20000).
 
 
+### 6.3.2. Configurarea generala a RTU
 
-        54. Configurarea generala a RTU
-
-
-
-<p id="gdcalert59" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image59.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert60">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image59.png "image_tooltip")
+<img src="images/Figure_57.png">
 
 
 **Source** - reprezintă ID numeric a master-ului sau a centrului de comanda dintr-o sesiune de DNP3.0, internă pentru protocolul DNP3.In echipamentele ce comunica pe DNP3.0 este necesar setarea adresei sursa(master) și a adresei destinație (oustation sau slave);
@@ -2299,17 +2006,13 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 **TCPConnectTimeout** – tipul de așteptare pentru stabilirea conexiunii TCP înainte ca aceasta sa fie închisa de către slave din ES200;
 
 
-
-        55. Adaugarea marimilor digitale, analogice si comenzi
+### 6.3.3. Adaugarea marimilor digitale, analogice si comenzi
 
 Entitățile a căror stare se dorește a fi trimisă către centru de comanda sunt cele preluate din IED-uri si si vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informația este completat automat după alegerea entității. Este necesara si completarea clasei de evenimente (1,2 sau 3) pentru a putea fi generate mesajele nesolicitate către Master in cazul unor schimbări de stare a entităților din secțiunea Binary Input si Analog Input.
 
 
 
-<p id="gdcalert60" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image60.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert61">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image60.png "image_tooltip")
+<img src="images/Figure_58.png">
 
 
 Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi transmise către IED-uri și vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informația este completat automat după alegerea entității (Master Equipment).
@@ -2317,57 +2020,42 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 **Address**  – Adresa entității ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adăugarea unei adrese identice pentru recepționarea stării entității. In cazul comenzilor se aplica același principiu.
 
 
-
-6. Exemplu de configurare
-    25.  O situație ipotetică
+# 7. Exemplu de configurare
+## 7.1. O situație ipotetică
 
 Să presupunem că vrem să colectăm date de la un echipament Modbus și vrem să le trimitem mai departe la un centru de comandă care folosește protocolul IEC 104. Pentru a realiza acest lucru, este nevoie să creăm o bază de date care să conțină cele două echipamente și să adăugăm pentru fiecare dintre ele punctele corespunzătoare datelor pe care dorim să le conectăm.
 
 În primul rând, trebuie să creăm un proiect nou. Pentru asta, vom folosi butonul New Project de pe toolbar-ul secundar, marcat în Figura 20.
 
 
-
-<p id="gdcalert61" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image61.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert62">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image61.png "image_tooltip")
+<img src="images/Figure_59.png">
 
 
-**Figura 23: Exemplu de configurare – crearea unui proiect nou**
+Figura 23: Exemplu de configurare – crearea unui proiect nou
 
 
-
-    26.  Configurarea IED-ului
+## 7.2. Configurarea IED-ului
 
 Pentru a crea echipamentul Modbus, vom apasă dreapta-click pe secțiunea Intelligent Electronic Device din lista de echipamente și vom selecta Add Device. Alternativ putem folosi meniul Edit -> Add Master Device -> Modbus Master.
 
 
-
-<p id="gdcalert62" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image62.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert63">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image62.png "image_tooltip")
+<img src="images/Figure_60.png">
 
 
-**Figura 24: Exemplu de configurare – Adăugarea unui nou IED**
+Figura 24: Exemplu de configurare – Adăugarea unui nou IED
 
 În câmpul Equipment Name vom completa numele echipamentului folosind un nume sugestiv. Apoi, în sub-meniul Equipment Proceess vom selecta protocolul de comunicare pe care îl folosește echipamentl – în cazul nostru, Modbus Master. De asemenea, în această fereastră putem configura canalul folosit. Echipamentul nostru folosește o conexiune serială cu valorile implicte, așa că vom selecta opțiunile din Figura 21. La final, vom apasa butonul Insert.
 
 După crearea echipamentului, trebuie să configurăm punctele sale. Pentru a realiza acest lucru, vom apasă săgeata din stânga numelui echipamentului. În acest exemplu, vom crea 10 puncte de tip Discrete Input Register, așadar vom apăsa dreapta-click pe opțiunea Discrete Input Register și vom selecta opțiunea Add Point(s). Apoi vom completa fereastra apărută precum în Figura 22.
 
 
-
-<p id="gdcalert63" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image63.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert64">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image63.png "image_tooltip")
+<img src="images/Figure_61.png">
 
 
-**Figura 25: Exemplu de configurare – Adăugarea a 10 puncte unui IED**
+Figura 25: Exemplu de configurare – Adăugarea a 10 puncte unui IED
 
 
-
-    27.  Configurarea unui centru de comandă
+## 7.3. Configurarea unui centru de comandă
 
 Pentru a adăuga un nou echipament de tip centru de comandă, se apasă dreapta-click pe butonul Command Center și se selectează Add item.
 
@@ -2378,14 +2066,10 @@ De asemenea, în această interfață vom configura și canalul de comunicație 
 La finalul configurării, vom apăsa butonul Insert pentru a crea noul echipament.
 
 
-
-<p id="gdcalert64" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image64.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert65">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image64.png "image_tooltip")
+<img src="images/Figure_62.png">
 
 
-**Figura 26: Exemplu de configurare – Adăugarea unui nou centru de comandă (Command Center)**
+Figura 26: Exemplu de configurare – Adăugarea unui nou centru de comandă (Command Center)
 
 După crearea echipamentului, trebuie să adăugăm cele 10 puncte preluate de la IED. Acestea sunt de tip Discrete Input Register, iar corespondentul lor în protocolul IEC 104 îl constituie punctele de tip Single Point Information.
 
@@ -2394,67 +2078,45 @@ Prin urmare, vom apăsa pe săgeata din stânga noului echipament și vom select
 După crearea punctelor, trebuie să le conectăm cu punctele IED-ului pentru a prelua informația lor. Pentru acest lucru, vom da click pe celulele din coloana Master Variable Name și vom selecta punctele corespunzătoare, ca în Figura 24.
 
 
-
-<p id="gdcalert65" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image65.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert66">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image65.png "image_tooltip")
+<img src="images/Figure_63.png">
 
 
-**Figura 27: Exemplu de configurare – Interconectarea punctelor**
+Figura 27: Exemplu de configurare – Interconectarea punctelor
 
 
-
-    28.  Salvarea și încărcarea bazei de date
+## 7.4. Salvarea și încărcarea bazei de date
 
 La finalul configurațiilor, vom salva local baza de date folosind meniul File-> Save. Ulterior, o vom încărca pe echipamentul unde rulează ES200 folosind meniul File -> Upload project. După ce vom introduce credențialele și vom selecta fișierului salvat anterior, acesta va fi încărcat pe echipament.
 
 
 
-7. Optiuni utile
-    29. Exportul si importul de template-uri
+# 8. Optiuni utile
+## 8.1. Exportul si importul de template-uri
+### 8.1.1. Exportul
 
-
-
-        56. 
-Exportul
 Un template este o copie a unei configuratii de echipament, astfel, pentru a crea un template (fisier .epgt), se apasa butonul de click-dreapta pe un echipament si se salveaza fisierul dupa ce se apasa butonul de “Export template”
 
 
+### 8.1.2. Importul
 
-        57. 
-Importul
 Pentru a importa un template, fie se creeaza un proiect nou, fie se importa intr-un proiect deja existent. Acest lucru se realizeaza accesand meniul “Edit”, optiunea “Import template” si importandu-se fisiere “.epgt”, create la pasul anterior (Export). Este important ca template-ul importat sa corespunda versiunii actuale de baze de date. In caz contrar, va fi nevoie sa se realizeze o conversie a bazei de date (vezi documentul despre conversia bazei de date). 
 
 
-## 
-    
-
-
-
-    30. Conversia bazei de date
+## 8.2. Conversia bazei de date
 
 Exista mai multe versiuni pentru baza de date, cele mai noi prezentand compatibilitate pentru cele mai vechi. Cu toate acestea, uneori se poate dori conversia bazei de date, astfel incat diverse proprietati ale echipamentelor sa fie aduse la o stare corespunzatoare unei alte versiuni. 
 
 Acest lucru se realizeaza prin accesarea meniului “Edit” -> “Convert version to:” si selectandu-se versiunea dorita (si disponibila)
 
 
-
-<p id="gdcalert66" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image66.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert67">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image66.png "image_tooltip")
+<img src="images/Figure_64.png">
 
 
-**Figura 28: Conversia bazei de date**
+Figura 28: Conversia bazei de date
 
 
-#### 
+### 8.2.1. Download-ul bazei de date
 
-
-
-        58. 
-Download-ul bazei de date
 Pentru a descărca o baza de date care necesita schimbarea versiunii se folosește aplicația Dashboard.
 
 Din meniul “File” se selectează “Download project”. În fereastra nou apărută se introduc datele
@@ -2462,51 +2124,38 @@ Din meniul “File” se selectează “Download project”. În fereastra nou a
 de autentificare (IP/Host Name, Username, Password) [Figure 29].
 
 
-
-<p id="gdcalert67" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image67.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert68">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image67.png "image_tooltip")
+<img src="images/Figure_65.png">
 
 
-**Figura 29: Descarcarea bazei de date**
+Figura 29: Descarcarea bazei de date
 
 Se alege locul în care baza de date se salvează și numele acesteia din fereastra de salvare [Figure 30].
 
- 
 
-<p id="gdcalert68" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image68.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert69">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image68.png "image_tooltip")
+<img src="images/Figure_66.png">
 
 
-**Figura 30: Selectarea locatiei de salvare a bazei de date**
+Figura 30: Selectarea locatiei de salvare a bazei de date
 
 
+### 8.2.2. Conversia versiunii
 
-        59. 
-Conversia versiunii
 Se deschide baza de date în aplicația Dashboard din meniul “File->Open Project” sau folosind butonul “Open Project” din interfața aplicației.
 
 Pentru a converti baza de date, din meniul “Edit” se selectează “Convert version to->Latest version (1.5)” [Figura 3]. În acest exemplu este făcută o conversie de la versiunea 1.3 la ultima versiune 1.5.
 
 
 
-<p id="gdcalert69" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image69.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert70">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_67.png">
 
 
-![alt_text](images/image69.png "image_tooltip")
-
-
-**Figura 31: Conversia bazei de date**
+Figura 31: Conversia bazei de date
 
 Se va deschide o nouă bază de date numita Denumire.epgd [versiune anterioara] ->[1.5] și se salvează.
 
 
+### 8.2.3. Diferente intre versiunea bazelor de date
 
-        60. 
-Diferente intre versiunea bazelor de date
 Între diferite versiuni de baze de date exista diferente precum:
 
 
@@ -2522,18 +2171,13 @@ schimbarea valorilor default (implicite)
 * 
 scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
 
-##### 
+##### 8.2.3.1. Diferente intre versiunile 1.3 - 1.5
 
-
-
-            1. 
-Diferente intre versiunile 1.3 - 1.5
 Pentru fiecare dintre noile proprietăți au fost adaugate câmpuri de Helptext pentru a explica functionalitatea acestora.
 
 
 
-                1. 
-ModbusMaster
+##### 8.2.3.1.1. ModbusMaster
 
 
 * 
@@ -2568,8 +2212,7 @@ Următoarele proprietăți de echipament au fost adaugate::
 MaxRequestRetries
 
 
-                2. 
-DNP3Master
+##### 8.2.3.1.2. DNP3Master
 
 
 * 
@@ -2612,8 +2255,7 @@ Următoarele valori default au fost schimbate:
 LinkStatusInterval [setat la 10000]
 
 
-                3. 
-IEC61850
+##### 8.2.3.1.3. IEC61850
 
 
 * 
@@ -2644,8 +2286,7 @@ SSEL [setat la 0001]
 TSEL [setat la 0001]
 
 
-                4. 
-IEC104Slave
+##### 8.2.3.1.4. IEC104Slave
 
 
 * 
@@ -2684,8 +2325,7 @@ FileMonitorPath
 FilesEncoderMonitorPath
 
 
-                5. 
-ModbusSlave
+##### 8.2.3.1.5. ModbusSlave
 
 
 * 
@@ -2704,8 +2344,7 @@ DataType
 MeasurementUnit
 
 
-                6. 
-IEC104Master
+##### 8.2.3.1.6. IEC104Master
 
 
 * 
@@ -2744,26 +2383,20 @@ HasFilesDecoder
 FilesDecoderStorePath
 
 
-                7. 
-MultiDataMaster
+##### 8.2.3.1.7. MultiDataMaster
 Au fost adaugate punctele de tip Analog output (AO).
 
 
 
-                8. 
-JSON_MQTT
+##### 8.2.3.1.8. JSON_MQTT
 Adaugarea masterului de MQTT.
 
 
 
-            2. 
-Diferenta intre versiunile 1.5 - 2.0
+#### 8.2.3.2. Diferenta intre versiunile 1.5 - 2.0
 
 
-                9. 
-DNP3Master
-	
-
+##### 8.2.3.2.1. DNP3Master
 
 
 * 
@@ -2814,53 +2447,43 @@ EnableUnsol
 IntegrityPollInterval
 
 
-                10. 
-DNP3Slave:
+##### 8.2.3.2.2. DNP3Slave:
 
 
 * 
 A fost scoasa proprietatea de CylicPeriod
 
 
-            3. 
-Diferenta intre 2.0 si 2.1
+#### 8.2.3.3. Diferenta intre 2.0 si 2.1
 
 
-                11. 
-DNP3Master
+##### 8.2.3.3.1. DNP3Master
 
 
 * 
 A fost adaugata proprietatea de QualifierCode
 
 
-    31. Schimbarea de limba
+## 8.3. Schimbarea de limba
 
 Se poate realiza schimbarea limbii interfetei Dashboard-ului accesand meniul “Tools” -> “Options”. Aici, sub selectorul “Language” poate fi aleasa limba dorita.
 
 
 
-<p id="gdcalert70" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image70.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert71">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_68.png">
+Figura 32: Schimbarea limbii
 
 
-![alt_text](images/image70.png "image_tooltip")
-**Figura 32: Schimbarea limbii**
-
-
-
-    32. Editorul de blocuri logice
+## 8.4. Editorul de blocuri logice
 
 MultiDataMaster reprezintă un modul cu ajutorul căruia se pot realiza logici de automatizare specifice, similare cu cele implementate într-un automat programabil (PLC). Se pot implementa automatizări tip AAR (anclanșare automată a rezervei), crearea unor variabile duble pentru pozițiile de echipamente de comutație prin cumularea unor variabile simple (boolean), sumarizari de valori analogice, diverse condiționări.
 
 
 
-<p id="gdcalert71" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image71.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert72">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_69.png">
 
 
-![alt_text](images/image71.png "image_tooltip")
-
-
-**Figura 33: Editorul de blocuri logice**
+Figura 33: Editorul de blocuri logice
 
 Modulul pune la dispoziție blocuri predefinite specifice limbajelor de programare standard (LD, FBD, SFC) utilizate pentru configurarea PLC. Blocurile  pot fi grupate pe mai câte categorii distincte:
 
@@ -2873,17 +2496,10 @@ blocuri destinate operațiilor logice: AND, OR, NOT, XOR;
 * 
 blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. predefinit de poziții 
 
-<p id="gdcalert72" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image72.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert73">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image72.png "image_tooltip")
+<img src="images/Figure_70.png">
 , extragerea unui anumit bit de pe o poziție predefinita dintr-un octet 
 
-<p id="gdcalert73" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image73.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert74">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image73.png "image_tooltip")
-;
+<img src="images/Figure_71.png">
 
 
 * 
@@ -2893,11 +2509,7 @@ blocuri care implementează timere: TON si TOF;
 * 
 bloc pentru automentinere (bistabil) - ResetDominantBistabil (SET/RESET)
 
-<p id="gdcalert74" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image74.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert75">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image74.png "image_tooltip")
-;**		**
+<img src="images/Figure_72.png">
 
 
 * 
@@ -2907,31 +2519,22 @@ Aceste blocuri pot fi interconectare prin utilizarea unui editor grafic inclus �
 Sistemul de blocuri logice predefinite interconectate este convertit automat după salvarea efectuata in editorul grafic într-o ecuație pe care o regăsim în tabele din secțiunile specifice din MultiDataMater.
 
 
-
-<p id="gdcalert75" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image75.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert76">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image75.png "image_tooltip")
+<img src="images/Figure_73.png">
 
 
-**Figura 34: Accesarea meniului de configurare al blocurilor logice din MDM**
+Figura 34: Accesarea meniului de configurare al blocurilor logice din MDM
 
 Actionand butonul indicat în figura 34, din cadrul configurarii punctelor din MultiDataMaster, se va deschide o fereastra ce permite editarea blocurilor logice pentru punctul respectiv, așa cum a fost exemplificat în figura 33.
 
 
-
-* 
-8.4.1 Descriere functionalitate blocuri de automatizare
+### 8.4.1. Descriere functionalitate blocuri de automatizare
 
 
 1. 
 ResetDominantBistabil (SET/RESET) - funcție utilizata pentru implementarea unor autometineri conditionate.
 
 
-<p id="gdcalert76" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image76.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert77">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image76.png "image_tooltip")
+<img src="images/Figure_74.png">
 
 
 Descriere semnale de intrare în bloc:
@@ -2996,10 +2599,7 @@ Ieșirea Q1 este resetată dacă intrarea Reset1 este setată, indiferent de sta
 TON
 
 
-<p id="gdcalert77" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image77.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert78">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image77.png "image_tooltip")
+<img src="images/Figure_75.png">
 
 
 Temporizator care are ca rezultat intarzierea activarii semnalului de ieșire Q cu un interval de timp setabil prin parametrul PT. Condiția este ca intrarea IN sa ramana activa pe intervalul de timp PT.
@@ -3062,10 +2662,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 
 
 
-<p id="gdcalert78" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image78.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert79">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image78.png "image_tooltip")
+<img src="images/Figure_76.png">
 
 
 
@@ -3074,10 +2671,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 TOF
 
 
-<p id="gdcalert79" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image79.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert80">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image79.png "image_tooltip")
+<img src="images/Figure_77.png">
 
 
 Temporizator care are ca rezultat menținerea activa semnalului de ieșire Q un interval de timp setabil prin parametrul PT, chiar dacă semnalul de intrare IN a devenit inactiv.
@@ -3140,22 +2734,14 @@ Modul de funcționare este descris de diagramele de mai jos:
 
 
 
-<p id="gdcalert80" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image80.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert81">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image80.png "image_tooltip")
-
-
+<img src="images/Figure_78.png">
 
 
 4. 
 Funcții pentru determinari statistice: MAX, MIN, AVG, DISP
 
 
-<p id="gdcalert81" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image81.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert82">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image81.png "image_tooltip")
+<img src="images/Figure_79.png">
 
 
 Blocurile pot fi utilizate pentru calcularea mediei aritmetice, minimului, maximului sau dispersiei pentru o mărime monitorizata de ES200 pe un interval de timp setabil (WindowSize) și măsurată cu o frecvență (rata de eșantionare) definită de parametrul SampleTime(ms).
@@ -3222,13 +2808,8 @@ Descriere semnale de ieșire din bloc:
 </table>
 
 
-
-## 
-    8.5 Configurarea HMI ES200
-
-
-
-* 8.5.1	Descriere generala
+## 8.5. Configurarea HMI ES200
+### 8.5.1.	Descriere generala
 
 Pentru a configura funcția de HMI (Human Maschine Inteface) a ES200 se va utiliza același pachet de configurare Dashboard ES200.
 
@@ -3237,72 +2818,49 @@ Este necesara utilizarea unu fier de configurație specific ES200 (extensia .epg
 După importul acestui fișier in aplicația Dashboard ES200 (opțiunea open din meniul File), pentru editarea/realizarea unei interfețe grafice cu utilizatorul se va utiliza opțiunea HMI din meniul File.
 
  
-
-<p id="gdcalert82" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image82.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert83">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image82.png "image_tooltip")
+<img src="images/Figure_80.png">
 
 
 In fereastra nou deschisa in partea din stânga jos utilizăm opțiunea **Editor.**
 
 
-
-<p id="gdcalert83" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image83.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert84">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image83.png "image_tooltip")
+<img src="images/Figure_81.png">
 
 
 După activarea acestei opțiuni se va deschide editorul interfeței grafice om-mașina pusă la dispoziție de platforma ES200. In acest editor se pot configura funcționalități specifice HMI – prezentarea sub forma unor simboluri dinamice (diverse forme) a unor entități monitorizate prin ES200, elemente grafice de transmitere a unor comenzi, afișarea unor mărimi analogice. Suplimentar se pot construi imagini statice si se pot importa elemente grafice statice din fișiere de tip .jpeg, .jpg, .gif.
 
 
-
-<p id="gdcalert84" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image84.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert85">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image84.png "image_tooltip")
+<img src="images/Figure_82.png">
 
 
-**Fig.1 – Editor HMI ES200 – interfața principala**
+Fig.1 – Editor HMI ES200 – interfața principala
 
 
-
-* 8.5.2	Adăugarea de mărimi digitale
+### 8.5.2. Adăugarea de mărimi digitale
 
 Pentru a asocia o entitate cu simbol dinamic adăugat pe interfața se face click stânga pe simbolul nou adăugat si se va deschide fereastra de proprietăți (vezi figura de mai sus in partea stânga).
 
 In aceasta fereastra sunt disponibile pentru a fi setate proprietățile geometrice a simbolului, modul de aliniere si așezare in pagina, modul de prezentare. In secțiunea Interactivity, prin apăsarea butonului Propriety se pot seta modalitățile de afișare (colorare, animare) a unui simbol prin asociere cu o entitate din baza de date de ES200. Entitatea poate fi aleasă din lista celor disponibile în baza de date, iar comportamentul simbolului va depinde de valorile acestei entități.
 
-**9.3 ** **Adăugarea de mărimi analogice**
+## 9.3. Adăugarea de mărimi analogice
 
 Adăugarea unor mărimi analogice in componenta HMI se face prin utilizarea elementului denumit **Output value**, prezent in lista de elemente predefinite in secțiunea din partea stânga a editorului HMI.
 
 După adăugarea elementului in ecranul HMI, asocierea cu o entitate de tip mărime analogică din baza de date curentă a ES200 se face similar cu asocierea cu o mărime digitală descrisă la punctul 1 din același model de sistem de meniuri.
 
 
-
-<p id="gdcalert85" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image85.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert86">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image85.png "image_tooltip")
+<img src="images/Figure_83.png">
 
 
-**Fig 2 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip digital**
+Fig 2 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip digital
 
 
+<img src="images/Figure_84.png">
 
-<p id="gdcalert86" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image86.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert87">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image86.png "image_tooltip")
+Fig 3 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip analogic
 
 
-**Fig 3 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip analogic**
-
-
-
-* 8.5.4	 Adăugarea unei comenzi
+### 8.5.4. Adăugarea unei comenzi
 
 Adăugarea unor comenzi in componenta HMI se face prin utilizarea elementului denumit **Switch**, prezent in lista de elemente predefinite in secțiunea din partea stânga a editorului HMI.
 
@@ -3310,25 +2868,15 @@ După adăugarea elementului in ecranul HMI, asocierea cu o entitate de tip coma
 
 ** **
 
-<p id="gdcalert87" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image87.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert88">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="images/Figure_85.png">
 
 
-![alt_text](images/image87.png "image_tooltip")
+Fig 4 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip comanda
 
 
-**Fig 4 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip comanda**
+### 8.5.5.	Salvare, încărcare si utilizare HMI
 
-
-
-* 8.5.5	Salvare, încărcare si utilizare HMI
-
-
-
-<p id="gdcalert88" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image88.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert89">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image88.png "image_tooltip")
-
+<img src="images/Figure_86.png">
 
 După finalizare configurația se salvează prin utilizarea opțiunii **Save project** (partea din stânga sus) a editorului HMI.
 
@@ -3338,28 +2886,8 @@ După încărcarea configurației realizate in ES200, interfața om-mașina real
 
 Adresa de conectare este https:/IP_masina:3000
 
+<img src="images/Figure_87.png">
 
+<img src="images/Figure_88.png">
 
-<p id="gdcalert89" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image89.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert90">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image89.png "image_tooltip")
-
-
-
-
-<p id="gdcalert90" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image90.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert91">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image90.png "image_tooltip")
-
-
-**Figura 5 – Interfața WEB-HMI ES200**
-
- 
-
- 
-
- 
-
- 
+Figura 5 – Interfața WEB-HMI ES200

@@ -1,4 +1,29 @@
-# ES200 Installation Guide
+# ES200 Installation Guide  <!-- omit from toc -->
+
+- [1. About this manual](#1-about-this-manual)
+  - [1.1. Legal Information](#11-legal-information)
+  - [1.2. General dispositions](#12-general-dispositions)
+  - [1.3. Abbreviations and terminology](#13-abbreviations-and-terminology)
+- [2. Introduction](#2-introduction)
+  - [2.1. System Architecture](#21-system-architecture)
+  - [2.2. Hardware](#22-hardware)
+    - [2.2.1. IR809](#221-ir809)
+    - [2.2.2. IR1101](#222-ir1101)
+  - [2.3. Software](#23-software)
+    - [2.3.1. ES200](#231-es200)
+- [3. IOS configuration](#3-ios-configuration)
+  - [3.1. IR809](#31-ir809)
+    - [3.1.1. Network interfaces configuration](#311-network-interfaces-configuration)
+    - [3.1.2. DHCP server for IOx VM](#312-dhcp-server-for-iox-vm)
+    - [3.1.3. Serial interfaces configuration (optional)](#313-serial-interfaces-configuration-optional)
+  - [3.2. IR1101](#32-ir1101)
+    - [3.2.1. Enabling IOx](#321-enabling-iox)
+    - [3.2.2. Network configuration](#322-network-configuration)
+    - [3.2.3. NAT configuration](#323-nat-configuration)
+    - [3.2.4. Serial interface configuration (optional)](#324-serial-interface-configuration-optional)
+- [4. ES200 Software installation](#4-es200-software-installation)
+  - [4.2. IR809](#42-ir809)
+  - [4.3. IR1101](#43-ir1101)
 
 # 1. About this manual
 The ES200 software is designed to solve a large variety of real-life automation challenges. By using the communication standards of today’s industries, ES200 is a modern and scalable solution that can be easily integrated with most of the existing automation systems on the market. This document explains the procedure needed to install and run the ES200 software on a Cisco IOx enabled router.
@@ -15,96 +40,18 @@ This document provides information about the ES200 software and its installation
 
 ## 1.3. Abbreviations and terminology
 
-<table>
-  <tr>
-   <td>
-    Abbreviations
-   </td>
-   <td>
-    Description
-   </td>
-  </tr>
-  <tr>
-   <td>
-    RTU
-   </td>
-   <td>
-    Remote Terminal Unit
-   </td>
-  </tr>
-  <tr>
-   <td>
-    IED
-   </td>
-   <td>
-    Intelligent Electronic Devices
-   </td>
-  </tr>
-  <tr>
-   <td>
-    DC
-   </td>
-   <td>
-    Direct current
-   </td>
-  </tr>
-  <tr>
-   <td>
-    SSH
-   </td>
-   <td>
-    Secure Shell
-   </td>
-  </tr>
-  <tr>
-   <td>
-    IOS
-   </td>
-   <td>
-    Cisco operating system
-   </td>
-  </tr>
-  <tr>
-   <td>
-    IOx
-   </td>
-   <td>
-    <strong>IO</strong>S + Linu<strong>x </strong>= IOx
-   </td>
-  </tr>
-  <tr>
-   <td>
-    DHCP
-   </td>
-   <td>
-    Dynamic Host Configuration Protocol
-   </td>
-  </tr>
-  <tr>
-   <td>
-    S0 / S1
-   </td>
-   <td>
-    Cisco IR809 serial ports
-   </td>
-  </tr>
-  <tr>
-   <td>
-    VM
-   </td>
-   <td>
-    Virtual Machine
-   </td>
-  </tr>
-  <tr>
-   <td>
-    TCP
-   </td>
-   <td>
-    Transmission Control Protocol
-   </td>
-  </tr>
-</table>
+| Abbreviations | Description                  |
+| ------------- | ---------------------------- |
+| RTU           | Remote Terminal Unit         |
+| IED           | Intelligent Electronic Device|
+| DC            | Direct Current               |
+| SSH           | Secure Shell                 |
+| IOS           | Cisco Operating System       |
+| IOx           | **IO**S + Linu**x** = IOx    |
+| DHCP          | Dynamic Host Configuration Protocol |
+| S0 / S1       | Cisco IR809 serial ports     |
+| VM            | Virtual Machine              |
+| TCP           | Transmission Control Protocol|
 
 # 2. Introduction
 ES200 is a control, monitoring and data acquisition unit dedicated to applications in the industry field (utilities, energy, gas etc.). It is the ideal solution both for automation and control of transformation, power or connection points and for local SCADA systems.

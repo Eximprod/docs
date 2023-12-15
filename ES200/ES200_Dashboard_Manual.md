@@ -130,98 +130,22 @@ This document provides information about the ES200 Dashboard software and its ma
 
 This document contains a set of terms that specify important or safety information.
 
-<table>
-  <tr>
-   <td>Term
-   </td>
-   <td>Description
-   </td>
-  </tr>
-  <tr>
-   <td>Alarm
-   </td>
-   <td>An event that informs the operator about any deviation from normal system conditions.
-   </td>
-  </tr>
-  <tr>
-   <td>Application
-   </td>
-   <td>Software designed to respond to a specific task.
-   </td>
-  </tr>
-  <tr>
-   <td>Archive
-   </td>
-   <td>Storage area for historical and forecasted data.
-   </td>
-  </tr>
-  <tr>
-   <td>Attribute
-   </td>
-   <td>A specific property of an object.
-   </td>
-  </tr>
-  <tr>
-   <td>Button
-   </td>
-   <td>Sensitive display area that can be pressed to initiate a specific action.
-   </td>
-  </tr>
-  <tr>
-   <td>Click
-   </td>
-   <td>Press a mouse button once and release without moving the cursor.
-   </td>
-  </tr>
-  <tr>
-   <td>Command center
-   </td>
-   <td>Location where the distribution control center (master) is located.
-   </td>
-  </tr>
-  <tr>
-   <td>Database
-   </td>
-   <td>A collection of information required by the application.
-   </td>
-  </tr>
-  <tr>
-   <td>Default
-   </td>
-   <td>Normal, standard.
-   </td>
-  </tr>
-  <tr>
-   <td>Display
-   </td>
-   <td>Instrument used to indicate information (in this case synonymous with screen).
-   </td>
-  </tr>
-  <tr>
-   <td>Double-click
-   </td>
-   <td>Two successive clicks on the mouse.
-   </td>
-  </tr>
-  <tr>
-   <td>Log
-   </td>
-   <td>Information about the occurrence of an event.
-   </td>
-  </tr>
-  <tr>
-   <td>Protocol UP/DOWN
-   </td>
-   <td>Communication protocol with equipment at a higher / lower level.
-   </td>
-  </tr>
-  <tr>
-   <td>Tag
-   </td>
-   <td>A property of an element.
-   </td>
-  </tr>
-</table>
+| Term            | Description                                                                 |
+|-----------------|-----------------------------------------------------------------------------|
+| Alarm           | An event that informs the operator about any deviation from normal system conditions.  |
+| Application     | Software designed to respond to a specific task.                            |
+| Archive         | Storage area for historical and forecasted data.                            |
+| Attribute       | A specific property of an object.                                           |
+| Button          | Sensitive display area that can be pressed to initiate a specific action.   |
+| Click           | Press a mouse button once and release without moving the cursor.            |
+| Command center  | Location where the distribution control center (master) is located.         |
+| Database        | A collection of information required by the application.                    |
+| Default         | Normal, standard.                                                          |
+| Display         | Instrument used to indicate information (in this case synonymous with screen). |
+| Double-click    | Two successive clicks on the mouse.                                         |
+| Log             | Information about the occurrence of an event.                               |
+| Protocol UP/DOWN| Communication protocol with equipment at a higher / lower level.            |
+| Tag             | A property of an element.                                                   |
 
 
 ## 1.4. Abbreviations
@@ -229,119 +153,25 @@ This document contains a set of terms that specify important or safety informati
 Below is a list of abbreviations used throughout the document.
 
 
-<table>
-  <tr>
-   <td><strong>Abbreviations</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>A
-   </td>
-   <td>Ampere
-   </td>
-  </tr>
-  <tr>
-   <td>Ω
-   </td>
-   <td>Ohm
-   </td>
-  </tr>
-  <tr>
-   <td>V
-   </td>
-   <td>Volt
-   </td>
-  </tr>
-  <tr>
-   <td>W
-   </td>
-   <td>Watt
-   </td>
-  </tr>
-  <tr>
-   <td>CC
-   </td>
-   <td>Command Center
-   </td>
-  </tr>
-  <tr>
-   <td>COMx
-   </td>
-   <td>Serial port x
-   </td>
-  </tr>
-  <tr>
-   <td>DNP3
-   </td>
-   <td>Distributed Network Protocol
-   </td>
-  </tr>
-  <tr>
-   <td>I/O
-   </td>
-   <td>Input/output 
-   </td>
-  </tr>
-  <tr>
-   <td>ID
-   </td>
-   <td>Unique identifier
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-104
-   </td>
-   <td>International Electrotechnical Commission 60870-5-104 communication protocol 
-   </td>
-  </tr>
-  <tr>
-   <td>IED
-   </td>
-   <td>Intelligent Electronic Devices
-   </td>
-  </tr>
-  <tr>
-   <td>LoRaWAN
-   </td>
-   <td>Low Power Wide Area Network (LPWAN) specification
-   </td>
-  </tr>
-  <tr>
-   <td>RTU
-   </td>
-   <td>Remote Terminal Unit
-   </td>
-  </tr>
-  <tr>
-   <td>SCADA
-   </td>
-   <td>Supervisory Control and Data Acquisition
-   </td>
-  </tr>
-  <tr>
-   <td>TCP
-   </td>
-   <td>Transmission Control Protocol
-   </td>
-  </tr>
-  <tr>
-   <td>TP
-   </td>
-   <td>Transformation point
-   </td>
-  </tr>
-  <tr>
-   <td>WAN
-   </td>
-   <td>Wide Area Network 
-   </td>
-  </tr>
-</table>
-
-
-
+| Abbreviations       | Description                                                   |
+| ------------------- | ------------------------------------------------------------- |
+| A                   | Ampere                                                        |
+| Ω                   | Ohm                                                           |
+| V                   | Volt                                                          |
+| W                   | Watt                                                          |
+| CC                  | Command Center                                                |
+| COMx                | Serial port x                                                 |
+| DNP3                | Distributed Network Protocol                                  |
+| I/O                 | Input/output                                                  |
+| ID                  | Unique identifier                                             |
+| IEC 60870-5-104     | International Electrotechnical Commission 60870-5-104 protocol |
+| IED                 | Intelligent Electronic Devices                                |
+| LoRaWAN             | Low Power Wide Area Network specification                    |
+| RTU                 | Remote Terminal Unit                                          |
+| SCADA               | Supervisory Control and Data Acquisition                      |
+| TCP                 | Transmission Control Protocol                                 |
+| TP                  | Transformation point                                          |
+| WAN                 | Wide Area Network                                             |
 
 # 2. The ES200 Unit
 
@@ -351,13 +181,9 @@ Our solution works in a distributed architecture, along with the software and de
 
 ES200 is able to run, deploy and operate at the Network Edge, while securely isolating SCADA microservices from any other process. It enables data extraction, concentration, processing and storage by acting as a SCADA gateway.
 
-
-
 ## 2.1. Use cases
 
 ES200 features monitoring, control and communication gateway functions. The system allows the capture of intelligent protection (IED signals), as well as the direct acquisition of digital signals. The ES200 has a wide range of standard protocols (detailed in section 2.4) for monitoring and transmitting information to the higher level. Also, ES200 can store a history of up to 500,000 events stored in non-volatile memory that are described by:
-
-
 
 * The time tag identifying the time at which the event occurred (accuracy of 1ms);
 * Source of the event;
@@ -381,88 +207,17 @@ Communications protocols supported by the ES200 include Modbus, DNP3, IEC 60870-
 Depending on the hardware platform that supports it, the ES200 can directly control and transmit information via its own I/O modules. Below you can find a list of the currently supported communication protocols.
 
 
-<table>
-  <tr>
-   <td><strong>Protocol</strong>
-   </td>
-   <td><strong>Master </strong>
-   </td>
-   <td><strong>Slave</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Modbus
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>DNP3
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-104
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-101
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850 Edition 2
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>MQTT
-   </td>
-   <td>
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>LoRa
-   </td>
-   <td>
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>OPC Client
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
+| Protocol         | Master | Slave |
+|------------------|--------|-------|
+| Modbus           | Yes    | Yes   |
+| DNP3             | Yes    | Yes   |
+| IEC 60870-5-104  | Yes    | Yes   |
+| IEC 60870-5-101  | Yes    |       |
+| IEC 61850        | Yes    |       |
+| IEC 61850 Edition 2 | Yes |       |
+| MQTT             |        | Yes   |
+| LoRa             |        | Yes   |
+| OPC Client       | Yes    |       |
 
 Table 2: ES200 supported communication protocols
 

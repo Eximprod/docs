@@ -1,16 +1,16 @@
-# ES200 Installation Guide  <!-- omit from toc -->
+# ES200 vRTU Installation Manual for IOx  <!-- omit from toc -->
 
 - [1. About this manual](#1-about-this-manual)
-  - [1.1. Legal Information](#11-legal-information)
-  - [1.2. General dispositions](#12-general-dispositions)
+  - [1.1. Legal Disclaimer](#11-legal-disclaimer)
+  - [1.2. General Provisions](#12-general-provisions)
   - [1.3. Abbreviations and terminology](#13-abbreviations-and-terminology)
 - [2. Introduction](#2-introduction)
   - [2.1. System Architecture](#21-system-architecture)
   - [2.2. Hardware](#22-hardware)
-    - [2.2.1. IR809](#221-ir809)
-    - [2.2.2. IR1101](#222-ir1101)
+    - [2.2.1. IR-809: A Compact Powerhouse for Industrial Communications](#221-ir-809-a-compact-powerhouse-for-industrial-communications)
+    - [2.2.2. IR-1101: A Secure IoT Gateway for the Modern Edge](#222-ir-1101-a-secure-iot-gateway-for-the-modern-edge)
   - [2.3. Software](#23-software)
-    - [2.3.1. ES200](#231-es200)
+    - [2.3.1. ES200: A Software-Defined Remote Terminal Unit (RTU) for Modern Utilities](#231-es200-a-software-defined-remote-terminal-unit-rtu-for-modern-utilities)
 - [3. IOS configuration](#3-ios-configuration)
   - [3.1. IR809](#31-ir809)
     - [3.1.1. Network interfaces configuration](#311-network-interfaces-configuration)
@@ -26,17 +26,17 @@
   - [4.3. IR1101](#43-ir1101)
 
 # 1. About this manual
-The ES200 software is designed to solve a large variety of real-life automation challenges. By using the communication standards of today’s industries, ES200 is a modern and scalable solution that can be easily integrated with most of the existing automation systems on the market. This document explains the procedure needed to install and run the ES200 software on a Cisco IOx enabled router.
+The **ES200** virtual RTU software is a versatile solution designed to address a wide range of automation needs in various industries. By leveraging current communication standards, ES200 provides a modern and scalable platform that seamlessly integrates with most existing automation systems. This document outlines the steps required to install and utilize the ES200 software on a Cisco IOx-enabled device.
 
-## 1.1. Legal Information
-The information in this document is subject to change without prior notice and is not a commitment on the part of the supplier. Eximprod does not take responsibility for the use of the information in this document.
+## 1.1. Legal Disclaimer
+The information contained in this document is subject to change without prior notice and does not constitute a commitment from Eximprod. Eximprod assumes no responsibility for the use of the information provided herein.
 
-Eximprod is not responsible for any direct or indirect matter of any nature that may result from the use of this document or any product mentioned in the document.
+Eximprod is not liable for any direct or indirect damages arising from the use of this document or any product mentioned herein.
 
-The information in this document cannot be reproduced or copied without the written permission of Eximprod and the content cannot be given to a third party for unauthorized use.
+This document is protected by copyright and cannot be reproduced without the written permission of Eximprod. The content of this document cannot be transferred to third parties for unauthorized use.
 
-## 1.2. General dispositions
-This document provides information about the ES200 software and its installation process. The information available in this manual is intended for personnel who will use this product to configure different components or for current use.
+## 1.2. General Provisions
+This document provides comprehensive information about the ES200 software and its installation process. The information presented herein is intended for individuals who will utilize this product to configure various components or for current application purposes.
 
 ## 1.3. Abbreviations and terminology
 
@@ -54,55 +54,98 @@ This document provides information about the ES200 software and its installation
 | TCP           | Transmission Control Protocol|
 
 # 2. Introduction
-ES200 is a control, monitoring and data acquisition unit dedicated to applications in the industry field (utilities, energy, gas etc.). It is the ideal solution both for automation and control of transformation, power or connection points and for local SCADA systems.
+ES200 is a versatile control, monitoring, and data acquisition unit meticulously designed for applications across various industries, including utilities, energy, and gas. It seamlessly caters to both automation and control of transformation, power, or connection points, as well as local SCADA systems.
 
-ES200 has been developed in line with the latest international standards. Our engineering teams have used their expertise in the field to develop a solution that is able to function in a distributed architecture along with most of the solutions available at present time.
+ES200 adheres to the latest international standards, reflecting our engineering teams' extensive expertise in the field. We have crafted a solution capable of operating within a distributed architecture, seamlessly integrating with existing solutions.
 
-ES200 features monitoring, control and communication gateway functions. The system allows the capture of intelligent protection (IED signals), as well as the direct acquisition of digital signals. It has a wide range of standard protocols (Modbus TCP/RTU, DNP3 TCP/RTU, IEC 60870-5-101/104, IEC 61850, LoRaWAN) for monitoring and transmitting information to the higher level.
+ES200 excels in its monitoring, control, and communication gateway functionalities. It effectively captures intelligent protection (IED) signals and enables direct acquisition of digital signals. Additionally, it supports a comprehensive range of standard protocols, including Modbus TCP/RTU, DNP3 TCP/RTU, IEC 60870-5-101/104, IEC 61850 edition 1 & 2, LoRaWAN, for effortless monitoring and information transmission to higher-level systems.
+
 ## 2.1. System Architecture
-You can install the ES200 software on the Cisco routers in the following ways:
+ES200 software can be installed on Cisco routers through various methods:
 
-* Local Manager
-* ioxclient
-* Fog Director
-* Field Network Director
+| Method | Description |
+| ------ | ----------- |
+| Local Manager | This method utilizes the IOx Local Manager, a built-in tool for managing applications and packages within Cisco routers. |
+| ioxclient | This method involves using the ioxclient, a command-line utility for deploying and managing applications on IOx-enabled devices. |
+| Fog Director | This method deploys ES200 software through Fog Director, a centralized management platform for Cisco IOx applications. |
+| Field Network Director (FND) | This method leverages FND, a cloud-based management platform for Cisco IOx applications. |
 
-This manual will cover the installation of the ES200 software using the Local Manager of the IOx.
+This manual focuses on the installation of ES200 software using the Local Manager of IOx.
 
 ## 2.2. Hardware
-### 2.2.1. IR809
-The IR809 is Cisco’s smallest multimode 3G and 4G LTE wireless router, making it an excellent solution for distribution automation and remote asset management across multiple industrial vertical markets (Figure 1). The IR809 has an integrated 9.6 to 60V DC power input and is designed to withstand hostile environments, including shock, vibration, dust, and humidity, and supports a wide temperature range (–40 to 60°C and type-tested at 85°C for 16 hours). The IR809 brings together:
-* Enterprise-class wireline-like services, such as quality of service (QoS)
-* Cisco advanced virtual private network (VPN) technologies (such as Dynamic Multipoint VPN [DMVPN] and Flexible VPN [FlexVPN])
-* Multiple Virtual Routing and Forwarding (VRF) instances for cellular highly secure data, voice, and video communications
-* Cisco IOx, an open, extensible environment for hosting applications at the network edge
+### 2.2.1. IR-809: A Compact Powerhouse for Industrial Communications
 
-The IR809 also extends connectivity to include low-power wide-area (LPWA) access using the Cisco Interface Module for LoRaWAN.
+Cisco's IR-809 is a tiny yet mighty multimode 3G and 4G LTE wireless router, making it an ideal solution for distribution automation and remote asset management across diverse industrial vertical markets. This robust device boasts an integrated 9.6-60V DC power input and is engineered to withstand challenging environments, including shock, vibration, dust, and humidity. Its wide temperature range, spanning from -40°C to 60°C and validated at 85°C for 16 hours, further exemplifies its resilience.
 
-### 2.2.2. IR1101
+The IR-809 seamlessly integrates enterprise-class wireline-like services, such as quality of service (QoS), ensuring reliable and prioritized data transmission. It also leverages Cisco's advanced virtual private network (VPN) technologies, including Dynamic Multipoint VPN (DMVPN) and Flexible VPN (FlexVPN), to establish secure and highly private data communication tunnels. Additionally, it supports multiple Virtual Routing and Forwarding (VRF) instances, enabling secure compartmentalization of data, voice, and video traffic.
 
-Cisco IR1101 delivers secure IoT connectivity for today and the future. Its 5G ready modular design allows you to upgrade to new communications protocols when they become available, avoiding costly rip-and-replace. Add or upgrade WAN, edge compute and storage components as technologies and your needs evolve. With its rugged hardware and compact form-factor, you can install it almost anywhere.
+To further extend its connectivity capabilities, the IR-809 embraces Cisco IOx, an open, extensible environment specifically designed for hosting applications at the network edge. This enables the deployment of innovative applications tailored to specific industrial needs.
+
+Furthermore, the IR-809 expands connectivity options by incorporating low-power wide-area (LPWA) access using the Cisco Interface Module for LoRaWAN. This enables seamless integration with IoT devices, facilitating data acquisition and remote monitoring in remote or resource-constrained environments.
+
+<img src="images/IR-809.jpg"></p>
+Figure 1: The Cisco IR-809 Industrial Wireless Router
+
+This compact and rugged router offers a comprehensive suite of features catering to the demanding requirements of industrial communications. Its combination of enterprise-class services, advanced VPN technologies, multiple VRF instances, Cisco IOx support, and LPWA capability makes it an invaluable asset for modern industrial applications.
+
+### 2.2.2. IR-1101: A Secure IoT Gateway for the Modern Edge
+
+The Cisco IR-1101 is a rugged and compact industrial router designed to provide secure connectivity for IoT devices in harsh environments. Its 5G ready modular design ensures future-proofing, allowing you to upgrade to new communication protocols as they become available without the need for costly hardware replacements.
+
+<img src="images/IR-1101.png"></p>
+Figure 2: The Cisco IR-1101 Industrial Router
+
+The IR-1101 supports a wide range of WAN connections, including 4G/LTE, 5G, and private LTE. It also offers edge computing capabilities, allowing you to run applications close to your IoT devices, reducing latency and improving performance. Additionally, the IR-1101 includes a built-in storage module for storing data generated by IoT devices.
+
+With its expandable design, the IR-1101 can be customized to meet the specific needs of your IoT deployments. You can add or upgrade WAN, edge compute, and storage components as your technologies and requirements evolve.
+
+The IR-1101 is ideal for a variety of IoT applications, including:
+
+Industrial automation: Connect and monitor industrial equipment, such as sensors, actuators, and industrial control systems.
+Smart buildings: Collect data from building systems, such as HVAC, lighting, and security, to optimize energy consumption and improve occupant comfort.
+Smart cities: Connect and manage infrastructure assets, such as traffic lights, streetlights, and parking meters.
+Agriculture: Collect data from agricultural equipment and sensors to optimize crop yields and resource management.
+The Cisco IR-1101 is a cost-effective and reliable solution for secure IoT connectivity in the modern edge. With its modular design, expandable capabilities, and rugged construction, the IR-1101 can help you deploy and manage IoT solutions that meet the demands of your business.
 
 ## 2.3. Software
-### 2.3.1. ES200
-ES200 is a Software-Defined Remote Terminal Unit (RTU), operating on Cisco hardware running the IOx application hosting platform (e.g. IR809, IR1101) that enables multiple use cases for utilities and:
-* offers the ability to manage large scale IoT sensor data
-* operates and controls the distributed network infrastructure
-* allows the update and reconfiguration of the software functions
-* shares information with other third-party applications that run on the Cisco hardware
-* improves security and automation functionalities while allowing backward compatibility with legacy equipment
+### 2.3.1. ES200: A Software-Defined Remote Terminal Unit (RTU) for Modern Utilities
+
+ES200 is a software-defined remote terminal unit (RTU) that operates on Cisco hardware running the IOx application hosting platform (e.g., IR809, IR1101, etc). It offers a comprehensive suite of features designed to address the evolving needs of modern utilities:
+
+| Feature | Description |
+| --- | --- |
+| Integrated Monitoring and Control | Real-time monitoring and control of distribution networks, ensuring reliable power delivery and minimizing outages. |
+| Data Analytics | Collecting, analyzing, and utilizing data from smart meters to optimize energy consumption and improve grid efficiency. |
+| Remote Asset Management | Efficient management of remote substations, transformers, and other critical infrastructure. |
+| Smart Metering and Data Analytics | Collecting, analyzing, and utilizing data from smart meters to optimize energy consumption and improve grid efficiency. |
+| Backward Compatibility with Legacy Equipment | Maintains compatibility with legacy equipment, allowing for a smooth transition to modern IoT-based solutions while preserving existing investments. |
+| Enhanced Security and Automation | Strengthens security measures and automates processes, enhancing the overall operational efficiency and reducing the risk of disruptions. |
+| Modular Design | Modular design allows for easy updates and reconfiguration of software functions, enabling utilities to adapt to changing requirements and optimize their operations. |
+| Interoperability | Seamless integration with other third-party applications and services, fostering data exchange and enabling holistic system management. |
+
+<img src="images/ES200_System_Architecture.png"></p>
+Figure 3: The ES200 Software-Defined Remote Terminal Unit Architecture
 
 # 3. IOS configuration
-In order to run an IOx application on Cisco routers one must do a router configuration before installing the application. In the next chapters, this manual will provide information on how to configure Cisco IR809 and Cisco IR1101 in order to have the IOx platform enabled for applications.
 
-This manual will assume that the network configurations of the router are already done and SSH is enabled on the device. Also, this guide will assume that GE0 is configured as a WAN port and GE1 is configured as a LAN port.
+To successfully run an IOx application on Cisco routers, specific router configurations are required before installing the application. This manual will provide detailed steps on how to configure Cisco IR-809 and Cisco IR-1101 routers to enable their IOx platforms for applications.
 
-Because ES200 is an application that requires connections from the WAN, the access to the ES200 container can be done in two different ways:
+Assumptions:
+1. The network configurations of the router are already completed.
+2. SSH is enabled on the device.
+3. GE0 is configured as the WAN port and GE1 is configured as the LAN port.
 
-* Using a port forwarding from the WAN interface to the ES200 container
-* Using NAT with another IP from the WAN network to the IP of the ES200 container (IR1101) or the IOx VM (IR809)
+Given that ES200 requires external connections from the WAN, there are two methods for allowing communications to the ES200 container:
 
-This manual will explain the second method.
+**Method 1: Port Forwarding**
+
+This method involves forwarding a specific port from the WAN interface to the ES200 container. This method provides direct access to the ES200 container from the WAN, but it can expose the container to potential security risks.
+
+**Method 2: NAT with External IP**
+
+This method involves assigning an additional IP address from the WAN network to the ES200 container (IR1101) or the IOx VM (IR809). This method enhances security by isolating the ES200 container from the WAN while enabling access from the designated external IP address.
+
+This manual will focus on explaining Method 2: NAT with External IP.
 
 ## 3.1. IR809
 The Cisco IR809 is an industrial router that runs a LynxWorks hypervisor on top of which runs three Virtual Machines (VM), the IOS VM, the IOx VM and the Virtual Device Server. To find out more about how this works please visit this [link.](https://developer.cisco.com/docs/iox/%23!ir-800-series-platform-information/ir8xx-platforms)
@@ -189,9 +232,19 @@ R1-epg(config)# relay line 2 1/6 propagation
 
 The Cisco IR1101 is an industrial router that runs IOS-XE, an open and flexible operating system optimized for the new era of enterprise networks. In here, the Cisco Application Framework (CAF) is run as a process inside the IOS-XE.
 
+IR-1101 platform information for IOx apps
+
+| Parameter | Value |
+| --- | --- |
+| CPU architecture | ARM 64-bit (aarch64) |
+| CPU | 1255 Units |
+| Memory | 862 MB |
+| Storage | 701 MB |
+| Serial ports | 1 (5 with IRM-1100-4AT) |
+
 In order to run the ES200 application on the Cisco IR1101, the following steps must be done:
 
-* Enable iox
+* Enable IOx
 * Configure the networking
 * Configure NAT
 * Configuration of the Serial interface (optional)

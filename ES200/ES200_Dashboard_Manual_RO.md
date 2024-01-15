@@ -240,6 +240,19 @@ Tabelul de mai jos conține o listă de abrevieri folosite de-a lungul documentu
 </table>
 
 
+## 1.5. Versiuni browser minime
+
+Chrome: 71
+
+Opera: 58
+
+Safari: 13
+
+Mozilla Firefox: N/A
+
+Microsoft Edge: 80
+
+
 # 2. Unitatea ES200
 
 ES200 este o unitate de control, monitorizare și achiziție de date. Este o soluție ideală atât pentru automatizare, cât și pentru controlul punctelor din** **sistemele SCADA locale.
@@ -505,15 +518,12 @@ File – permite deschiderea, salvarea, descărcarea și încărcarea bazelor de
 Edit – permite adăugarea de noi echipamente (atât slave, cât și master), adăugarea licenței, autorului și descrierii pentru o bază de date.
 
 
-* 
 Tools – permite schimbarea limbi curente a aplicației.
 
 
-* 
 Help – oferă informații suplimentare despre aplicația Dashboard.
 
 
-* 
 Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, precum și închiderea aplicației.
 
 
@@ -522,16 +532,12 @@ Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, 
 Toolbar-ul secundar conține următoarele butoane:
 
 
-
-* 
 New Project – deschide un tab nou, cu o bază de date goală (care respectă în mod implicit cea mai recentă versiune de bază de date existentă)
 
 
-* 
 Open Project – deschide o nouă fereastră care permite navigarea prin structura de fișiere pentru selectarea unei baze de date pentru vizualizare sau editare.
 
 
-* 
 Save Project – salvează configurația curentă în fișierul de baze de date deschis (dacă este vorba de un proiect nou-creat, o fereastră de navigare va permite selectarea destinației de salvare)
 
 
@@ -540,16 +546,12 @@ Save Project – salvează configurația curentă în fișierul de baze de date 
 În lista de echipamente, acestea sunt grupate în următoarele categorii:
 
 
-
-* 
 Command Centers – o listă a centrelor de comandă din baza de date
 
 
-* 
 Intelligent Electronic Device – o listă a tuturor IED-urilor din baza de date
 
 
-* 
 Data Management Services – echipamentul de tip MultiDataMaster din baza de date.
 
 
@@ -558,16 +560,12 @@ Data Management Services – echipamentul de tip MultiDataMaster din baza de dat
 La selectarea unui echipament (fie el centru de comandă sau IED), secțiunea setărilor echipamentului va avea următoarele sub-meniuri:
 
 
-
-* 
 Unit info – conține informații despre echipamentul selectat (nume, numar canal, etc). Câmpurile editabile pot fi modificate conform noilor cerințe.
 
 
-* 
 Equipment Properties – informații adiționale despre echipamentul selectat și protocoalele de comunicare folosite. Fiecare câmp are un text de ajutor care va fi afișat atunci când treceți peste numele câmpului cu mouse-ul.
 
 
-* 
 Channel Settings – informații despre canalul (Serial sau TCP) folosit de echipament pentru comunicare. 
 
 
@@ -594,37 +592,22 @@ Figura 10: Adăugarea unui nou centru de comandă (Command Center)
 
 Câmpurile editabile din interfața prezentată în Figura 10 sunt:
 
-
-
-* 
 Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
 
-
-* 
 Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
 
-
-* 
 Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
 
-
-* 
 Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
 
-
-* 
 Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
 
-
-* 
 Opțiunile pentru configurarea unui canal de comunicație nou sunt:
 
 
-    * 
 Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
 
 
-    * 
 Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
 
 
@@ -637,28 +620,16 @@ Figura 11: Setările pentru conexiunile serială respectiv TCP
 1. 
 Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
-
-    * 
 BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-
-    * 
 DATABITS – numărul de biți ai unui caracter;
 
-
-    * 
 STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-
-    * 
 PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
 
-
-    * 
 RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
 
-
-    * 
 PORT – portul folosit de echipament pentru comunicare.
 Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambele capete ale canalului de comunicație. Prin urmare, configurarea lor se face în funcție de echipamentul de comandă care va fi conectat la ES200.
 
@@ -667,12 +638,8 @@ Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambe
 
 2.
 
-
-    * 
 IP – adresa IP a echipamentului (nu este obligatorie completarea adresei IP a centrului de comanda - recomandam ca acest camp sa ramana necompletat);
 
-
-    * 
 PORT – portul folosit de echipament pentru comunicația TCP
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebui editat și se modifică setările sale din secțiunea Equipment Settings, după cum este ilustrat în Figura 12.
 
@@ -699,37 +666,20 @@ Figura 13: Adăugarea unui IED
 
 Câmpurile editabile din interfața prezentată în Figura 13 sunt:
 
-
-
-* 
 Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
 
-
-* 
 Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
 
-
-* 
 Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
 
-
-* 
 Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
 
-
-* 
 Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
 
-
-* 
 Opțiunile pentru configurarea unui canal de comunicație nou sunt:
-
-
-    * 
+ 
 Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
 
-
-    * 
 Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
 În funcție de tipul de canal selectat, parametrii necesari configurării sunt diferiți, după cum urmează: 
 
@@ -738,28 +688,16 @@ Channel Description – (opțional) câteva cuvinte care ajută la identificarea
 1. 
 Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
-
-    * 
 BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-
-    * 
 DATABITS – numărul de biți ai unui caracter;
-
-
-    * 
+ 
 STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-
-    * 
 PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
-
-
-    * 
+ 
 RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
-
-
-    * 
+ 
 PORT – portul folosit de echipament pentru comunicare.
 Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambele capete ale canalui de comunicație. Prin urmare, configurarea lor se face în funcție de echipamentul de comandă care va fi conectat la ES200.
 
@@ -768,12 +706,8 @@ Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambe
 2. 
 Opțiunea TCP Channel are următorii parametri editabili:
 
-
-    * 
 IP – adresa IP a echipamentului 
-
-
-    * 
+ 
 PORT – portul folosit de echipament pentru comunicația TCP
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebuie editat și se modifică setările sale din secțiunea Equipment Settings, exact la fel ca în cazul editării setărilor unui centru de comandă.
 
@@ -784,13 +718,8 @@ Procedura pentru adăugarea elementelor monitorizate de la nivelul unui echipame
 
 În această fereastră se pot configura următoarele câmpuri:
 
-
-
-* 
 Starting Address – adresa primului punct pe care dorești să-l adaugi echipamentului;
 
-
-* 
 Number of Points – numărul de puncte care se vor adăuga. Adresele lor se vor aloca în mod crescător începând cu adresa setată la Starting Address.
 
 
@@ -806,13 +735,8 @@ După adăugarea punctelor, acestea apar în tabelul corespunzător echipamentul
 
 În tabelul din dreapta centrului de comandă selectat, se pot vizualiza sau edita punctele care vor fi trimise către respectivul echipament. Fiecare câmp editabil poate fi modificat apăsând dublu-click pe celula respectivă. Câmpurile editabile sunt următoarele:
 
-
-
-* 
 ADDRESS – adresa punctului
 
-
-* 
 Master Variable Name – numele punctului corespunzător din lista punctelor Masterului corespunzător. Numele va fi selectat dintr-un sub-meniu. Selectarea unui punct va face ca rândul să devină alb.  
 
 
@@ -828,17 +752,10 @@ Tabelul din dreapta echipamentului selectat poate fi folosit pentru editarea pun
 
 Câmpurile editabile sunt:
 
-
-
-* 
 ADDRESS – adresa punctului. 
 
-
-* 
 Description – câteva cuvinte care ajută la identificarea punctului și a scopului acestuia. 
 
-
-* 
 Variable Name – numele punctului
 
 ## 4.3. Descărcarea și încărcarea bazei de date în ES200
@@ -886,13 +803,9 @@ Folosind săgeata din stânga fiecărei categorii, punctele grupate pot fi ascun
 
 Pentru fiecare punct, sunt specificate marci temporale precum: 
 
-
-
-* 
 Protocol timestamp - momentul de timp inregistrat de catre protocol
 
 
-* 
 Internal timestamp - momentul de timp corespondent masinii pe care ruleaza ES200 - prezinta ultimul eveniment ce a avut loc pe punctul respectiv
 In coltul dreapta sus a ferestrei se poate identifica un buton intitulat “Open Console” - acesta are rolul de a deschide un terminal de pe routerul pe care ruleaza ES200.
 
@@ -1546,7 +1459,7 @@ offlinePoolPeriod [ms] - Timpul după care se încearcă o reconectare pe protoc
 **ClockSyncInterval (ms)** – intervalul de timp la care va fi transmisa o comanda de sincronizare de timp  de către master către slave. Comenzile de sincronizare de timp se pot emite si in cazul in care exista diferențe semnificative de timp intre master si slave.
 
 
-### 5.5.3. Adăugarea mărimilor digitale simple, de tip double (ex:echipamente de comutație) sau a celor analogice
+### 5.5.3. Adăugarea mărimilor digitale simple, de tip double sau a celor analogice
 
 Se utilizează secțiunile **Single-Point Information (SPI) si Double-Point Information (DPI)** pentru entitățile binare si duble si secțiunile Normalized, Scaled si Short-Floating pentru entitățile de tip mărimi analogice.
 
@@ -2159,17 +2072,11 @@ Se va deschide o nouă bază de date numita Denumire.epgd [versiune anterioara] 
 Între diferite versiuni de baze de date exista diferente precum:
 
 
+Scoaterea sau adaugarea unor câmpuri de proprietăți ale echipamentelor
 
-* 
-scoaterea sau adaugarea unor câmpuri de proprietăți ale echipamentelor
+Schimbarea valorilor default (implicite)
 
-
-* 
-schimbarea valorilor default (implicite)
-
-
-* 
-scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
+Scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
 
 ##### 8.2.3.1. Diferente intre versiunile 1.3 - 1.5
 
@@ -2180,206 +2087,160 @@ Pentru fiecare dintre noile proprietăți au fost adaugate câmpuri de Helptext 
 ##### 8.2.3.1.1. ModbusMaster
 
 
-* 
 Următoarele proprietăți de echipament au fost scoase:
 
 
-    * 
 ProcessRestartTimeout
 
 
-    * 
 ValidityTimeout
 
 
-* 
+
 Următoarele proprietăți de puncte au fost scoase:
 
 
-    * 
 DefaultValue
 
 
-    * 
 WordCount, doar posibilitatea de a lua valoare 4.
 
-
-* 
+ 
 Următoarele proprietăți de echipament au fost adaugate::
 
-
-* 
+ 
 MaxRequestRetries
 
 
 ##### 8.2.3.1.2. DNP3Master
 
 
-* 
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-* 
 ChannelResponseTimeout
 
 
-* 
 LinkConfirmTimeout
 
 
-* 
 LinkConfirmMode
 
 
-* 
 MaxRequestRetries
 
 
-* 
 ClockSyncInterval
 
 
-* 
 Următoarele proprietăți de puncte au fost adaugate:
 
 
-* 
 Mode
 
 
-* 
 Următoarele valori default au fost schimbate:
 
 
-    * 
 LinkStatusInterval [setat la 10000]
 
 
 ##### 8.2.3.1.3. IEC61850
 
 
-* 
 Următoarele proprietăți de echipament au fost scoase:
 
 
-    * 
 Path
 
 
-    * 
 FileLogPath
 
-
-* 
+ 
 Următoarele valori default au fost schimbate:
 
 
-    * 
 PSEL [setat la 00000001]
 
 
-    * 
 SSEL [setat la 0001]
 
 
-    * 
 TSEL [setat la 0001]
 
 
 ##### 8.2.3.1.4. IEC104Slave
 
 
-* 
 Următoarele proprietăți de echipament au fost scoase:
 
 
-    * 
 FileLogPath
 
 
-    * 
 MonitoredPath
 
 
-* 
 Următoarele proprietăți de puncte au fost scoase:
 
 
-    * 
 DefaultValue
 
 
-* 
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-* 
 CyclicAfterFirstGI
 
 
-* 
 FileMonitorPath
 
 
-* 
 FilesEncoderMonitorPath
 
 
 ##### 8.2.3.1.5. ModbusSlave
 
 
-* 
 Următoarele proprietăți de puncte au fost scoase:
 
 
-    * 
 DefaultValue
 
 
-    * 
 DataType
 
 
-    * 
 MeasurementUnit
 
 
 ##### 8.2.3.1.6. IEC104Master
 
 
-* 
 Următoarele proprietăți de puncte au fost scoase:
 
 
-    * 
 DefaultValue
 
 
-* 
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-* 
 ClockSyncInterval
 
 
-* 
 HasFileTransfer
 
 
-* 
 FileStorePath
 
 
-* 
 FileDirectoryRequestInterval
 
 
-* 
 HasFilesDecoder
 
 
-* 
 FilesDecoderStorePath
 
 
@@ -2399,58 +2260,45 @@ Adaugarea masterului de MQTT.
 ##### 8.2.3.2.1. DNP3Master
 
 
-* 
 Au fost modificate următoarele proprietati au fost scoase:
 
 
-    * 
 AutoTimeSync
 
 
-    * 
 AutoEnableUnsol
 
 
-    * 
 AutoDisableUnsol
 
 
-    * 
 IntegrityPoolInterval
 
 
-    * 
 ClockSyncInterval
 
 
-* 
 Au fost adaugate următoarele proprietati:
 
 
-    * 
 AutoTimeSyncIIN + si optiunile:
 
 
-        * 
 LAN
 
 
-        * 
 Serial
 
 
-    * 
 EnableUnsol
 
 
-    * 
 IntegrityPollInterval
 
 
 ##### 8.2.3.2.2. DNP3Slave:
 
 
-* 
 A fost scoasa proprietatea de CylicPeriod
 
 
@@ -2460,7 +2308,6 @@ A fost scoasa proprietatea de CylicPeriod
 ##### 8.2.3.3.1. DNP3Master
 
 
-* 
 A fost adaugata proprietatea de QualifierCode
 
 
@@ -2488,13 +2335,10 @@ Figura 33: Editorul de blocuri logice
 Modulul pune la dispoziție blocuri predefinite specifice limbajelor de programare standard (LD, FBD, SFC) utilizate pentru configurarea PLC. Blocurile  pot fi grupate pe mai câte categorii distincte:
 
 
-
-* 
-blocuri destinate operațiilor logice: AND, OR, NOT, XOR;
+Blocuri destinate operațiilor logice: AND, OR, NOT, XOR;
 
 
-* 
-blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. predefinit de poziții 
+Blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. predefinit de poziții 
 
 <img src="images/Figure_70.png">
 , extragerea unui anumit bit de pe o poziție predefinita dintr-un octet 
@@ -2502,18 +2346,14 @@ blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. pr
 <img src="images/Figure_71.png">
 
 
-* 
-blocuri care implementează timere: TON si TOF;
+Blocuri care implementează timere: TON si TOF;
 
-
-* 
-bloc pentru automentinere (bistabil) - ResetDominantBistabil (SET/RESET)
+Bloc pentru automentinere (bistabil) - ResetDominantBistabil (SET/RESET)
 
 <img src="images/Figure_72.png">
 
 
-* 
-bloc pentru determinari statistice pentru mărimi (de obicei analogice) pe anumite intervale de timp : MIN, MAX, AVG (media aritmetică) , DISP (dispersia).
+Bloc pentru determinari statistice pentru mărimi (de obicei analogice) pe anumite intervale de timp : MIN, MAX, AVG (media aritmetică) , DISP (dispersia).
 Aceste blocuri pot fi interconectare prin utilizarea unui editor grafic inclus în modulul de MultiDataMaster.
 
 Sistemul de blocuri logice predefinite interconectate este convertit automat după salvarea efectuata in editorul grafic într-o ecuație pe care o regăsim în tabele din secțiunile specifice din MultiDataMater.
@@ -2529,8 +2369,7 @@ Actionand butonul indicat în figura 34, din cadrul configurarii punctelor din M
 
 ### 8.4.1. Descriere functionalitate blocuri de automatizare
 
-
-1. 
+ 
 ResetDominantBistabil (SET/RESET) - funcție utilizata pentru implementarea unor autometineri conditionate.
 
 
@@ -2842,7 +2681,7 @@ Pentru a asocia o entitate cu simbol dinamic adăugat pe interfața se face clic
 
 In aceasta fereastra sunt disponibile pentru a fi setate proprietățile geometrice a simbolului, modul de aliniere si așezare in pagina, modul de prezentare. In secțiunea Interactivity, prin apăsarea butonului Propriety se pot seta modalitățile de afișare (colorare, animare) a unui simbol prin asociere cu o entitate din baza de date de ES200. Entitatea poate fi aleasă din lista celor disponibile în baza de date, iar comportamentul simbolului va depinde de valorile acestei entități.
 
-## 9.3. Adăugarea de mărimi analogice
+### 8.5.3. Adăugarea de mărimi analogice
 
 Adăugarea unor mărimi analogice in componenta HMI se face prin utilizarea elementului denumit **Output value**, prezent in lista de elemente predefinite in secțiunea din partea stânga a editorului HMI.
 
@@ -2884,7 +2723,7 @@ După închiderea editorului HMI mai este necesara o salvare o întregii configu
 
 După încărcarea configurației realizate in ES200, interfața om-mașina realizata anterior, poate fi vizualizata cu un brower web (Chrome, Mozilla) disponibil la nivelului orcicarului calculator personal (figura 5).
 
-Adresa de conectare este https:/IP_masina:3000
+Adresa de conectare este https://IP_masina:3000
 
 <img src="images/Figure_87.png">
 

@@ -255,7 +255,7 @@ Microsoft Edge: 80
 
 # 2. Unitatea ES200
 
-ES200 este o unitate de control, monitorizare și achiziție de date. Este o soluție ideală atât pentru automatizare, cât și pentru controlul punctelor din** **sistemele SCADA locale.
+ES200 este o unitate de control, monitorizare și achiziție de date. Este o soluție ideală atât pentru automatizare, cât și pentru controlul punctelor din sistemele SCADA locale.
 
 Soluția noastră funcționează pe o arhitectură distribuită, împreună cu software-ul și echipamentele folosite uzual în industrie. Totuși, ES200 este compatibil cu multiple tipuri de echipamente, indiferent de vechimea lor, fiind așadar o soluție versatilă care îmbunătățește substanțial securitatea și funcțiile de automatizare.
 
@@ -509,22 +509,18 @@ Figura 9: Secțiunile interfeței de configurare
 Toolbar-ul principal conține următoarele butoane:
 
 
+* File – permite deschiderea, salvarea, descărcarea și încărcarea bazelor de date (denumite și proiecte) și închiderea aplicației Dashboard.
 
-* 
-File – permite deschiderea, salvarea, descărcarea și încărcarea bazelor de date (denumite și proiecte) și închiderea aplicației Dashboard.
-
-
-* 
-Edit – permite adăugarea de noi echipamente (atât slave, cât și master), adăugarea licenței, autorului și descrierii pentru o bază de date.
+* Edit – permite adăugarea de noi echipamente (atât slave, cât și master), adăugarea licenței, autorului și descrierii pentru o bază de date.
 
 
-Tools – permite schimbarea limbi curente a aplicației.
+* Tools – permite schimbarea limbi curente a aplicației.
 
 
-Help – oferă informații suplimentare despre aplicația Dashboard.
+* Help – oferă informații suplimentare despre aplicația Dashboard.
 
 
-Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, precum și închiderea aplicației.
+* Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, precum și închiderea aplicației.
 
 
 ### 4.1.2. Toolbar-ul secundar (2)
@@ -532,13 +528,13 @@ Butoanele din partea dreaptă – permit minimizarea sau maximizarea ferestrei, 
 Toolbar-ul secundar conține următoarele butoane:
 
 
-New Project – deschide un tab nou, cu o bază de date goală (care respectă în mod implicit cea mai recentă versiune de bază de date existentă)
+* New Project – deschide un tab nou, cu o bază de date goală (care respectă în mod implicit cea mai recentă versiune de bază de date existentă)
 
 
-Open Project – deschide o nouă fereastră care permite navigarea prin structura de fișiere pentru selectarea unei baze de date pentru vizualizare sau editare.
+* Open Project – deschide o nouă fereastră care permite navigarea prin structura de fișiere pentru selectarea unei baze de date pentru vizualizare sau editare.
 
 
-Save Project – salvează configurația curentă în fișierul de baze de date deschis (dacă este vorba de un proiect nou-creat, o fereastră de navigare va permite selectarea destinației de salvare)
+* Save Project – salvează configurația curentă în fișierul de baze de date deschis (dacă este vorba de un proiect nou-creat, o fereastră de navigare va permite selectarea destinației de salvare)
 
 
 ### 4.1.3. Lista de echipamente (3)
@@ -546,13 +542,13 @@ Save Project – salvează configurația curentă în fișierul de baze de date 
 În lista de echipamente, acestea sunt grupate în următoarele categorii:
 
 
-Command Centers – o listă a centrelor de comandă din baza de date
+* Command Centers – o listă a centrelor de comandă din baza de date
 
 
-Intelligent Electronic Device – o listă a tuturor IED-urilor din baza de date
+* Intelligent Electronic Device – o listă a tuturor IED-urilor din baza de date
 
 
-Data Management Services – echipamentul de tip MultiDataMaster din baza de date.
+* Data Management Services – echipamentul de tip MultiDataMaster din baza de date.
 
 
 ### 4.1.4.Setările echipamentelor (4)
@@ -560,13 +556,13 @@ Data Management Services – echipamentul de tip MultiDataMaster din baza de dat
 La selectarea unui echipament (fie el centru de comandă sau IED), secțiunea setărilor echipamentului va avea următoarele sub-meniuri:
 
 
-Unit info – conține informații despre echipamentul selectat (nume, numar canal, etc). Câmpurile editabile pot fi modificate conform noilor cerințe.
+* Unit info – conține informații despre echipamentul selectat (nume, numar canal, etc). Câmpurile editabile pot fi modificate conform noilor cerințe.
 
 
-Equipment Properties – informații adiționale despre echipamentul selectat și protocoalele de comunicare folosite. Fiecare câmp are un text de ajutor care va fi afișat atunci când treceți peste numele câmpului cu mouse-ul.
+* Equipment Properties – informații adiționale despre echipamentul selectat și protocoalele de comunicare folosite. Fiecare câmp are un text de ajutor care va fi afișat atunci când treceți peste numele câmpului cu mouse-ul.
 
 
-Channel Settings – informații despre canalul (Serial sau TCP) folosit de echipament pentru comunicare. 
+* Channel Settings – informații despre canalul (Serial sau TCP) folosit de echipament pentru comunicare. 
 
 
 ### 4.1.5. Tabelul de puncte (5)
@@ -592,23 +588,23 @@ Figura 10: Adăugarea unui nou centru de comandă (Command Center)
 
 Câmpurile editabile din interfața prezentată în Figura 10 sunt:
 
-Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
+* Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
 
-Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
+* Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
 
-Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
+* Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
 
-Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
+* Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
 
-Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
+* Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
 
 Opțiunile pentru configurarea unui canal de comunicație nou sunt:
 
 
-Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
+* Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
 
 
-Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
+* Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
 
 
 <img src="images/Figure_11_1.png">
@@ -617,30 +613,27 @@ Channel Description – (opțional) câteva cuvinte care ajută la identificarea
 
 Figura 11: Setările pentru conexiunile serială respectiv TCP
 
-1. 
-Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
-BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
+#### Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
-DATABITS – numărul de biți ai unui caracter;
+* BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
+* DATABITS – numărul de biți ai unui caracter;
 
-PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
+* STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+* PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
 
-PORT – portul folosit de echipament pentru comunicare.
+* RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+
+* PORT – portul folosit de echipament pentru comunicare.
 Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambele capete ale canalului de comunicație. Prin urmare, configurarea lor se face în funcție de echipamentul de comandă care va fi conectat la ES200.
 
+#### Opțiunea TCP Channel are următorii parametrii editabili:
 
+* IP – adresa IP a echipamentului (nu este obligatorie completarea adresei IP a centrului de comanda - recomandam ca acest camp sa ramana necompletat);
 
-
-2.
-
-IP – adresa IP a echipamentului (nu este obligatorie completarea adresei IP a centrului de comanda - recomandam ca acest camp sa ramana necompletat);
-
-PORT – portul folosit de echipament pentru comunicația TCP
+* PORT – portul folosit de echipament pentru comunicația TCP
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebui editat și se modifică setările sale din secțiunea Equipment Settings, după cum este ilustrat în Figura 12.
 
 
@@ -666,49 +659,46 @@ Figura 13: Adăugarea unui IED
 
 Câmpurile editabile din interfața prezentată în Figura 13 sunt:
 
-Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
+* Equipment Name – numele echipamentului, folosit pentru identificarea ușoară în momentul configurării bazei de date;
 
-Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
+* Equipment Process – protocolul de comunicație folosit de centrul de comandă. Selecția se face dintr-un sub-meniu;
 
-Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
+* Equipment Description – (opțional) câteva cuvinte care explică scopul sau funcția respectivului echipament;
 
-Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
+* Equipment Active – bifa din acest câmp reprezintă faptul că echipamentul este activ. Debifarea căsuței este echivalentul dezactivării echipamentului;
 
-Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
+* Use Existing Channel – bifarea acestui câmp oferă opțiunea de a selecta un canal de comunicație configurat anterior dintr-un sub-meniu. Debifarea acestui câmp presupune configurarea unui nou canal de comunicație.
 
 Opțiunile pentru configurarea unui canal de comunicație nou sunt:
  
-Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
+* Channel Type – dintr-un sub-meniu, poate fi selectat tipul canalului de comunicație. Acesta poate fi TCP sau Serial. În funcție de opțiunea aleasă, există anumite câmpuri specifice care trebuie completate (ilustrate în Figura 11);
 
-Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
+* Channel Description – (opțional) câteva cuvinte care ajută la identificarea canalului și a scopului acestuia.
 În funcție de tipul de canal selectat, parametrii necesari configurării sunt diferiți, după cum urmează: 
 
-
-
-1. 
 Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
-BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
+* BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-DATABITS – numărul de biți ai unui caracter;
+* DATABITS – numărul de biți ai unui caracter;
  
-STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
+* STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
+* PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
  
-RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+* RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
  
-PORT – portul folosit de echipament pentru comunicare.
+* PORT – portul folosit de echipament pentru comunicare.
+
 Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambele capete ale canalui de comunicație. Prin urmare, configurarea lor se face în funcție de echipamentul de comandă care va fi conectat la ES200.
 
 
-
-2. 
 Opțiunea TCP Channel are următorii parametri editabili:
 
-IP – adresa IP a echipamentului 
+* IP – adresa IP a echipamentului 
  
-PORT – portul folosit de echipament pentru comunicația TCP
+* PORT – portul folosit de echipament pentru comunicația TCP
+
 Toate aceste setări pot fi editate și după crearea echipamentului. Pentru modificări ulterioare, se selectează echipamentul care trebuie editat și se modifică setările sale din secțiunea Equipment Settings, exact la fel ca în cazul editării setărilor unui centru de comandă.
 
 
@@ -718,9 +708,9 @@ Procedura pentru adăugarea elementelor monitorizate de la nivelul unui echipame
 
 În această fereastră se pot configura următoarele câmpuri:
 
-Starting Address – adresa primului punct pe care dorești să-l adaugi echipamentului;
+* Starting Address – adresa primului punct pe care dorești să-l adaugi echipamentului;
 
-Number of Points – numărul de puncte care se vor adăuga. Adresele lor se vor aloca în mod crescător începând cu adresa setată la Starting Address.
+* Number of Points – numărul de puncte care se vor adăuga. Adresele lor se vor aloca în mod crescător începând cu adresa setată la Starting Address.
 
 
 <img src="images/Figure_14.png">
@@ -735,9 +725,9 @@ După adăugarea punctelor, acestea apar în tabelul corespunzător echipamentul
 
 În tabelul din dreapta centrului de comandă selectat, se pot vizualiza sau edita punctele care vor fi trimise către respectivul echipament. Fiecare câmp editabil poate fi modificat apăsând dublu-click pe celula respectivă. Câmpurile editabile sunt următoarele:
 
-ADDRESS – adresa punctului
+* ADDRESS – adresa punctului
 
-Master Variable Name – numele punctului corespunzător din lista punctelor Masterului corespunzător. Numele va fi selectat dintr-un sub-meniu. Selectarea unui punct va face ca rândul să devină alb.  
+* Master Variable Name – numele punctului corespunzător din lista punctelor Masterului corespunzător. Numele va fi selectat dintr-un sub-meniu. Selectarea unui punct va face ca rândul să devină alb.  
 
 
 ### 4.2.5. Editarea punctelor unui IED
@@ -752,11 +742,11 @@ Tabelul din dreapta echipamentului selectat poate fi folosit pentru editarea pun
 
 Câmpurile editabile sunt:
 
-ADDRESS – adresa punctului. 
+* ADDRESS – adresa punctului. 
 
-Description – câteva cuvinte care ajută la identificarea punctului și a scopului acestuia. 
+* Description – câteva cuvinte care ajută la identificarea punctului și a scopului acestuia. 
 
-Variable Name – numele punctului
+* Variable Name – numele punctului
 
 ## 4.3. Descărcarea și încărcarea bazei de date în ES200
 ### 4.3.1. Descărcarea bazei de date
@@ -803,10 +793,10 @@ Folosind săgeata din stânga fiecărei categorii, punctele grupate pot fi ascun
 
 Pentru fiecare punct, sunt specificate marci temporale precum: 
 
-Protocol timestamp - momentul de timp inregistrat de catre protocol
+* Protocol timestamp - momentul de timp inregistrat de catre protocol
 
 
-Internal timestamp - momentul de timp corespondent masinii pe care ruleaza ES200 - prezinta ultimul eveniment ce a avut loc pe punctul respectiv
+* Internal timestamp - momentul de timp corespondent masinii pe care ruleaza ES200 - prezinta ultimul eveniment ce a avut loc pe punctul respectiv
 In coltul dreapta sus a ferestrei se poate identifica un buton intitulat “Open Console” - acesta are rolul de a deschide un terminal de pe routerul pe care ruleaza ES200.
 
 In dreapta acestuia poate fi identificat indicatorul de timp “ES200 Time”. Acesta indica momentul de timp actual al masinii pe care ruleaza ES200. Acesta se actualizeaza odata cu intervalul de refresh setat anterior.
@@ -885,27 +875,27 @@ In cazul in care canalul de comunicație este de tip serial:
 
 Regasim setarile specifice unei comunicatii seriale:
 
-BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
+* BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-DATABITS – numărul de biți ai unui caracter;
+* DATABITS – numărul de biți ai unui caracter;
 
-STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
+* STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
+* PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
 
-RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+* RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
 
 Suplimentar:
 
-**Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
+* **Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
 
-**Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
+* **Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
 
-**Port 1** - /dev/ttyS1 (IR809)
+* **Port 1** - /dev/ttyS1 (IR809)
 
-**Port 2** - /dev/ttyS2 (IR809)
+* **Port 2** - /dev/ttyS2 (IR809)
 
-**Port 3**  - /dev/ttyTun0 (IR1101)
+* **Port 3**  - /dev/ttyTun0 (IR1101)
 
 
 ### 5.1.2. Configurarea generala a RTU
@@ -918,9 +908,9 @@ Suplimentar:
 
 **ModbusType** – Se selectează tipul de comunicatie Modbus RTU,  ASCII sau TCP. Tipul de Modbus( RTU, ASCII sau TCP) este descris în documentația releului sau PLC. Modbus RTU sau ASCII este utilizat in situatiiile in care utilizam o legatura serialala (RS232 sau RS485)ntre HW ES200 si PLC sau releu.
 
-**HoldingReglnterva**l – Intervalul de timp la care master-ul de Modbus din ES200 trimite un mesaj de polling (de interogare) pe adresele de Holding- registry
+**HoldingReglnterva** – Intervalul de timp la care master-ul de Modbus din ES200 trimite un mesaj de polling (de interogare) pe adresele de Holding- registry
 
-InputRegInterval - Intervalul de timp la care master-ul de Modbus din ES200 trimite un mesaj de polling pe adresele de tip Input- registry
+**InputRegInterval** - Intervalul de timp la care master-ul de Modbus din ES200 trimite un mesaj de polling pe adresele de tip Input- registry
 
 **CoilInterval** - Intervalul de timp la care master-ul de Modbus din ES200 trimite un mesaj pe adresele de tip Coil
 
@@ -932,11 +922,11 @@ InputRegInterval - Intervalul de timp la care master-ul de Modbus din ES200 trim
 
 **Invalidate TimeOut** – intervalul de timp după care marimile citite devin invalide, în situația în care slave-ul nu răspunde la polling un anumit interval de timp.
 
-**ValidateCommands - parametru prin a cărui activare se activează mecanismmul prin care se trimite o interogare generala pe adresa pe care a fost trimisa comanda**
+**ValidateCommands** - parametru prin a cărui activare se activează mecanismmul prin care se trimite o interogare generala pe adresa pe care a fost trimisa comanda
 
-**CommandValidationInterval - **timpul de la emiterea unei comenzi pe o adresa, după care ES200 considera invalida respectivă entitate dacă nu a primit un răspuns la interogarea trimisă către slave.
+**CommandValidationInterval** - timpul de la emiterea unei comenzi pe o adresa, după care ES200 considera invalida respectivă entitate dacă nu a primit un răspuns la interogarea trimisă către slave.
 
-**CriticalInterval **- Anumite adrese pot fi setate pentru a fi citite la un interval de timp altul decât cel destinat tipurilor generale de entități specific Modbus 
+**CriticalInterval**- Anumite adrese pot fi setate pentru a fi citite la un interval de timp altul decât cel destinat tipurilor generale de entități specific Modbus 
 
 **MaxGroupLength** - numărul maxim de adrese care formează un grup de adrese care va fi interogat cu un singur mesaj de polling (poate avea orice valoare 0-120).
 
@@ -959,7 +949,7 @@ Marimile de tip Discrete Input Register sunt in mod curent utilizate pentru mari
 
 În formatul definit mai sus “xx” este adresa numerică a word din care se dorește citirea iar “y” este numărul bit-ului ce se dorește a fi citit (0 este bitul cel mai puțin semnificativ iar 7 este bitul cel mai semnificativ).
 
-**IsCritical **- permite încadrarea entității într-un grup special de adrese care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
+**IsCritical**- permite încadrarea entității într-un grup special de adrese care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
 ### 5.1.4. Adăugarea comenzilor digitale de tip Coil 
@@ -984,9 +974,9 @@ Marimile de tip Coil sunt în mod curent utilizate pentru efectuarea comenzilor 
 
 Dacă acest camp este completat, campul Address ar trebui completat cu valoarea “-1”.
 
-**CommandValidationPoint **- Lista cu TAG-urile unor entități (intrari binare sau analogice) separate prin virgula, care sunt urmează sa fie afectate de efectuarea comenzii in cauză
+**CommandValidationPoint**- Lista cu TAG-urile unor entități (intrari binare sau analogice) separate prin virgula, care sunt urmează sa fie afectate de efectuarea comenzii in cauză
 
-**IsCritical **- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
+**IsCritical**- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
 ### 5.1.5. Adăugarea marimilor tip intrări analogice - Input Register
@@ -1022,9 +1012,9 @@ Marimile de tip Holding Register sunt în mod curent utilizate pentru marimilor 
 
 **Pulse Duration** – Durata comenzii de tip Pulse (ms)
 
-**CommandValidationPoint **- Lista cu TAG-urile unor entități (intrari binare sau analogice) separate prin virgula, care sunt urmează sa fie afectate de efectuarea comenzii in cauză
+**CommandValidationPoint**- Lista cu TAG-urile unor entități (intrari binare sau analogice) separate prin virgula, care sunt urmează sa fie afectate de efectuarea comenzii in cauză
 
-**IsCritical **- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
+**IsCritical**- permite încadrarea entității într-un grup special de adrese de tip Coil care vor fi citite periodic la intervalul **CriticaInterval** setat în zona de configurații generale
 
 
 ## 5.2. DNP3.0 
@@ -1054,15 +1044,15 @@ După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4
 
 Regasim setarile specifice unei comunicatii seriale:
 
-BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
+* BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-DATABITS – numărul de biți ai unui caracter;
+* DATABITS – numărul de biți ai unui caracter;
 
-STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
+* STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
+* PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
 
-RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+* RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
 
 Suplimentar:
 
@@ -1093,7 +1083,7 @@ Suplimentar:
 
 **AutoTimeSync** - permite alegerea modelului de sincronizare a timpului pentru IED care comunica cu ES200. ES200 trimite la cererea IED, telegrame specifice pentru sincronizare tipului intern a IED care a făcut cererea. Se pot utiliza doua modele de sincronizare de timp  - SERIAL (Object 50 variație 1) si LAN (Object 50 variație 3), modelul suportat fiind descris în documentația IED;
 
-**AutoClearRestart - **permite activarea setării biților de stare de tip IIN la inițializarea comunicației sau la restart unui IED;
+**AutoClearRestart** - permite activarea setării biților de stare de tip IIN la inițializarea comunicației sau la restart unui IED;
 
 **AutoIntegRestart** - permite activarea trimiterii de către masterul DNP3.0 din ES200 a unui mesaj de intergogare generala (Interity Poll) a unui IED, după resetarea acestuia sau dupa reinitializarea legăturii cu acesta;
 
@@ -1237,7 +1227,7 @@ Campurile din secțiunea Controls au următoarea semnificație:
 
 **ReferenceRCB**  - Adresa IEC61850 a raportului in cauză. Aceasta adresa este importata din fișierul. scl și contine setul de date în care se regasesc parțial sau în totalitate adresele din secțiunea Measurements;
 
-**IntegrityPeriod - **Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
+**IntegrityPeriod** - Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
 
 **GIPeriod** - Intervalul de timp la care clientul IEDC61850 din ES200 trimite un mesaj de interogare generala cartre IED in cauza;
 
@@ -1307,17 +1297,17 @@ Clientul IEC 61850 ed2 din ES200 permite extragerea automată a fișierelor cu o
 
 Pentru configurarea mecanismului de extragere automată a fișierelor cu inregistrari (osilograme) este necesara configurarea urmatorilor parmaterii:
 
-**PathWriteFiles - **calea directorului în care vor fi salvate fișierele cu oscilograme**;**
+**PathWriteFiles** - calea directorului în care vor fi salvate fișierele cu oscilograme "**;**"
 
-**DeviceDirectory - **calea directorului din structura IED de unde vor fi preluate oscilogramele**;**
+**DeviceDirectory** - calea directorului din structura IED de unde vor fi preluate oscilogramele "**;**"
 
-**PollFielsInterval - **intervalul de timp la care se verifica apariția unor noi fișiere cu înregistrări (oscilograme) în directorul din IED setat la pasul anterior;
+**PollFielsInterval** - intervalul de timp la care se verifica apariția unor noi fișiere cu înregistrări (oscilograme) în directorul din IED setat la pasul anterior;
 
 **FileTransferActive** - activare mecanismului de extragere automata a oscilogramelor;
 
-FileLifeSpan - Perioada de timp (h) după ce fișierele descărcate de pe IED sunt șterse de pe plaforma HW unde ruleaza ES200;
+**FileLifeSpan** - Perioada de timp (h) după ce fișierele descărcate de pe IED sunt șterse de pe plaforma HW unde ruleaza ES200;
 
-MaxFileSize - Dimensiunea maximă permisă (în octeți) pentru fișierele cu inregistrari descărcate. Aceasta trebuie să fie mai mică decât 104857600 și mai mare decât 0.
+**MaxFileSize** - Dimensiunea maximă permisă (în octeți) pentru fișierele cu inregistrari descărcate. Aceasta trebuie să fie mai mică decât 104857600 și mai mare decât 0.
 
 
 ### 5.4.3. Editare marimilor digitale și analogice
@@ -1350,7 +1340,7 @@ Secțiunea Controls contine comenzile importate conform procedurii de la punctul
 
 Structura unei adrese de status conform standardului IEC61850 este următoarea:
 
-IED nameLogical Device/Logical Node.Data Object (ex:SIEMENSCB1/CSWI1.Pos)
+**IED nameLogical Device/Logical Node.Data Object (ex:SIEMENSCB1/CSWI1.Pos)**
 
 Campurile din secțiunea Controls au următoarea semnificație:
 
@@ -1373,7 +1363,7 @@ Campurile din secțiunea Controls au următoarea semnificație:
 <img src="images/Figure_41.png">
 
 
-**IntegrityPeriod - **Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
+**IntegrityPeriod** - Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
 
 **GIPeriod** - Activează mecanismul prin care clientul de IEC61850 ed2 din ES200 trimite un mesaj de interogare generala pentru “citirea” continutului raportul din IED în cauza;
 
@@ -1391,7 +1381,7 @@ Campurile din secțiunea Controls au următoarea semnificație:
 
 Adresa unui raport pe IEC61850 are urmatoarea structura:
 
-IED nameLogical Device/LLN0.tip”_raport(BR sauRP).DO (ex: I09FTLD0/LLN0.BR.rcbStatUrgA).
+**IED nameLogical Device/LLN0.tip”_raport(BR sauRP).DO (ex: I09FTLD0/LLN0.BR.rcbStatUrgA).**
 
 
 ## 5.5. IEC-60870-5-104
@@ -1422,7 +1412,7 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 
 **T1-AckPeriod [ms]** - intervalul de timp de așteptare a unui răspuns de confirmare de la IED (slave) de IEC104. După expirarea acestui interval fără recepția unui pachet de IEC-104 de la slave-ul de comunicație, legătura de comunicație este întreruptă;
 
-**T2-SFramePeriod** [ms]- intervalul de timp, după primirea ultimului pachet de IEC-104 de la slave, după care este emis de către es200 a unui mesaj de confirmare către slave;
+**T2-SFramePeriod [ms]**- intervalul de timp, după primirea ultimului pachet de IEC-104 de la slave, după care este emis de către es200 a unui mesaj de confirmare către slave;
 
 **T3-TestPeriod [ms]** – intervalul de timp la care sunt emise de către master a  frame-urile de tip test conexiune către IED (slave);
 
@@ -1432,7 +1422,7 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 
 **isControlling** – parametru prin care se configurează comportatul master-ului de IEC-104 de a iniția/opri comunicația cu slave-ul de IEC-104 la nivel de aplicație prin utilizarea frame-uilor STARTDT si STOPDT
 
-offlinePoolPeriod [ms] - Timpul după care se încearcă o reconectare pe protocol după o întrerupere de comunicatie;
+**offlinePoolPeriod [ms]** - Timpul după care se încearcă o reconectare pe protocol după o întrerupere de comunicatie;
 
 **ASDUADDR** – adresa comuna a IED (slave) pe protocol IEC-104
 
@@ -1456,16 +1446,22 @@ offlinePoolPeriod [ms] - Timpul după care se încearcă o reconectare pe protoc
 
 **LinkAddr** – adresa de legătură. Va fi completata cu valoarea 1.
 
-**ClockSyncInterval (ms)** – intervalul de timp la care va fi transmisa o comanda de sincronizare de timp  de către master către slave. Comenzile de sincronizare de timp se pot emite si in cazul in care exista diferențe semnificative de timp intre master si slave.
+**ClockSyncInterval [ms]** – intervalul de timp la care va fi transmisa o comanda de sincronizare de timp  de către master către slave. Comenzile de sincronizare de timp se pot emite si in cazul in care exista diferențe semnificative de timp intre master si slave.
 
 
 ### 5.5.3. Adăugarea mărimilor digitale simple, de tip double sau a celor analogice
 
 Se utilizează secțiunile **Single-Point Information (SPI) si Double-Point Information (DPI)** pentru entitățile binare si duble si secțiunile Normalized, Scaled si Short-Floating pentru entitățile de tip mărimi analogice.
 
-Protocolul IEC-60870-5-104 permite utilizarea a 2 tipuri de mărimi de stare  - binare și duble. Mărimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutație. Echipamentele de comutație (separatoare, întrerupătoare) au 4 stări necesar a fi monitorizate - intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
+Protocolul IEC-60870-5-104 permite utilizarea a 2 tipuri de mărimi de stare:
+* binare și duble. Mărimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutație. Echipamentele de comutație (separatoare, întrerupătoare) au 4 stări necesar a fi monitorizate.
+  
+* intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
 
-ASDU specific mărimilor analogice definite de standardul IEC-60870-5-104 si implementate de Master-ul de IEC-104 din ES200 sunt: M_ME_NA (Normalized), M_ME_NB (Scaled) si M_ME_NC(Short Floating).
+ASDU specific mărimilor analogice definite de standardul IEC-60870-5-104 si implementate de Master-ul de IEC-104 din ES200 sunt: 
+* M_ME_NA (Normalized)
+* M_ME_NB (Scaled) 
+* M_ME_NC(Short Floating).
 
 **Address**  – Adresa informației de tip SPI,DPI, Normalized, Scaled sau Short Floating ce urmează sa fie preluate din IED. Harta de adrese poate fi creata prin configurare IED cu ajutorul sw de configurare specific sau în documentația tehnică a IED.
 
@@ -1506,15 +1502,15 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 
 **Port** : portul TCP prin care se realizează comunicația MQTT cu clienții de MQTT (1883);
 
-User&Pass – user si parola de acces pentru broker-ul de MQTT daca acesta are setate credentiale;
+**User&Pass** : user si parola de acces pentru broker-ul de MQTT daca acesta are setate credentiale;
 
-QoS – quality of service pt MQTT – nivelul de certitudine pentru livrarea unui mesaj. Acest parametru trebuie setat identic pe ambii parteneri de comunicație. Recomandam utilizarea valorii 0 – clientul nu așteaptă confirmarea de primire de la destinatar;
+**QoS** : quality of service pt MQTT – nivelul de certitudine pentru livrarea unui mesaj. Acest parametru trebuie setat identic pe ambii parteneri de comunicație. Recomandam utilizarea valorii 0 – clientul nu așteaptă confirmarea de primire de la destinatar;
 
-KeepAlive – timpul de așteptare a unui răspuns din partea broker-ului înainte de a se considera ca legătura cu acesta este intrerupta;
+**KeepAlive** : timpul de așteptare a unui răspuns din partea broker-ului înainte de a se considera ca legătura cu acesta este intrerupta;
 
-ReceiveTopic – Descrierea topic-ului clientului prin care se recepționează date;	
+**ReceiveTopic** : Descrierea topic-ului clientului prin care se recepționează date;	
 
-Plugin – poți fi utilizate diferite tipuri de implementări custom de MQTT (Sparkplug, Veribox sau default).
+**Plugin** : poți fi utilizate diferite tipuri de implementări custom de MQTT (Sparkplug, Veribox sau default).
 
 
 ### 5.6.2. Adăugarea mărimilor digitale simple( mărimi boolene) 
@@ -1527,7 +1523,7 @@ Acestea sunt completate in secțiunea **Json Boolean** aferent Masterului de MQT
 
 **Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
-**JSONPointer **– poate fi asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/contatctx  (ex: /PT10/senzor1/contact1)
+**JSONPointer**– poate fi asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/contatctx  (ex: /PT10/senzor1/contact1)
 
 
 ### 5.6.3. Adăugarea mărimilor analogice (numerice)
@@ -1540,7 +1536,7 @@ Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQT
 
 **Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
-**JSONPointer **– este asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/temeratura (ex: /PT10/senzor1/temperatura).
+**JSONPointer**– este asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/temeratura (ex: /PT10/senzor1/temperatura).
 
 
 ## 5.7. IEC-60870-5-101
@@ -1552,25 +1548,25 @@ Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQT
 
 Parametrii generali din configurație pentru un Master de IEC-101 din ES200 sunt:
 
-**Equipment Name** - denumirea masterului de comunicație IEC-101. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor;
+**Equipment Name** : denumirea masterului de comunicație IEC-101. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor;
 
-**Equipment Description** -descriere generala a masterului de comunicație IEC-101. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
+**Equipment Description** : descriere generala a masterului de comunicație IEC-101. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
 
-**Channel Description** - denumirea canalului de comunicație. Se utilizează pentru  depanarea comunicatie IEC-101 si uu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
+**Channel Description** : denumirea canalului de comunicație. Se utilizează pentru  depanarea comunicatie IEC-101 si uu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
 
 IEC-60870-5-101 este un protocol care utilizează linii de comunicație seriale (RS232, RS485).
 
 Parametrii generali de comunicație vor include si setări specifice comunicației seriale ( portul serial utilizat, Baud Rate, Parity etc).
 
-BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
+* BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
-DATABITS – numărul de biți ai unui caracter;
+* DATABITS – numărul de biți ai unui caracter;
 
-STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
+* STOPBITS – numărul de biți folosiți pentru identificarea finalului unui caracter;
 
-PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
+* PARITY – o metodă folosită pentru detectarea erorilor de comunicație;
 
-RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
+* RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
 
 **Port:** Portul serial utilizat de ES200 pentru comunicația cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
 
@@ -1586,91 +1582,98 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 <img src="images/Figure_47.png">
 
 
-LinkMode – ES200 folosește întotdeauna opțiune Unbalaced. Acesta este utilizată pentru comunicația pe linii seriale tip RS485 pe care pot fi conectate mai multe echipamente slave de iec-101;
+**LinkMode** : ES200 folosește întotdeauna opțiune Unbalaced. Acesta este utilizată pentru comunicația pe linii seriale tip RS485 pe care pot fi conectate mai multe echipamente slave de iec-101;
 
-OneCharAckAllowed – opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite ca răspunsurile de confimare pentru mesajele primite de la slave de 101 sa fie trimise sub forma unui singur caracter;
+**OneCharAckAllowed** : opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite ca răspunsurile de confimare pentru mesajele primite de la slave de 101 sa fie trimise sub forma unui singur caracter;
 
-OneCharResponseAllowed - opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite utilizarea  si interpretarea răspunsurilor de confirmare primite de la slave de 101 sub forma unui singur caracter;
+**OneCharResponseAllowed** : opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite utilizarea  si interpretarea răspunsurilor de confirmare primite de la slave de 101 sub forma unui singur caracter;
 
-ConfirmMode – va fi întotdeauna setat cu valoare ALWASY;
+**ConfirmMode** : va fi întotdeauna setat cu valoare ALWASY;
 
-ConfirmTimeout – intervalul de timp de așteptare a unui răspuns din partea slave de IEC101 după transmiterea unui mesaj de verificare a legăturii (link status) de către masterul de IC-101 din ES200;
+**ConfirmTimeout** : intervalul de timp de așteptare a unui răspuns din partea slave de IEC101 după transmiterea unui mesaj de verificare a legăturii (link status) de către masterul de IC-101 din ES200;
 
-MaxRetries – numărul maxim de reîncercări de trimiterea a mesajelor de verificare a nivelului de legătură de către master-ul din ES200 către slave, în cazul în care nu se primește un răspuns de confirmare din partea acestuia in intervalul de timp setat prin parametrul ConfirmTimeout;
+**MaxRetries** : numărul maxim de reîncercări de trimiterea a mesajelor de verificare a nivelului de legătură de către master-ul din ES200 către slave, în cazul în care nu se primește un răspuns de confirmare din partea acestuia in intervalul de timp setat prin parametrul ConfirmTimeout;
 
-OfflinePollPeriod – specifica intervalul de timp la care se încerca restabilirea comunicației cu un slave de IEC-101 de catre masterul de ied011 din ES200;
+**OfflinePollPeriod** : specifica intervalul de timp la care se încerca restabilirea comunicației cu un slave de IEC-101 de catre masterul de ied011 din ES200;
 
-GIInterval - intervalul de timp la care se emite un mesaj de interogare generala către IED;
+**GIInterval** : intervalul de timp la care se emite un mesaj de interogare generala către IED;
 
-AllowSameTypeIdRequest - opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite trimiterea acelorași comenzi pe sectoare diferite dintr-un slave de IEC-101 (daca slave-ul de 101 suporta utilizarea mai multor sectoare diferențiate prin adresa comuna a ASDU);
+**AllowSameTypeIdRequest** : opțiune care nu va fi utilizata si va fi dezactivata. Activarea permite trimiterea acelorași comenzi pe sectoare diferite dintr-un slave de IEC-101 (daca slave-ul de 101 suporta utilizarea mai multor sectoare diferențiate prin adresa comuna a ASDU);
 
-ASDU - adresa comuna a IED (slave) integrat in ES200 pe protocol IEC-101;
+**ASDU** : adresa comuna a IED (slave) integrat in ES200 pe protocol IEC-101;
 
-ClockSyncMode – se va utiliza opțiunea SYNC_ONLY. Pentru sincronizarea de timp se pot adaugă pentru creșterea acurateței, intervale de timp de corecție a etichetei de timp. Aceste intervale sunt in funcție de intarzierile de comunicație ce pot apare pe liniile de comunicație seriale;
+**ClockSyncMode** : se va utiliza opțiunea SYNC_ONLY. Pentru sincronizarea de timp se pot adaugă pentru creșterea acurateței, intervale de timp de corecție a etichetei de timp. Aceste intervale sunt in funcție de intarzierile de comunicație ce pot apare pe liniile de comunicație seriale;
 
-PropagationDelay – parametrul va fi întotdeauna setat cu valoarea 0. Acest parametru reprezintă intervalul de corectie pentru mecanismul de sincronizare de timp in cazul in care parametru ClockSyncMode este setat cu valoarea Sync Load Delay
+**PropagationDelay** : parametrul va fi întotdeauna setat cu valoarea 0. Acest parametru reprezintă intervalul de corectie pentru mecanismul de sincronizare de timp in cazul in care parametru ClockSyncMode este setat cu valoarea Sync Load Delay
 
-**CmdActTerm** – parametrul indica utilizarea mecanismului ACTERM in cazul efectuării unor comenzi către slave. Daca acest parametru este activat se așteaptă ca in urma activării unei comenzi, slave-ul sa trimită răspuns care sa conțină ACTERM.
+**CmdActTerm** : parametrul indica utilizarea mecanismului ACTERM in cazul efectuării unor comenzi către slave. Daca acest parametru este activat se așteaptă ca in urma activării unei comenzi, slave-ul sa trimită răspuns care sa conțină ACTERM.
 
-**CseActTerm** - parametrul indica utilizarea mecanismului ACTERM in cazul efectuării unor comenzi de tip setpoint către slave. Daca acest parametru este activat se așteaptă ca in urma activării unei comenzi de tip setpoint, slave-ul sa trimită răspuns care sa conțină ACTERM.
+**CseActTerm** : parametrul indica utilizarea mecanismului ACTERM in cazul efectuării unor comenzi de tip setpoint către slave. Daca acest parametru este activat se așteaptă ca in urma activării unei comenzi de tip setpoint, slave-ul sa trimită răspuns care sa conțină ACTERM.
 
-AutoClassPolling – activarea mecanismului de interogare generala pentru entitățile de stare din Clasa 1 si 2;
+**AutoClassPolling** : activarea mecanismului de interogare generala pentru entitățile de stare din Clasa 1 si 2;
 
-Class1PendingDelay – intervalul de timp de așteptare pentru evenimentele de clasa 1 trimise de către slave;
+**Class1PendingDelay** : intervalul de timp de așteptare pentru evenimentele de clasa 1 trimise de către slave;
 
-Class1PollCount – numărul maxim de cereri de interogare pentru evenimentele din clasa 1 pentru un slave înainte de a trece la următorul slave de pe magistrala de comunicație de RS485;
+**Class1PollCount** : numărul maxim de cereri de interogare pentru evenimentele din clasa 1 pentru un slave înainte de a trece la următorul slave de pe magistrala de comunicație de RS485;
 
-Class1PollDelay - intervalul de timp dintre interogările pentru evenimentele de clasa 1 trimise către slave;
+**Class1PollDelay** : intervalul de timp dintre interogările pentru evenimentele de clasa 1 trimise către slave;
 
-Class2PendingDelay - intervalul de timp de așteptare pentru evenimentele de clasa 2 trimise de către slave;
+**Class2PendingDelay** : intervalul de timp de așteptare pentru evenimentele de clasa 2 trimise de către slave;
 
-Class2PollDelay - intervalul de timp dintre interogările pentru evenimentele de clasa 2 trimise către slave;
+**Class2PollDelay** : intervalul de timp dintre interogările pentru evenimentele de clasa 2 trimise către slave;
 
-ClassPendingCount - numărul maxim de cereri de interogare pentru toate evenimentele (Clasa 1 si 2) pentru un slave înainte de a trece la următorul slave de pe magistrala de comunicație de RS485;
+**ClassPendingCount** : numărul maxim de cereri de interogare pentru toate evenimentele (Clasa 1 si 2) pentru un slave înainte de a trece la următorul slave de pe magistrala de comunicație de RS485;
 
-DefaultResponseTimeout – timpul maxim permis pentru execuția unei comenzi si primirea confirmării de executie de la slave de IEC-101;
+**DefaultResponseTimeout** : timpul maxim permis pentru execuția unei comenzi si primirea confirmării de executie de la slave de IEC-101;
 
-CotSize - dimensiunea in octeți a secțiunii rezervata COT (cause of transmission) din ASDU;
+**CotSize** : dimensiunea in octeți a secțiunii rezervata COT (cause of transmission) din ASDU;
 
-LinkAddress – adresa nivelului de legătură a slave-ului integrat in ES200. IEC-101 implementează si nivelul de legătură (Link Layer din stiva OSI);
+**LinkAddress** : adresa nivelului de legătură a slave-ului integrat in ES200. IEC-101 implementează si nivelul de legătură (Link Layer din stiva OSI);
 
-OriginatorAddress – adresa sectorului din IEC-101 a slave-ului integrat de la care se inițiază comunicație. Este reprezentata de un octet din secțiunea in care regăsim COT (Cauza transmisei).
+**OriginatorAddress** : adresa sectorului din IEC-101 a slave-ului integrat de la care se inițiază comunicație. Este reprezentata de un octet din secțiunea in care regăsim COT (Cauza transmisei).
 
-ASDUSize – dimensiunea in octeți a adresei comune din ASDU;
+**ASDUSize** : dimensiunea in octeți a adresei comune din ASDU;
 
-InfoObjAddrSize - dimensiunea in octeți a IOA (Information Object Address) din ASDU;
+**InfoObjAddrSize** : dimensiunea in octeți a IOA (Information Object Address) din ASDU;
 
-LinkAddressSize - dimensiunea in octeți a adresei nivelului de legătură.
+**LinkAddressSize** : dimensiunea in octeți a adresei nivelului de legătură.
 
 
 ### 5.7.2. Adăugarea mărimilor de stare digitale si analogice
 
 Se utilizează secțiunile **Single-Point Information (SPI) si Double-Point Information (DPI)** pentru entitățile binare si duble si secțiunile Normalized, Scaled si Short-Floating pentru entitățile de tip mărimi analogice.
 
-Protocolul IEC-60870-5-101 permite utilizarea a 2 tipuri de mărimi de stare  - binare și duble. Mărimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutație. Echipamentele de comutație (separatoare, întrerupătoare) au 4 stări necesar a fi monitorizate - intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
+Protocolul IEC-60870-5-101 permite utilizarea a 2 tipuri de mărimi de stare:
+
+* binare și duble. Mărimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutație. Echipamentele de comutație (separatoare, întrerupătoare) au 4 stări necesar a fi monitorizate.
+
+* intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
 
 ASDU specific mărimilor analogice definite de standardul IEC-60870-5-101 si implementate de Master-ul de IEC-101 din ES200 sunt: M_ME_NA (Normalized), M_ME_NB (Scaled) si M_ME_NC(Short Floating).
 
-**Address**  – Adresa informației de tip SPI,DPI, Normalized, Scaled sau Short Floating ce urmează sa fie preluate din IED. Harta de adrese poate fi creata prin configurare IED cu ajutorul sw de configurare specific sau în documentația tehnică a IED.
+**Address**  : Adresa informației de tip SPI,DPI, Normalized, Scaled sau Short Floating ce urmează sa fie preluate din IED. Harta de adrese poate fi creata prin configurare IED cu ajutorul sw de configurare specific sau în documentația tehnică a IED.
 
-**Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
+**Description** : Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
 
-**Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
+**Variable Name** : Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
-**HasTimeTag** – parametrul indica daca mărimea care va fi preluata de la IED este însoțita de eticheta de timp a IED sau aceasta va fi asociata entității de către ES200
+**HasTimeTag** : parametrul indica daca mărimea care va fi preluata de la IED este însoțita de eticheta de timp a IED sau aceasta va fi asociata entității de către ES200
 
 
 ### 5.7.3. Adăugarea comenzilor
 
 Se utilizează secțiunile Single-Point Command și Double-Point Command, funcție de tipul de comenzi ce se doresc a fi transmise către IED-uri.
 
-Protocolul IEC-60870-5-101 implementat de ES200 permite utilizarea a 2 tipuri de comenzi  - binare și duble. Comenzile de tip dublu pot fi utilizate pentru controlul echipamentelor de comutație, dacă IED obliga la utilizarea acestor comenzi. Tipurile comenzilor configurate în master(ES200) trebuie sa fie identice cu cel configurate în IED pentru ca acestea sa funcționeze.
+Protocolul IEC-60870-5-101 implementat de ES200 permite utilizarea a 2 tipuri de comenzi:
+* binare și duble. Comenzile de tip dublu pot fi utilizate pentru controlul echipamentelor de comutație, dacă IED obliga la utilizarea acestor comenzi.
+  
+**Tipurile comenzilor configurate în master(ES200) trebuie sa fie identice cu cel configurate în IED pentru ca acestea sa funcționeze.**
 
-**Address** – Adresa informației de tip comanda ce urmează sa fie transmisă către slave. In IED este necesara prezenta unei adrese identice pentru recepționarea comenzii de către ES200;
+**Address** : Adresa informației de tip comanda ce urmează sa fie transmisă către slave. In IED este necesara prezenta unei adrese identice pentru recepționarea comenzii de către ES200;
 
-**CmdMode** - reprezinta modelul de comada - With Select (Select Before Operate), Without Select (Direct Operate). În cazul în care modelul de control setat în IED nu este cunoscut se utilizează opțiunea Any;
+**CmdMode** : reprezinta modelul de comada - With Select (Select Before Operate), Without Select (Direct Operate). În cazul în care modelul de control setat în IED nu este cunoscut se utilizează opțiunea Any;
 
-**CmdQualifier** - reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din IED (slave). În cazul în care modelul de control setat în IED  nu este cunoscut se utilizează opțiunea Any. **Acest câmp nu este utilizat in cazul comozilor de tip setpoint.**
+**CmdQualifier** : reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din IED (slave). În cazul în care modelul de control setat în IED  nu este cunoscut se utilizează opțiunea Any. **Acest câmp nu este utilizat in cazul comozilor de tip setpoint.**
 
 
 # 6. Configurarea comunicației cu centrul de comanda
@@ -1685,7 +1688,7 @@ Este necesara completarea portului TCP care urmeaza sa fie utilizat. Completarea
 
 După adaugarea unui nou centru de comanda și configurarea conform descrierii din secțiunea 4.2.1, vom avea disponibile pentru a fi editate informațiile de mai jos unde:
 
-**Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
+**Channel Description** : denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
 
 **IP** : Adresa IP a centrului de comanda - recomandăm ca acest camp sa ramana necompletat. Adresa IP a centrului de comanda poate fi completata în acest camp dacă se dorește sa se asigure exclusivitatea conexiunii pe IEC-104 dintre ES200 și centrul de comanda avand adresa |IP în cauză.
 
@@ -1698,34 +1701,38 @@ După adaugarea unui nou centru de comanda și configurarea conform descrierii d
 <img src="images/Figure_49.png">
 
 
-**ASDUADDR** - adresa comuna a ASDU (Application service data unit). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie IEC-104) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol. Precizăm ca dimensiunea ASDU este 2 bytes și dimensiunea IOA este de 3 bytes;
+**ASDUADDR** : adresa comuna a ASDU (Application service data unit). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie IEC-104) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol. Precizăm ca dimensiunea ASDU este 2 bytes și dimensiunea IOA este de 3 bytes;
 
-**k** - numărul de pachete IEC-104 pe care es200 le trimite către masterul de comunicatie înainte sa astept un raspuns de confirmare;
+**k** : numărul de pachete IEC-104 pe care es200 le trimite către masterul de comunicatie înainte sa astept un raspuns de confirmare;
 
-**w** - numărul de pachete pe care es200 le primește de la masterul de comunicatie înainte de a emite un răspuns de confirmare;
+**w** : numărul de pachete pe care es200 le primește de la masterul de comunicatie înainte de a emite un răspuns de confirmare;
 
-**T0** - Reconnection Time (ms)– Timpul după care se încearcă o reconectare pe protocol după o întrerupere de comunicatie;
+**T0** : Reconnection Time (ms)– Timpul după care se încearcă o reconectare pe protocol după o întrerupere de comunicatie;
 
-**T1** -  intervalul de timp de așteptare a unui răspuns de confirmare de la master-ul de IEC104. După expirarea acestui interval fără recepția unui pachet de IEC-104 de la master-ul de comunicatie, legatura de comunicatie este întreruptă, incercandu-se restabilirea după intervalul T0;
+**T1** :  intervalul de timp de așteptare a unui răspuns de confirmare de la master-ul de IEC104. După expirarea acestui interval fără recepția unui pachet de IEC-104 de la master-ul de comunicatie, legatura de comunicatie este întreruptă, incercandu-se restabilirea după intervalul T0;
 
-**T2**  - intervalul de timp, după primirea ultimului pachet de IEC-104 de la master, după care este emis de către es200 a unui mesaj de confirmare către master;
+**T2**  : intervalul de timp, după primirea ultimului pachet de IEC-104 de la master, după care este emis de către es200 a unui mesaj de confirmare către master;
 
-**MaxCommandAge [ms]** - Intervalul de timp în care comanda emisă de către master este păstrată în memoria es200 și poate fi executată. Comanda se considera a fi executată dacă a putut fi transmisă și executată de către IED;
+**MaxCommandAge [ms]** : Intervalul de timp în care comanda emisă de către master este păstrată în memoria es200 și poate fi executată. Comanda se considera a fi executată dacă a putut fi transmisă și executată de către IED;
 
-**HasTimeTag** - setarea acestui parametru face ca marimile de stare binare si duble trimise către master sa fie însoțite de eticheta de timp;
+**HasTimeTag** : setarea acestui parametru face ca marimile de stare binare si duble trimise către master sa fie însoțite de eticheta de timp;
 
-**InvalidClockSync [ms]** - După expirarea acestui interval de timp, eticheta de timp asociată salve de IEC-104 devine invalida si este necesara emiterea de catre master a unei noi cereri de sincronizare de timp (ASDU tip 103). Dacă sincronizarea de timp se face periodic de carte master, intervalul de timp de sincronizarea a masterului trebuie sa fie mai mic decat acest parametru.
+**InvalidClockSync [ms]** : După expirarea acestui interval de timp, eticheta de timp asociată salve de IEC-104 devine invalida si este necesara emiterea de catre master a unei noi cereri de sincronizare de timp (ASDU tip 103). Dacă sincronizarea de timp se face periodic de carte master, intervalul de timp de sincronizarea a masterului trebuie sa fie mai mic decat acest parametru.
 
-**CyclicPeriod [ms]** - Interval general reprezentand perioada utilizată pentru a trimite mărimi avand setat ciclic ca mod de transmitere. Celelalte moduri de transmitere a marimilor sub forma de eveniment sunt modificarea unui jitter sau a validitatii ;
+**CyclicPeriod [ms]** : Interval general reprezentand perioada utilizată pentru a trimite mărimi avand setat ciclic ca mod de transmitere. Celelalte moduri de transmitere a marimilor sub forma de eveniment sunt modificarea unui jitter sau a validitatii ;
 
-**CyclicAfterGi** - dacă acest parametru este setat, es200 nu va mai trimite către master mărimi cu mod de transmisie ciclica setata (în tabelul corespunzător tipului de mărime) cereri ciclice înainte de prima cerere de interogare generala emisa de catre master.
+**CyclicAfterGi** : dacă acest parametru este setat, es200 nu va mai trimite către master mărimi cu mod de transmisie ciclica setata (în tabelul corespunzător tipului de mărime) cereri ciclice înainte de prima cerere de interogare generala emisa de catre master.
 
 
 ### 6.1.3. Adăugarea marimilor digitale
 
 Se utilizează secțiunile Single-Point Information si Double-Point Information, funcție de tipul de informații ce se doresc a fi transmise către centrul de comanda.
 
-Protocolul IEC-60870-5-104 permite utilizarea a 2 tipuri de mărimi de stare  - binare și duble. Marimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutatie. Echipamentele de comutatie (separatoare, intrerupatoare) au 4 stări necesar a fi monitorizate - intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
+Protocolul IEC-60870-5-104 permite utilizarea a 2 tipuri de mărimi de stare: 
+
+* binare și duble. Marimile de tip dublu sunt utilizate pentru transmiterea si monitorizare stării echipamentelor de comutatie. Echipamentele de comutatie (separatoare, intrerupatoare) au 4 stări necesar a fi monitorizate.
+  
+* intermediar (valoare 0), deschis/deconectat (valoarea 1), închis/conectat (valoarea 2), defect ( valoare 3).
 
 Entitățile a căror stare se dorește a fi trimisă către centru de comanda sunt cele preluate din IED-uri si si vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informatia este completat automat dupa alegerea entitatii.
 
@@ -1733,11 +1740,11 @@ Entitățile a căror stare se dorește a fi trimisă către centru de comanda s
 <img src="images/Figure_50.png">
 
 
-**Address** – Adresa informației de tip Binary input ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
+**Address** : Adresa informației de tip Binary input ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
 
-**Validity** – Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea unui eveniment către centru de comanda la schimbarea calității informațiilor entității monitorizate;
+**Validity** : Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea unui eveniment către centru de comanda la schimbarea calității informațiilor entității monitorizate;
 
-**Cyclic** – Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea ciclică, cu periodicitatea setata prin parametrul **CyclicPeriod (**punctul 6.1.2 ) a informațiilor de stare și calitate aferente entitatii în cauză. **Nu recomandăm utilizarea acestei opțiuni, IEC-104 fiind un protocol bazat pe tramisia spontana a schimbarilor de stare sub forma unor evenimente.**
+**Cyclic** : Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea ciclică, cu periodicitatea setata prin parametrul **CyclicPeriod (**punctul 6.1.2 ) a informațiilor de stare și calitate aferente entitatii în cauză. **Nu recomandăm utilizarea acestei opțiuni, IEC-104 fiind un protocol bazat pe tramisia spontana a schimbarilor de stare sub forma unor evenimente.**
 
 
 
@@ -1745,7 +1752,9 @@ Entitățile a căror stare se dorește a fi trimisă către centru de comanda s
 
 Se utilizează secțiunile Normalized, Scaled, Short Floating funcție de tipul de informații de tip mărimi analogice ce se doresc a fi transmise către centrul de comanda.
 
-Protocolul IEC-60870-5-104 permite utilizarea a 3 tipuri de mărimi analogice - Normalized, Scaled, Short Floating. În mod curent, pentru ES200 utilizăm tipul de data Short Floating.
+Protocolul IEC-60870-5-104 permite utilizarea a 3 tipuri de mărimi analogice:
+
+* Normalized, Scaled, Short Floating. În mod curent, pentru ES200 utilizăm tipul de data Short Floating.
 
 Marimile analogice a căror stare se dorește a fi trimisă către centru de comanda sunt cele preluate din IED-uri si si vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informatia este completat automat dupa alegerea entitatii.
 
@@ -1754,15 +1763,15 @@ Marimile analogice a căror stare se dorește a fi trimisă către centru de com
 <img src="images/Figure_51.png">
 
 
-**Address** – Adresa informației de tip mărime analogică ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
+**Address** : Adresa informației de tip mărime analogică ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității.
 
-**Validity** – Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea unui eveniment către centru de comanda la schimbarea calității informațiilor entității monitorizate;
+**Validity** : Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea unui eveniment către centru de comanda la schimbarea calității informațiilor entității monitorizate;
 
-**Jitter** -  Activare acestei optiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea valorii mărimii analogice către centru de comanda la depasirea unui anumit prag setabil. Mecanismul permite ca în urma unei variații (+ sau -) mai mari decat o valoare setata (câmpul Variation) a valorii instantanee a mărimii transmise de IED raportata la ultima valoare înregistrată de ES200, sa fie generat, de către slave de IEC-104, un eveniment continand valoarea instantanee a mărimii care va fi trimis către centrul de comanda;
+**Jitter** :  Activare acestei optiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea valorii mărimii analogice către centru de comanda la depasirea unui anumit prag setabil. Mecanismul permite ca în urma unei variații (+ sau -) mai mari decat o valoare setata (câmpul Variation) a valorii instantanee a mărimii transmise de IED raportata la ultima valoare înregistrată de ES200, sa fie generat, de către slave de IEC-104, un eveniment continand valoarea instantanee a mărimii care va fi trimis către centrul de comanda;
 
-**Variation** – valoarea pragului minim necesar pentru inițierea procedurii de transmitere a valorii mărimi analogice în cauză de către ES200 către centru de comanda. La o variație mai mari decat valoarea setata în acest câmp a valorii instantanee a mărimii transmise de IED raportata la ultima citire a acestuia se genereaza eveniment si va fi trimis către centrul de comanda.
+**Variation** : valoarea pragului minim necesar pentru inițierea procedurii de transmitere a valorii mărimi analogice în cauză de către ES200 către centru de comanda. La o variație mai mari decat valoarea setata în acest câmp a valorii instantanee a mărimii transmise de IED raportata la ultima citire a acestuia se genereaza eveniment si va fi trimis către centrul de comanda.
 
-**Cyclic** – Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea ciclică, cu periodicitatea setata prin parametrul **CyclicPeriod (**punctul 6.1.2 ) a informațiilor de stare și calitate aferente entitatii în cauză. **Nu recomandăm utilizarea acestei opțiuni, IEC-104 fiind un protocol bazat pe tramisia spontana a schimbarilor de stare sub forma unor evenimente.**
+**Cyclic** : Activarea acestei opțiuni permite procesului IEC-104 slave din ES200 sa inițieze trimiterea ciclică, cu periodicitatea setata prin parametrul **CyclicPeriod (**punctul 6.1.2 ) a informațiilor de stare și calitate aferente entitatii în cauză. **Nu recomandăm utilizarea acestei opțiuni, IEC-104 fiind un protocol bazat pe tramisia spontana a schimbarilor de stare sub forma unor evenimente.**
 
 
 
@@ -1779,13 +1788,13 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 <img src="images/Figure_52.png">
 
 
-**Address** – Adresa informației de tip comanda ce urmează sa fie transmisă de către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea comenzii de către ES200;
+**Address** : Adresa informației de tip comanda ce urmează sa fie transmisă de către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea comenzii de către ES200;
 
-**Conversion** – Valoarea primită din centrul de comanda pe adresa IEC-104 a entitatii poate fi convertită într-o alta valoare ce urmeaza a fi trimisa pe protocol down către releele de protectie sau PLC din PT.(ex:se primește pe IEC-104 valoarea 1, dar către releu trebuie trimisă valoarea 0 :în baza de date se completează 1>0);
+**Conversion** : Valoarea primită din centrul de comanda pe adresa IEC-104 a entitatii poate fi convertită într-o alta valoare ce urmeaza a fi trimisa pe protocol down către releele de protectie sau PLC din PT.(ex:se primește pe IEC-104 valoarea 1, dar către releu trebuie trimisă valoarea 0 :în baza de date se completează 1>0);
 
-**CmdMode** - reprezinta modelul de comada - With Select (Select Before Operate), Without Select (Direct Operate). În cazul în care modelul de control setat în dispecerat  nu este cunoscut se utilizează opțiunea Any;
+**CmdMode** : reprezinta modelul de comada - With Select (Select Before Operate), Without Select (Direct Operate). În cazul în care modelul de control setat în dispecerat  nu este cunoscut se utilizează opțiunea Any;
 
-**CmdQualifier** - reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din centrul de comanda. În cazul în care modelul de control setat în dispecerat  nu este cunoscut se utilizează opțiunea Any;
+**CmdQualifier** : reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din centrul de comanda. În cazul în care modelul de control setat în dispecerat  nu este cunoscut se utilizează opțiunea Any;
 
 
 
@@ -1803,7 +1812,7 @@ Este necesara completarea portului TCP care urmeaza sa fie utilizat. Completarea
 
 După adaugarea unui nou centru de comanda și configurarea conform descrierii din secțiunea 4.2.1, vom avea disponibile pentru a fi editate informațiile de mai jos unde:
 
-**Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
+**Channel Description** : denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
 
 **IP** : Adresa IP a centrului de comanda - recomandăm ca acest camp sa ramana necompletat. Adresa IP a centrului de comanda poate fi completata în acest camp dacă se dorește sa se asigure exclusivitatea conexiunii pe Modbus dintre ES200 și centrul de comanda avand adresa IP în cauză.
 
@@ -1814,9 +1823,9 @@ După adaugarea unui nou centru de comanda și configurarea conform descrierii d
 <img src="images/Figure_54.png">
 
 
-**SLAVEID** - adresa de protocol a ES200 avand rol de slave legătura cu centrul de comanda(master). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie Modbus) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol.
+**SLAVEID** : adresa de protocol a ES200 avand rol de slave legătura cu centrul de comanda(master). Aceasta adresa trebuie sa fie identică cu adresa setata în centrul de comanda(master de comunicatie Modbus) pentru inițierea comunicatiei la nivel de aplicație pe acest protocol.
 
-ModbusType - Singura setare acceptata este TCP.
+ModbusType : Singura setare acceptata este TCP.
 
 ### 6.2.3. Adaugarea marimilor digitale, analogice și comenzi
 
@@ -1824,7 +1833,7 @@ Entitățile a căror stare se dorește a fi trimisă către centru de comanda s
 
 Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi transmise către IED-uri și vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informatia este completat automat dupa alegerea entitati (Master Equipmnet).
 
-**Address**  – Adresa entității ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității. In cazul comenzilor se aplica același principiu.
+**Address**  : Adresa entității ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adaugarea unei adrese identice pentru recepționarea stării entității. In cazul comenzilor se aplica același principiu.
 
 
 
@@ -1835,24 +1844,17 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 
 <img src="images/Figure_56.png">
 
+În fereastră de mai sus se configurează proprietățile principale ale canalului de comunicație TCP dintre ES200 și centrul de comanda. Denumirea centrului de comanda (Equimpment name) si descrierea generala a acestuia (Equipment Description) nu influențează caracteristicile de comunicație specifice protocolului DNP3. 
 
+Este necesara completarea portului TCP care urmează sa fie utilizat. Completarea adresei IP nu este necesara pentru realizarea legăturii cu centrul de comanda. Adresa IP a centrului de comanda poate fi completata în acest câmp dacă se dorește sa se asigure exclusivitatea conexiunii pe DNP3 dintre ES200 și centrul de comanda având adresa IP în cauză.
 
-    În fereastră de mai sus se configurează proprietățile principale ale canalului de comunicație TCP dintre ES200 și centrul de comanda. Denumirea centrului de comanda (Equimpment name) si descrierea generala a acestuia (Equipment Description) nu influențează caracteristicile de comunicație specifice protocolului DNP3. 
+După adăugarea unui nou centru de comanda și configurarea conform descrierii din secțiunea 4.2.1, vom avea disponibile pentru a fi editate informațiile de mai jos unde:
 
+**Channel Description** : denumirea canalului de comunicație. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
 
-    Este necesara completarea portului TCP care urmează sa fie utilizat. Completarea adresei IP nu este necesara pentru realizarea legăturii cu centrul de comanda. Adresa IP a centrului de comanda poate fi completata în acest câmp dacă se dorește sa se asigure exclusivitatea conexiunii pe DNP3 dintre ES200 și centrul de comanda având adresa IP în cauză.
+**IP** : Adresa IP a centrului de comanda - recomandăm ca acest câmp sa rămână necompletat. Adresa IP a centrului de comanda poate fi completata în acest câmp dacă se dorește sa se asigure exclusivitatea conexiunii pe DNP3 dintre ES200 și centrul de comanda având adresa IP în cauză.
 
-
-    După adăugarea unui nou centru de comanda și configurarea conform descrierii din secțiunea 4.2.1, vom avea disponibile pentru a fi editate informațiile de mai jos unde:
-
-
-    **Channel Description** - denumirea canalului de comunicație. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
-
-
-    **IP** : Adresa IP a centrului de comanda - recomandăm ca acest câmp sa rămână necompletat. Adresa IP a centrului de comanda poate fi completata în acest câmp dacă se dorește sa se asigure exclusivitatea conexiunii pe DNP3 dintre ES200 și centrul de comanda având adresa IP în cauză.
-
-
-    **Port** : portul TCP prin care se realizează comunicația TCP/IP cu echipamentul (pt DNP3 cel mai utilizat este portul 20000).
+**Port** : portul TCP prin care se realizează comunicația TCP/IP cu echipamentul (pt DNP3 cel mai utilizat este portul 20000).
 
 
 ### 6.3.2. Configurarea generala a RTU
@@ -1860,63 +1862,63 @@ Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi tra
 <img src="images/Figure_57.png">
 
 
-**Source** - reprezintă ID numeric a master-ului sau a centrului de comanda dintr-o sesiune de DNP3.0, internă pentru protocolul DNP3.In echipamentele ce comunica pe DNP3.0 este necesar setarea adresei sursa(master) și a adresei destinație (oustation sau slave);
+**Source** : reprezintă ID numeric a master-ului sau a centrului de comanda dintr-o sesiune de DNP3.0, internă pentru protocolul DNP3.In echipamentele ce comunica pe DNP3.0 este necesar setarea adresei sursa(master) și a adresei destinație (oustation sau slave);
 
-**Destination** - reprezintă adresa slave-ul (outstation care urmează sa stabilească o legătură de comunicație cu master-ul sau centrul de comanda de DNP3.0 din ES200
+**Destination** : reprezintă adresa slave-ul (outstation care urmează sa stabilească o legătură de comunicație cu master-ul sau centrul de comanda de DNP3.0 din ES200
 
-**IINBits** – indicatori interni de stare pot oferi informații despre starea slave-ului de DNP (ex: este pe local sau pe remote, necesita o noua sincronizare de tip etc). Valoarea utilizata si recomandata este 0, acești indicatori fiind generați automat funcție de situație de către ES200.
+**IINBits** : indicatori interni de stare pot oferi informații despre starea slave-ului de DNP (ex: este pe local sau pe remote, necesita o noua sincronizare de tip etc). Valoarea utilizata si recomandata este 0, acești indicatori fiind generați automat funcție de situație de către ES200.
 
-**ConfirmTimeout** (ms)- interval de timp care definește perioada de așteptare a unui răspuns din partea masterului după o solicitare la nivel de aplicație trimisa de către slave. In cazul in care după acest interval de timp nu se primește nici un răspuns din partea master-ului canalul de comunicație va fi închis de către slave DNP3 din ES200.
+**ConfirmTimeout [ms]** :  interval de timp care definește perioada de așteptare a unui răspuns din partea masterului după o solicitare la nivel de aplicație trimisa de către slave. In cazul in care după acest interval de timp nu se primește nici un răspuns din partea master-ului canalul de comunicație va fi închis de către slave DNP3 din ES200.
 
-**Obj01DefaultVariation** – definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 1 (Binary Input status). Valorile acceptate sunt 0,1,2, recomandarea fiind utilizarea variantei 2. Obj01 este un element DNP utilizat pentru transmiterea stării unui element de tip Binary input in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
+**Obj01DefaultVariation** : definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 1 (Binary Input status). Valorile acceptate sunt 0,1,2, recomandarea fiind utilizarea variantei 2. Obj01 este un element DNP utilizat pentru transmiterea stării unui element de tip Binary input in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
 
-**Obj02DefaultVariation** - definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 2 (Binary Input event). Valorile acceptate sunt 0,1,2,3 recomandarea fiind utilizarea variantei 2. Obj02 este un element DNP utilizat pentru transmiterea evenimentelor de schimbare de stare a unui element de tip Binary Input sub forma unor mesaje nesolicitate;
+**Obj02DefaultVariation** : definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 2 (Binary Input event). Valorile acceptate sunt 0,1,2,3 recomandarea fiind utilizarea variantei 2. Obj02 este un element DNP utilizat pentru transmiterea evenimentelor de schimbare de stare a unui element de tip Binary Input sub forma unor mesaje nesolicitate;
 
-**Obj30DefaultVariation** - definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 30 (Analog Input status). Valorile acceptate sunt 0-6 recomandarea fiind utilizarea variantei 3. Obj30 este un element DNP utilizat pentru transmiterea stării unui Analog input in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
+**Obj30DefaultVariation** : definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 30 (Analog Input status). Valorile acceptate sunt 0-6 recomandarea fiind utilizarea variantei 3. Obj30 este un element DNP utilizat pentru transmiterea stării unui Analog input in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
 
-**Obj32DefaultVariation** - definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 30 (Analog Input status). Valorile acceptate sunt 0-8 recomandarea fiind utilizarea variantei 7. Obj32 este un element DNP utilizat pentru transmiterea evenimentelor de schimbare de stare a unui element de tip Analog input sub forma unor mesaje nesolicitate;
+**Obj32DefaultVariation** : definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 30 (Analog Input status). Valorile acceptate sunt 0-8 recomandarea fiind utilizarea variantei 7. Obj32 este un element DNP utilizat pentru transmiterea evenimentelor de schimbare de stare a unui element de tip Analog input sub forma unor mesaje nesolicitate;
 
-**Obj40DefaultVariation** - definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 40 (Analog Output status). Valorile acceptate sunt 0,1 recomandarea fiind utilizarea variantei 1. Obj40 este un element DNP utilizat pentru transmiterea stării unui Analog Output  in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
+**Obj40DefaultVariation** : definește tipul de variații care vor fi folosite pentru obiectul DNP de tip 40 (Analog Output status). Valorile acceptate sunt 0,1 recomandarea fiind utilizarea variantei 1. Obj40 este un element DNP utilizat pentru transmiterea stării unui Analog Output  in urma unei comenzi de tip interogare generala (Integrity Poll) recepționata de la Master;
 
-**SelectTimeout (ms) **– in cazul utilizării comenzilor de tip Select/Execute parametrul reprezintă timpul de după care selecția obiectului este dezactivată. Comenzile de tip select/execute presupun in prima etapa selecția obiectului de comanda (Obj10) apoi executarea efectiva a comenzii.
+**SelectTimeout [ms]** : in cazul utilizării comenzilor de tip Select/Execute parametrul reprezintă timpul de după care selecția obiectului este dezactivată. Comenzile de tip select/execute presupun in prima etapa selecția obiectului de comanda (Obj10) apoi executarea efectiva a comenzii.
 
-**UnsolAllowed** – parametrul permite activare/dezactivarea mecanismului de raportare de evenimente specific DNP  - unsolicited messages – mesaje nesolicitate;
+**UnsolAllowed** : parametrul permite activare/dezactivarea mecanismului de raportare de evenimente specific DNP  - unsolicited messages – mesaje nesolicitate;
 
-**UnsolClass1MaxDelay** - intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 1 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
+**UnsolClass1MaxDelay** : intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 1 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
 
-**UnsolClass2MaxDelay** - intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 2 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
+**UnsolClass2MaxDelay** : intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 2 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
 
-**UnsolClass3MaxDelay** - intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 3 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
+**UnsolClass3MaxDelay** : intervalul de timp la care va fi generat si transmis periodic către Master un mesaj nesolicitat de clasa 3 ce va conține stările tuturor entităților configurate sa facă parte din aceasta clasa;
 
-**UnsolClass1MaxEvents** – numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 1 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
+**UnsolClass1MaxEvents** : numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 1 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
 
-**UnsolClass2MaxEvents** - numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 2 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
+**UnsolClass2MaxEvents** : numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 2 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
 
-**UnsolClass3MaxEvent**s - numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 3 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
+**UnsolClass3MaxEvent** : numărul de schimbări de stare a entităților configurate ca făcând parte din rapoartele de Clasa 3 pentru a fi generat si trimis un astfel de mesaj nesolicitat către Master;
 
-**UnsolConfirmTimeout **– timpul maxim de așteptare de la trimiterea unui mesaj nesolicitat de către slave DNP3 din ES200 si recepția mesajului de confirmare de primire a Masterului;** **
+**UnsolConfirmTimeout** : timpul maxim de așteptare de la trimiterea unui mesaj nesolicitat de către slave DNP3 din ES200 si recepția mesajului de confirmare de primire a Masterului;** **
 
-**UnsolMaxRetries** – nr maxim de încercări de retrimitere de către slave-ul DNP din ES200 a unui mesaj (raport) nesolicitat daca nu se primește confirmarea de primire din partea Masterului. 
+**UnsolMaxRetries** : numarul maxim de încercări de retrimitere de către slave-ul DNP din ES200 a unui mesaj (raport) nesolicitat daca nu se primește confirmarea de primire din partea Masterului. 
 
-**BinaryInputMaxEvents** – nr maxim de evenimente de tip Binary Input care vor fi memorate in buffer-ul de evenimente a slave de DNP3 din ES200 care vor fi trimise la restabilirea comunicație cu Master-ul. Precizam ca in cazul întreruperii comunicației dintre Master si Slave, evenimentele petrecute la nivelul Slave-ului in aceasta perioada vor fi memorate intr-un buffer de evenimente urmând sa fie transmise către Master la restabilirea legăturii;
+**BinaryInputMaxEvents** : numarul maxim de evenimente de tip Binary Input care vor fi memorate in buffer-ul de evenimente a slave de DNP3 din ES200 care vor fi trimise la restabilirea comunicație cu Master-ul. Precizam ca in cazul întreruperii comunicației dintre Master si Slave, evenimentele petrecute la nivelul Slave-ului in aceasta perioada vor fi memorate intr-un buffer de evenimente urmând sa fie transmise către Master la restabilirea legăturii;
 
-**AnalogInputMaxEvents** - nr maxim de evenimente de tip Analog Input care vor fi memorate in buffer-ul de evenimente a slave de DNP3 din ES200 care vor fi trimise la restabilirea comunicație cu Master-ul. Precizam ca in cazul întreruperii comunicației dintre Master si Slave, evenimentele petrecute la nivelul Slave-ului in aceasta perioada vor fi memorate intr-un buffer de evenimente urmând sa fie transmise către Master la restabilirea legăturii;
+**AnalogInputMaxEvents** : numarul maxim de evenimente de tip Analog Input care vor fi memorate in buffer-ul de evenimente a slave de DNP3 din ES200 care vor fi trimise la restabilirea comunicație cu Master-ul. Precizam ca in cazul întreruperii comunicației dintre Master si Slave, evenimentele petrecute la nivelul Slave-ului in aceasta perioada vor fi memorate intr-un buffer de evenimente urmând sa fie transmise către Master la restabilirea legăturii;
 
-**DoubleInputMaxEvents** – Nu este utilizat;
+**DoubleInputMaxEvents** : Nu este utilizat;
 
-**ClockValidPeriod** - După expirarea acestui interval de timp, eticheta de timp asociată salve de DNP3 devine invalida, unul din indicatorii interni de stare IIN se modifica si este trimis către Master si este necesara emiterea de către master a unui nou mesaj de sincronizare de timp (Obj50);
+**ClockValidPeriod** : După expirarea acestui interval de timp, eticheta de timp asociată salve de DNP3 devine invalida, unul din indicatorii interni de stare IIN se modifica si este trimis către Master si este necesara emiterea de către master a unui nou mesaj de sincronizare de timp (Obj50);
 
-**ChannelResponseTimeout** - reprezintă timpul de așteptare a unui răspuns la o cerere care a fost transmisă la nivel de aplicație ;
+**ChannelResponseTimeout** : reprezintă timpul de așteptare a unui răspuns la o cerere care a fost transmisă la nivel de aplicație ;
 
-**ConfirmMode** - permite setare modului de așteptare a mesajelor de confirmare de la nivel de aplicație. Valorile posibile sunt NEVER (confirmare doar a mesajelor nesolicitate transmise de către slave), SOMETIMES, ALWAYS (necesita confirmare pentru toate mesajele transmise între master si slave). În cazul în care este setată valoarea NEVER mecanismul de verificare a nivelului de legatura (LINK) configurat prin parametrii LinkStatusPeriod, LinkRetries și ConfirmTimeout rămâne in funcție. Este important ca parametrul echivalent din Master sa fie setat cu aceeași valoare (NEVER, SOMETIMES sau ALWAYS) ca în ES200.
+**ConfirmMode** : permite setare modului de așteptare a mesajelor de confirmare de la nivel de aplicație. Valorile posibile sunt NEVER (confirmare doar a mesajelor nesolicitate transmise de către slave), SOMETIMES, ALWAYS (necesita confirmare pentru toate mesajele transmise între master si slave). În cazul în care este setată valoarea NEVER mecanismul de verificare a nivelului de legatura (LINK) configurat prin parametrii LinkStatusPeriod, LinkRetries și ConfirmTimeout rămâne in funcție. Este important ca parametrul echivalent din Master sa fie setat cu aceeași valoare (NEVER, SOMETIMES sau ALWAYS) ca în ES200.
 
-**LinkRetries **– numărul maxim de reîncercări de trimiterea a mesajelor de verificare a nivelului de legătură în cazul în care nu se primește un răspuns de confirmare din partea master-ului
+**LinkRetries** : numărul maxim de reîncercări de trimiterea a mesajelor de verificare a nivelului de legătură în cazul în care nu se primește un răspuns de confirmare din partea master-ului
 
-**LinkStatusPeriod** - parametrul prin care se setează periodicitate transmiterii mesajelor de verificare a stării nivelului de legătură (link) între slave și master;
+**LinkStatusPeriod** : parametrul prin care se setează periodicitate transmiterii mesajelor de verificare a stării nivelului de legătură (link) între slave și master;
 
-**AutoTimeSync** – activează mecanismul de sincronizare de timp a slave-ul de DNP3 din ES200 de catre Masterul din centrul de comanda;
+**AutoTimeSync** : activează mecanismul de sincronizare de timp a slave-ul de DNP3 din ES200 de catre Masterul din centrul de comanda;
 
-**TCPConnectTimeout** – tipul de așteptare pentru stabilirea conexiunii TCP înainte ca aceasta sa fie închisa de către slave din ES200;
+**TCPConnectTimeout** : tipul de așteptare pentru stabilirea conexiunii TCP înainte ca aceasta sa fie închisa de către slave din ES200;
 
 
 ### 6.3.3. Adaugarea marimilor digitale, analogice si comenzi
@@ -1930,7 +1932,7 @@ Entitățile a căror stare se dorește a fi trimisă către centru de comanda s
 
 Comenzile ce urmează sa fie primite de la centrul de comanda sunt ce vor fi transmise către IED-uri și vor fi alese din lista disponibilă în secțiunea **Master Variable Name**. Numele IED de la care este preluata informația este completat automat după alegerea entității (Master Equipment).
 
-**Address**  – Adresa entității ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adăugarea unei adrese identice pentru recepționarea stării entității. In cazul comenzilor se aplica același principiu.
+**Address**  : Adresa entității ce urmează sa fie transmisă către centrul de comanda. In centru de comanda este necesara adăugarea unei adrese identice pentru recepționarea stării entității. In cazul comenzilor se aplica același principiu.
 
 
 # 7. Exemplu de configurare
@@ -2012,7 +2014,7 @@ Un template este o copie a unei configuratii de echipament, astfel, pentru a cre
 
 ### 8.1.2. Importul
 
-Pentru a importa un template, fie se creeaza un proiect nou, fie se importa intr-un proiect deja existent. Acest lucru se realizeaza accesand meniul “Edit”, optiunea “Import template” si importandu-se fisiere “.epgt”, create la pasul anterior (Export). Este important ca template-ul importat sa corespunda versiunii actuale de baze de date. In caz contrar, va fi nevoie sa se realizeze o conversie a bazei de date (vezi documentul despre conversia bazei de date). 
+Pentru a importa un template, fie se creeaza un proiect nou, fie se importa intr-un proiect deja existent. Acest lucru se realizeaza accesand meniul “Edit”, optiunea “Import template” si importandu-se fisiere “.epgd”, create la pasul anterior (Export). Este important ca template-ul importat sa corespunda versiunii actuale de baze de date. In caz contrar, va fi nevoie sa se realizeze o conversie a bazei de date (vezi documentul despre conversia bazei de date). 
 
 
 ## 8.2. Conversia bazei de date
@@ -2023,9 +2025,6 @@ Acest lucru se realizeaza prin accesarea meniului “Edit” -> “Convert versi
 
 
 <img src="images/Figure_64.png">
-
-
-Figura 28: Conversia bazei de date
 
 
 ### 8.2.1. Download-ul bazei de date
@@ -2040,45 +2039,37 @@ de autentificare (IP/Host Name, Username, Password) [Figure 29].
 <img src="images/Figure_65.png">
 
 
-Figura 29: Descarcarea bazei de date
-
-Se alege locul în care baza de date se salvează și numele acesteia din fereastra de salvare [Figure 30].
+Se alege locul în care baza de date se salvează și numele acesteia din fereastra de salvare.
 
 
 <img src="images/Figure_66.png">
-
-
-Figura 30: Selectarea locatiei de salvare a bazei de date
 
 
 ### 8.2.2. Conversia versiunii
 
 Se deschide baza de date în aplicația Dashboard din meniul “File->Open Project” sau folosind butonul “Open Project” din interfața aplicației.
 
-Pentru a converti baza de date, din meniul “Edit” se selectează “Convert version to->Latest version (1.5)” [Figura 3]. În acest exemplu este făcută o conversie de la versiunea 1.3 la ultima versiune 1.5.
+Pentru a converti baza de date, din meniul “Edit” se selectează “Convert version to->Latest version (3.0)”. În acest exemplu este făcută o conversie de la versiunea 2.1 la ultima versiune 3.0.
 
 
 
 <img src="images/Figure_67.png">
 
 
-Figura 31: Conversia bazei de date
-
-Se va deschide o nouă bază de date numita Denumire.epgd [versiune anterioara] ->[1.5] și se salvează.
+Se va deschide o nouă bază de date numita Denumire.epgd [versiune anterioara] ->[3.0] și se salvează.
 
 
 ### 8.2.3. Diferente intre versiunea bazelor de date
 
 Între diferite versiuni de baze de date exista diferente precum:
 
+* Scoaterea sau adaugarea unor câmpuri de proprietăți ale echipamentelor
 
-Scoaterea sau adaugarea unor câmpuri de proprietăți ale echipamentelor
+* Schimbarea valorilor default (implicite)
 
-Schimbarea valorilor default (implicite)
+* Scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
 
-Scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
-
-##### 8.2.3.1. Diferente intre versiunile 1.3 - 1.5
+##### 8.2.3.1. Diferente intre versiunile precedente si 3.0
 
 Pentru fiecare dintre noile proprietăți au fost adaugate câmpuri de Helptext pentru a explica functionalitatea acestora.
 
@@ -2089,27 +2080,21 @@ Pentru fiecare dintre noile proprietăți au fost adaugate câmpuri de Helptext 
 
 Următoarele proprietăți de echipament au fost scoase:
 
+* ProcessRestartTimeout
 
-ProcessRestartTimeout
-
-
-ValidityTimeout
-
-
+* ValidityTimeout
 
 Următoarele proprietăți de puncte au fost scoase:
 
+* DefaultValue
 
-DefaultValue
-
-
-WordCount, doar posibilitatea de a lua valoare 4.
+* WordCount, doar posibilitatea de a lua valoare 4.
 
  
 Următoarele proprietăți de echipament au fost adaugate::
 
  
-MaxRequestRetries
+* MaxRequestRetries
 
 
 ##### 8.2.3.1.2. DNP3Master
@@ -2118,31 +2103,31 @@ MaxRequestRetries
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-ChannelResponseTimeout
+* ChannelResponseTimeout
 
 
-LinkConfirmTimeout
+* LinkConfirmTimeout
 
 
-LinkConfirmMode
+* LinkConfirmMode
 
 
-MaxRequestRetries
+* MaxRequestRetries
 
 
-ClockSyncInterval
+* ClockSyncInterval
 
 
 Următoarele proprietăți de puncte au fost adaugate:
 
 
-Mode
+* Mode
 
 
 Următoarele valori default au fost schimbate:
 
 
-LinkStatusInterval [setat la 10000]
+* LinkStatusInterval **[setat la 10000]**
 
 
 ##### 8.2.3.1.3. IEC61850
@@ -2151,22 +2136,22 @@ LinkStatusInterval [setat la 10000]
 Următoarele proprietăți de echipament au fost scoase:
 
 
-Path
+* Path
 
 
-FileLogPath
+* FileLogPath
 
  
 Următoarele valori default au fost schimbate:
 
 
-PSEL [setat la 00000001]
+* PSEL **[setat la 00000001]**
 
 
-SSEL [setat la 0001]
+* SSEL **[setat la 0001]**
 
 
-TSEL [setat la 0001]
+* TSEL **[setat la 0001]**
 
 
 ##### 8.2.3.1.4. IEC104Slave
@@ -2175,28 +2160,28 @@ TSEL [setat la 0001]
 Următoarele proprietăți de echipament au fost scoase:
 
 
-FileLogPath
+* FileLogPath
 
 
-MonitoredPath
+* MonitoredPath
 
 
 Următoarele proprietăți de puncte au fost scoase:
 
 
-DefaultValue
+* DefaultValue
 
 
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-CyclicAfterFirstGI
+* CyclicAfterFirstGI
 
 
-FileMonitorPath
+* FileMonitorPath
 
 
-FilesEncoderMonitorPath
+* FilesEncoderMonitorPath
 
 
 ##### 8.2.3.1.5. ModbusSlave
@@ -2205,13 +2190,13 @@ FilesEncoderMonitorPath
 Următoarele proprietăți de puncte au fost scoase:
 
 
-DefaultValue
+* DefaultValue
 
 
-DataType
+* DataType
 
 
-MeasurementUnit
+* MeasurementUnit
 
 
 ##### 8.2.3.1.6. IEC104Master
@@ -2220,28 +2205,28 @@ MeasurementUnit
 Următoarele proprietăți de puncte au fost scoase:
 
 
-DefaultValue
+* DefaultValue
 
 
 Următoarele proprietăți de echipament au fost adaugate::
 
 
-ClockSyncInterval
+* ClockSyncInterval
 
 
-HasFileTransfer
+* HasFileTransfer
 
 
-FileStorePath
+* FileStorePath
 
 
-FileDirectoryRequestInterval
+* FileDirectoryRequestInterval
 
 
-HasFilesDecoder
+* HasFilesDecoder
 
 
-FilesDecoderStorePath
+* FilesDecoderStorePath
 
 
 ##### 8.2.3.1.7. MultiDataMaster
@@ -2263,19 +2248,19 @@ Adaugarea masterului de MQTT.
 Au fost modificate următoarele proprietati au fost scoase:
 
 
-AutoTimeSync
+* AutoTimeSync
 
 
-AutoEnableUnsol
+* AutoEnableUnsol
 
 
-AutoDisableUnsol
+* AutoDisableUnsol
 
 
-IntegrityPoolInterval
+* IntegrityPoolInterval
 
 
-ClockSyncInterval
+* ClockSyncInterval
 
 
 Au fost adaugate următoarele proprietati:
@@ -2284,16 +2269,16 @@ Au fost adaugate următoarele proprietati:
 AutoTimeSyncIIN + si optiunile:
 
 
-LAN
+* LAN
 
 
-Serial
+* Serial
 
 
-EnableUnsol
+* EnableUnsol
 
 
-IntegrityPollInterval
+* IntegrityPollInterval
 
 
 ##### 8.2.3.2.2. DNP3Slave:
@@ -2318,7 +2303,7 @@ Se poate realiza schimbarea limbii interfetei Dashboard-ului accesand meniul “
 
 
 <img src="images/Figure_68.png">
-Figura 32: Schimbarea limbii
+
 
 
 ## 8.4. Editorul de blocuri logice
@@ -2335,25 +2320,26 @@ Figura 33: Editorul de blocuri logice
 Modulul pune la dispoziție blocuri predefinite specifice limbajelor de programare standard (LD, FBD, SFC) utilizate pentru configurarea PLC. Blocurile  pot fi grupate pe mai câte categorii distincte:
 
 
-Blocuri destinate operațiilor logice: AND, OR, NOT, XOR;
+* Blocuri destinate operațiilor logice: AND, OR, NOT, XOR;
 
 
-Blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. predefinit de poziții 
+* Blocuri destinate operațiilor pe biti: deplasare la stanga/dreapta cu un nr. predefinit de poziții 
 
 <img src="images/Figure_70.png">
-, extragerea unui anumit bit de pe o poziție predefinita dintr-un octet 
+
+extragerea unui anumit bit de pe o poziție predefinita dintr-un octet 
 
 <img src="images/Figure_71.png">
 
 
-Blocuri care implementează timere: TON si TOF;
+Blocuri care implementează timere: **TON si TOF**
 
-Bloc pentru automentinere (bistabil) - ResetDominantBistabil (SET/RESET)
+Bloc pentru automentinere (bistabil) : **ResetDominantBistabil (SET/RESET)**
 
 <img src="images/Figure_72.png">
 
 
-Bloc pentru determinari statistice pentru mărimi (de obicei analogice) pe anumite intervale de timp : MIN, MAX, AVG (media aritmetică) , DISP (dispersia).
+Bloc pentru determinari statistice pentru mărimi (de obicei analogice) pe anumite intervale de timp : **MIN, MAX, AVG (media aritmetică) , DISP (dispersia)**.
 Aceste blocuri pot fi interconectare prin utilizarea unui editor grafic inclus în modulul de MultiDataMaster.
 
 Sistemul de blocuri logice predefinite interconectate este convertit automat după salvarea efectuata in editorul grafic într-o ecuație pe care o regăsim în tabele din secțiunile specifice din MultiDataMater.
@@ -2370,7 +2356,7 @@ Actionand butonul indicat în figura 34, din cadrul configurarii punctelor din M
 ### 8.4.1. Descriere functionalitate blocuri de automatizare
 
  
-ResetDominantBistabil (SET/RESET) - funcție utilizata pentru implementarea unor autometineri conditionate.
+**ResetDominantBistabil (SET/RESET)** : funcție utilizata pentru implementarea unor autometineri conditionate.
 
 
 <img src="images/Figure_74.png">
@@ -2434,8 +2420,7 @@ Ieșirea Q1 este resetată dacă intrarea Reset1 este setată, indiferent de sta
 
 
 
-2. 
-TON
+**TON**
 
 
 <img src="images/Figure_75.png">
@@ -2505,9 +2490,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 
 
 
-
-3. 
-TOF
+**TOF**
 
 
 <img src="images/Figure_77.png">
@@ -2575,9 +2558,8 @@ Modul de funcționare este descris de diagramele de mai jos:
 
 <img src="images/Figure_78.png">
 
-
-4. 
-Funcții pentru determinari statistice: MAX, MIN, AVG, DISP
+ 
+**Funcții pentru determinari statistice: MAX, MIN, AVG, DISP**
 
 
 <img src="images/Multi_Data_Master_StatisticalFunctions.png">
@@ -2673,6 +2655,69 @@ După activarea acestei opțiuni se va deschide editorul interfeței grafice om-
 
 
 Fig.1 – Editor HMI ES200 – interfața principala
+
+<img src="images/HMIredSquare.png">
+
+In interiorul patratului rosu avem sapte butoane:
+
+Primul buton ( Settings ) ne ofera posibilitatea de a edita View-ul, Layout-ul sau Conexiunile cu interfata HMI.
+
+Al doilea buton ( Save ) ne ofera posibilitatea de a salva configuratia actuala de HMI pe care lucram in momentul actual. Utilizatorul va avea de ales o locatie unde se va salva fisierul respectiv.
+
+Al treilea buton ( Play ) ne ofera posibilitatea de a rula configuratia actuala de HMI pe care o folosim in momentul respectiv.
+
+Al patrulea buton ( Zoom In/Out ) ne ofera posibilitatea de a mari sau micsora display-ul configuratiei de HMI.
+
+Al cincilea buton ( Grid ) ne ofera posibilitatea de a adauga o grila peste configuratia actuala de HMI incarcata pentru asezarea mai usoara a echipamentelor in configuratie.
+
+Butoanele sase si sapte ( Undo and Redo ) ne ofera posibilitatea de a sterge sau a reface o modificare pe care am facut-o asupra configuratiei de HMI.
+
+<img src="images/HMIbigRedSquare.png">
+
+In sectiunea Views, utilizatorul poate vedea toate configuratiile de HMI incarcate in momentul respectiv, sa navigheze si sa creeze link-uri intre acestea.
+
+Butonul Add adauga o noua configuratie de HMI iar Import adauga o configuratie deja existenta pe care o va incarca utilizatorul; acesta va avea de ales locatia unde configuratia propriu zisa se va afla.
+
+In sectiunea General, utilizatorul are la dispozitie diferite butoane care-i ofera posibilitatea de a adauga diferite chestii in configuratia actuala de HMI:
+
+Primul buton, ales automat, este cursor-ul care-i permite utilizatorului sa aleaga diferite functii.
+
+Al doilea buton ( Pencil ) ofera posibilitatea de a desena in interiorul configuratie de HMI incarcata.
+
+Al treilea buton ( Draw line ) ofera posibilitatea de a trasa linii in interiorul configuratie de HMI incarcata.
+
+Al patrulea buton ( Rectangle ) ofera posibilitatea de a trasa un patrulater in interiorul configuratiei de HMI incarcata.
+
+Butoanele cinci si sanse ofera posibilitatea de a trasa cercuri in interiorul configuratiei de HMI incarcata.
+
+Al saptelea buton ( Path ) ofera posibilitatea de a trasa trasee de la un echipament la celalalt in configuratie.
+
+Al optulea buton ( Text Box ) ofera posibilitatea de a insera in interiorul configuratie o cutie tip-text unde utilizatorul poate scrie.
+
+Al noualea buton ( Image ) ofera posibilitatea de a insera o imagine in interiorul configuratiei de HMI incarcata.
+
+<img src="images/HMIcontrols.png">
+
+In sectiunea Controls, utilizatorul are posibilitatea de a insera diferite butoane sau input-uri:
+
+Primul buton ( Input value ) ofera posibilitatea de a insera o valoare in interiorul butonului.
+
+Al doilea buton ( Output value ) va returna o valoarea in concordanta cu input-ul inserat la primul pas.
+
+Al treilea buton are functii diferite, cea potrivita fiind aleasa de catre utilizator.
+
+Al patrulea buton ( Select value ) va afisa valori diferite care vor fi selectate de catre utilizator.
+
+Al cincilea buton ( Led gauge ) va insera in interiorul configuratiei de HMI un led care va avea functionalitati diferite in functie de echipamentul la care acesta a fost legat.
+
+Al saselea buton ( Pipe ) ofera posibilitatea de a desena un tub de la un echipament la altul.
+
+Al saptelea buton ( Switch ) va avea doua functionalitati diferite in functie de circumstanta pe care o va alege utilizatorul ( On OR Off ).
+
+
+<img src="images/HMIcanvasColor.png">
+
+La capatul paginii, editorul ofera posibilitatea de a alege culoare de fundal pe care o va avea configuratia de HMI incarcata.
 
 
 ### 8.5.2. Adăugarea de mărimi digitale

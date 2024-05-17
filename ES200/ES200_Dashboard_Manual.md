@@ -1961,6 +1961,71 @@ After activating this option, the graphical user interface editor provided by th
 
 Fig.1 – ES200 HMI Editor – main interface
 
+<img src="images/HMIredSquare.png">
+
+Inside the square, we have seven buttons :
+
+The first button ( Settings ) lets us edit the View, Layout or the Connections made to the HMI interface.
+
+The second button ( Save ) lets us save the current HMI interface we are currently working with. The user will be prompted to choose his desired save location.
+
+The third button ( Play ) lets us run the current HMI configuration we are currently working with.
+
+The fourth button ( Zoom ) lets us zoom in/out inside the HMI interface.
+
+The fifth button ( Grid ) lets us show grids around the whole interface for easier placements.
+
+The sixth and seventh buttons ( Undo and Redo ) lets us undo or redo the current modifications made to the HMI interface.
+
+<img src="images/HMIbigRedSquare.png">
+
+In the Views section, the user will be able to see all the current HMI interfaces loaded at the moment and will be able to switch between them or create certain links between them.
+
+The add and import buttons will let the user add another view or imported an already existing one.
+
+ 
+
+In the General section, the user will have different buttons which will let him implement different things inside the canvas:
+
+The first button, which is selected from the beginning by the configuration, is the button which is used to select other settings in that section.
+
+The second button, draw pencil, will let the user draw around the canvas.
+
+The third button, line tool, will let the user draw lines inside the canvas.
+
+The fourth button, rectangle tool, will let the user draw rectangular shapes inside the canvas.
+
+The fifth and sixth buttons, circle tool, will let the user draw circular shapes inside the canvas.
+
+The seventh button, path tool, will let the user draw paths from one eq. to another.
+
+The eighth button, text tool, will let the user insert a text box inside the canvas.
+
+The ninth button, image tool, will let the user import an image inside the canvas.
+
+
+<img src="images/HMIcontrols.png">
+
+In the Controls section, the user will be able to implement different buttons or inputs, each with its own behaviour.
+
+The first button, input value, will allow the user to insert a value inside the canvas.
+
+The second button, output value, will output a value regarding the one inserted by the user using the input.
+
+The third option is a button whose behaviour will be selected by the user.
+
+The fourth button , select value, will output different values which will be shown by the user.
+
+The fifth button, led gauge, will implement a led which will have different behaviours regarding its current eq. status.
+
+The sixth button, pipe, will let the user draw a pipe from one eq. to another.
+
+The last button, switch, will switch from one instance to another, both chosen by the user.
+
+<img src="images/HMIcanvasColor.png">
+
+The bottom section of the canvas will let the user choose the desired background color.
+
 ### 8.5.2. Adding Digital Quantities
 
 To associate an entity with a dynamically added symbol on the interface, left-click on the newly added symbol, and the properties window will open (see the figure above on the left).

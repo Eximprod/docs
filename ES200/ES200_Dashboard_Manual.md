@@ -1880,7 +1880,7 @@ The operation is described in the diagrams below:
 
 Blocks can be used to calculate the arithmetic mean, minimum, maximum or dispersion for a quantity monitored by the ES200 over a settable time interval (WindowSize) and measured at a frequency (sample rate) defined by the SampleTime(ms) parameter.
 
-<img src="images/Multi_Data_Master_Arithmetic.png"></p>
+<img src="images/Multi_Data_Master_StatisticalFunctions.png"></p>
 
 Description of input signals in block:
 
@@ -1902,7 +1902,7 @@ Description of input signals in block:
    </td>
   </tr>
   <tr>
-   <td><strong>WindowSize(s)</strong>
+   <td><strong>WindowSize(ms)</strong>
    </td>
    <td><strong>unsigned integer</strong>
    </td>

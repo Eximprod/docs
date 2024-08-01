@@ -2580,7 +2580,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 Funcții pentru determinari statistice: MAX, MIN, AVG, DISP
 
 
-<img src="images/Figure_79.png">
+<img src="images/Multi_Data_Master_StatisticalFunctions.png">
 
 
 Blocurile pot fi utilizate pentru calcularea mediei aritmetice, minimului, maximului sau dispersiei pentru o mărime monitorizata de ES200 pe un interval de timp setabil (WindowSize) și măsurată cu o frecvență (rata de eșantionare) definită de parametrul SampleTime(ms).
@@ -2606,7 +2606,7 @@ Descriere semnale de intrare în bloc:
    </td>
   </tr>
   <tr>
-   <td>WindowSize(s)
+   <td>WindowSize(ms)
    </td>
    <td>unsigned integer
    </td>

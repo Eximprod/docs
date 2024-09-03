@@ -1,0 +1,18 @@
+{
+    "saveAndRunExt": {
+        "commands": [
+            {
+                "match": ".*\\.md$",
+                "isShellCommand": false,
+                "isAsync": false,
+                "cmd": "markdown.extension.toc.addSecNumbers"
+            },
+            {
+                "match": ".*\\.md$",
+                "isShellCommand": false,
+                "isAsync": false,
+                "cmd": "markdown.extension.toc.update"
+            }
+        ]
+    }
+}

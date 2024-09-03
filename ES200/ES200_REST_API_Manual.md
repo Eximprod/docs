@@ -1,5 +1,17 @@
 
-# ES200 - REST API Guide
+# ES200 - REST API Guide <!-- omit from toc -->
+
+[**Table of Contents:**](#toc)
+- [1. ES200 Endpoints](#1-es200-endpoints)
+  - [1.1. Authenticate User](#11-authenticate-user)
+  - [1.2. Update User Password](#12-update-user-password)
+  - [1.3. Get Users](#13-get-users)
+- [2. WebServer Endpoints](#2-webserver-endpoints)
+  - [2.1. Login](#21-login)
+  - [2.2. Logout](#22-logout)
+  - [2.3. Fetch Log Files Names](#23-fetch-log-files-names)
+  - [2.4. Fetch Log Content](#24-fetch-log-content)
+
 
 ## 1. ES200 Endpoints
 

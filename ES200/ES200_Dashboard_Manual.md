@@ -117,6 +117,10 @@
   - [8.3. Change the language](#83-change-the-language)
   - [8.4. Logic block editor](#84-logic-block-editor)
     - [8.4.1. Functionality description of automation blocks](#841-functionality-description-of-automation-blocks)
+      - [8.4.1.1. ResetDominantBistable (SET/RESET)](#8411-resetdominantbistable-setreset)
+      - [8.4.1.2. TON](#8412-ton)
+      - [8.4.1.3. TOF](#8413-tof)
+      - [8.4.1.4. Functions for statistical determinations: MAX, MIN, AVG, DISP](#8414-functions-for-statistical-determinations-max-min-avg-disp)
   - [8.5. Configuration of ES200 HMI](#85-configuration-of-es200-hmi)
     - [8.5.1. General Description](#851-general-description)
     - [8.5.2. Adding Digital Quantities](#852-adding-digital-quantities)
@@ -1697,7 +1701,9 @@ Pressing the button shown in figure 34, within the MultiDataMaster points config
 
 ### 8.4.1. Functionality description of automation blocks
 
-ResetDominantBistable (SET/RESET) - Function used to implement conditioned autometers.
+#### 8.4.1.1. ResetDominantBistable (SET/RESET) 
+
+Function used to implement conditioned autometers.
 
 <img src="images/Reset_Dominant_Bistable.png"></p>
 
@@ -1754,8 +1760,7 @@ Description of exit signals from the block:
 The Q1 output is reset if the Reset1 input is set, regardless of the state of the Set input. If the SET input is set and Reset1 is not set, output bit Q1 is set. If both inputs are FALSE, output Q1 will retain its previous value.
 
 
-
-2. TON
+#### 8.4.1.2. TON
 
 A timer that results in a delay in the activation of the output signal Q by a time interval settable by the PT parameter. The condition is that the IN input remains active for the time interval PT.
 
@@ -1816,7 +1821,11 @@ The operation is described in the diagrams below:
 
 <img src="images/Multi_Data_Master_TON_Diagram.png"></p>
 
-3. TOF
+
+
+#### 8.4.1.3. TOF
+
+
 Timer that results in keeping the output signal Q active for a time interval settable by the PT parameter, even if the input signal IN has become inactive.
 
 <img src="images/Multi_Data_Master_TOF.png"></p>
@@ -1876,7 +1885,7 @@ The operation is described in the diagrams below:
 
 <img src="images/Multi_Data_Master_TOF_Diagram.png"></p>
 
-4. Functions for statistical determinations: MAX, MIN, AVG, DISP
+#### 8.4.1.4. Functions for statistical determinations: MAX, MIN, AVG, DISP
 
 Blocks can be used to calculate the arithmetic mean, minimum, maximum or dispersion for a quantity monitored by the ES200 over a settable time interval (WindowSize) and measured at a frequency (sample rate) defined by the SampleTime(ms) parameter.
 

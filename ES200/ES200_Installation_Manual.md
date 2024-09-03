@@ -1,5 +1,6 @@
 # ES200 vRTU Installation Manual for IOx  <!-- omit from toc -->
 
+[**Table of Contents:**](#toc)
 - [1. About this manual](#1-about-this-manual)
   - [1.1. Legal Disclaimer](#11-legal-disclaimer)
   - [1.2. General Provisions](#12-general-provisions)
@@ -22,8 +23,8 @@
     - [3.2.3. NAT configuration](#323-nat-configuration)
     - [3.2.4. Serial interface configuration (optional)](#324-serial-interface-configuration-optional)
 - [4. ES200 Software installation](#4-es200-software-installation)
-  - [4.2. IR809](#42-ir809)
-  - [4.3. IR1101](#43-ir1101)
+  - [4.1. IR809](#41-ir809)
+  - [4.2. IR1101](#42-ir1101)
 
 # 1. About this manual
 The **ES200** virtual RTU software is a versatile solution designed to address a wide range of automation needs in various industries. By leveraging current communication standards, ES200 provides a modern and scalable platform that seamlessly integrates with most existing automation systems. This document outlines the steps required to install and utilize the ES200 software on a Cisco IOx-enabled device.
@@ -296,7 +297,7 @@ R2-epg(config)# relay line 0/2/0 0/0/0
 
 The ES200 software is wrapped up in a Docker container which is then converted into an LXC container using the _ioxclient _application provided by Cisco. The latest version of the ES200 application is 20.01.02LTS. Please make sure that when you install the software on the router you have the same version as stated in this document. If you do not have the latest version, please contact [es200_support@epg.ro.](mailto:es200_support@epg.ro)
 
-## 4.2. IR809
+## 4.1. IR809
 
 First step is to open a browser and acces https://IP:8443, where IP is the one used on NAT configuration, in this example 10.10.30.182.
 
@@ -318,7 +319,7 @@ Now ES200’s status must be ACTIVATED. To start the application, from Applicati
 
 After pressing Start, application status will change to RUNNING from ACTIVATED.
 
-## 4.3. IR1101
+## 4.2. IR1101
 
 For the IR1101, the procedure to install the ES200 is mostly the same. The difference between the two procedures are that the IOx web interface is accessible from the IOS-XE web interface and the networking of the application is part of the VirtualPortGroup0.
 

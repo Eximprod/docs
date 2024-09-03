@@ -1,12 +1,13 @@
 # ES200 Proof of Concept <!-- omit from toc -->
 
+[**Table of Contents:**](#toc)
 - [1. Introduction](#1-introduction)
 - [2. General Architecture](#2-general-architecture)
   - [2.1. Use cases](#21-use-cases)
   - [2.2. System architecture](#22-system-architecture)
   - [2.3. Supported comunication protocols](#23-supported-comunication-protocols)
 - [3. Prerequisites](#3-prerequisites)
-  - [3.1 Scope](#31-scope)
+  - [3.1. Scope](#31-scope)
 
 
 # 1. Introduction
@@ -133,4 +134,4 @@ Table 2: ES200 supported communication protocols
 
 # 3. Prerequisites
 
-## 3.1 Scope
+## 3.1. Scope

@@ -1,5 +1,133 @@
 # ES200 Manual de utilizare <!-- omit from toc -->
 
+[**Cuprins:**](#toc)
+- [1. Despre acest manual](#1-despre-acest-manual)
+  - [1.1. Informații legale](#11-informații-legale)
+  - [1.2. Dispoziții generale](#12-dispoziții-generale)
+  - [1.3. Terminologie](#13-terminologie)
+  - [1.4. Abrevieri](#14-abrevieri)
+  - [1.5. Versiuni browser minime](#15-versiuni-browser-minime)
+- [2. Unitatea ES200](#2-unitatea-es200)
+  - [2.1. Exemple de aplicații practice](#21-exemple-de-aplicații-practice)
+  - [2.2. Hardware-ul specific](#22-hardware-ul-specific)
+  - [2.3. Arhitectura sistemului](#23-arhitectura-sistemului)
+  - [2.4. Protocoale de comunicație suportate](#24-protocoale-de-comunicație-suportate)
+- [3. Instalarea ES200 Dashboard](#3-instalarea-es200-dashboard)
+- [4. Configurarea bazei de date folosind Dashboard-ul](#4-configurarea-bazei-de-date-folosind-dashboard-ul)
+  - [4.1. Interfața de configurare](#41-interfața-de-configurare)
+    - [4.1.1. Toolbar-ul principal (1)](#411-toolbar-ul-principal-1)
+    - [4.1.2. Toolbar-ul secundar (2)](#412-toolbar-ul-secundar-2)
+    - [4.1.3. Lista de echipamente (3)](#413-lista-de-echipamente-3)
+    - [4.1.4. Setările echipamentelor (4)](#414-setările-echipamentelor-4)
+    - [4.1.5. Tabelul de puncte (5)](#415-tabelul-de-puncte-5)
+    - [4.1.6. Tabelul de erori (6)](#416-tabelul-de-erori-6)
+  - [4.2. Adăugarea de echipamente în baza de date](#42-adăugarea-de-echipamente-în-baza-de-date)
+    - [4.2.1. Centre de comandă:](#421-centre-de-comandă)
+    - [4.2.2. IED-uri](#422-ied-uri)
+    - [4.2.3. Adăugarea și editarea de elemente (binare, analogice, comenzi)](#423-adăugarea-și-editarea-de-elemente-binare-analogice-comenzi)
+    - [4.2.4. Editarea punctelor unui centru de comandă](#424-editarea-punctelor-unui-centru-de-comandă)
+    - [4.2.5. Editarea punctelor unui IED](#425-editarea-punctelor-unui-ied)
+  - [4.3. Descărcarea și încărcarea bazei de date în ES200](#43-descărcarea-și-încărcarea-bazei-de-date-în-es200)
+    - [4.3.1. Descărcarea bazei de date](#431-descărcarea-bazei-de-date)
+    - [4.3.2. Încărcarea bazei de date](#432-încărcarea-bazei-de-date)
+  - [4.4. Vizualizarea punctelor.](#44-vizualizarea-punctelor)
+  - [4.5. Trimiterea comenzilor](#45-trimiterea-comenzilor)
+  - [4.6. Fortarea de puncte](#46-fortarea-de-puncte)
+- [5. Configurarea comunicatiei cu IED](#5-configurarea-comunicatiei-cu-ied)
+  - [5.1. Modbus](#51-modbus)
+    - [5.1.1. Configurare generală a canalului de comunicatie](#511-configurare-generală-a-canalului-de-comunicatie)
+    - [5.1.2. Configurarea generala a RTU](#512-configurarea-generala-a-rtu)
+    - [5.1.3. Adaugarea intrărilor digitale de tip Discrete Input Register](#513-adaugarea-intrărilor-digitale-de-tip-discrete-input-register)
+    - [5.1.4. Adăugarea comenzilor digitale de tip Coil](#514-adăugarea-comenzilor-digitale-de-tip-coil)
+    - [5.1.5. Adăugarea marimilor tip intrări analogice - Input Register](#515-adăugarea-marimilor-tip-intrări-analogice---input-register)
+    - [5.1.6. Adaugarea marimilor tip comenzi analogice - Holding Register](#516-adaugarea-marimilor-tip-comenzi-analogice---holding-register)
+  - [5.2. DNP3.0](#52-dnp30)
+    - [5.2.1. Configurare generală a canalului de comunicatie](#521-configurare-generală-a-canalului-de-comunicatie)
+    - [5.2.2. Configurarea generala a RTU](#522-configurarea-generala-a-rtu)
+    - [5.2.3. Adaugarea marimilor digitale](#523-adaugarea-marimilor-digitale)
+    - [5.2.4. Adăugarea marimilor analogice](#524-adăugarea-marimilor-analogice)
+    - [5.2.5. Adăugarea comenzilor](#525-adăugarea-comenzilor)
+  - [5.3. IEC 61850 Ed1](#53-iec-61850-ed1)
+    - [5.3.1. Configurarea generală a canalului de comunicatie](#531-configurarea-generală-a-canalului-de-comunicatie)
+    - [5.3.2. Configurarea generala a conexiunii cu IED](#532-configurarea-generala-a-conexiunii-cu-ied)
+    - [5.3.3. Editarea marimilor digitale si analogice](#533-editarea-marimilor-digitale-si-analogice)
+    - [5.3.4. Editarea comenzilor](#534-editarea-comenzilor)
+    - [5.3.5. Editarea rapoartelor IEC61850](#535-editarea-rapoartelor-iec61850)
+  - [5.4. IEC 61850 Ed2](#54-iec-61850-ed2)
+    - [5.4.1. Configurarea generală a canalului de comunicatie](#541-configurarea-generală-a-canalului-de-comunicatie)
+    - [5.4.2. Configurarea generala a RTU](#542-configurarea-generala-a-rtu)
+    - [5.4.3. Editare marimilor digitale și analogice](#543-editare-marimilor-digitale-și-analogice)
+    - [5.4.4. Editarea comenzilor](#544-editarea-comenzilor)
+    - [5.4.5. Editarea rapoartelor](#545-editarea-rapoartelor)
+  - [5.5. IEC-60870-5-104](#55-iec-60870-5-104)
+    - [5.5.1. Configurare generală a canalului de comunicație](#551-configurare-generală-a-canalului-de-comunicație)
+    - [5.5.2. Configurarea generala a RTU](#552-configurarea-generala-a-rtu)
+    - [5.5.3. Adăugarea mărimilor digitale simple, de tip double sau a celor analogice](#553-adăugarea-mărimilor-digitale-simple-de-tip-double-sau-a-celor-analogice)
+    - [5.5.4. Adăugarea comenzilor](#554-adăugarea-comenzilor)
+  - [5.6. MQTT](#56-mqtt)
+    - [5.6.1. Configurare generală a canalului de comunicație](#561-configurare-generală-a-canalului-de-comunicație)
+    - [5.6.2. Adăugarea mărimilor digitale simple( mărimi boolene)](#562-adăugarea-mărimilor-digitale-simple-mărimi-boolene)
+    - [5.6.3. Adăugarea mărimilor analogice (numerice)](#563-adăugarea-mărimilor-analogice-numerice)
+  - [5.7. IEC-60870-5-101](#57-iec-60870-5-101)
+    - [5.7.1. Configurare generală a canalului de comunicație](#571-configurare-generală-a-canalului-de-comunicație)
+    - [5.7.2. Adăugarea mărimilor de stare digitale si analogice](#572-adăugarea-mărimilor-de-stare-digitale-si-analogice)
+    - [5.7.3. Adăugarea comenzilor](#573-adăugarea-comenzilor)
+- [6. Configurarea comunicației cu centrul de comanda](#6-configurarea-comunicației-cu-centrul-de-comanda)
+  - [6.1. IEC 68870-5-104](#61-iec-68870-5-104)
+    - [6.1.1. Configurare generală a canalului de comunicație](#611-configurare-generală-a-canalului-de-comunicație)
+    - [6.1.2. Configurarea generala a CC](#612-configurarea-generala-a-cc)
+    - [6.1.3. Adăugarea marimilor digitale](#613-adăugarea-marimilor-digitale)
+    - [6.1.4. Adăugarea marimilor analogice](#614-adăugarea-marimilor-analogice)
+    - [6.1.5. Adăugarea comenzilor](#615-adăugarea-comenzilor)
+  - [6.2. Modbus](#62-modbus)
+    - [6.2.1. Configurare generală a canalului de comunicatie](#621-configurare-generală-a-canalului-de-comunicatie)
+    - [6.2.2. Configurarea generala a CC](#622-configurarea-generala-a-cc)
+    - [6.2.3. Adaugarea marimilor digitale, analogice și comenzi](#623-adaugarea-marimilor-digitale-analogice-și-comenzi)
+  - [6.3. DNP3.0](#63-dnp30)
+    - [6.3.1. Configurare generală a canalului de comunicație](#631-configurare-generală-a-canalului-de-comunicație)
+    - [6.3.2. Configurarea generala a RTU](#632-configurarea-generala-a-rtu)
+    - [6.3.3. Adaugarea marimilor digitale, analogice si comenzi](#633-adaugarea-marimilor-digitale-analogice-si-comenzi)
+- [7. Exemplu de configurare](#7-exemplu-de-configurare)
+  - [7.1. O situație ipotetică](#71-o-situație-ipotetică)
+  - [7.2. Configurarea IED-ului](#72-configurarea-ied-ului)
+  - [7.3. Configurarea unui centru de comandă](#73-configurarea-unui-centru-de-comandă)
+  - [7.4. Salvarea și încărcarea bazei de date](#74-salvarea-și-încărcarea-bazei-de-date)
+- [8. Optiuni utile](#8-optiuni-utile)
+  - [8.1. Exportul si importul de template-uri](#81-exportul-si-importul-de-template-uri)
+    - [8.1.1. Exportul](#811-exportul)
+    - [8.1.2. Importul](#812-importul)
+  - [8.2. Conversia bazei de date](#82-conversia-bazei-de-date)
+    - [8.2.1. Download-ul bazei de date](#821-download-ul-bazei-de-date)
+    - [8.2.2. Conversia versiunii](#822-conversia-versiunii)
+    - [8.2.3. Diferente intre versiunea bazelor de date](#823-diferente-intre-versiunea-bazelor-de-date)
+      - [8.2.3.1. Diferente intre versiunile precedente si 3.0](#8231-diferente-intre-versiunile-precedente-si-30)
+        - [8.2.3.1.1. ModbusMaster](#82311-modbusmaster)
+        - [8.2.3.1.2. DNP3Master](#82312-dnp3master)
+        - [8.2.3.1.3. IEC61850](#82313-iec61850)
+        - [8.2.3.1.4. IEC104Slave](#82314-iec104slave)
+        - [8.2.3.1.5. ModbusSlave](#82315-modbusslave)
+        - [8.2.3.1.6. IEC104Master](#82316-iec104master)
+        - [8.2.3.1.7. MultiDataMaster](#82317-multidatamaster)
+        - [8.2.3.1.8. JSON\_MQTT](#82318-json_mqtt)
+      - [8.2.3.2. Diferenta intre versiunile 1.5 - 2.0](#8232-diferenta-intre-versiunile-15---20)
+        - [8.2.3.2.1. DNP3Master](#82321-dnp3master)
+        - [8.2.3.2.2. DNP3Slave](#82322-dnp3slave)
+      - [8.2.3.3. Diferenta intre 2.0 si 2.1](#8233-diferenta-intre-20-si-21)
+        - [8.2.3.3.1. DNP3Master](#82331-dnp3master)
+  - [8.3. Schimbarea de limba](#83-schimbarea-de-limba)
+  - [8.4. Editorul de blocuri logice](#84-editorul-de-blocuri-logice)
+    - [8.4.1. Descriere functionalitate blocuri de automatizare](#841-descriere-functionalitate-blocuri-de-automatizare)
+      - [8.4.1.1. ResetDominantBistabil (SET/RESET)](#8411-resetdominantbistabil-setreset)
+      - [8.4.1.2. TON](#8412-ton)
+      - [8.4.1.3. TOF](#8413-tof)
+      - [8.4.1.4. Funcții pentru determinari statistice: MAX, MIN, AVG, DISP](#8414-funcții-pentru-determinari-statistice-max-min-avg-disp)
+  - [8.5. Configurarea HMI ES200](#85-configurarea-hmi-es200)
+    - [8.5.1. Descriere generala](#851-descriere-generala)
+    - [8.5.2. Adăugarea de mărimi digitale](#852-adăugarea-de-mărimi-digitale)
+    - [8.5.3. Adăugarea de mărimi analogice](#853-adăugarea-de-mărimi-analogice)
+    - [8.5.4. Adăugarea unei comenzi](#854-adăugarea-unei-comenzi)
+    - [8.5.5. Salvare, încărcare si utilizare HMI](#855-salvare-încărcare-si-utilizare-hmi)
+
 
 # 1. Despre acest manual
 
@@ -482,7 +610,7 @@ Figura 7: Wizard de instalare (4)
 Informațiile și setările necesare pentru ca aplicația ES200 să poată rula sunt salvate într-o bază de date. Fiecare unitate este livrată cu o aplicație (Dashboard) destinată editării respectivei baze de date.
 
 
-## 4.1 Interfața de configurare
+## 4.1. Interfața de configurare
 
 Interfața aplicației de configurare a bazei de date este ilustrată în Figura 8.
 
@@ -551,7 +679,7 @@ Toolbar-ul secundar conține următoarele butoane:
 * Data Management Services – echipamentul de tip MultiDataMaster din baza de date.
 
 
-### 4.1.4.Setările echipamentelor (4)
+### 4.1.4. Setările echipamentelor (4)
 
 La selectarea unui echipament (fie el centru de comandă sau IED), secțiunea setărilor echipamentului va avea următoarele sub-meniuri:
 
@@ -806,7 +934,8 @@ Indicatorul verde din stanga barei de status prezinta statusul conexiunii. Acest
 <img src="images/Figure_19.png">
 
 
-**Figura 19: Butonul de pornire **
+**Figura 19: Butonul de pornire**
+
 
  La încărcarea unei baze de date noua, procesele se restarteaza, astfel, este nevoie ca Entity Viewer-ul sa fie pornit manual pentru a relua conexiunea cu ES200. 
 
@@ -2069,7 +2198,7 @@ Se va deschide o nouă bază de date numita Denumire.epgd [versiune anterioara] 
 
 * Scoaterea sau adaugarea unor câmpuri de proprietăți ale punctelor
 
-##### 8.2.3.1. Diferente intre versiunile precedente si 3.0
+#### 8.2.3.1. Diferente intre versiunile precedente si 3.0
 
 Pentru fiecare dintre noile proprietăți au fost adaugate câmpuri de Helptext pentru a explica functionalitatea acestora.
 
@@ -2281,7 +2410,7 @@ AutoTimeSyncIIN + si optiunile:
 * IntegrityPollInterval
 
 
-##### 8.2.3.2.2. DNP3Slave:
+##### 8.2.3.2.2. DNP3Slave
 
 
 A fost scoasa proprietatea de CylicPeriod
@@ -2356,7 +2485,9 @@ Actionand butonul indicat în figura 34, din cadrul configurarii punctelor din M
 ### 8.4.1. Descriere functionalitate blocuri de automatizare
 
  
-**ResetDominantBistabil (SET/RESET)** : funcție utilizata pentru implementarea unor autometineri conditionate.
+#### 8.4.1.1. ResetDominantBistabil (SET/RESET) 
+
+Funcție utilizata pentru implementarea unor autometineri conditionate.
 
 
 <img src="images/Figure_74.png">
@@ -2419,8 +2550,7 @@ Descriere semnale de ieșire din bloc:
 Ieșirea Q1 este resetată dacă intrarea Reset1 este setată, indiferent de starea intrării Set. Dacă intrarea SET este setată și Reset1 nu este setata, bit-ul  de ieșire Q1 este setat. Dacă ambele intrări sunt FALSE, ieșirea Q1 își va păstra valoarea anterioară.
 
 
-
-**TON**
+#### 8.4.1.2. TON
 
 
 <img src="images/Figure_75.png">
@@ -2490,7 +2620,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 
 
 
-**TOF**
+#### 8.4.1.3. TOF
 
 
 <img src="images/Figure_77.png">
@@ -2559,7 +2689,7 @@ Modul de funcționare este descris de diagramele de mai jos:
 <img src="images/Figure_78.png">
 
  
-**Funcții pentru determinari statistice: MAX, MIN, AVG, DISP**
+#### 8.4.1.4. Funcții pentru determinari statistice: MAX, MIN, AVG, DISP
 
 
 <img src="images/Multi_Data_Master_StatisticalFunctions.png">
@@ -2630,7 +2760,7 @@ Descriere semnale de ieșire din bloc:
 
 
 ## 8.5. Configurarea HMI ES200
-### 8.5.1.	Descriere generala
+### 8.5.1. Descriere generala
 
 Pentru a configura funcția de HMI (Human Maschine Inteface) a ES200 se va utiliza același pachet de configurare Dashboard ES200.
 
@@ -2758,7 +2888,7 @@ După adăugarea elementului in ecranul HMI, asocierea cu o entitate de tip coma
 Fig 4 – Setări specifice pentru comportamentul unui simbol reprezentând o entitate de tip comanda
 
 
-### 8.5.5.	Salvare, încărcare si utilizare HMI
+### 8.5.5. Salvare, încărcare si utilizare HMI
 
 <img src="images/Figure_86.png">
 

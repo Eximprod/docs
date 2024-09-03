@@ -1,14 +1,21 @@
+# Human Machine Interface <!-- omit from toc -->
+
+[**Table of Contents:**](#toc)
+- [1. Introduction](#1-introduction)
+- [2. Configuration](#2-configuration)
+
+
 ![stronghold logo](images/HMI_Logo.png)
 
 The ES200 web based **Human Machine Interface** (HMI) is the easiest way to securely control your ES200 vRTU (virtual Remote Terminal Unit) deployments.
 
-**Introduction**
+# 1. Introduction
 ---
 The web HMI collects data from the ES200 vRTU and presents the information to an operator using customizable web pages. The HMI allows the operator to see what is going on in the plant in real time, including custom displays, alarms, trends, etc., to make decisions to adjust any device controls or settings.
 
 ![HMI demo](images/HMI_Config.png)
 
-**Configuration**
+# 2. Configuration
 ---
 
 1. Using the ES200 Configuration Application (ES200 Dashboard)

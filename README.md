@@ -30,6 +30,7 @@ To demonstrate the ES200 solution, a Proof of Concept can be deployed to evaluat
 - [ES200 Dashboard Manual RO](ES200/ES200_Dashboard_Manual_RO.md)
 - [ES200 Installation Manual](ES200/ES200_Installation_Manual.md)
 - [ES200 REST API Manual](ES200/ES200_REST_API_Manual.md)
+- [ES200 FTP Logs Manual](ES200/ES200_FTP_Logs.md)
 - [HMI Manual](HMI/HMI_Manual.md)
 - [Proof Of Concept](PoC/Proof_Of_Concept.md)
 

@@ -23,6 +23,8 @@
     - [4.1.6. Tabelul de erori (6)](#416-tabelul-de-erori-6)
   - [4.2. Adăugarea de echipamente în baza de date](#42-adăugarea-de-echipamente-în-baza-de-date)
     - [4.2.1. Centre de comandă:](#421-centre-de-comandă)
+      - [4.2.1.1. Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):](#4211-opțiunea-serial-channel-are-următorii-parametrii-editabili-fiecare-parametru-are-un-set-fix-de-valori-posibile-prezentate-în-sub-meniuri)
+      - [4.2.1.2. Opțiunea TCP Channel are următorii parametrii editabili:](#4212-opțiunea-tcp-channel-are-următorii-parametrii-editabili)
     - [4.2.2. IED-uri](#422-ied-uri)
     - [4.2.3. Adăugarea și editarea de elemente (binare, analogice, comenzi)](#423-adăugarea-și-editarea-de-elemente-binare-analogice-comenzi)
     - [4.2.4. Editarea punctelor unui centru de comandă](#424-editarea-punctelor-unui-centru-de-comandă)
@@ -679,7 +681,7 @@ Opțiunile pentru configurarea unui canal de comunicație nou sunt:
 Figura 11: Setările pentru conexiunile serială respectiv TCP
 
 
-#### Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
+#### 4.2.1.1. Opțiunea Serial Channel are următorii parametrii editabili (fiecare parametru are un set fix de valori posibile, prezentate în sub-meniuri):
 
 * BAUDRATE – viteza conexiunii (măsurată în biți/secundă);
 
@@ -694,7 +696,7 @@ Figura 11: Setările pentru conexiunile serială respectiv TCP
 * PORT – portul folosit de echipament pentru comunicare.
 Pentru realizarea conexiunii, acești parametri trebuie să fie identici la ambele capete ale canalului de comunicație. Prin urmare, configurarea lor se face în funcție de echipamentul de comandă care va fi conectat la ES200.
 
-#### Opțiunea TCP Channel are următorii parametrii editabili:
+#### 4.2.1.2. Opțiunea TCP Channel are următorii parametrii editabili:
 
 * IP – adresa IP a echipamentului (nu este obligatorie completarea adresei IP a centrului de comanda - recomandam ca acest camp sa ramana necompletat);
 
@@ -955,14 +957,12 @@ Suplimentar:
 
 * **Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
 
-* **Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
+* **Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux:
 
-* **Port 1** - /dev/ttyS1 (IR809)
-
-* **Port 2** - /dev/ttyS2 (IR809)
-
-* **Port 3**  - /dev/ttyTun0 (IR1101)
-
+* /dev/ttyS1 (IR809)
+* /dev/ttyS2 (IR809)
+* /dev/ttyTun0 (IR1101)
+* /dev/ttySerial (IR1101)
 
 ### 5.1.2. Configurarea generala a RTU
 
@@ -1124,13 +1124,12 @@ Suplimentar:
 
 **Channel Description** - denumirea canalului de comunicatie. Nu afectează comunicatia cu dispozitivele ajutand la organizarea informațiilor.
 
-**Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
+**Port:** Portul serial utilizat de ES200 pentru comunicatia cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux:
 
-**Port 1** - /dev/ttyS1 (IR809)
-
-**Port 2** - /dev/ttyS2 (IR809)
-
-**Port 3**  - /dev/ttyTun0 (IR1101)
+* /dev/ttyS1 (IR809)
+* /dev/ttyS2 (IR809)
+* /dev/ttyTun0 (IR1101)
+* /dev/ttySerial (IR1101)
 
 
 ### 5.2.2. Configurarea generala a RTU
@@ -1634,13 +1633,12 @@ Parametrii generali de comunicație vor include si setări specifice comunicați
 
 * RTSCONTROL – o metodă folosită pentru a garanta faptul că viteza de transmisie nu este mai mare decât viteza la care receptorul poate procesa datele primite;
 
-**Port:** Portul serial utilizat de ES200 pentru comunicația cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux.
+**Port:** Portul serial utilizat de ES200 pentru comunicația cu dispozitivul slave. Funcție de platforma HW pe care o folosim poate avea descrieri specifice sistemului de fișiere Linux:
 
-**Port 1** - /dev/ttyS1 (IR809)
-
-**Port 2** - /dev/ttyS2 (IR809)
-
-**Port 3**  - /dev/ttyTun0 (IR1101)
+* /dev/ttyS1 (IR809)
+* /dev/ttyS2 (IR809)
+* /dev/ttyTun0 (IR1101)
+* /dev/ttySerial (IR1101)
 
 După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 

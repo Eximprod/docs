@@ -702,10 +702,12 @@ We find the specific settings of a serial communication:
 Additionally:
 
 * Channel Description - the name of the communication channel. Does not affect communication with devices helping to organize information.
-* Port: The serial port used by the ES200 for communication with the slave device. Depending on the HW platform we are using it may have Linux file system specific descriptions.
-* Port 1 - /dev/ttyS1 (IR809)
-* Port 2 - /dev/ttyS2 (IR809)
-* Port 3 - /dev/ttyTun0 (IR1101)
+* Port: The serial port used by the ES200 for communication with the slave device. Depending on the HW platform we are using it may have Linux file system specific descriptions:
+
+  * /dev/ttyS1 (IR809)
+  * /dev/ttyS2 (IR809)
+  * /dev/ttyTun0 (IR1101)
+  * /dev/ttySerial (IR1101)
 
 ### 5.1.2. General RTU configuration
 
@@ -813,9 +815,11 @@ We find the specific settings of a serial communication:
 Additionally:
 * Channel Description - the name of the communication channel. Does not affect communication with devices helping to organize information
 * Port: The serial port used by the ES200 for communication with the slave device. Depending on the HW platform we are using may have Linux file system specific descriptions
-  * Port 1 - /dev/ttyS1 (IR809)
-  * Port 2 - /dev/ttyS2 (IR809)
-  * Port 3 - /dev/ttyTun0 (IR1101)
+
+  * /dev/ttyS1 (IR809)
+  * /dev/ttyS2 (IR809)
+  * /dev/ttyTun0 (IR1101)
+  * /dev/ttySerial (IR1101)
 
 ### 5.2.2. RTU General Configuration
 
@@ -1177,11 +1181,10 @@ RTSCONTROL – a method used to ensure that the transmission speed is not higher
 
 **Port:** The serial port used by ES200 for communication with the slave device. Depending on the HW platform used, it may have specific descriptions for the Linux file system.
 
-**Port 1** - /dev/ttyS1 (IR809)
-
-**Port 2** - /dev/ttyS2 (IR809)
-
-**Port 3**  - /dev/ttyTun0 (IR1101)
+  * /dev/ttyS1 (IR809)
+  * /dev/ttyS2 (IR809)
+  * /dev/ttyTun0 (IR1101)
+  * /dev/ttySerial (IR1101)
 
 After adding a new IED and configuring it according to the description in section #4.2, the following information will be available for editing.
 

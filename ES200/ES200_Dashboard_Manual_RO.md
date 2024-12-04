@@ -495,80 +495,17 @@ Protocoalele de comunicație suportate de ES200 includ protocoale precum Modbus,
 În funcție de platforma hardware pe care rulează, ES200 poate controla și transmite informații în mod direct, prin intermediul propriilor module I/O. Mai jos este lista protocoalelor de comunicație suportate în acest moment:
 
 
-<table>
-  <tr>
-   <td><strong>Protocol</strong>
-   </td>
-   <td><strong>Master </strong>
-   </td>
-   <td><strong>Slave</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Modbus
-   </td>
-   <td>Da
-   </td>
-   <td>Da
-   </td>
-  </tr>
-  <tr>
-   <td>DNP3
-   </td>
-   <td>Da
-   </td>
-   <td>Da
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-104
-   </td>
-   <td>Da
-   </td>
-   <td>Da
-   </td>
-  </tr>
-  <tr>
-   <td>IEC60-870-5-101
-   </td>
-   <td>Da
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850 Editia 1
-   </td>
-   <td>Da
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850 Ediția 2
-   </td>
-   <td>Da
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>MQTT
-   </td>
-   <td>
-   </td>
-   <td>Da
-   </td>
-  </tr>
-  <tr>
-   <td>OPC Client
-   </td>
-   <td>Da
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
+| Protocol              | Master    | Slave |
+|-                      |-          |-      |
+| Modbus                | Da        | Da    |
+| DNP3                  | Da        | Da    |
+| IEC 60870-5-104       | Da        | Da    |
+| IEC 60870-5-101       | Da        |       |
+| IEC 61850             | Da        |       |
+| IEC 61850 Edition 2   | Da        |       |
+| MQTT                  | Da        | Da    |
+| LoRa                  |           | Da    |
+| OPC Client            | Da        |       |
 
 
 **Tabelul 2: protocoalele de comunicație suportate de ES200**

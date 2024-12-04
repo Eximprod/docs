@@ -46,89 +46,17 @@ Communications protocols supported by the ES200 include Modbus, DNP3, IEC 60870-
 
 Depending on the hardware platform that supports it, the ES200 can directly control and transmit information via its own I/O modules. Below you can find a list of the currently supported communication protocols.
 
-
-<table>
-  <tr>
-   <td><strong>Protocol</strong>
-   </td>
-   <td><strong>Master </strong>
-   </td>
-   <td><strong>Slave</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Modbus
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>DNP3
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-104
-   </td>
-   <td>Yes
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>IEC 60870-5-101
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>IEC61850 Edition 2
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>MQTT
-   </td>
-   <td>
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>LoRa
-   </td>
-   <td>
-   </td>
-   <td>Yes
-   </td>
-  </tr>
-  <tr>
-   <td>OPC Client
-   </td>
-   <td>Yes
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
+| Protocol              | Master    | Slave |
+|-                      |-          |-      |
+| Modbus                | Yes       | Yes   |
+| DNP3                  | Yes       | Yes   |
+| IEC 60870-5-104       | Yes       | Yes   |
+| IEC 60870-5-101       | Yes       |       |
+| IEC 61850             | Yes       |       |
+| IEC 61850 Edition 2   | Yes       |       |
+| MQTT                  | Yes       | Yes   |
+| LoRa                  |           | Yes   |
+| OPC Client            | Yes       |       |
 
 Table 2: ES200 supported communication protocols
 

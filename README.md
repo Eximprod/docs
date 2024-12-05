@@ -2,7 +2,14 @@
 
 - [1. Overview](#1-overview)
 - [2. Quick links](#2-quick-links)
-- [3. Extensions](#3-extensions)
+  - [2.1. ES200 Dashboard Manual EN](#21-es200-dashboard-manual-en)
+  - [2.2. ES200 Dashboard Manual RO](#22-es200-dashboard-manual-ro)
+  - [2.3. ES200 Installation Manual](#23-es200-installation-manual)
+  - [2.4. ES200 REST API Manual](#24-es200-rest-api-manual)
+  - [2.5. ES200 FTP Logs Manual](#25-es200-ftp-logs-manual)
+  - [2.6. HMI Manual](#26-hmi-manual)
+  - [2.7. Proof Of Concept](#27-proof-of-concept)
+- [3. Extensions (For Developers and Maintainers Only)](#3-extensions-for-developers-and-maintainers-only)
   - [3.1. Markdown All in One](#31-markdown-all-in-one)
     - [3.1.1. Overview](#311-overview)
     - [3.1.2. Links](#312-links)
@@ -26,16 +33,16 @@ To demonstrate the ES200 solution, a Proof of Concept can be deployed to evaluat
 
 ## 2. Quick links
 
-- [ES200 Dashboard Manual EN](ES200/ES200_Dashboard_Manual.md)
-- [ES200 Dashboard Manual RO](ES200/ES200_Dashboard_Manual_RO.md)
-- [ES200 Installation Manual](ES200/ES200_Installation_Manual.md)
-- [ES200 REST API Manual](ES200/ES200_REST_API_Manual.md)
-- [ES200 FTP Logs Manual](ES200/ES200_FTP_Logs.md)
-- [HMI Manual](HMI/HMI_Manual.md)
-- [Proof Of Concept](PoC/Proof_Of_Concept.md)
+### 2.1. [ES200 Dashboard Manual EN](ES200/ES200_Dashboard_Manual.md)
+### 2.2. [ES200 Dashboard Manual RO](ES200/ES200_Dashboard_Manual_RO.md)
+### 2.3. [ES200 Installation Manual](ES200/ES200_Installation_Manual.md)
+### 2.4. [ES200 REST API Manual](ES200/ES200_REST_API_Manual.md)
+### 2.5. [ES200 FTP Logs Manual](ES200/ES200_FTP_Logs.md)
+### 2.6. [HMI Manual](HMI/HMI_Manual.md)
+### 2.7. [Proof Of Concept](PoC/Proof_Of_Concept.md)
 
 
-## 3. Extensions
+## 3. Extensions (For Developers and Maintainers Only)
 
 ### 3.1. Markdown All in One
 
@@ -63,20 +70,32 @@ The user will use the shortcut **CTRL + Shift + P** and select the appropriate o
 2. **Create Table of Contents**: automatically creates the ToC. If this already exists, use option **2**, to update the existing ToC.
 3. **Update Table of Contents**: automatically updates the existing ToC.
 
-Both **Section Numbers** and **Table of Contents** will also update themselves whenever the document is saved **CTRL + S**. This can be disabled via TODO.
+Both **Section Numbers** and **Table of Contents** will also update themselves whenever the document is saved **CTRL + S**.
+
+If automatic updates are not desired, this feature can be disabled. To toggle the automatic updates, use the following steps:
+* Press `CTRL + SHIFT + P` to open the command palette.
+* Select `Save and Run ext: Enable/Disable`.
+* Toggle the feature on or off as required.
 
 ### 3.2. Save and Run
-TODO
+
+**Save and Run** is a VSCode extension designed to execute custom commands or scripts whenever a file is saved. This is particularly useful for automating tasks.
 
 #### 3.2.1. Overview
-TODO
+
+This extension allows you to define custom scripts or commands to execute whenever you save a file in VSCode. It helps streamline workflows by automating repetitive tasks.
 
 #### 3.2.2. Links
 - [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=padjon.save-and-run-ext)
 - [GitHub repository](https://github.com/padjon/vscode-save-and-run-ext)
 
 #### 3.2.3. Motivation
-TODO
+
+The **Save and Run** extension is configured to automate tasks whenever Markdown files are saved:
+
+* **Automatically Update Section Numbers**: Ensures that every chapter and subchapter in Markdown files has consistent and correct numbering without requiring manual intervention.
+* **Automatically Update the Table of Contents**: Keeps the Table of Contents (ToC) synchronized with the document structure, reflecting any changes immediately upon saving.
 
 #### 3.2.4. Installation
-TODO
+
+This extension is automatically installed by a VSCode task (OS independent).

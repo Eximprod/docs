@@ -439,7 +439,7 @@ The data required for the ES200 application to run properly is retrieved from a 
 
 The database configuration interface main menu is illustrated in Figure 8.
 
-<img src="images/Database_Configuration_Interface.png"></p>
+<img src="images/Figure_8.png"></p>
 Figure 8: ES200 database configuration interface
 
 The main application areas are highlighted in colored boxes as follows (Figure 9):
@@ -451,7 +451,7 @@ The main application areas are highlighted in colored boxes as follows (Figure 9
 5. Database table
 6. Errors table
 
-<img src="images/Database_Configuration_Interface_Highlights.png"></p>
+<img src="images/Figure_9.png"></p>
 Figure 9: ES200 database configuration interface highlights
 
 ### 4.1.1. Main toolbar
@@ -491,7 +491,7 @@ You can add a new CC device by using the Add slave device option from the Edit b
 
 An alternative method is to right-click Command Centers and click the Add Device button, selecting the protocol in the EquipmentProcess drop down menu.
 
-<img src="images/Database_Configuration_Add_New_Command_Center.png"></p>
+<img src="images/Figure_10.png"></p>
 Figure 10: ES200 database configuration interface – adding a new Command Center
 
 The editable fields are:
@@ -525,7 +525,7 @@ Figure 11: Serial and TCP connection options
 
 All these settings can be edited after the creation of the Command Center. You can do so by clicking on the specific slave you want to modify and then change the settings in the tabs from the Equipment Settings section (as shown in Figure 12)
 
-<img src="images/Database_Configuration_Edit_Command_Center.png"></p>
+<img src="images/Figure_12.png"></p>
 Figure 12: ES200 database configuration interface – editing a Command Center
 
 A Command Center can be deleted by clicking on it, then right-clicking it and selecting Delete equipment. Alternatively, you can select am equipment and use the Delete key.
@@ -536,7 +536,7 @@ Adding an IED is similar to adding a Command Center. By clicking the Edit button
 
 An alternative method is selecting and right-clicking Intelligent Electronic Device and selecting Add Device. The protocol can later be selected from the Equipment Process drop down menu.
 
-<img src="images/Database_Configuration_Add_IED.png"></p>
+<img src="images/Figure_13.png"></p>
 Figure 13: ES200 database configuration interface – adding an Intelligent Electronic Device
 
 The editable fields are:
@@ -576,7 +576,7 @@ The first step is to expand the equipment’s point options by clicking on the a
 * Starting Address – the address of the first point you wish to add;
 * Number of Points – the number of points you wish to add.
 
-<img src="images/Database_Configuration_Add_Point.png"></p>
+<img src="images/Figure_14.png"></p>
 Figure 14: ES200 database configuration interface – adding a point
 
 After the addition, the new points will appear in the table belonging to the equipment where they were added. The editing process will be covered in the next chapter. In order to delete a point, you can select the row in the table by clicking on it and then right-clicking it and selecting the Delete item option.
@@ -590,7 +590,7 @@ In the table in the right of the selected Command Center, you can view or edit t
 ### 4.2.5. Editing the table entries for an IED
 The table in the right of the selected IED can be used to edit the points that the IED will send. Every editable value can be modified by double-clicking the cell you wish to edit. 
 
-<img src="images/Database_Configuration_Edit_Point.png"></p>
+<img src="images/Figure_15.png"></p>
 Figure 15: ES200 database configuration interface – editing an IED point
 
 The editable columns of the table are:
@@ -639,7 +639,7 @@ Default credentials:
 Figure 17: ES200 EntitiyViewer – connecting to an equipment running the ES200
 
 After connecting to the equipment, you can see the points’ status and other useful information. 
-<img src="images/Entity_Viewer_Interface.png"></p>
+<img src="images/Figure_18.png"></p>
 Figure 18: ES200 EntityViewer – The EntitifyViewer interface
 
 Here, you can set the refresh rate (in the example window above, it is set at 2 seconds) and you can view the time of the last refresh and the status of the connection. If the connection is paused (as you can see above), you can reconnect to the equipment by clicking the Play button. If the connection has been lost, you can reattempt a connection by clicking Stop and then Play.
@@ -805,18 +805,21 @@ Coil sizes are commonly used to perform commands on Modbus communication
 
 ### 5.2.1. General configuration of the communication channel
 
+<img src="images/Figure_27.png"></p>
+
 After adding a new IED and configuring as described in section 4.2, we will have the information below available for editing.
 
-<img src="images/Add_New_IED_DNP.png"></p>
-<img src="images/Add_New_IED_DNP_Channel.png"></p>
+<img src="images/Figure_28.png"></p>
 
-* Channel Description - the name of the communication channel. Does not affect communication with devices helping to organize information
-* IP : The IP address of the device
-* Port : TCP port through which TCP/IP communication with the equipment is performed (for DNP3 the most used port is 20000)
+**Channel Description** - the name of the communication channel. Does not affect communication with devices helping to organize information
+
+**IP** : The IP address of the device;
+
+**Port** : TCP port through which TCP/IP communication with the equipment is performed (for DNP3 the most used port is 20000).
 
 If the communication channel is serial:
 
-<img src="images/Add_New_IED_DNP_Serial.png"></p>
+<img src="images/Figure_29.png"></p>
 
 We find the specific settings of a serial communication:
 
@@ -1297,7 +1300,7 @@ The IEC-60870-5-101 protocol implemented by ES200 allows the use of 2 types of c
 
 The window below configures the main properties of the TCP communication channel between the ES200 and the command center. The name of the control center (Equipment name) and its general description (EquipmenDescription) do not influence the specific communication characteristics of the IEC-69870-5-104 protocol.
 
-<img src="images/Add_New_IED_104.png"></p>
+<img src="images/Figure_48.png"></p>
 
 It is necessary to fill in the TCP port to be used. The completion of the IP address is not required for the connection to the command center. The IP address of the control center can be filled in this field if it is desired to ensure the exclusivity of the IEC-104 connection between the ES200 and the control center with the IP address in question.
 
@@ -1330,7 +1333,7 @@ The IEC-60870-5-104 protocol allows the use of 2 types of status sizes - binary 
 
 The entities whose state is to be sent to the command center are those taken from the IEDs and will be chosen from the list available in the Master Variable Name section. The name of the IED from which the information is retrieved is automatically filled in after the choice of the entity.
 
-<img src="images/Add_New_IED_104_Digital_Entities.png"></p>
+<img src="images/Figure_50.png"></p>
 
 * Address - Address of the Binary input information to be sent to the command center. In the command center it is necessary to add an identical address for receiving the entity state
 * Validity - Enabling this option allows the IEC-104 slave process in the ES200 to initiate the sending of an event to the command centre when the quality of the monitored entity information changes
@@ -1344,7 +1347,7 @@ The IEC-60870-5-104 protocol allows the use of 3 types of analogue quantities - 
 
 The analog quantities whose status is to be sent to the control center are those taken from the IEDs and will be chosen from the list available in the Master Variable Name section. The name of the IED from which the information is retrieved is automatically filled in after the choice of the entity.
 
-<img src="images/Add_New_IED_104_Analog_Entities.png"></p>
+<img src="images/Figure_51.png"></p>
 
 * Address - The address of the analogue size information to be transmitted to the command center. In the command center it is necessary to add an identical address for receiving the entity state
 * Validity - Enabling this option allows the IEC-104 slave process in the ES200 to initiate the sending of an event to the command centre when the quality of the monitored entity information changes
@@ -1358,7 +1361,7 @@ Single-Point Command and Double-Point Command sections are used, depending on th
 
 The commands to be received from the command center are what will be sent to the IEDs and will be chosen from the list available in the Master Variable Name section. The IED name from which the information is retrieved is automatically filled in after the choice of entities (Master Equipment).**
 
-<img src="images/Add_New_IED_104_Commands.png"></p>
+<img src="images/Figure_52.png"></p>
 
 * Address - The address of the command type information to be transmitted by the command center. In the command center it is necessary to add an identical address for the reception of the command by the ES200
 * Conversion - The value received from the command center on the IEC-104 address of the entity can be converted into another value to be sent on protocol down to the protection relays or PLCs in the PT. (e.g.: the value 1 is received on IEC-104, but the value 0 must be sent to the relay: 1>0 must be entered in the database)
@@ -1371,7 +1374,7 @@ The commands to be received from the command center are what will be sent to the
 
 The window below configures the main properties of the TCP communication channel between the ES200 and the command center. The control center name (Equipment name) and the general description of the control center (Equipment Description) do not influence the specific communication characteristics of the Modbus TCP protocol. It is necessary to fill in the TCP port to be used. The IP address is not required to connect to the control center. The IP address of the control center can be filled in this field if it is desired to ensure the exclusivity of the Modbus TCP connection between the ES200 and the control center having the IP address in question.
 
-<img src="images/Add_New_IED_Modbus.png"></p>
+<img src="images/Figure_53.png"></p>
 
 After adding a new command center and configuring as described in section 4.2.1, we will have the information below available for editing where:
 * Channel Description - the name of the communication channel. Does not affect communication with devices helping to organize information
@@ -1380,7 +1383,7 @@ After adding a new command center and configuring as described in section 4.2.1,
 
 ### 6.2.2. General configuration of CC
 
-<img src="images/Add_New_IED_Modbus_Equipment.png"></p>
+<img src="images/Figure_54.png"></p>
 
 * SLAVEID - protocol address of the ES200 acting as a slave link to the master. This address must be identical to the address set in the command center (Modbus communication master) for initiating application level communication on this protocol
 * ModbusType - The only accepted setting is TCP
@@ -1393,7 +1396,7 @@ The commands to be received from the command center are those to be passed to th
 
 Address - Address of the entity to be transmitted to the command center. In the command center it is necessary to add an identical address for receiving the entity status. The same principle applies for commands.
 
-<img src="images/Add_New_IED_Modbus_Address.png"></p>
+<img src="images/Figure_55.png"></p>
 
 ## 6.3. DNP3.0
 ### 6.3.1. General Configuration of the Communication Channel

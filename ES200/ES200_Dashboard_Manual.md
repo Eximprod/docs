@@ -807,6 +807,10 @@ Coil sizes are commonly used to perform commands on Modbus communication
 
 <img src="images/Figure_27.png"></p>
 
+Using the *Interrogate Device* option and filling in the appropriate properties for previously configured Slave registers, the application will connect to the address and port specified in the *TCP Settings* section. This will enable the automatic display of points to facilitate their insertion into the database.
+
+<img src="images/DNP3M.png">
+
 After adding a new IED and configuring as described in section 4.2, we will have the information below available for editing.
 
 <img src="images/Figure_28.png"></p>
@@ -1039,7 +1043,12 @@ The address of a report on IEC61850 has the following structure:
 
 ## 5.5. IEC-60870-5-104
 ### 5.5.1. General Configuration of the Communication Channel
+
 <img src="images/Figure_42.png">
+
+Using the *Interrogate Device* option and filling in the appropriate properties for previously configured Slave registers, the application will connect to the address and port specified in the *TCP Settings* section. This will enable the automatic display of points to facilitate their insertion into the database.
+
+<img src="images/IEC104M.png">
 
 After adding a new IED and configuring it according to the description in section #4.2, the following information will be available for editing.
 
@@ -1173,6 +1182,10 @@ These are completed in the **Json Numeric** section of the MQTT Master in the Da
 ### 5.7.1. General Configuration of the Communication Channel
 
 <img src="images/Figure_46.png">
+
+Using the *Interrogate Device* option and filling in the appropriate properties for previously configured Slave registers, the application will connect to the address and port specified in the *TCP Settings* section. This will enable the automatic display of points to facilitate their insertion into the database.
+
+<img src="images/IEC101M.png">
 
 The general configuration parameters for an IEC-101 Master in ES200 are:
 

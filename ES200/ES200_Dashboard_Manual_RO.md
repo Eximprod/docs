@@ -1103,6 +1103,9 @@ Marimile de tip Holding Register sunt în mod curent utilizate pentru marimilor 
 
 <img src="images/Figure_27.png">
 
+Prin opțiunea *Interrogate Device*, și completarea proprietățile corespunzătoare unor registri Slave configurați anterior, aplicația se va conecta la adresa și portul specificate în secțiunea *TCP Settings*, și astfel, se va realiza afișarea automată a punctelor pentru a facilita inserarea acestora în baza de date.
+
+<img src="images/DNP3M.png">
 
 După adaugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
@@ -1469,6 +1472,9 @@ Adresa unui raport pe IEC61850 are urmatoarea structura:
 
 <img src="images/Figure_42.png">
 
+Prin opțiunea *Interrogate Device*, și completarea proprietățile corespunzătoare unor registri Slave configurați anterior, aplicația se va conecta la adresa și portul specificate în secțiunea *TCP Settings*, și astfel, se va realiza afișarea automată a punctelor pentru a facilita inserarea acestora în baza de date.
+
+<img src="images/IEC104M.png">
 
 După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 4.2, vom avea disponibile pentru a fi editate informațiile de mai jos.
 
@@ -1624,6 +1630,9 @@ Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQT
 
 <img src="images/Figure_46.png">
 
+Prin opțiunea *Interrogate Device*, și completarea proprietățile corespunzătoare unor registri Slave configurați anterior, aplicația se va conecta la adresa și portul specificate în secțiunea *TCP Settings*, și astfel, se va realiza afișarea automată a punctelor pentru a facilita inserarea acestora în baza de date.
+
+<img src="images/IEC101M.png">
 
 Parametrii generali din configurație pentru un Master de IEC-101 din ES200 sunt:
 

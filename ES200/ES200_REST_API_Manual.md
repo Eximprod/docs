@@ -1,7 +1,7 @@
-
 # ES200 - REST API Guide <!-- omit from toc -->
 
 [**Table of Contents:**](#toc)
+
 - [1. ES200 Endpoints](#1-es200-endpoints)
   - [1.1. Authenticate User](#11-authenticate-user)
   - [1.2. Update User Password](#12-update-user-password)
@@ -11,33 +11,42 @@
   - [2.2. Logout](#22-logout)
   - [2.3. Fetch Log Files Names](#23-fetch-log-files-names)
   - [2.4. Fetch Log Content](#24-fetch-log-content)
-
+  - [2.5. Get Master Equipments](#25-get-master-equipments)
+  - [2.6. Send Commands](#26-send-commands)
 
 ## 1. ES200 Endpoints
 
 ### 1.1. Authenticate User
- - **Base URL**: `https://localhost:1732`
- - **Endpoint**: `/api/authentication`
- - **Method**: `POST`
- - **Description**: Authenticates a user to get the SEED value used for establishing ESRemote connections.
- - **Request Body**:
+
+-   **Base URL**: `https://localhost:1732`
+-   **Endpoint**: `/api/authentication`
+-   **Method**: `POST`
+-   **Content-Type**: `application/json`
+-   **Description**: Authenticates a user to get the SEED value used for establishing ESRemote connections.
+-   **Request Body**:
+
 ```json
 {
-	"username": "admin", // string
-	"password": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918" // uppercase SHA-256 string
+    "username": "admin", // string
+    "password": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918" // uppercase SHA-256 string
 }
 ```
- - **Response status codes**:
-	- `200 OK`: Returns SEED value.
-	- `400 Bad Request`: Malformed request.
-	- `401 Unauthorized`: Wrong credentials.
-	- `411 Length Required`: Empty body.
-  
- - **Response body**:
+
+-   **Response status codes**:
+
+    -   `200 OK`: Returns SEED value.
+    -   `400 Bad Request`: Malformed request.
+    -   `401 Unauthorized`: Wrong credentials.
+    -   `411 Length Required`: Empty body.
+
+-   **Response body**:
+
 ```json
 5ADC69F6C5AADF8220850C627E367293ECE4F2C1B469BD0D519E101AEB01AB29 // 64 characters Base64 string
 ```
- - **Example**:
+
+-   **Example**:
+
 ```bash
 curl -k -X POST https://localhost:1732/api/authentication \
 	-H "Content-Type: application/json" \
@@ -45,24 +54,29 @@ curl -k -X POST https://localhost:1732/api/authentication \
 ```
 
 ### 1.2. Update User Password
+
 -   **Base URL**: `https://localhost:1732`
 -   **Endpoint**: `/api/updateUserPassword`
 -   **Method**: `POST`
+-   **Content-Type**: `application/json`
 -   **Description**: Updates the password for an existing user.
 -   **Request Body**:
+
 ```json
 {
-	"username": "admin", // string
-	"currentPassword": "CURRENT_UPPERCASE_SHA256_HASH", // uppercase SHA-256 string
-	"newPassword": "NEW_UPPERCASE_SHA256_HASH" // uppercase SHA-256 string
+    "username": "admin", // string
+    "currentPassword": "CURRENT_UPPERCASE_SHA256_HASH", // uppercase SHA-256 string
+    "newPassword": "NEW_UPPERCASE_SHA256_HASH" // uppercase SHA-256 string
 }
 ```
+
 -   **Response status codes**:
     -   `200 OK`: Password updated successfully.
     -   `400 Bad Request`: Malformed request.
     -   `401 Unauthorized`: Incorrect current password.
     -   `411 Length Required`: Empty body.
 -   **Example**:
+
 ```bash
 # Update the current password (admin) of the current user (admin), with the new password (test)
 curl -k -X POST https://localhost:1732/api/updateUserPassword \
@@ -71,26 +85,31 @@ curl -k -X POST https://localhost:1732/api/updateUserPassword \
 ```
 
 ### 1.3. Get Users
- - **Base URL**: `https://localhost:1732`
- - **Endpoint**: `/api/getUsers`
- - **Method**: `GET`
- - **Description**: Retrieves a list of all users.
- - **Response status codes**:
+
+-   **Base URL**: `https://localhost:1732`
+-   **Endpoint**: `/api/getUsers`
+-   **Method**: `GET`
+-   **Content-Type**: `application/json`
+-   **Description**: Retrieves a list of all users.
+-   **Response status codes**:
     -   `200 OK`: Successfully retrieved user list.
     -   `500 Internal Server Error`: Error in retrieving users.
 -   **Response body**:
+
 ```json
 [
-	{
-		"username": "admin" // string
-	},
-	{
-		"username": "admin2" // string
-	}
-	// ... more users
+    {
+        "username": "admin" // string
+    },
+    {
+        "username": "admin2" // string
+    }
+    // ... more users
 ]
 ```
+
 -   **Example**:
+
 ```bash
 curl -k -X GET https://localhost:1732/api/getUsers
 ```
@@ -98,49 +117,60 @@ curl -k -X GET https://localhost:1732/api/getUsers
 ## 2. WebServer Endpoints
 
 ### 2.1. Login
- -   **Base URL**: `https://localhost:3000`
- -   **Endpoint**: `/api/login`
- -   **Method**: `POST`
- -   **Description**: Attempts to log in a client, returning the session cookie upon success.
- -   **Request Body**:
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/login`
+-   **Method**: `POST`
+-   **Content-Type**: `application/json`
+-   **Description**: Attempts to log in a client, returning the session cookie upon success.
+-   **Request Body**:
+
 ```json
 {
-	"username": "user", // string
-	"password": "password" // string (plain text password)
+    "username": "user", // string
+    "password": "password" // string (plain text password)
 }
 ```
- - **Response Status Codes**:
-	-   `200 OK`: Successful login, returns session cookie.
-	-   `429 Too Many Requests`: Too many failed login attempts.
-	-   `401 Unauthorized`: Incorrect credentials.
-	-   `500 Internal Server Error`: Server error occurred.
- - **Response Body**:
+
+-   **Response Status Codes**:
+    -   `200 OK`: Successful login, returns session cookie.
+    -   `429 Too Many Requests`: Too many failed login attempts.
+    -   `401 Unauthorized`: Incorrect credentials.
+    -   `500 Internal Server Error`: Server error occurred.
+-   **Response Body**:
+
 ```json
 {
-	"authenticatedUser": "user" // string
+    "authenticatedUser": "user" // string
 }
 ```
- - **Example**:
+
+-   **Example**:
+
 ```bash
 curl -k -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
     -d '{"username": "admin", "password": "admin"}'
 ```
-- **Note**:
-	- When you use `curl` to make a login request that sets an HTTP-only cookie (containing the session ID) upon successful login, this cookie is indeed managed by `curl` for the duration of the session. However, it's important to note that `curl` does not automatically include this cookie in subsequent requests unless explicitly instructed to do so.
-	- To ensure the cookie set by the `/api/login` endpoint is included in subsequent requests, such as `/api/logs`, you need to use `curl`'s cookie handling capabilities:
-		- Store the Cookie: Make the login request and save the cookie to a file. This can be done using the `-c` or `--cookie-jar` option in `curl`.
-		- Reuse the Cookie: In subsequent requests, you need to include this cookie for the server to recognize the session. This is done using the `-b` or `--cookie` option in `curl`.
+
+-   **Note**:
+    -   When you use `curl` to make a login request that sets an HTTP-only cookie (containing the session ID) upon successful login, this cookie is indeed managed by `curl` for the duration of the session. However, it's important to note that `curl` does not automatically include this cookie in subsequent requests unless explicitly instructed to do so.
+    -   To ensure the cookie set by the `/api/login` endpoint is included in subsequent requests, such as `/api/logs`, you need to use `curl`'s cookie handling capabilities:
+        -   Store the Cookie: Make the login request and save the cookie to a file. This can be done using the `-c` or `--cookie-jar` option in `curl`.
+        -   Reuse the Cookie: In subsequent requests, you need to include this cookie for the server to recognize the session. This is done using the `-b` or `--cookie` option in `curl`.
+
 ```bash
 # Making a login request to get the sessionId cookie
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
      -H "Content-Type: application/json" \
      -d '{"username": "admin", "password": "admin"}'
-     
+
 # Making a request that includes the sessionId cookie
 curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 ```
+
 ### 2.2. Logout
+
 -   **Base URL**: `https://localhost:3000`
 -   **Endpoint**: `/api/logout`
 -   **Method**: `POST`
@@ -148,10 +178,13 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 -   **Response Status Codes**:
     -   `200 OK`: Successful logout.
 -   **Example**:
+
 ```bash
 curl -k -X POST https://localhost:3000/api/logout
 ```
+
 ### 2.3. Fetch Log Files Names
+
 -   **Base URL**: `https://localhost:3000`
 -   **Endpoint**: `/api/logs`
 -   **Method**: `GET`
@@ -161,95 +194,279 @@ curl -k -X POST https://localhost:3000/api/logout
     -   `204 No Content`: No log files available.
     -   `401 Unauthorized`: Invalid session cookie.
 -   **Response Body**:
+
 ```json
 {
 	logCategories": ["category1", "category2"] // string[]
 }
 ```
-- **Example**:
+
+-   **Example**:
+
 ```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
 # Request
-curl -k -X GET https://localhost:3000/api/logs
+curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 ```
+
 ```json
 // Response
 {
-   "logCategories":[
-      {
-	     "id":1,
-         "name":"General",
-         "files":[
-            {
-               "id":2,
-               "name":"ESRemote",
-               "path":"/mnt/ramdisk/ESRemote"
-            },
-            {
-               "id":3,
-               "name":"MultiDataMaster",
-               "path":"/mnt/ramdisk/MultiDataMaster"
-            },
-            {
-               "id":4,
-               "name":"Watchdog",
-               "path":"/mnt/ramdisk/Watchdog"
-            }
-         ]
-      },
-      {
-	     "id":5,
-         "name":"Events",
-         "files":[
-            {
-               "id":6,
-               "name":"MultiDataMaster",
-               "path":"/mnt/ramdisk/Events/MultiDataMaster"
-            },
-            {
-               "id":7,
-               "name":"Watchdog",
-               "path":"/mnt/ramdisk/Events/Watchdog"
-            }
-         ]
-      },
-      {
-	     "id":8,
-         "name":"Commands",
-         "files":[
-            {
-               "id":9,
-               "name":"ESRemote",
-               "path":"/mnt/ramdisk/Commands/ESRemote"
-            },
-            {
-               "id":10,
-               "name":"MultiDataMaster",
-               "path":"/mnt/ramdisk/Commands/MultiDataMaster"
-            }
-         ]
-      }
-   ]
+    "logCategories": [
+        {
+            "id": 1,
+            "name": "General",
+            "files": [
+                {
+                    "id": 2,
+                    "name": "ESRemote",
+                    "path": "/mnt/ramdisk/ESRemote"
+                },
+                {
+                    "id": 3,
+                    "name": "MultiDataMaster",
+                    "path": "/mnt/ramdisk/MultiDataMaster"
+                },
+                {
+                    "id": 4,
+                    "name": "Watchdog",
+                    "path": "/mnt/ramdisk/Watchdog"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Events",
+            "files": [
+                {
+                    "id": 6,
+                    "name": "MultiDataMaster",
+                    "path": "/mnt/ramdisk/Events/MultiDataMaster"
+                },
+                {
+                    "id": 7,
+                    "name": "Watchdog",
+                    "path": "/mnt/ramdisk/Events/Watchdog"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Commands",
+            "files": [
+                {
+                    "id": 9,
+                    "name": "ESRemote",
+                    "path": "/mnt/ramdisk/Commands/ESRemote"
+                },
+                {
+                    "id": 10,
+                    "name": "MultiDataMaster",
+                    "path": "/mnt/ramdisk/Commands/MultiDataMaster"
+                }
+            ]
+        }
+    ]
 }
 ```
+
 ### 2.4. Fetch Log Content
+
 -   **Base URL**: `https://localhost:3000`
 -   **Endpoint**: `/api/logcontent`
 -   **Method**: `GET`
 -   **Description**: Fetches the content of a specified log file.
--   **Query Parameters**: `path`, `name`, `category` for the log file.
+-   **Query Parameters**:
+
+    -   `path` (required, string): The absolute path of the log file.
+    -   `name` (required, string): The name of the log file.
+    -   `category` (required, string): The category to which the log file belongs.
+
 -   **Response Status Codes**:
     -   `200 OK`: Successfully retrieved log content.
     -   `204 No Content`: Log content not available.
     -   `400 Bad Request`: Missing or incorrect query parameters.
     -   `401 Unauthorized`: Invalid session cookie.
 -   **Response Body**:
+
 ```json
 {
-  "logContent": "Log file content here..." // string
+    "logContent": "Log file content here..." // string
 }
 ```
-- **Example**:
+
+-   **Example**:
+
 ```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request
 # The query parameters must be correctly URL-encoded
-curl -k -X GET https://localhost:3000/api/logcontent?name=ESRemote&path=%2Fmnt%2Framdisk%2FCommands%2FESRemote&category=Commands
+curl -k -b cookies.txt -X GET https://localhost:3000/api/logcontent?name=ESRemote&path=%2Fmnt%2Framdisk%2FCommands%2FESRemote&category=Commands
+```
+
+-   **Notes**:
+    -   The `path` query parameter must be correctly URL-encoded. For example, if the path is `/mnt/ramdisk/Commands/ESRemote`, it should be encoded as `%2Fmnt%2Framdisk%2FCommands%2FESRemote`.
+    -   The `name` and `category` query parameters should match the log file name and category returned by the `/api/logs` endpoint.
+    -   The log content is returned as a single string, which may contain line breaks or other formatting characters.
+
+### 2.5. Get Master Equipments
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/points`
+-   **Method**: `GET`
+-   **Description**: Retrieves the list of **Master Equipments** and their associated points. Supports filtering by `equipmentId`, `idDown`, and `pointType`.
+-   **Query Parameters**:
+
+    -   `equipmentId` (optional, number): The ID of the Master Equipment to filter points by.
+    -   `idDown` (optional, number): The register address to filter points (registers) by.
+    -   `pointType` (optional, string): The type of point to filter by. Valid point types are:
+        -   `Binary Input`
+        -   `Binary Output`
+        -   `Analog Input`
+        -   `Analog Output`
+        -   `Double Input`
+        -   `Double Output`
+
+-   **Response Status Codes**:
+
+    -   `200 OK`: Successfully retrieved Master Equipments and points.
+    -   `204 No Content`: No data available for the given filters.
+    -   `400 Bad Request`: Invalid query parameters.
+    -   `401 Unauthorized`: Invalid session cookie.
+
+-   **Response Body**:
+
+```json
+{
+    "masterEquipments": [
+        {
+            "id": 1, // number
+            "name": "MultiDataMaster", // string
+            "points": [
+                {
+                    "description": "Restart_MultiDataMaster", // string
+                    "forcedValueFlag": 0, // number
+                    "idDown": 10011, // number
+                    "internalTimestamp": "09:07:08:875 13/12/2024", // string
+                    "pointType": "Binary Output", // string
+                    "protocolTimestamp": "09:07:08:875 13/12/2024", // string
+                    "status": 1, // number
+                    "value": "0", // string
+                    "valueType": 0 // number
+                }
+                // ... more points
+            ],
+            "process": "MultiDataMaster" // string
+        }
+        // ... more equipments
+    ]
+}
+```
+
+-   **Examples**:
+
+1. Retrieve all Master Equipments:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request
+curl -k -b cookies.txt -X GET "https://localhost:3000/api/points"
+```
+
+2. Retrieve points for a specific `equipmentId`:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request
+curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1"
+```
+
+3. Retrieve a specific point by `idDown` and `pointType`:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request
+curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1&idDown=10020&pointType=Binary%20Input"
+```
+
+-   **Notes**:
+    -   When filtering by `pointType`, ensure the value matches one of the valid point types listed above.
+    -   The `idDown` parameter represents the register address of the point. Ensure it is a valid number greater than 0.
+    -   If no query parameters are provided, all available `Master Equipments` and their `points` will be returned.
+    -   The query parameters should be correctly URL-encoded. For example, if the `pointType` is `Binary Input`, it should be encoded as `Binary%20Input`.
+
+### 2.6. Send Commands
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/command`
+-   **Method**: `POST`
+-   **Content-Type**: `application/json`
+-   **Description**: Sends a command to a specific register from a **Master Equipment** in ES200.
+-   **Response Status Codes**:
+    -   `200 OK`: Command sent successfully.
+    -   `400 Bad Request`: Malformed request body or invalid point type.
+    -   `401 Unauthorized`: Invalid session cookie.
+-   **Valid Point Types**:
+    -   `Binary Input`
+    -   `Binary Output`
+    -   `Analog Input`
+    -   `Analog Output`
+    -   `Double Input`
+    -   `Double Output`
+-   **Retrieving the ID of an equipment in ES200**:
+    To retrieve the equipmentId, you need to create a configuration and then access the `.epgd` file, which is an SQLite3 database. Use an appropriate [SQLite3 viewer](https://sqlitebrowser.org/) to open the file, select the equipments table, and retrieve the ID field from there.
+-   **Request Body**:
+
+```json
+{
+    "equipmentId": 1, // number: the identifier for the equipment
+    "idDown": 150, // number: the register address
+    "pointType": "Analog Input", // string: type of point being commanded, must be one of the predefined types
+    "value": "22.5" // string: value to be set
+}
+```
+
+-   **Response Body**:
+
+```json
+{
+    "equipmentId": 1, // number: the identifier for the equipment
+    "idDown": 150, // number: the register address
+    "pointType": "Analog Input", // string: type of point being commanded, must be one of the predefined types
+    "value": "22.5" // string: value to be set
+}
+```
+
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request
+curl -k -b cookies.txt -X POST https://localhost:3000/api/command \
+    -H "Content-Type: application/json" \
+    -d '{"equipmentId": 123, "idDown": 456, "pointType": "Analog Input", "value": "22.5"}'
 ```

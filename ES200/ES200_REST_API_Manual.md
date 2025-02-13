@@ -12,6 +12,8 @@
   - [2.3. Fetch Log Files Names](#23-fetch-log-files-names)
   - [2.4. Fetch Log Content](#24-fetch-log-content)
   - [2.5. Get Master Equipments](#25-get-master-equipments)
+    - [2.5.1. Via Rest API](#251-via-rest-api)
+    - [2.5.2. Via WebSockets](#252-via-websockets)
   - [2.6. Send Commands](#26-send-commands)
 
 ## 1. ES200 Endpoints
@@ -154,6 +156,7 @@ curl -k -X POST https://localhost:3000/api/login \
 ```
 
 -   **Note**:
+    -   The session cookie is valid for 1800 seconds (30 minutes) by default. After this period, the session will expire, and the user will need to log in again to obtain a new session cookie.
     -   When you use `curl` to make a login request that sets an HTTP-only cookie (containing the session ID) upon successful login, this cookie is indeed managed by `curl` for the duration of the session. However, it's important to note that `curl` does not automatically include this cookie in subsequent requests unless explicitly instructed to do so.
     -   To ensure the cookie set by the `/api/login` endpoint is included in subsequent requests, such as `/api/logs`, you need to use `curl`'s cookie handling capabilities:
         -   Store the Cookie: Make the login request and save the cookie to a file. This can be done using the `-c` or `--cookie-jar` option in `curl`.
@@ -319,6 +322,8 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logcontent?name=ESRemot
 
 ### 2.5. Get Master Equipments
 
+#### 2.5.1. Via Rest API
+
 -   **Base URL**: `https://localhost:3000`
 -   **Endpoint**: `/api/points`
 -   **Method**: `GET`
@@ -415,6 +420,138 @@ curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1&i
     -   If no query parameters are provided, all available `Master Equipments` and their `points` will be returned.
     -   The query parameters should be correctly URL-encoded. For example, if the `pointType` is `Binary Input`, it should be encoded as `Binary%20Input`.
 
+#### 2.5.2. Via WebSockets
+
+This section outlines how to connect to the WebSocket server, authenticate using a session cookie, subscribe/unsubscribe from topics, and the expected JSON message format for data updates.
+
+- **URL**: `wss://localhost:8443`
+- **Protocol**: WebSocket Secure (WSS)
+- **Authentication**: Requires a session cookie obtained from the `/api/login` HTTP endpoint.
+- **Handshake**: During the WebSocket handshake, the `sessionId` cookie must be included in the request headers.
+- **Subscribing/Unsubscribing to Topics**
+
+```json
+{
+    "type": "subscribe",
+    "topic": "entityViewer"
+}
+```
+```json
+{
+    "type": "unsubscribe",
+    "topic": "entityViewer"
+}
+```
+
+- **Receiving Data**
+
+The WebSockets server pushes real-time updates when subscribed to topics.
+
+- **Response Example**:
+```json
+{
+  "data": [
+        {
+            "id": 1, // number
+            "name": "MultiDataMaster", // string
+            "points": [
+                {
+                    "description": "Restart_MultiDataMaster", // string
+                    "forcedValueFlag": 0, // number
+                    "idDown": 10011, // number
+                    "internalTimestamp": "09:07:08:875 13/12/2024", // string
+                    "pointType": "Binary Output", // string
+                    "protocolTimestamp": "09:07:08:875 13/12/2024", // string
+                    "status": 1, // number
+                    "value": "0", // string
+                    "valueType": 0 // number
+                }
+                // ... more points
+            ],
+            "process": "MultiDataMaster" // string
+        }
+        // ... more equipments
+    ],
+    "topic": "entityViewer"
+}
+```
+
+- **Resonse Status Codes** (HTTP Upgrade Response):
+    - `200 OK`: Successfully connected to the WebSocket server.
+  - `401 Unauthorized`: Missing or invalid session cookie.
+
+- **Example** (Node.js):
+
+```javascript
+import WebSocket from "ws";
+import axios from "axios";
+import { Agent } from "https";
+
+const TOPICS = {
+    ENTITY_VIEWER: "entityViewer",
+    SUBSCRIBE: "subscribe",
+};
+
+async function getSessionId() {
+    try {
+        const response = await axios.post(
+            "https://10.10.31.192:3000/api/login",
+            { username: "admin", password: "admin" },
+            { httpsAgent: new Agent({ rejectUnauthorized: false }) }
+        );
+
+        const setCookieHeader = response.headers["set-cookie"];
+        const sessionCookie = setCookieHeader?.find((c) =>
+            c.startsWith("sessionId=")
+        );
+        if (!sessionCookie) throw new Error("Session cookie not found");
+
+        return sessionCookie.split(";")[0].split("=")[1];
+    } catch (error) {
+        console.error("Failed to obtain session ID:", error);
+        process.exit(1);
+    }
+}
+
+async function connectWebSocket() {
+    const sessionId = await getSessionId();
+
+    const ws = new WebSocket("wss://10.10.31.192:8443", {
+        headers: { Cookie: `sessionId=${sessionId}` },
+        rejectUnauthorized: false,
+    });
+
+    ws.on("open", () => {
+        console.log("Connected to WebSocket server");
+        ws.send(
+            JSON.stringify({
+                type: TOPICS.SUBSCRIBE,
+                topic: TOPICS.ENTITY_VIEWER,
+            })
+        );
+        console.log("Subscribed to entityViewer topic");
+    });
+
+    ws.on("message", (data) => {
+        try {
+            const json = JSON.parse(data.toString());
+            if (!json.data || !json.topic)
+                throw new Error("Invalid JSON structure");
+            console.log(JSON.stringify(json, null, 2));
+        } catch (error) {
+            console.error("Error processing message:", error);
+        }
+    });
+
+    ws.on("error", (error) => console.error("WebSocket error:", error));
+    ws.on("close", (code, reason) =>
+        console.log(`WebSocket closed: ${code} ${reason}`)
+    );
+}
+
+connectWebSocket();
+```
+
 ### 2.6. Send Commands
 
 -   **Base URL**: `https://localhost:3000`
@@ -457,6 +594,7 @@ curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1&i
 }
 ```
 
+Modificari 
 -   **Example**:
 
 ```bash

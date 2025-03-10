@@ -822,8 +822,11 @@ Câmpurile editabile sunt:
 
 Credențiale implicite:
 
+* IP / Host Name: Adresa IP a programului ES200
+* Port: 1732
 * Username: admin
 * Password: admin
+
 
 <img src="images/Figure_16.png">
 
@@ -846,6 +849,8 @@ Dashboard-ul pune la dispoziția utilizatorilor o interfață unde se poate vede
 
 Credențiale implicite:
 
+* IP / Host Name: Adresa IP a programului ES200
+* Port: 1732
 * Username: admin
 * Password: admin
 

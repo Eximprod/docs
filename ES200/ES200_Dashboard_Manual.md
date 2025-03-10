@@ -606,10 +606,12 @@ In some use cases, the database that is currently in use on the ES200 will need 
 
 Default credentials:
 
+* IP / Host Name: IP address of the ES200 application
+* Port: 1732
 * Username: admin
 * Password: admin
 
-<img src="images/Connect_to_ESRemote.png"></p>
+<img src="images/Figure_16.png"></p>
 
 Figure 16: ES200 database configuration interface – connecting to ES Remote**
 
@@ -628,6 +630,8 @@ The Dashboard offers you an interface where you can see the points’ status. Th
 
 Default credentials:
 
+* IP / Host Name: IP address of the ES200 application
+* Port: 1732
 * Username: admin
 * Password: admin
 

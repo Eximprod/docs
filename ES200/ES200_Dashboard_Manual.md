@@ -609,7 +609,7 @@ Default credentials:
 * Username: admin
 * Password: admin
 
-<img src="images/Database_Configuration_Connect_Remote.png"></p>
+<img src="images/Connect_to_ESRemote.png"></p>
 
 Figure 16: ES200 database configuration interface – connecting to ES Remote**
 
@@ -631,7 +631,7 @@ Default credentials:
 * Username: admin
 * Password: admin
 
-<img src="images/Dashboard_New_Connection.png"></p>
+<img src="images/Figure_17.png"></p>
 Figure 17: ES200 EntitiyViewer – connecting to an equipment running the ES200
 
 After connecting to the equipment, you can see the points’ status and other useful information. 

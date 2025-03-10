@@ -604,6 +604,11 @@ The editable columns of the table are:
 
 In some use cases, the database that is currently in use on the ES200 will need to be modified. In order to do that, you must import it locally and edit it with the Dashboard application. For this, use the File -> Download Project menu. This will open a window in which you can enter the required connection information.
 
+Default credentials:
+
+* Username: admin
+* Password: admin
+
 <img src="images/Database_Configuration_Connect_Remote.png"></p>
 
 Figure 16: ES200 database configuration interface – connecting to ES Remote**
@@ -620,6 +625,11 @@ After entering the required information, you will be asked to select which local
 ## 4.4. Viewing the points
 
 The Dashboard offers you an interface where you can see the points’ status. This interface – called Entity Viewer – also allows you to send commands to the points. To access this interface, use the File -> New EntityViewer and connect to an equipment running the ES200.
+
+Default credentials:
+
+* Username: admin
+* Password: admin
 
 <img src="images/Dashboard_New_Connection.png"></p>
 Figure 17: ES200 EntitiyViewer – connecting to an equipment running the ES200

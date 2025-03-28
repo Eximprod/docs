@@ -29,7 +29,7 @@ The information in this document cannot be reproduced or copied without the writ
 
 ## 1.3. General dispositions
 
-This document provides information about the ES200 Power Plant Controller software and its main features. The information available in this manual is intended for personnel who will use this product to configure different components or for current use.
+This document provides information about the ES200 Power Plant Controller software and its main features. The information available in this manual is intended for personnel who will use this product to configure the PPC equipment or for current use.
 
 ## 1.4. Understanding the Configuration Variables
 
@@ -54,15 +54,15 @@ This document provides information about the ES200 Power Plant Controller softwa
 - **Scaling Factor:** A scalar value used to scale the output commands of the PID controller. Scaling is applied before the command is distributed to all connected points.
 - **Operating Mode:** The controller operates in either `Active Power` or `Reactive Power` mode.
   - In **Active Power** mode, there are two submodes:
-    - Setpoint-based active power control with automatic frequency response
+    - Setpoint-based active power control with automatic frequency response.
     - Active power control that strictly follows frequency changes within a narrow window while still accepting setpoints.
   - In **Reactive Power** mode, there are also two submodes:
-    - Setpoint-based reactive power control
+    - Setpoint-based reactive power control.
     - A hybrid reactive power control scheme that follows the voltage curve within a defined window while still accepting setpoints.
 - **Command Type:** The controller can output commands as an **absolute value** or as a **percentage** (the percentage being based on the specified `Max System Power`).
-- **Statism:** A percentage value that describes the ratio between the relative deviation of frequency and the relative deviation of active power.
+- **Statism:** A percentage value that describes the ratio between the relative deviation of frequency and the relative deviation of active power. This parameter is required only when operating in `Active Power` mode.
 - **Nominal Voltage:** The nominal voltage value of the system (measured in kV). This parameter is required only when operating in `Reactive Power` mode.
-- **Voltage Interval:** A percentage value describing the range within which the system voltage can vary. For example, for a 20 kV system with a voltage interval of 5%, the maximum allowed voltage setpoint is 21 kV.
+- **Voltage Interval:** A percentage value describing the range within which the system voltage can vary. For example, for a 20 kV system with a voltage interval of 5%, the maximum allowed voltage setpoint is 21 kV. This parameter is required only when operating in `Reactive Power` mode.
 - **Process Point:** The primary data point for the control process measurement. For `Active Power`, this should be the measured power output of the system; for `Reactive Power`, the measured reactive power output.
 - **Process Complement Point:** The auxiliary measurement data point. For `Active Power`, this is the system frequency; for `Reactive Power`, it is the system voltage.
 - **Available Power Point:** A data point providing an estimated `Available Power` for the system (e.g., an estimate from a weather station).
@@ -93,12 +93,12 @@ This is the primary **Active Power** operating mode, responsible for processing 
 - **Frequency Correction:** Mode P detects if the system frequency deviates beyond predefined thresholds. In such cases, it calculates a corrective command based on the deviation from the nominal frequency and adjusts the active power output accordingly. This frequency-based control is synchronized with inverter setup delays to ensure proper command execution.
 
 ### 1.5.2. Mode P(f)
-This secondary **Active Power** operating mode is designed to rapidly counteract deviations in system frequency while accommodating active power setpoint adjustments. Mode f operates within a very narrow insensibility band (±0.01) to promptly address any frequency variations.
+This secondary **Active Power** operating mode is designed to rapidly counteract deviations in system frequency while accommodating active power setpoint adjustments. Mode P(f) operates within a very narrow insensibility band (±0.01) to promptly address any frequency variations.
 
-- **Frequency Correction:** When the measured frequency deviates outside the defined reference limits, Mode f computes a corrective command by comparing the nominal frequency to the current process measurement, thereby adjusting the active power output.
-- **Inverter Setup and Timing:** Mode f incorporates inverter setup delays and carefully manages timing intervals to ensure that frequency corrections are applied accurately and only when the system is ready.
-- **Ramped Output Transition:** If a new active power setpoint is issued, Mode f transitions to a ramped output strategy by generating intermediate ramp points to smoothly transition from the current power level to the new setpoint. This approach prevents sudden changes while prioritizing frequency corrections.
-- **Internal Updates:** Mode f continuously updates its internal parameters, such as the previous power value and insensibility limits, and uses status callbacks to signal key events (e.g., executing a frequency command, engaging ramp output, or detecting an out-of-bound setpoint).
+- **Frequency Correction:** When the measured frequency deviates outside the defined reference limits, Mode P(f) computes a corrective command by comparing the nominal frequency to the current process measurement, thereby adjusting the active power output.
+- **Inverter Setup and Timing:** Mode P(f) incorporates inverter setup delays and carefully manages timing intervals to ensure that frequency corrections are applied accurately and only when the system is ready.
+- **Ramped Output Transition:** If a new active power setpoint is issued, Mode P(f) transitions to a ramped output strategy by generating intermediate ramp points to smoothly transition from the current power level to the new setpoint. This approach prevents sudden changes while prioritizing frequency corrections.
+- **Internal Updates:** Mode P(f) continuously updates its internal parameters, such as the previous power value and insensibility limits, and uses status callbacks to signal key events (e.g., executing a frequency command, engaging ramp output, or detecting an out-of-bound setpoint).
 
 ### 1.5.3. Mode Q
 This is the primary **Reactive Power** operating mode, dedicated to processing and executing reactive power setpoints with rapid response. Mode Q bypasses ramped output strategies in favor of immediate command execution.
@@ -118,7 +118,8 @@ This is the secondary **Reactive Power (Voltage)** operating mode, responsible f
 - **Status Feedback:** Throughout its operation, Mode Q(U) employs status callbacks to indicate critical states (e.g., when a voltage command is attempted, when a setpoint is out of bounds, during ramp execution, or upon successful command execution), ensuring that the broader control system remains informed.
 
 ## 1.6. Understanding the pre-configured points
-Whenever a **Power Plant Controller** equipment is added in the database configuration using ES200 Dashboard, a number of pre-configured points will be added to the equipment based on the specified configuration variables. These points will be different based on wether you select **Active Power** or **Reactive Power** as the operating mode. On top of that, some other points will be added based on the status of the **Testing** flag which we will be showcased shortly.
+Whenever a **Power Plant Controller** equipment is added in the database configuration using ES200 Dashboard, a number of pre-configured points will be added to the equipment based on the specified configuration variables. These points will be different based on wether you select **Active Power** or **Reactive Power** as the operating mode. 
+Additionally, some other points will be added based on the status of the **Testing** flag which will be showcased later in this section.
 First, let's showcase the difference between the two operating modes. 
 For **Active Power**, the generated points are the following:
 
@@ -141,11 +142,11 @@ For **Active Power**, the generated points are the following:
 
 4. **[AI] Status**  
    - **Point Type:** *Analog Input*  
-   - **Purpose:** Reflects the *current status* of the Power Plant Controller. This is a  numeric code indicating modes such as “Executing Ramp, “Setpoint Out of Bounds,” or “Executing Command.” All status point codes will be showcased in a later section of the documentation.
+   - **Purpose:** Reflects the *current status* of the Power Plant Controller. This is a numeric code indicating modes such as "Executing Ramp", "Setpoint Out of Bounds" or "Executing Command". All status point codes will be showcased in a later section of the documentation.
 
 5. **[BO] ModeSwitch**  
    - **Point Type:** *Binary Output*  
-   - **Purpose:** A *command from SCADA or an operator* to switch between secondary operating modes (e.g., from mode P to mode F mode). Writing 0 or 1 to this point triggers the PPC to change to the specific secondary mode. For example, for **Active Power** the default secondary mode is **mode P**, so writing 1 to this point will switch the secondary mode to **mode f**.
+   - **Purpose:** A *command from SCADA or an operator* to switch between secondary operating modes (e.g., from mode P to mode P(f)). Writing 0 or 1 to this point triggers the PPC to change to the specific secondary mode. For example, for **Active Power** the default secondary mode is **mode P**, so writing 1 to this point will switch the secondary mode to **mode P(f)**.
 
 6. **[BI] PrimaryModeStatus**  
    - **Point Type:** *Binary Input*  
@@ -154,7 +155,7 @@ For **Active Power**, the generated points are the following:
 
 7. **[BI] SecondaryModeStatus**  
    - **Point Type:** *Binary Input*  
-   - **Purpose:** Indicates which of the *secondary modes* (e.g., Mode f or mode P for active power frequency and Mode Q or mode Q(U) for reactive power) is currently active.
+   - **Purpose:** Indicates which of the *secondary modes* (e.g., Mode P(f) or mode P for active power frequency and Mode Q or mode Q(U) for reactive power) is currently active.
 
 8. **[AI] RampPoint**  
    - **Point Type:** *Analog Input*  

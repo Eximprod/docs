@@ -33,10 +33,11 @@ This document provides information about the ES200 Power Plant Controller softwa
 
 ## 1.4. Understanding the Configuration Variables
 
-<div style="text-align: center;">
+<div align="center">
   <img src="ppc-images/config-vars.png" style="max-width:100%; height:auto">
   <p>Figure 1: PPC configuration variables in ES200 Dashboard</p>
 </div>
+
 
 
 - **Testing:** This flag determines **whether** the controller is operating in testing mode. When enabled, you can change the PID controller parameters while the process is running, allowing for faster **iteration** during testing and quicker fine tuning of the PID parameters.

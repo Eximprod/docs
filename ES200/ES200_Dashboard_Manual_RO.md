@@ -820,6 +820,13 @@ Câmpurile editabile sunt:
 
 În anumite cazuri de utilizare, baza de date de pe echipamentul pe care rulează ES200 va trebui modificată. Pentru asta, baza de date trebuie importată local și editată cu aplicația Dashboard. Pentru descărcarea locală, se folosește meniul File -> Download Project. Acesta va deschide o fereastră de navigare unde se vor introduce datele de conectare la echipamentul pe care se găsește baza de date.
 
+Credențiale implicite:
+
+* IP / Host Name: Adresa IP a programului ES200
+* Port: 1732
+* Username: admin
+* Password: admin
+
 
 <img src="images/Figure_16.png">
 
@@ -839,6 +846,13 @@ Ulterior introducerii credențialelor, cu ajutorul unei ferestre de navigare se 
 ## 4.4. Vizualizarea punctelor.
 
 Dashboard-ul pune la dispoziția utilizatorilor o interfață unde se poate vedea statusul punctelor. Aceasta se numește Entity Viewer și poate fi folosită și pentru a trimite comenzi către echipament. Pentru accesarea acestei interfețe se folosește meniul File -> New EntityViewer și se introduc datele de conectare către un echipament pe care rulează ES200.
+
+Credențiale implicite:
+
+* IP / Host Name: Adresa IP a programului ES200
+* Port: 1732
+* Username: admin
+* Password: admin
 
 
 <img src="images/Figure_17.png">

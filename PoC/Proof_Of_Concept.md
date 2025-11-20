@@ -146,7 +146,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Cisco IR8340
    </td>
-   <td>Intel 64-Bit
+   <td>Intel 64-bit
    </td>
    <td>500 (15%)
    </td>
@@ -162,7 +162,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Cisco IR8340
    </td>
-   <td>Intel 64-Bit
+   <td>Intel 64-bit
    </td>
    <td>3.465 (100%)
    </td>
@@ -178,7 +178,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Virtualized (Kubernetes)
    </td>
-   <td>Intel 64-Bit
+   <td>Intel 64-bit
    </td>
    <td>2
    </td>
@@ -194,7 +194,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Virtualized (Kubernetes)
    </td>
-   <td>Intel 64-Bit
+   <td>Intel 64-bit
    </td>
    <td>8
    </td>

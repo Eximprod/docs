@@ -62,4 +62,156 @@ Table 2: ES200 supported communication protocols
 
 # 3. Prerequisites
 
+<table>
+  <tr>
+   <td><strong>Platform</strong>
+   </td>
+   <td><strong>Architecture</strong>
+   </td>
+   <td><strong>vCPU units</strong>
+   </td>
+   <td><strong>vRAM</strong>
+   </td>
+   <td><strong>vDisk Space</strong>
+   </td>
+   <td><strong># of IEDs</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR1101
+   </td>
+   <td>ARM 64-bit
+   </td>
+   <td>200 (17%)
+   </td>
+   <td>128 MB (15%)
+   </td>
+   <td>100 MB (10%)
+   </td>
+   <td>3
+   </td>
+   <td>Basic Profile <strong><sup>1</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR1101
+   </td>
+   <td>ARM 64-bit
+   </td>
+   <td>1.155 (100%)
+   </td>
+   <td>862 MB (100%)
+   </td>
+   <td>1 GB (100%)
+   </td>
+   <td>20
+   </td>
+   <td>Advanced Profile <strong><sup>2</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR1835
+   </td>
+   <td>ARM 64-bit
+   </td>
+   <td>250 (15%)
+   </td>
+   <td>256 MB (15%)
+   </td>
+   <td>200 MB (2,5%)
+   </td>
+   <td>5
+   </td>
+   <td>Basic Profile <strong><sup>1</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR1835
+   </td>
+   <td>ARM 64-bit
+   </td>
+   <td>1.617 (100%)
+   </td>
+   <td>1.724 MB (100%)
+   </td>
+   <td>8 GB (100%)
+   </td>
+   <td>30
+   </td>
+   <td>Advanced Profile <strong><sup>2</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR8340
+   </td>
+   <td>Intel 64-bit
+   </td>
+   <td>500 (15%)
+   </td>
+   <td>256 MB (12 %)
+   </td>
+   <td>200 MB (10%)
+   </td>
+   <td>5
+   </td>
+   <td>Basic Profile <strong><sup>1</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cisco IR8340
+   </td>
+   <td>Intel 64-bit
+   </td>
+   <td>3.465 (100%)
+   </td>
+   <td>2 GB (100%)
+   </td>
+   <td>2 GB (100%)
+   </td>
+   <td>50
+   </td>
+   <td>Advanced Profile <strong><sup>2</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Virtualized (Kubernetes)
+   </td>
+   <td>Intel 64-bit
+   </td>
+   <td>2
+   </td>
+   <td>1 GB
+   </td>
+   <td>10 GB
+   </td>
+   <td>25
+   </td>
+   <td>Basic Profile <strong><sup>1</sup></strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Virtualized (Kubernetes)
+   </td>
+   <td>Intel 64-bit
+   </td>
+   <td>8
+   </td>
+   <td>32 GB
+   </td>
+   <td>100 GB
+   </td>
+   <td>200
+   </td>
+   <td>Advanced Profile <strong><sup>2</sup></strong>
+   </td>
+  </tr>
+</table>
+
+<sup><b>1</b></sup> Min use of Edge Computing Resources - ES200 uses ~15% of available resources on this profile
+
+<sup><b>2</b></sup> Max use of Edge Computing Resources - suitable for more demanding edge deployment
+
+
 ## 3.1. Scope

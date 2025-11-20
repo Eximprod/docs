@@ -146,7 +146,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Cisco IR8340
    </td>
-   <td>Intel 64 Bit
+   <td>Intel 64-Bit
    </td>
    <td>500 (15%)
    </td>
@@ -162,7 +162,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Cisco IR8340
    </td>
-   <td>Intel 64 Bit
+   <td>Intel 64-Bit
    </td>
    <td>3.465 (100%)
    </td>
@@ -178,7 +178,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Virtualized (Kubernetes)
    </td>
-   <td>Intel 64 Bit
+   <td>Intel 64-Bit
    </td>
    <td>2
    </td>
@@ -194,7 +194,7 @@ Table 2: ES200 supported communication protocols
   <tr>
    <td>Virtualized (Kubernetes)
    </td>
-   <td>Intel 64 Bit
+   <td>Intel 64-Bit
    </td>
    <td>8
    </td>
@@ -209,7 +209,7 @@ Table 2: ES200 supported communication protocols
   </tr>
 </table>
 
-<sup><b>1</b></sup> Min use of Edge Computing Resources - ES200 uses ~20% of available resources on this profile
+<sup><b>1</b></sup> Min use of Edge Computing Resources - ES200 uses ~15% of available resources on this profile
 
 <sup><b>2</b></sup> Max use of Edge Computing Resources - suitable for more demanding edge deployment
 

@@ -15,6 +15,9 @@
     - [2.5.1. Via Rest API](#251-via-rest-api)
     - [2.5.2. Via WebSockets](#252-via-websockets)
   - [2.6. Send Commands](#26-send-commands)
+  - [2.7. Download Database](#27-download-database)
+  - [2.8. Upload Database](#28-upload-database)
+  - [2.9. Update Certificates](#29-update-certificates)
 
 ## 1. ES200 Endpoints
 
@@ -608,3 +611,108 @@ curl -k -b cookies.txt -X POST https://localhost:3000/api/command \
     -H "Content-Type: application/json" \
     -d '{"equipmentId": 123, "idDown": 456, "pointType": "Analog Input", "value": "22.5"}'
 ```
+
+### 2.7. Download Database
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/database`
+-   **Method**: `GET`
+-   **Description**: Downloads the current ES200 configuration database (`.epgd` file) as a binary file.
+-   **Response Status Codes**:
+    -   `200 OK`: Successfully downloaded the database file.
+    -   `204 No Content`: The current database is empty.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `500 Internal Server Error`: Failed to retrieve the database.
+-   **Response Headers**:
+    -   `Content-Type`: `application/x-sqlite3`
+    -   `Content-Disposition`: `attachment; filename="ES200.epgd"`
+-   **Response Body**: Binary content of the SQLite3 database file.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request - Download database and save to file
+curl -k -b cookies.txt -X GET https://localhost:3000/api/database \
+    -o ES200.epgd
+```
+
+-   **Notes**:
+    -   The downloaded file is an SQLite3 database that can be opened with any SQLite3 viewer such as [DB Browser for SQLite](https://sqlitebrowser.org/).
+    -   The database contains the ES200 configuration including equipments, points, and other settings.
+
+### 2.8. Upload Database
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/database`
+-   **Method**: `POST`
+-   **Content-Type**: `application/octet-stream` or `application/x-sqlite3`
+-   **Description**: Uploads a new ES200 configuration database (`.epgd` file) to replace the current configuration. After a successful upload, all ES200 processes will be restarted to apply the new configuration.
+-   **Request Body**: Binary content of the SQLite3 database file.
+-   **Response Status Codes**:
+    -   `200 OK`: Database uploaded successfully. All processes will be restarted.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `415 Unsupported Media Type`: Invalid or missing Content-Type header.
+    -   `500 Internal Server Error`: Failed to upload the database.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request - Upload database from file
+curl -k -b cookies.txt -X POST https://localhost:3000/api/database \
+    -H "Content-Type: application/octet-stream" \
+    --data-binary @ES200.epgd
+```
+
+-   **Notes**:
+    -   The uploaded file must be a valid SQLite3 database in the ES200 `.epgd` format.
+    -   After a successful upload, the Watchdog process will restart all ES200 processes to apply the new configuration.
+    -   **Warning**: Uploading an invalid or corrupted database may cause ES200 to malfunction. Always ensure you have a backup of the current configuration before uploading a new one.
+
+### 2.9. Update Certificates
+
+-   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/certificates`
+-   **Method**: `POST`
+-   **Content-Type**: `multipart/form-data`
+-   **Description**: Updates the SSL/TLS certificates used by ES200 for secure communications. The endpoint accepts a certificate file and a private key file in PEM format, validates them, and forwards the update to the authentication server.
+-   **Request Body** (multipart/form-data):
+    -   `cert` (required, file): The SSL certificate file in PEM format (must contain `BEGIN CERTIFICATE` marker).
+    -   `key` (required, file): The private key file in PEM format (must contain `BEGIN` marker).
+-   **Response Status Codes**:
+    -   `200 OK`: Certificates updated successfully.
+    -   `400 Bad Request`: Missing files, empty file contents, invalid PEM markers, or certificate/key validation failed.
+    -   `401 Unauthorized`: Invalid session cookie.
+-   **Response Body** (on error): Plain text error message describing the failure reason.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "admin", "password": "admin"}'
+
+# Request - Upload certificate and private key
+curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
+    -F "cert=@certificate.pem" \
+    -F "key=@private_key.pem"
+```
+
+-   **Notes**:
+    -   Both the certificate and private key must be in PEM format.
+    -   The certificate and private key must match (the private key must correspond to the public key in the certificate).
+    -   The endpoint validates the certificate and key before applying them.
+    -   Common error messages include:
+        -   `missing files`: One or both form fields are missing.
+        -   `certificate file missing` / `private key file missing`: The file field exists but has no filename.
+        -   `empty file contents`: One or both files are empty.
+        -   `invalid pem markers`: The files don't contain valid PEM headers.
+        -   `validation failed: mismatch`: The certificate and private key don't match.
+        -   `validation failed: parse cert` / `validation failed: parse key`: Unable to parse the certificate or key.

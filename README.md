@@ -7,8 +7,9 @@
   - [2.3. ES200 Installation Manual](#23-es200-installation-manual)
   - [2.4. ES200 REST API Manual](#24-es200-rest-api-manual)
   - [2.5. ES200 FTP Logs Manual](#25-es200-ftp-logs-manual)
-  - [2.6. HMI Manual](#26-hmi-manual)
-  - [2.7. Proof Of Concept](#27-proof-of-concept)
+  - [2.6. Power Plant Controller (PPC200) Manual](#26-power-plant-controller-ppc200-manual)
+  - [2.7. HMI Manual](#27-hmi-manual)
+  - [2.8. Proof Of Concept](#28-proof-of-concept)
 - [3. Extensions (For Developers and Maintainers Only)](#3-extensions-for-developers-and-maintainers-only)
   - [3.1. Markdown All in One](#31-markdown-all-in-one)
     - [3.1.1. Overview](#311-overview)
@@ -38,8 +39,9 @@ To demonstrate the ES200 solution, a Proof of Concept can be deployed to evaluat
 ### 2.3. [ES200 Installation Manual](ES200/ES200_Installation_Manual.md)
 ### 2.4. [ES200 REST API Manual](ES200/ES200_REST_API_Manual.md)
 ### 2.5. [ES200 FTP Logs Manual](ES200/ES200_FTP_Logs.md)
-### 2.6. [HMI Manual](HMI/HMI_Manual.md)
-### 2.7. [Proof Of Concept](PoC/Proof_Of_Concept.md)
+### 2.6. [Power Plant Controller (PPC200) Manual](ES200/ES200_PowerPlantController_Manual.md)
+### 2.7. [HMI Manual](HMI/HMI_Manual.md)
+### 2.8. [Proof Of Concept](PoC/Proof_Of_Concept.md)
 
 
 ## 3. Extensions (For Developers and Maintainers Only)

@@ -686,6 +686,7 @@ curl -k -b cookies.txt -X POST https://localhost:3000/api/database \
 -   **Request Body** (multipart/form-data):
     -   `cert` (required, file): The SSL certificate file in PEM format (must contain `BEGIN CERTIFICATE` marker).
     -   `key` (required, file): The private key file in PEM format (must contain `BEGIN` marker).
+    -   `ca` (optional, file): The CA certificate file in PEM format (if applicable).
 -   **Response Status Codes**:
     -   `200 OK`: Certificates updated successfully.
     -   `400 Bad Request`: Missing files, empty file contents, invalid PEM markers, or certificate/key validation failed.
@@ -702,7 +703,9 @@ curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
 # Request - Upload certificate and private key
 curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
     -F "cert=@certificate.pem" \
-    -F "key=@private_key.pem"
+    -F "key=@private_key.pem" \
+    -F "ca=@ca_certificate.pem"
+
 ```
 
 -   **Notes**:
@@ -710,9 +713,9 @@ curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
     -   The certificate and private key must match (the private key must correspond to the public key in the certificate).
     -   The endpoint validates the certificate and key before applying them.
     -   Common error messages include:
-        -   `missing files`: One or both form fields are missing.
-        -   `certificate file missing` / `private key file missing`: The file field exists but has no filename.
-        -   `empty file contents`: One or both files are empty.
+        -   `missing files`: One or more form fields are missing.
+        -   `certificate file missing` / `private key file missing` / `ca file missing`: The file field exists but has no filename.
+        -   `empty file contents`: One or more files are empty.
         -   `invalid pem markers`: The files don't contain valid PEM headers.
         -   `validation failed: mismatch`: The certificate and private key don't match.
         -   `validation failed: parse cert` / `validation failed: parse key`: Unable to parse the certificate or key.

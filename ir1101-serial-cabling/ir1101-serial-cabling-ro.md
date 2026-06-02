@@ -31,11 +31,21 @@ Interfața serială a routerului **Cisco IR1101** suportă **doar RS‑232**, î
 - Borna **RS‑485** a convertorului Moxa se conectează mai departe la magistrala RS‑485 a invertoarelor (legătură pe 3 fire: `+` / `–` / `GND`).
 - Între IR1101 (RJ45) și Moxa (DB9 mamă) se confecționează un **cablu special**, cu două capete: **RJ45** și **DB9 tată**.
 
-![Schema de ansamblu a sistemului](images/system_overview.jpg)  
+<div align="center">
+
+<img src="images/system_overview.jpg" alt="Schema de ansamblu a sistemului" width="460" />
+
 *Exemplu de instalare: routerul interoghează prin Modbus RTU mai multe invertoare înlănțuite pe RS‑485.*
 
-![Cisco IR1101 - portul serial RJ45](images/ir1101_front.jpg)  
+</div>
+
+<div align="center">
+
+<img src="images/ir1101_front.jpg" alt="Cisco IR1101 - portul serial RJ45" width="264" />
+
 *Routerul Cisco IR1101 — portul serial RJ45 (RS-232) în care intră mufa cablului.*
+
+</div>
 
 ---
 
@@ -54,8 +64,13 @@ Dacă totuși folosiți cablu **litat** (mai multe fire subțiri pe conductor), 
 
 Firul litat introdus direct în bornele cu șurub **se desface**, face contact slab/intermitent și firele pot atinge bornele vecine. Papucul adună toate firele într-un **capăt solid**, asigurând un contact ferm și sigur. Alegeți dimensiunea papucului în funcție de secțiunea conductorului (firele de Ethernet sunt subțiri, ~0,2 mm²).
 
-![Papuci tubulari izolați](images/ferrules.jpg)  
+<div align="center">
+
+<img src="images/ferrules.jpg" alt="Papuci tubulari izolați" width="411" />
+
 *Papuci tubulari izolați — se sertizează pe capătul firului litat.*
+
+</div>
 
 ### 2.2. Obținerea cablului
 
@@ -85,14 +100,24 @@ La capătul care va deveni DB9, dezizolați și separați firele din interiorul 
 
 > **Atenție la culori:** codurile de culoare pot diferi. Dacă nu aveți aceleași culori, **orientați‑vă după numărul PIN‑ului**, nu după culoare.
 > 
-![Cablu Ethernet tăiat](images/cable_cut.jpg)  
+<div align="center">
+
+<img src="images/cable_cut.jpg" alt="Cablu Ethernet tăiat" width="460" />
+
 *Cablul Ethernet: RJ45 la un capăt, firele dezizolate la celălalt.*
+
+</div>
 
 ### 4.2. Cablarea adaptorului DB9
 Folosiți adaptorul **Delock „Sub‑D 9 tată → bloc terminal cu șuruburi"**: fiecare fir dezizolat se prinde în șurubul terminalului corespunzător, conform tabelului de mai jos. Identificați firul după poziția lui în mufa RJ45 (culoare/PIN), apoi prindeți‑l în terminalul DB9 corespunzător.
 
-![Adaptor Delock D‑Sub 9 tată cu bloc terminal cu șuruburi](images/adapter.jpg)  
+<div align="center">
+
+<img src="images/adapter.jpg" alt="Adaptor Delock D‑Sub 9 tată cu bloc terminal cu șuruburi" width="412" />
+
 *Adaptor Delock Sub‑D 9 tată cu bloc terminal cu șuruburi și carcasă: fiecare fir se prinde în șurubul pinului corespunzător.*
+
+</div>
 
 **Tabel complet de corespondență RJ‑45 ↔ DB9:**
 
@@ -117,11 +142,21 @@ Folosiți adaptorul **Delock „Sub‑D 9 tată → bloc terminal cu șuruburi"*
 
 > **Firul de masă (RJ45 4 → DB9 5) trebuie întotdeauna conectat** (vezi [secțiunea 7](#7-rolul-masei-gnd)).
 
-![Numerotarea pinilor RJ45](images/rj45_pinout.jpg)  
+<div align="center">
+
+<img src="images/rj45_pinout.jpg" alt="Numerotarea pinilor RJ45" width="295" />
+
 *Numerotarea pinilor RJ‑45 (1–8). Orientați‑vă după PIN, nu după culoare.*
 
-![Pinout DB9 — conector tată și mamă](images/db9_pinout.jpg)  
+</div>
+
+<div align="center">
+
+<img src="images/db9_pinout.jpg" alt="Pinout DB9 — conector tată și mamă" width="306" />
+
 *Numerotarea pinilor DB9 — conector tată și mamă.*
+
+</div>
 
 **Coduri de culoare (informativ — pot diferi, verificați PIN‑ul):**
 
@@ -139,8 +174,13 @@ Folosiți adaptorul **Delock „Sub‑D 9 tată → bloc terminal cu șuruburi"*
 ### 4.3. Configurarea Moxa (DIP)
 Setați **SW1, SW2, SW3** pe **ON, ON, OFF**.
 
-![Spatele Moxa cu DIP switch](images/moxa_dip.jpg)  
+<div align="center">
+
+<img src="images/moxa_dip.jpg" alt="Spatele Moxa cu DIP switch" width="199" />
+
 *Spatele convertorului Moxa TCC‑80: tabelul DIP și comutatoarele pe ON, ON, OFF.*
+
+</div>
 
 | Mod                                |  SW1   |  SW2   |
 | ---------------------------------- | :----: | :----: |
@@ -164,11 +204,21 @@ Introduceți mufa **RJ45** a cablului confecționat în **portul RS (serial)** a
 ### 4.6. Conectarea la invertor
 Firele RS‑485 de la blocul de borne al convertorului Moxa se conectează la bornele RS‑485 ale invertorului.
 
-![Convertorul Moxa TCC-80](images/moxa_front.jpg)  
+<div align="center">
+
+<img src="images/moxa_front.jpg" alt="Convertorul Moxa TCC-80" width="225" />
+
 *Convertorul Moxa TCC‑80 — portul DB9 (RS‑232) și blocul de borne RS‑485.*
 
-![Bloc de borne Moxa RS-485](images/moxa_terminal.jpg)  
+</div>
+
+<div align="center">
+
+<img src="images/moxa_terminal.jpg" alt="Bloc de borne Moxa RS-485" width="460" />
+
 *Blocul de borne: T+ , T– , R+/D+ , R–/D– , GND. Pentru 2 fire se folosesc R+/D+, R–/D–, GND.*
+
+</div>
 
 | Fir                         |   →   | Borna Moxa  |
 | --------------------------- | :---: | ----------- |
@@ -241,23 +291,18 @@ Conectarea firului de masă **nu este opțională** — atât pe RS‑232 (pinul
 
 ## 8. Echipamente și referințe
 
-- **Cisco IR1101** — Catalyst IR1101 Rugged Series Router
-  (https://www.cisco.com/c/en/us/products/collateral/routers/1101-industrial-integrated-services-router/datasheet-c78-741709.html)
-- **Moxa TCC‑80 / TCC‑80I** — convertor serial‑serial RS‑232 ↔ RS‑422/485
-  (https://www.moxa.com/en/products/industrial-edge-connectivity/serial-converters/serial-to-serial-converters/tcc-80-80i-series)
-- **Adaptor Delock D‑Sub 9 tată → bloc terminal cu șuruburi** (cu carcasă)
-  (https://conectica.ro/adaptoare-convertoare/bloc-terminal/terminal-block-10-pini-la-serial-d-sub-9-pini-tata-cu-suruburi-carcasa-delock-6)
-- **Ghid Cisco RJ‑45 → DB9**:
-  https://www.cisco.com/c/en/us/td/docs/IIOT/routers/ir1101/hw-install-guide/b-ir1101-hig/m-connecting-the-router.html#con_1041724
-- **Cisco — configurarea portului serial**:
-  https://developer.cisco.com/docs/iotod/serial/#configure-serial-port-status-for-base-or-expansion-modules-to-cisco-gear
+- [Cisco IR1101 — Catalyst IR1101 Rugged Series Router](https://www.cisco.com/c/en/us/products/collateral/routers/1101-industrial-integrated-services-router/datasheet-c78-741709.html)
+- [Moxa TCC‑80 / TCC‑80I — convertor serial‑serial RS‑232 ↔ RS‑422/485](https://www.moxa.com/en/products/industrial-edge-connectivity/serial-converters/serial-to-serial-converters/tcc-80-80i-series)
+- [Adaptor Delock D‑Sub 9 tată → bloc terminal cu șuruburi](https://conectica.ro/adaptoare-convertoare/bloc-terminal/terminal-block-10-pini-la-serial-d-sub-9-pini-tata-cu-suruburi-carcasa-delock-6)
+- [Ghid Cisco RJ‑45 → DB9](https://www.cisco.com/c/en/us/td/docs/IIOT/routers/ir1101/hw-install-guide/b-ir1101-hig/m-connecting-the-router.html#con_1041724)
+- [Cisco — configurarea portului serial](https://developer.cisco.com/docs/iotod/serial/#configure-serial-port-status-for-base-or-expansion-modules-to-cisco-gear)
 
 ---
 
 ## 9. Revizii
 
-| Rev. | Autor           | E‑mail                    | Data       |
-| :--: | --------------- | ------------------------- | ---------- |
-|  1   | Thomas Schaller | thomas.schaller@enedis.fr | 04.06.2025 |
-|  2   | Mihnea Marin    | mihnea.marin@epg.ro       | 30.07.2025 |
-|  3   | Alexandru Manea | alexandru.manea@epg.ro    | 02.06.2026 |
+| Rev.  | Autor           | E‑mail                    | Data       |
+| :---: | --------------- | ------------------------- | ---------- |
+|   1   | Thomas Schaller | thomas.schaller@enedis.fr | 04.06.2025 |
+|   2   | Mihnea Marin    | mihnea.marin@epg.ro       | 30.07.2025 |
+|   3   | Alexandru Manea | alexandru.manea@epg.ro    | 02.06.2026 |

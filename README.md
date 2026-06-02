@@ -11,6 +11,8 @@
   - [2.7. ES200 Webserver Manual RO](#27-es200-webserver-manual-ro)
   - [2.8. HMI Manual](#28-hmi-manual)
   - [2.9. Proof Of Concept](#29-proof-of-concept)
+  - [2.10. ES200 Serial Cabling Guide RO](#210-es200-serial-cabling-guide-ro)
+  - [2.11. ES200 Serial Cabling Guide EN](#211-es200-serial-cabling-guide-en)
 - [3. Extensions (For Developers and Maintainers Only)](#3-extensions-for-developers-and-maintainers-only)
   - [3.1. Markdown All in One](#31-markdown-all-in-one)
     - [3.1.1. Overview](#311-overview)
@@ -44,6 +46,8 @@ To demonstrate the ES200 solution, a Proof of Concept can be deployed to evaluat
 ### 2.7. [ES200 Webserver Manual RO](Webserver/Webserver_Manual_RO.md)
 ### 2.8. [HMI Manual](HMI/HMI_Manual.md)
 ### 2.9. [Proof Of Concept](PoC/Proof_Of_Concept.md)
+### 2.10. [ES200 Serial Cabling Guide RO](ir1101-serial-cabling/ir1101-serial-cabling-ro.md)
+### 2.11. [ES200 Serial Cabling Guide EN](ir1101-serial-cabling/ir1101-serial-cabling-en.md)
 
 
 ## 3. Extensions (For Developers and Maintainers Only)

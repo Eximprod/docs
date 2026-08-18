@@ -72,6 +72,12 @@
     - [5.7.1. General Configuration of the Communication Channel](#571-general-configuration-of-the-communication-channel)
     - [5.7.2. Adding Digital and Analog Status Entities](#572-adding-digital-and-analog-status-entities)
     - [5.7.3. Adding Commands](#573-adding-commands)
+  - [5.8. FTP Client (value logging)](#58-ftp-client-value-logging)
+    - [5.8.1. Adding the FTPClient equipment](#581-adding-the-ftpclient-equipment)
+    - [5.8.2. Equipment properties](#582-equipment-properties)
+    - [5.8.3. Selecting the logged points](#583-selecting-the-logged-points)
+    - [5.8.4. CSV files and the FTP transfer](#584-csv-files-and-the-ftp-transfer)
+    - [5.8.5. Testing (force transfer)](#585-testing-force-transfer)
 - [6. Setting up communication with the command center](#6-setting-up-communication-with-the-command-center)
   - [6.1. IEC 60870-5-104](#61-iec-60870-5-104)
     - [6.1.1. General configuration of the communication channel](#611-general-configuration-of-the-communication-channel)
@@ -155,22 +161,22 @@ This document provides information about the ES200 Dashboard software and its ma
 
 This document contains a set of terms that specify important or safety information.
 
-| Term            | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| Alarm           | An event that informs the operator about any deviation from normal system conditions.  |
-| Application     | Software designed to respond to a specific task.                            |
-| Archive         | Storage area for historical and forecasted data.                            |
-| Attribute       | A specific property of an object.                                           |
-| Button          | Sensitive display area that can be pressed to initiate a specific action.   |
-| Click           | Press a mouse button once and release without moving the cursor.            |
-| Command center  | Location where the distribution control center (master) is located.         |
-| Database        | A collection of information required by the application.                    |
-| Default         | Normal, standard.                                                          |
-| Display         | Instrument used to indicate information (in this case synonymous with screen). |
-| Double-click    | Two successive clicks on the mouse.                                         |
-| Log             | Information about the occurrence of an event.                               |
-| Protocol UP/DOWN| Communication protocol with equipment at a higher / lower level.            |
-| Tag             | A property of an element.                                                   |
+| Term             | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| Alarm            | An event that informs the operator about any deviation from normal system conditions. |
+| Application      | Software designed to respond to a specific task.                                      |
+| Archive          | Storage area for historical and forecasted data.                                      |
+| Attribute        | A specific property of an object.                                                     |
+| Button           | Sensitive display area that can be pressed to initiate a specific action.             |
+| Click            | Press a mouse button once and release without moving the cursor.                      |
+| Command center   | Location where the distribution control center (master) is located.                   |
+| Database         | A collection of information required by the application.                              |
+| Default          | Normal, standard.                                                                     |
+| Display          | Instrument used to indicate information (in this case synonymous with screen).        |
+| Double-click     | Two successive clicks on the mouse.                                                   |
+| Log              | Information about the occurrence of an event.                                         |
+| Protocol UP/DOWN | Communication protocol with equipment at a higher / lower level.                      |
+| Tag              | A property of an element.                                                             |
 
 
 ## 1.4. Abbreviations
@@ -393,17 +399,17 @@ Communications protocols supported by the ES200 include Modbus, DNP3, IEC 60870-
 Depending on the hardware platform that supports it, the ES200 can directly control and transmit information via its own I/O modules. Below you can find a list of the currently supported communication protocols.
 
 
-| Protocol              | Master    | Slave |
-|-                      |-          |-      |
-| Modbus                | Yes       | Yes   |
-| DNP3                  | Yes       | Yes   |
-| IEC 60870-5-104       | Yes       | Yes   |
-| IEC 60870-5-101       | Yes       |       |
-| IEC 61850             | Yes       |       |
-| IEC 61850 Edition 2   | Yes       |       |
-| MQTT                  | Yes       | Yes   |
-| LoRa                  |           | Yes   |
-| OPC Client            | Yes       |       |
+| Protocol            | Master | Slave |
+| ------------------- | ------ | ----- |
+| Modbus              | Yes    | Yes   |
+| DNP3                | Yes    | Yes   |
+| IEC 60870-5-104     | Yes    | Yes   |
+| IEC 60870-5-101     | Yes    |       |
+| IEC 61850           | Yes    |       |
+| IEC 61850 Edition 2 | Yes    |       |
+| MQTT                | Yes    | Yes   |
+| LoRa                |        | Yes   |
+| OPC Client          | Yes    |       |
 
 Table 2: ES200 supported communication protocols
 
@@ -1306,6 +1312,82 @@ The IEC-60870-5-101 protocol implemented by ES200 allows the use of 2 types of c
 
 **#CmdQualifier** - represents the qualifier property of the command. Possible values for this field - Default, Short pulse, Long pulse, Persistent. The type of command qualifier must be identical to that of the equivalent command from the IED (slave). If the control model set in the IED is not known, the Any option is used. **This field is not used for setpoint-type commands.**
 
+
+## 5.8. FTP Client (value logging)
+
+The FTPClient process periodically samples the values of selected points and writes them into CSV files (one file per equipment), which are then automatically transferred to an FTP server. Use it when point values must be archived or analyzed outside the ES200 (e.g. in a historian or a spreadsheet).
+
+### 5.8.1. Adding the FTPClient equipment
+
+Right click on “Intelligent Electronic Device” and press “Add Device”.
+
+<img src="images/FTP_Logging_Add_Device.png"></p>
+
+In the “Add New Equipment” panel, open the “Equipment Process” dropdown (1) and select “FTPClient” (2). Fill in a unique “Equipment Name” and, optionally, a description. Keep “Equipment Active” checked — only active equipments run on the ES200.
+
+<img src="images/FTP_Logging_Select_Process.png"></p>
+
+### 5.8.2. Equipment properties
+
+After selecting the FTPClient process (1), the panel shows its specific properties (2):
+
+<img src="images/FTP_Logging_Properties.png"></p>
+
+**#Username** – User name used to connect to the FTP server. Mandatory.
+
+**#Password** – Password of the FTP user.
+
+**#Log Frequency [ms]** – Time, in milliseconds, between two consecutive rows written to the CSV files (default 100).
+
+**#IP Address** – IP address of the FTP server. Mandatory.
+
+**#Port** – Port of the FTP server (default 21).
+
+**#Max File Size** – Maximum size, in MB, of a CSV log file; when exceeded, the file is transferred immediately. Set 0 to disable this trigger.
+
+**#Time Intervals** – Comma separated list of times of day, in HH:MM format (e.g. 06:00,18:00), at which the logs are transferred to the server.
+
+**Attention:** at least one of “Max File Size” and “Time Intervals” must be configured. If both are missing, the FTPClient process stops at startup with the error *“No upload trigger mechanism found”*.
+
+Hovering the mouse over any property label shows its help text:
+
+<img src="images/FTP_Logging_Help_Tooltip.png"></p>
+
+Press “Insert”. The equipment appears in the configuration tree (1) and a point named “forceTransferLogs”, of type Binary Output, is generated automatically (2) — it is used to force the transfer of the logs (see 5.8.5).
+
+<img src="images/FTP_Logging_Inserted.png"></p>
+
+### 5.8.3. Selecting the logged points
+
+The points to be logged are selected individually, through the “Log To FTP” point property. Select the desired equipment and point type in the tree, then tick “Log To FTP” in the points table for every point that must be logged:
+
+<img src="images/FTP_Logging_Log_To_FTP.png"></p>
+
+The property is available for the points of master (IED) equipments; only points of active equipments are logged.
+
+### 5.8.4. CSV files and the FTP transfer
+
+For every equipment that has points with “Log To FTP” enabled, the FTPClient writes one CSV file named `Process_EquipmentName.csv` (spaces and commas in the names are replaced with `_`), e.g. `MQTTMaster_AUZAN.csv`. The first line is the header: the “Date” and “Time” columns, followed by the “Variable Name” of every selected point. Then, every “Log Frequency” milliseconds, a row with the current date, time (with milliseconds) and point values is appended:
+
+```csv
+Date,Time,REACTIVE_POWER_EG1,REACTIVE_POWER_EG2,REACTIVE_POWER_EG3,REACTIVE_POWER_EG4
+2026-08-18,19-41-23-156,0,0,0,0
+2026-08-18,19-41-24-160,0,0,0,0
+```
+
+If the set of logged points changes, a new header line is appended to the file and the following rows use it.
+
+The transfer to the FTP server is triggered automatically when the file exceeds “Max File Size” or at the times listed in “Time Intervals”. The file is stored on the server as `Process_EquipmentName_YYYY-MM-DD_HH-MM-SS-mmm.csv` (the date and time of the transfer). After a successful transfer the local file is deleted and the logging continues in a new file.
+
+**Security note:** the transfer uses plain (unencrypted) FTP — the credentials travel in clear text. Use it only inside isolated management networks.
+
+### 5.8.5. Testing (force transfer)
+
+To test the configuration without waiting for an automatic trigger, use the “forceTransferLogs” point of the FTPClient equipment. Upload the configuration to the ES200 (see 4.3), open an Entity Viewer and connect to the equipment (see 4.4), expand the FTPClient equipment, write the value 1 in the “Command” column of the “forceTransferLogs” point and press Enter (see 4.5):
+
+<img src="images/FTP_Logging_Force_Transfer.png"></p>
+
+All the current CSV files are transferred immediately to the FTP server and the point returns to 0 by itself. The `.csv` files can then be found in the configured directory of the FTP user.
 
 # 6. Setting up communication with the command center
 ## 6.1. IEC 60870-5-104

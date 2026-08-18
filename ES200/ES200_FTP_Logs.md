@@ -32,22 +32,21 @@
       - [3.2.4.2. Rulare script PowerShell](#3242-rulare-script-powershell)
       - [3.2.4.3. Verificare regulă în Windows Firewall](#3243-verificare-regulă-în-windows-firewall)
 - [4. Configurarea ES200 (logare prin FTP)](#4-configurarea-es200-logare-prin-ftp)
-  - [4.1. Accesare ES200 WebServer](#41-accesare-es200-webserver)
-  - [4.2. Autentificare ES200](#42-autentificare-es200)
-  - [4.3. Încărcarea bazei de date ES200](#43-încărcarea-bazei-de-date-es200)
-  - [4.4. Configurarea logării prin FTP](#44-configurarea-logării-prin-ftp)
-    - [4.4.1. Configurarea conexiunii FTP](#441-configurarea-conexiunii-ftp)
-    - [4.4.2. Configurarea logării punctelor](#442-configurarea-logării-punctelor)
-    - [4.4.3. Testarea logării și transferului prin FTP](#443-testarea-logării-și-transferului-prin-ftp)
+  - [4.1. Adăugarea echipamentului FTPClient](#41-adăugarea-echipamentului-ftpclient)
+  - [4.2. Proprietățile echipamentului FTPClient](#42-proprietățile-echipamentului-ftpclient)
+  - [4.3. Selectarea punctelor logate (Log To FTP)](#43-selectarea-punctelor-logate-log-to-ftp)
+  - [4.4. Salvarea și încărcarea configurației](#44-salvarea-și-încărcarea-configurației)
+  - [4.5. Fișierele CSV și transferul prin FTP](#45-fișierele-csv-și-transferul-prin-ftp)
+  - [4.6. Testarea logării și transferului prin FTP](#46-testarea-logării-și-transferului-prin-ftp)
 
 # 1. Prerechizite
 
-| Nume | Link |
-| - | - |
-| Firmware Cisco IOS | [https://box.epg.ro/s/d4FJw3xMWWqzPLd](https://box.epg.ro/s/d4FJw3xMWWqzPLd) |
-| Pachete ES200 & Dashboard | [https://box.epg.ro/s/TySocdwLp2kMjDW](https://box.epg.ro/s/TySocdwLp2kMjDW) |
-| FileZilla Server | [https://filezilla-project.org/download.php?platform=win64&type=server](https://filezilla-project.org/download.php?platform=win64&type=server) |
-| Script PowerShell Firewall Windows | [https://box.epg.ro/s/TySocdwLp2kMjDW](https://box.epg.ro/s/TySocdwLp2kMjDW) |
+| Nume                               | Link                                                                                                                                           |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Firmware Cisco IOS                 | [https://box.epg.ro/s/d4FJw3xMWWqzPLd](https://box.epg.ro/s/d4FJw3xMWWqzPLd)                                                                   |
+| Pachete ES200 & Dashboard          | [https://box.epg.ro/s/TySocdwLp2kMjDW](https://box.epg.ro/s/TySocdwLp2kMjDW)                                                                   |
+| FileZilla Server                   | [https://filezilla-project.org/download.php?platform=win64&type=server](https://filezilla-project.org/download.php?platform=win64&type=server) |
+| Script PowerShell Firewall Windows | [https://box.epg.ro/s/TySocdwLp2kMjDW](https://box.epg.ro/s/TySocdwLp2kMjDW)                                                                   |
 
 # 2. Configurarea routerului Cisco IR1101
 
@@ -336,59 +335,87 @@
 
 # 4. Configurarea ES200 (logare prin FTP)
 
-## 4.1. Accesare ES200 WebServer
+Logarea valorilor și transferul lor prin FTP se configurează integral din aplicația ***Dashboard ES200***, direct în baza de date (fișierul ***.epgd***). Mecanismul este realizat de procesul ***FTPClient***, care rulează pe ES200: acesta citește periodic valorile punctelor marcate pentru logare, le scrie în fișiere ***CSV*** (câte unul pe echipament) și transferă fișierele către serverul FTP configurat în [capitolul 3](#3-configurarea-serverului-ftp).
 
-- În acest exemplu, routerul este accesibil la adresa IP ***10.10.31.43***, iar containerul cu ES200, deși are adresa locală ***192.168.2.2***, este expus în exterior prin ***NAT*** la adresa ***10.10.31.44***.
-- Astfel, interfața web a ES200 poate fi accesată la [https://10.10.31.44:3000](https://10.10.31.44:3000).
-- Atenție: se recomandă utilizarea unui browser bazat pe Chromium, precum ***Google Chrome*** sau ***Microsoft Edge***. **Internet Explorer** NU este suportat!
+> **Notă:** vechiul meniu *Configure FTP* din interfața web a ES200 a fost eliminat; acest capitol descrie mecanismul care l-a înlocuit.
 
-## 4.2. Autentificare ES200
-- Credențialele default sunt:
-  * username: ***admin***
-  * password: ***admin***
+## 4.1. Adăugarea echipamentului FTPClient
 
-![35-es200-login](ftp-logs-images/35-es200-login.png)
+- Se deschide configurația în Dashboard, apoi click dreapta pe ***Intelligent Electronic Device*** -> ***Add Device***.
 
-## 4.3. Încărcarea bazei de date ES200
+![FTP_Logging_Add_Device](images/FTP_Logging_Add_Device.png)
 
-- Click pe ***Upload DB*** pentru a încărca baza de date (configurația) de ES200.
-- Se va selecta fișierul cu extensia ***.epgd*** corespunzător.
+- În panoul ***Add New Equipment***, la ***Equipment Process*** (1) se selectează ***FTPClient*** (2).
 
-![36-es200-upload-db](ftp-logs-images/36-es200-upload-db.png)
+![FTP_Logging_Select_Process](images/FTP_Logging_Select_Process.png)
 
-- După încărcarea bazei de date, procesele ES200 vor reporni, iar conexiunea cu ES200 va fi întreruptă (***Connection Status: Down***). Este necesar să se aștepte restabilirea conexiunii (***Connection Status: Up***) pentru încărcarea completă a configurației.
+- Se completează ***Equipment Name*** (nume unic, ex. *FTP_Logs*) și opțional ***Equipment Description***. ***Equipment Active*** rămâne bifat — doar echipamentele active rulează pe ES200.
 
-![37-es200-down](ftp-logs-images/37-es200-down.png)
+## 4.2. Proprietățile echipamentului FTPClient
 
-![38-es200-up](ftp-logs-images/38-es200-up.png)
+- După selectarea procesului ***FTPClient*** (1), panoul afișează proprietățile specifice (2):
 
-## 4.4. Configurarea logării prin FTP
+![FTP_Logging_Properties](images/FTP_Logging_Properties.png)
 
-- Click pe ***Configure FTP*** pentru a deschide meniul de configurare pentru loguri transmise prin FTP.
+| Proprietate              | Descriere                                                                                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ***Username***           | Utilizatorul folosit la conectarea pe serverul FTP (creat în [3.2.3](#323-configurare-utilizatori)). Obligatoriu.                               |
+| ***Password***           | Parola utilizatorului FTP.                                                                                                                      |
+| ***Log Frequency [ms]*** | Intervalul, în milisecunde, dintre două rânduri consecutive scrise în CSV (implicit ***100***).                                                 |
+| ***IP Address***         | Adresa IP a serverului FTP. Obligatorie.                                                                                                        |
+| ***Port***               | Portul serverului FTP (implicit ***21***).                                                                                                      |
+| ***Max File Size***      | Dimensiunea maximă, în ***MB***, a unui fișier CSV; la depășire fișierul este transferat imediat. Valoarea ***0*** dezactivează acest criteriu. |
+| ***Time Intervals***     | Listă de ore în format ***HH:MM***, separate prin virgulă (ex. *06:00,18:00*), la care logurile sunt transferate către server.                  |
 
-![39-es200-ftp-menu](ftp-logs-images/39-es200-ftp-menu.png)
+- **Atenție:** cel puțin unul dintre ***Max File Size*** și ***Time Intervals*** trebuie configurat. Dacă ambele lipsesc, procesul FTPClient se oprește la pornire cu eroarea *"No upload trigger mechanism found"*.
+- Explicația fiecărei proprietăți este disponibilă și în aplicație, ținând cursorul deasupra etichetei:
 
-### 4.4.1. Configurarea conexiunii FTP
-- Se vor completa setările pentru conexiunea cu serverul FTP:
-  * Adresa IP
-  * Port (default 21)
-  * Username
-  * Parola
-- Acestea trebuie să coincidă cu setările făcute în serverul FTP.
+![FTP_Logging_Help_Tooltip](images/FTP_Logging_Help_Tooltip.png)
 
-![40-es200-ftp-settings](ftp-logs-images/40-es200-ftp-settings.png)
+- Click pe ***Insert***. Echipamentul apare în arborele de configurare (1), iar în tabelul de puncte se generează automat punctul ***forceTransferLogs*** de tip ***Binary Output*** (2) — folosit pentru transferul forțat al logurilor (vezi [4.6](#46-testarea-logării-și-transferului-prin-ftp)).
 
-### 4.4.2. Configurarea logării punctelor
+![FTP_Logging_Inserted](images/FTP_Logging_Inserted.png)
 
-- Se vor alege tipurile de puncte care urmează să fie logate în fișiere ***CSV***, pentru fiecare echipament prezent în baza de date din ES200.
-- Se va alege dimensiunea maximă a fiecărui log (fișier CSV), până ca acesta să fie transferat prin FTP către server (default 5MB).
-- Click pe ***Save*** pentru a salva setările.
+## 4.3. Selectarea punctelor logate (Log To FTP)
 
-![41-es200-ftp-logs](ftp-logs-images/41-es200-ftp-logs.png)
+- Punctele care se loghează în CSV se aleg individual, prin proprietatea de punct ***Log To FTP***.
+- Se selectează echipamentul dorit și tipul de puncte (ex. ***AUZAN*** -> ***Analog Inputs***), apoi se bifează ***Log To FTP*** în tabelul de puncte, pentru fiecare punct dorit:
 
-### 4.4.3. Testarea logării și transferului prin FTP
+![FTP_Logging_Log_To_FTP](images/FTP_Logging_Log_To_FTP.png)
 
-- Pentru a testa că ES200 loghează corect punctele selectate și că logurile se transmit cu succes prin FTP, se poate intra din nou în meniul anterior, făcând click pe ***Configure FTP***, după care se va bifa checkbox-ul ***Force transfer all available CSVs*** și se va face click pe ***Save*** pentru a forța transferul logurilor.
-- Acest mecanism este destinat **exclusiv** testării sau pentru situațiile în care se dorește transferul fișierelor la un **moment specific**. În mod obișnuit, logurile sunt înregistrate și transferate **automat** prin FTP.
+- Proprietatea este disponibilă pentru punctele echipamentelor de tip master (IED-uri), de pe echipamentele ***active***.
 
-![42-es200-ftp-testing](ftp-logs-images/42-es200-ftp-testing.png)
+## 4.4. Salvarea și încărcarea configurației
+
+- Se salvează configurația cu ***Save Project***.
+- Configurația se încarcă pe ES200 din Dashboard (***File*** -> ***Upload Project***, cu credențialele echipamentului — vezi manualul *ES200 Dashboard*, secțiunea *Downloading and uploading the database*).
+- La încărcare procesele ES200 repornesc; procesul ***FTPClient*** pornește automat dacă echipamentul este activ.
+
+## 4.5. Fișierele CSV și transferul prin FTP
+
+- FTPClient scrie câte un fișier CSV pentru fiecare echipament care are puncte cu ***Log To FTP***, denumit `Proces_NumeEchipament.csv` (spațiile și virgulele din nume devin `_`). Exemplu: `MQTTMaster_AUZAN.csv`.
+- Prima linie este antetul: coloanele ***Date***, ***Time***, urmate de ***Variable Name***-ul fiecărui punct selectat. Apoi, la fiecare ***Log Frequency*** milisecunde, se adaugă un rând cu data, ora (cu milisecunde) și valorile curente ale punctelor:
+
+```csv
+Date,Time,REACTIVE_POWER_EG1,REACTIVE_POWER_EG2,REACTIVE_POWER_EG3,REACTIVE_POWER_EG4
+2026-08-18,19-41-23-156,0,0,0,0
+2026-08-18,19-41-24-160,0,0,0,0
+2026-08-18,19-41-25-164,0,0,0,0
+```
+
+- Dacă setul de puncte logate se schimbă (se adaugă/scot puncte), un nou antet este scris în continuarea fișierului, iar rândurile următoare îl respectă.
+- Transferul către serverul FTP se declanșează automat când fișierul depășește ***Max File Size*** sau la orele din ***Time Intervals***. Fișierul ajunge pe server cu numele `Proces_NumeEchipament_YYYY-MM-DD_HH-MM-SS-mmm.csv` (data/ora transferului).
+- După un transfer reușit, fișierul local este șters, iar logarea continuă într-un fișier nou.
+- **Notă de securitate:** transferul folosește FTP simplu (necriptat) — utilizatorul și parola circulă în clar. Se recomandă utilizarea exclusiv în rețele de management izolate.
+
+## 4.6. Testarea logării și transferului prin FTP
+
+- Pentru a testa configurarea fără a aștepta declanșarea automată, se folosește punctul ***forceTransferLogs*** al echipamentului FTPClient.
+- Se deschide ***File*** -> ***New Entity Viewer*** și se face conectarea la ES200 (vezi manualul *ES200 Dashboard*, secțiunea *Viewing the points*).
+- Se expandează echipamentul FTPClient (ex. ***FTP_Logs***), se scrie valoarea ***1*** în coloana ***Command*** a punctului ***forceTransferLogs*** și se apasă ***Enter***:
+
+![FTP_Logging_Force_Transfer](images/FTP_Logging_Force_Transfer.png)
+
+- Toate fișierele CSV curente sunt transferate imediat către serverul FTP, iar punctul revine automat la valoarea ***0***.
+- Se verifică pe serverul FTP (în directorul utilizatorului configurat la [3.2.3](#323-configurare-utilizatori)) apariția fișierelor `.csv`.
+- Acest mecanism este destinat testării sau situațiilor în care se dorește transferul fișierelor la un **moment specific**. În mod obișnuit, logurile sunt înregistrate și transferate **automat**.

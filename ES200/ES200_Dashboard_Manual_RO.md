@@ -74,6 +74,12 @@
     - [5.7.1. Configurare generală a canalului de comunicație](#571-configurare-generală-a-canalului-de-comunicație)
     - [5.7.2. Adăugarea mărimilor de stare digitale si analogice](#572-adăugarea-mărimilor-de-stare-digitale-si-analogice)
     - [5.7.3. Adăugarea comenzilor](#573-adăugarea-comenzilor)
+  - [5.8. FTP Client (logarea valorilor)](#58-ftp-client-logarea-valorilor)
+    - [5.8.1. Adăugarea echipamentului FTPClient](#581-adăugarea-echipamentului-ftpclient)
+    - [5.8.2. Proprietățile echipamentului](#582-proprietățile-echipamentului)
+    - [5.8.3. Selectarea punctelor logate](#583-selectarea-punctelor-logate)
+    - [5.8.4. Fișierele CSV și transferul prin FTP](#584-fișierele-csv-și-transferul-prin-ftp)
+    - [5.8.5. Testarea (transfer forțat)](#585-testarea-transfer-forțat)
 - [6. Configurarea comunicației cu centrul de comanda](#6-configurarea-comunicației-cu-centrul-de-comanda)
   - [6.1. IEC 68870-5-104](#61-iec-68870-5-104)
     - [6.1.1. Configurare generală a canalului de comunicație](#611-configurare-generală-a-canalului-de-comunicație)
@@ -497,17 +503,17 @@ Protocoalele de comunicație suportate de ES200 includ protocoale precum Modbus,
 În funcție de platforma hardware pe care rulează, ES200 poate controla și transmite informații în mod direct, prin intermediul propriilor module I/O. Mai jos este lista protocoalelor de comunicație suportate în acest moment:
 
 
-| Protocol              | Master    | Slave |
-|-                      |-          |-      |
-| Modbus                | Da        | Da    |
-| DNP3                  | Da        | Da    |
-| IEC 60870-5-104       | Da        | Da    |
-| IEC 60870-5-101       | Da        |       |
-| IEC 61850             | Da        |       |
-| IEC 61850 Edition 2   | Da        |       |
-| MQTT                  | Da        | Da    |
-| LoRa                  |           | Da    |
-| OPC Client            | Da        |       |
+| Protocol            | Master | Slave |
+| ------------------- | ------ | ----- |
+| Modbus              | Da     | Da    |
+| DNP3                | Da     | Da    |
+| IEC 60870-5-104     | Da     | Da    |
+| IEC 60870-5-101     | Da     |       |
+| IEC 61850           | Da     |       |
+| IEC 61850 Edition 2 | Da     |       |
+| MQTT                | Da     | Da    |
+| LoRa                |        | Da    |
+| OPC Client          | Da     |       |
 
 
 **Tabelul 2: protocoalele de comunicație suportate de ES200**
@@ -1762,6 +1768,82 @@ Protocolul IEC-60870-5-101 implementat de ES200 permite utilizarea a 2 tipuri de
 
 **CmdQualifier** : reprezinta proprietatea de calificator a comenzii. Valorile posibile pentru acest camp - Default, Short pulse, Long pulse, Persistent. Tipul de calificator a comenzii trebuie sa fie identic cu cel a comenzii echivalente din IED (slave). În cazul în care modelul de control setat în IED  nu este cunoscut se utilizează opțiunea Any. **Acest câmp nu este utilizat in cazul comozilor de tip setpoint.**
 
+
+## 5.8. FTP Client (logarea valorilor)
+
+Procesul FTPClient citește periodic valorile punctelor selectate și le scrie în fișiere CSV (câte un fișier pe echipament), care sunt apoi transferate automat către un server FTP. Se utilizează atunci când valorile punctelor trebuie arhivate sau analizate în afara ES200 (de ex. într-un istoric sau într-un tabel de calcul).
+
+### 5.8.1. Adăugarea echipamentului FTPClient
+
+Click dreapta pe „Intelligent Electronic Device” și se apasă „Add Device”.
+
+<img src="images/FTP_Logging_Add_Device.png"></p>
+
+În panoul „Add New Equipment”, se deschide lista „Equipment Process” (1) și se selectează „FTPClient” (2). Se completează un „Equipment Name” unic și, opțional, o descriere. „Equipment Active” rămâne bifat — doar echipamentele active rulează pe ES200.
+
+<img src="images/FTP_Logging_Select_Process.png"></p>
+
+### 5.8.2. Proprietățile echipamentului
+
+După selectarea procesului FTPClient (1), panoul afișează proprietățile specifice (2):
+
+<img src="images/FTP_Logging_Properties.png"></p>
+
+**Username** : Utilizatorul folosit la conectarea pe serverul FTP. Obligatoriu.
+
+**Password** : Parola utilizatorului FTP.
+
+**Log Frequency [ms]** : Intervalul, în milisecunde, dintre două rânduri consecutive scrise în fișierele CSV (implicit 100).
+
+**IP Address** : Adresa IP a serverului FTP. Obligatorie.
+
+**Port** : Portul serverului FTP (implicit 21).
+
+**Max File Size** : Dimensiunea maximă, în MB, a unui fișier CSV de log; la depășire, fișierul este transferat imediat. Valoarea 0 dezactivează acest criteriu.
+
+**Time Intervals** : Listă de ore, în format HH:MM, separate prin virgulă (ex. 06:00,18:00), la care logurile sunt transferate către server.
+
+**Atenție:** cel puțin unul dintre „Max File Size” și „Time Intervals” trebuie configurat. Dacă ambele lipsesc, procesul FTPClient se oprește la pornire cu eroarea *„No upload trigger mechanism found”*.
+
+Explicația fiecărei proprietăți este disponibilă și în aplicație, ținând cursorul deasupra etichetei:
+
+<img src="images/FTP_Logging_Help_Tooltip.png"></p>
+
+Se apasă „Insert”. Echipamentul apare în arborele de configurare (1), iar punctul „forceTransferLogs”, de tip Binary Output, este generat automat (2) — el este folosit pentru transferul forțat al logurilor (vezi 5.8.5).
+
+<img src="images/FTP_Logging_Inserted.png"></p>
+
+### 5.8.3. Selectarea punctelor logate
+
+Punctele care se loghează se aleg individual, prin proprietatea de punct „Log To FTP”. Se selectează în arbore echipamentul și tipul de puncte dorit, apoi se bifează „Log To FTP” în tabelul de puncte, pentru fiecare punct care trebuie logat:
+
+<img src="images/FTP_Logging_Log_To_FTP.png"></p>
+
+Proprietatea este disponibilă pentru punctele echipamentelor de tip master (IED); se loghează doar punctele echipamentelor active.
+
+### 5.8.4. Fișierele CSV și transferul prin FTP
+
+Pentru fiecare echipament care are puncte cu „Log To FTP” activ, FTPClient scrie un fișier CSV denumit `Proces_NumeEchipament.csv` (spațiile și virgulele din nume devin `_`), de ex. `MQTTMaster_AUZAN.csv`. Prima linie este antetul: coloanele „Date” și „Time”, urmate de „Variable Name”-ul fiecărui punct selectat. Apoi, la fiecare „Log Frequency” milisecunde, se adaugă un rând cu data, ora (cu milisecunde) și valorile curente ale punctelor:
+
+```csv
+Date,Time,REACTIVE_POWER_EG1,REACTIVE_POWER_EG2,REACTIVE_POWER_EG3,REACTIVE_POWER_EG4
+2026-08-18,19-41-23-156,0,0,0,0
+2026-08-18,19-41-24-160,0,0,0,0
+```
+
+Dacă setul de puncte logate se schimbă, un nou antet este scris în continuarea fișierului, iar rândurile următoare îl respectă.
+
+Transferul către serverul FTP se declanșează automat când fișierul depășește „Max File Size” sau la orele din „Time Intervals”. Fișierul ajunge pe server cu numele `Proces_NumeEchipament_YYYY-MM-DD_HH-MM-SS-mmm.csv` (data și ora transferului). După un transfer reușit, fișierul local este șters, iar logarea continuă într-un fișier nou.
+
+**Notă de securitate:** transferul folosește FTP simplu (necriptat) — utilizatorul și parola circulă în clar. Se recomandă utilizarea exclusiv în rețele de management izolate.
+
+### 5.8.5. Testarea (transfer forțat)
+
+Pentru a testa configurarea fără a aștepta declanșarea automată, se folosește punctul „forceTransferLogs” al echipamentului FTPClient. Se încarcă configurația pe ES200 (vezi 4.3), se deschide un Entity Viewer și se face conectarea la echipament (vezi 4.4), se expandează echipamentul FTPClient, se scrie valoarea 1 în coloana „Command” a punctului „forceTransferLogs” și se apasă Enter (vezi 4.5):
+
+<img src="images/FTP_Logging_Force_Transfer.png"></p>
+
+Toate fișierele CSV curente sunt transferate imediat către serverul FTP, iar punctul revine singur la valoarea 0. Fișierele `.csv` pot fi apoi găsite în directorul configurat al utilizatorului FTP.
 
 # 6. Configurarea comunicației cu centrul de comanda
 ## 6.1. IEC 68870-5-104

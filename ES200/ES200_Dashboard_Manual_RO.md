@@ -61,6 +61,7 @@
     - [5.4.3. Editare marimilor digitale și analogice](#543-editare-marimilor-digitale-și-analogice)
     - [5.4.4. Editarea comenzilor](#544-editarea-comenzilor)
     - [5.4.5. Editarea rapoartelor](#545-editarea-rapoartelor)
+    - [5.4.6. Transferul fișierelor de înregistrare către un server FTP](#546-transferul-fișierelor-de-înregistrare-către-un-server-ftp)
   - [5.5. IEC-60870-5-104](#55-iec-60870-5-104)
     - [5.5.1. Configurare generală a canalului de comunicație](#551-configurare-generală-a-canalului-de-comunicație)
     - [5.5.2. Configurarea generala a RTU](#552-configurarea-generala-a-rtu)
@@ -70,6 +71,9 @@
     - [5.6.1. Configurare generală a canalului de comunicație](#561-configurare-generală-a-canalului-de-comunicație)
     - [5.6.2. Adăugarea mărimilor digitale simple( mărimi boolene)](#562-adăugarea-mărimilor-digitale-simple-mărimi-boolene)
     - [5.6.3. Adăugarea mărimilor analogice (numerice)](#563-adăugarea-mărimilor-analogice-numerice)
+    - [5.6.4. Adăugarea comenzilor către broker](#564-adăugarea-comenzilor-către-broker)
+    - [5.6.5. Securizarea conexiunii cu broker-ul](#565-securizarea-conexiunii-cu-broker-ul)
+    - [5.6.6. MQTT Slave](#566-mqtt-slave)
   - [5.7. IEC-60870-5-101](#57-iec-60870-5-101)
     - [5.7.1. Configurare generală a canalului de comunicație](#571-configurare-generală-a-canalului-de-comunicație)
     - [5.7.2. Adăugarea mărimilor de stare digitale si analogice](#572-adăugarea-mărimilor-de-stare-digitale-si-analogice)
@@ -1385,17 +1389,17 @@ Clientul IEC 61850 ed2 din ES200 permite extragerea automată a fișierelor cu o
 
 Pentru configurarea mecanismului de extragere automată a fișierelor cu inregistrari (osilograme) este necesara configurarea urmatorilor parmaterii:
 
-**PathWriteFiles** - calea directorului în care vor fi salvate fișierele cu oscilograme "**;**"
+**FileTransferActive** - activare mecanismului de extragere automata a oscilogramelor. Parametrii de mai jos sunt citiți numai când această opțiune este bifată;
 
 **DeviceDirectory** - calea directorului din structura IED de unde vor fi preluate oscilogramele "**;**"
 
-**PollFielsInterval** - intervalul de timp la care se verifica apariția unor noi fișiere cu înregistrări (oscilograme) în directorul din IED setat la pasul anterior;
+**PollFilesInterval** - intervalul de timp la care se verifica apariția unor noi fișiere cu înregistrări (oscilograme) în directorul din IED setat la pasul anterior. Stabilește și cât de des ES200 șterge înregistrările expirate. Această valoare este obligatorie;
 
-**FileTransferActive** - activare mecanismului de extragere automata a oscilogramelor;
+**FilesLifespan** - Perioada de timp, în ore, după care fișierele descărcate de pe IED sunt șterse de pe plaforma HW unde ruleaza ES200. O valoare mai mică de o oră, de exemplu 0.5, este respectată. Această valoare este obligatorie;
 
-**FileLifeSpan** - Perioada de timp (h) după ce fișierele descărcate de pe IED sunt șterse de pe plaforma HW unde ruleaza ES200;
+**MaxFilesSize** - Dimensiunea maximă permisă, în megabytes, pentru directorul care conține fișierele cu înregistrări descărcate. ES200 o menține între 1 MB și 40 GB și folosește 40 GB atunci când câmpul este lăsat gol. Odată ce directorul atinge limita, nu se mai descarcă nicio înregistrare nouă până când cele mai vechi expiră și sunt șterse. Textul de ajutor afișat la trecerea cu mouse-ul spune încă faptul că valoarea trebuie să fie mai mică decât 100, ceea ce nu mai este valabil.
 
-**MaxFileSize** - Dimensiunea maximă permisă (în octeți) pentru fișierele cu inregistrari descărcate. Aceasta trebuie să fie mai mică decât 104857600 și mai mare decât 0.
+ES200 păstrează înregistrările descărcate într-un director propriu de pe echipament, câte unul pentru fiecare echipament, iar calea nu mai este configurabilă. O înregistrare apare acolo numai după ce transferul ei s-a încheiat, deci un fișier parțial nu este niciodată confundat cu o înregistrare completă, iar înregistrările rămân după repornirea procesului.
 
 
 ### 5.4.3. Editare marimilor digitale și analogice
@@ -1418,7 +1422,7 @@ Campurile din secțiunea Measurements au următoarea semnificație:
 
 **Poll Interval** - În cazul o mărime nu face parte din seturile de date asociate rapoartelor de evenimete din cauza configurarii neconforme a IED, exista posibilitatea de preluare a stării acesteia prin interogari repetate la un interval de timp setat prin acest parametru.
 
-**TriggerDownload** - Activarea acestui parametrului asociat unei entități permite extragerea automată din IED a fișierelor de înregistrare de tip osciloperturbograma (COMTRADE) la schimbarea de stare a entității în cauză.
+Parametrul TriggerDownload, care porneste extragerea fișierelor de înregistrare la schimbarea stării unui punct, nu mai există. Înregistrările sunt descărcate acum numai pe ciclul stabilit de PollFilesInterval, deci scurtați acest interval pe echipamentele unde vă bazați pe un punct declanșator.
 
 
 
@@ -1453,7 +1457,7 @@ Campurile din secțiunea Controls au următoarea semnificație:
 
 **IntegrityPeriod** - Interval de timp setabil de către clientul IEC61850 în IED, prin care se configurează periodicitatea de generare automată a rapoartelor de către IED indiferent dacă exista sau nu schimbări în seturile de date asociate;
 
-**GIPeriod** - Activează mecanismul prin care clientul de IEC61850 ed2 din ES200 trimite un mesaj de interogare generala pentru “citirea” continutului raportul din IED în cauza;
+**SupportGI** - Activează mecanismul prin care clientul de IEC61850 ed2 din ES200 trimite un mesaj de interogare generala pentru “citirea” continutului raportul din IED în cauza;
 
 **Description** -  Descrierea detaliată a entității preluate - pentru uz intern (ex: Raport echipamente comutatie);
 
@@ -1471,6 +1475,28 @@ Adresa unui raport pe IEC61850 are urmatoarea structura:
 
 **IED nameLogical Device/LLN0.tip”_raport(BR sauRP).DO (ex: I09FTLD0/LLN0.BR.rcbStatUrgA).**
 
+
+### 5.4.6. Transferul fișierelor de înregistrare către un server FTP
+
+Fișierele de înregistrare pe care ES200 le descarcă de pe IED pot fi trimise mai departe către un server FTP sau FTPS, configurat separat pentru fiecare echipament. Acesta este al doilea pas al transferului, deci are nevoie și de FileTransferActive: fără descărcare nu există nimic de trimis.
+
+Bifați **FTPTransfer** pe echipament, apoi apăsați butonul **Configure FTP** care apare și care deschide fereastra FTP Transfer Configuration. Fereastra conține:
+
+**ServerIp** și **Port** - adresa serverului FTP și portul lui, implicit 21;
+
+**Username** și **Password** - credentialele serverului FTP;
+
+**PassiveMode** - dacă transferul folosește modul pasiv, care este valoarea implicită;
+
+**DeleteFilesAfterTransfer** - șterge copia păstrată de ES200 imediat ce serverul a acceptat înregistrarea;
+
+**ConnectTimeoutSeconds**, **ResponseTimeoutSeconds**, **StallTimeoutSeconds** și **StallMinBytesPerSec** - limitele care mărginesc fiecare transfer, astfel încât un server care nu mai răspunde nu ține transferul deschis;
+
+**UseSecureFTP** - securizează transferul cu TLS. Bifarea afișează ImplicitFTPS, opțiunea Server Validation, Validate Server Hostname și sloturile de certificate, care au aceeași semnificație ca la MQTT și sunt descrise în secțiunea 5.6.5. Certificatul autorității serverului se numește aici ServerCertificate.
+
+Înainte de a trimite ceva, ES200 citește lista fișierelor pe care serverul le are deja, astfel încât aceeași înregistrare nu este încărcată de două ori și o înregistrare aflată deja pe server nu este descărcată din nou de pe IED. Fiecare fișier este scris pe server sub un nume temporar și redenumit după finalizarea transferului, deci serverul nu arată niciodată o înregistrare scrisă pe jumătate. O înregistrare care eșuează este reîncercată mai târziu, cu o pauză din ce în ce mai mare între încercări.
+
+Procesul IEC 61850 Ed2 funcționează și fără certificatele FTP. Se conectează la IED, schimbă puncte și descarcă înregistrări, doar încărcarea este oprită. De reținut că durata de viață stabilită prin FilesLifespan nu ține cont de acest lucru, deci înregistrările descărcate în timp ce încărcarea nu poate rula pot fi șterse înainte de a fi trimise vreodată.
 
 ## 5.5. IEC-60870-5-104
 ### 5.5.1. Configurare generală a canalului de comunicație
@@ -1587,47 +1613,119 @@ După adăugarea unui nou IED si configurarea conform descrierii din secțiunea 
 
 **Equipment Name** - denumirea masterului de comunicație MQTT. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor;
 
-**Equipment Description** - denumirea masterului de comunicație MQTT. Nu afectează comunicația cu dispozitivele ajutând la organizarea informațiilor.
+**Equipment Description** - o scurtă descriere care ajută la identificarea rolului echipamentului. Nu afectează comunicația;
 
-**Broker** : Adresa IP a broker-ului MQTT In cazul in care pe echipamentul pe care ruleaza ES200, exista instalat si un broker de MQTT se va seta adresa IP interna a acestuia. In cazul utilizării unei echipament CISCO cu OS IoS/IoX pe care rulează si un broker de MQTT de obicei adresa acestuia va fi setata 192.168.2.3;
+**Broker Hostname** - numele broker-ului MQTT. Se completează atunci când certificatul broker-ului este emis pe un nume;
 
-**Port** : portul TCP prin care se realizează comunicația MQTT cu clienții de MQTT (1883);
+**Broker IP** - adresa IP a broker-ului MQTT. In cazul in care pe echipamentul pe care ruleaza ES200 exista instalat si un broker de MQTT, se va seta adresa IP interna a acestuia. In cazul utilizării unui echipament CISCO cu OS IoS/IoX pe care rulează si un broker de MQTT, de obicei adresa acestuia va fi setata 192.168.2.3;
 
-**User&Pass** : user si parola de acces pentru broker-ul de MQTT daca acesta are setate credentiale;
+Când ambele câmpuri sunt completate, ES200 se conectează la broker pe nume și menține el însuși legătura dintre acel nume și adresa respectivă, astfel încât un certificat de broker emis pe un nume DNS este acceptat și într-o rețea fără server DNS. Completați doar unul dintre cele două câmpuri atunci când nu aveți nevoie de acest lucru. Scrieți adresa în același fel în toate echipamentele MQTT care ajung la același broker, deoarece ES200 grupează echipamentele după valoarea introdusă și nu recunoaște același broker scris o dată ca nume și o dată ca adresă;
 
-**QoS** : quality of service pt MQTT – nivelul de certitudine pentru livrarea unui mesaj. Acest parametru trebuie setat identic pe ambii parteneri de comunicație. Recomandam utilizarea valorii 0 – clientul nu așteaptă confirmarea de primire de la destinatar;
+**Port** - portul TCP prin care se realizează comunicația MQTT cu clienții de MQTT. Se folosește 1883 pentru o conexiune simplă și portul pe care broker-ul ascultă pentru TLS, de obicei 8883, atunci când conexiunea este securizată;
 
-**KeepAlive** : timpul de așteptare a unui răspuns din partea broker-ului înainte de a se considera ca legătura cu acesta este intrerupta;
+**User** și **Password** - user si parola de acces pentru broker-ul de MQTT daca acesta are setate credentiale;
 
-**ReceiveTopic** : Descrierea topic-ului clientului prin care se recepționează date;	
+**Client ID** - identificatorul cu care ES200 se prezintă broker-ului. Un broker acceptă o singură conexiune pentru un identificator, deci două echipamente care folosesc același identificator își iau conexiunea unul altuia. Dashboard-ul completează un identificator nou atunci când adăugați un echipament MQTT și raportează două echipamente MQTT de pe același broker care încă folosesc același identificator;
 
-**Plugin** : poți fi utilizate diferite tipuri de implementări custom de MQTT (Sparkplug, Veribox sau default).
+**Secure** - afișat în lista de proprietăți ca Use MQTTS, transformă conexiunea către broker într-o conexiune TLS. Cu opțiunea dezactivată, ES200 comunică prin MQTT simplu, ceea ce este comportamentul implicit. Bifarea ei afișează butonul Configure Security descris în secțiunea 5.6.5;
+
+**QoS** - quality of service pt MQTT, nivelul de certitudine pentru livrarea unui mesaj. Acest parametru trebuie setat identic pe ambii parteneri de comunicație. Recomandam utilizarea valorii 0, clientul nu așteaptă confirmarea de primire de la destinatar;
+
+**KeepAlive** - timpul de așteptare a unui răspuns din partea broker-ului înainte de a se considera ca legătura cu acesta este intrerupta;
+
+**Subscribe Topic** - filtrul de topic la care ES200 se abonează pentru a primi valorile punctelor. Lăsat gol, echipamentul nu primește nimic de la broker. Filtrul nu trebuie să acopere un topic pe care publică acest echipament sau un alt echipament MQTT de pe același broker. Dacă îl acoperă, broker-ul ne trimite înapoi propriile mesaje și comenzile intră în buclă. Dashboard-ul raportează o astfel de suprapunere în panoul Errors înainte ca configurația să ajungă pe echipament, iar echipamentul dezactivează abonarea și scrie motivul în jurnalul General;
+
+**Publish Topic** - topic-ul de bază pe care ES200 publică comenzile. Fiecare punct de comandă adaugă la sfârșitul lui propria bucată de topic, conform secțiunii 5.6.4;
+
+**Plugin** - pot fi utilizate diferite tipuri de implementări custom de MQTT (Sparkplug, Veribox sau default).
 
 
 ### 5.6.2. Adăugarea mărimilor digitale simple( mărimi boolene) 
 
-Acestea sunt completate in secțiunea **Json Boolean** aferent Masterului de MQTT in Dashboard.
+Acestea sunt completate in secțiunea **Binary Inputs** aferent Masterului de MQTT in Dashboard.
 
-**Address**  – Adresa interna a ES200 a informatiei preluate prin MQTT. Aceast identificator NU este adresa de protocol specifica MQTT, fiind utilizat doar pentru procesele interne a ES200. Modificare aceștia nu afectează preluarea in ES200 de la clientii MQTT (senzori etc) a informațiilor dorite;
+**Address**  - Adresa interna a ES200 a informatiei preluate prin MQTT. Aceast identificator NU este adresa de protocol specifica MQTT, fiind utilizat doar pentru procesele interne a ES200. Modificare aceștia nu afectează preluarea in ES200 de la clientii MQTT (senzori etc) a informațiilor dorite;
 
-**Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
+**Description** - Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
 
-**Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
+**Variable Name** - Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
-**JSONPointer**– poate fi asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/contatctx  (ex: /PT10/senzor1/contact1)
+**JSON Pointer** - indică unde se află valoarea acestui punct în interiorul mesajului primit de la broker. Este o cale conform RFC 6901 și trebuie să înceapă cu slash, de exemplu /PT10/senzor1/contact1. Un singur mesaj poate transporta valorile mai multor puncte, fiecare găsit prin propriul JSON Pointer.
+
+Un punct de intrare digital acceptă de la broker numai true, false, 0 și 1. Orice alt număr este refuzat, punctul își păstrează valoarea anterioară și motivul este scris în jurnalul General.
 
 
 ### 5.6.3. Adăugarea mărimilor analogice (numerice)
 
-Acestea sunt completate in secțiunea **Json Numeric** aferent Masterului de MQTT in Dashboard.
+Acestea sunt completate in secțiunea **Analog Inputs** aferent Masterului de MQTT in Dashboard.
 
-**Address**  – Adresa interna a ES200 a informatiei preluate prin MQTT. Aceast identificator NU este adresa de protocol specifica MQTT, fiind utilizat doar pentru procesele interne a ES200. Modificare aceștia nu afectează preluarea in ES200 de la clientii MQTT (senzori etc) a informațiilor dorite;
+**Address**  - Adresa interna a ES200 a informatiei preluate prin MQTT. Aceast identificator NU este adresa de protocol specifica MQTT, fiind utilizat doar pentru procesele interne a ES200. Modificare aceștia nu afectează preluarea in ES200 de la clientii MQTT (senzori etc) a informațiilor dorite;
 
-**Description** – Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
+**Description** - Descrierea detaliată a entității preluate - pentru uz intern(ex: Funcționat protecție maximal treapta 1).
 
-**Variable Name** – Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
+**Variable Name** - Se completează un TAG unic pentru fiecare semnal. Acest TAG va fi identificatorul intern pentru respectivul semnal și va fi utilizat în cadrul proceselor salve si pentru realizarea unor logici de automatizare.
 
-**JSONPointer**– este asociat adresei de protocol MQTT si este sub forma unui string formatat astfel /PT/senozorX/temeratura (ex: /PT10/senzor1/temperatura).
+**JSON Pointer** - indică unde se află valoarea acestui punct în interiorul mesajului primit de la broker, ca o cale conform RFC 6901 care începe cu slash, de exemplu /PT10/senzor1/temperatura.
+
+Un punct de intrare analogic acceptă true, false și orice număr. O valoare pe care tipul configurat al punctului nu o poate reprezenta este refuzată și punctul își păstrează valoarea anterioară, în loc ca valoarea veche să circule mai departe ca și cum ar fi nouă.
+
+
+### 5.6.4. Adăugarea comenzilor către broker
+
+Masterul de MQTT poate trimite și comenzi către broker, astfel încât un echipament MQTT poate fi comandat și nu doar citit. Aceste puncte se completează în secțiunile **Binary Outputs** și **Analog Outputs** aferente Masterului de MQTT in Dashboard.
+
+**Address** - Adresa interna a comenzii in ES200, utilizata doar pentru procesele interne;
+
+**Description** - Descrierea detaliată a comenzii - pentru uz intern;
+
+**Variable Name** - Se completează un TAG unic pentru fiecare comandă. ES200 folosește acest TAG ca nume în mesajul publicat, deci un punct de comandă fără Variable Name este ignorat și motivul este scris în jurnalul General;
+
+**Topic Pointer** - bucata de topic pe care ES200 o adaugă la sfârșitul Publish Topic al echipamentului atunci când trimite această comandă, astfel încât comenzile diferitelor puncte pot ajunge pe topic-uri diferite. Trebuie să înceapă cu slash și nu trebuie să conțină caracterele + sau #, deoarece acestea sunt valide doar într-un filtru de abonare și broker-ul ar refuza publicarea. Dashboard-ul raportează ambele greșeli;
+
+**Retain Message** - cere broker-ului să păstreze ultimul mesaj publicat pentru acest punct, astfel încât un client care se conectează mai târziu îl primește imediat. Este dezactivat implicit. Activați-l numai acolo unde partea care recepționează are nevoie de ultima valoare, deoarece o comandă păstrată este livrată din nou fiecărui client care se abonează ulterior, mult după ce ES200 a trimis-o.
+
+ES200 publică o comandă numai pentru un punct de ieșire. O valoare primită de la broker pentru un punct de ieșire nu este acceptată ca comandă, iar o valoare primită pentru un punct de intrare nu este trimisă niciodată către broker ca comandă.
+
+
+### 5.6.5. Securizarea conexiunii cu broker-ul
+
+Fiecare echipament MQTT are propriile setări TLS și propriile certificate. Nimic nu este partajat cu celelalte echipamente MQTT ale aceluiași echipament ES200.
+
+Bifați **Secure**, afișat în lista de proprietăți ca Use MQTTS, apoi apăsați **Configure Security**. Fereastra MQTT Security Configuration conține:
+
+**Server Validation** - modul în care ES200 decide să aibă încredere în broker-ul la care s-a conectat. Opțiunile sunt None, CA certificate, OS trust store și OS trust store and CA certificate. Valoarea implicită este CA certificate. Alegeți OS trust store atunci când certificatul broker-ului este semnat de o autoritate publică, și a patra opțiune în timpul mutării unui broker de la o autoritate privată la una publică. Cu None traficul este criptat, dar broker-ul nu este verificat;
+
+**Validate Server Hostname** - dacă numele din certificatul broker-ului trebuie să corespundă adresei apelate de ES200. Este activat implicit și nu are efect atunci când Server Validation este None, deoarece verificarea unui nume fără un lanț verificat nu demonstrează nimic;
+
+**CA Certificate** - certificatul autorității pe baza căruia ES200 validează broker-ul. Este obligatoriu atunci când Server Validation folosește un certificat de autoritate;
+
+**Use Client Certificate** - dacă ES200 prezintă broker-ului propriul certificat. Bifarea afișează cele două câmpuri de mai jos;
+
+**Client Certificate** și **Client Key** - certificatul și cheia privată pe care le prezintă ES200. Ambele trebuie completate și trebuie să facă parte din aceeași pereche.
+
+Fiecare dintre cele trei sloturi de certificate primește fișierul în două moduri. Fie alegeți fișierul în Dashboard, iar conținutul lui ajunge pe echipament în interiorul configurației, fie bifați **Upload At Runtime** pentru slotul respectiv și trimiteți fișierul mai târziu, pe echipamentul care rulează, prin fereastra Update Certificates din interfața web. Un slot nu poate fi ambele. Fișierele copiate manual pe echipament nu sunt folosite.
+
+Până când sosesc fișierele unui slot marcat pentru încărcare ulterioară, echipamentul rămâne invalid și procesul nu se conectează deloc. O linie din jurnalul General numește fișierele pe care le așteaptă. După încărcare, echipamentul repornește numai procesul care deține acel echipament.
+
+Numele echipamentului trebuie format din litere, cifre, virgulă, underscore și dolar, deoarece echipamentul construiește numele fișierelor de certificat din numele procesului și numele echipamentului. Redenumiți orice echipament al cărui nume conține spațiu sau cratimă înainte de a folosi certificate pe el.
+
+O setare pe care echipamentul nu o poate aplica oprește conexiunea, în loc să revină în mod silențios la o conexiune simplă. Când o conexiune eșuează în mod repetat, jurnalul General numește cele două setări care explică majoritatea acestor cazuri, setarea Secure împreună cu portul, și certificatele.
+
+
+### 5.6.6. MQTT Slave
+
+MQTT Slave publică valorile din ES200 către un centru de comandă prin intermediul unui broker și primește comenzi de la acesta. Se adaugă ca Command Center, conform procedurii din secțiunea 4.2.1, iar setările de broker, port, credentiale, Client ID, QoS, KeepAlive și securitate au aceeași semnificație ca la Masterul de MQTT, inclusiv fereastra Configure Security descrisă în secțiunea 5.6.5.
+
+Punctele sunt imaginea în oglindă a Masterului de MQTT:
+
+* În secțiunile **Binary Inputs** și **Analog Inputs**, fiecare punct este publicat pe propriul topic, construit din **Publish Topic** al echipamentului plus **Topic Pointer** al punctului, cu **Master Variable Name** ca nume în interiorul mesajului. Fiecare punct are și propriul comutator **Retain Message**, dezactivat implicit. Un punct fără Master Variable Name nu este publicat, iar motivul este scris în jurnalul General;
+* În secțiunile **Binary Outputs** și **Analog Outputs**, fiecare punct primește un **JSON Pointer** care indică unde se află valoarea lui în mesajul de comandă venit de la centrul de comandă. Un singur mesaj poate comanda mai multe puncte, iar o listă de obiecte de comandă este acceptată ca un lot. Un punct de ieșire fără JSON Pointer nu primește comenzi.
+
+Două setări suplimentare aparțin numai MQTT Slave:
+
+**MQTT Version** - versiunea de protocol folosită către broker;
+
+**Retransmit Time** - perioada la care MQTT Slave publică din nou toate punctele, pe lângă mesajele trimise la modificarea unei valori.
 
 
 ## 5.7. IEC-60870-5-101

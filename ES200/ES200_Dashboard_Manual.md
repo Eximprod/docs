@@ -59,6 +59,7 @@
     - [5.4.3. Digital and analogue size editing](#543-digital-and-analogue-size-editing)
     - [5.4.4. Editing commands](#544-editing-commands)
     - [5.4.5. Editing reports](#545-editing-reports)
+    - [5.4.6. Forwarding the Record Files to an FTP Server](#546-forwarding-the-record-files-to-an-ftp-server)
   - [5.5. IEC-60870-5-104](#55-iec-60870-5-104)
     - [5.5.1. General Configuration of the Communication Channel](#551-general-configuration-of-the-communication-channel)
     - [5.5.2. General Configuration of the RTU](#552-general-configuration-of-the-rtu)
@@ -68,6 +69,9 @@
     - [5.6.1. General Configuration of the Communication Channel](#561-general-configuration-of-the-communication-channel)
     - [5.6.2. Adding Simple Digital Sizes (Boolean Sizes)](#562-adding-simple-digital-sizes-boolean-sizes)
     - [5.6.3. Adding Analog Sizes (Numeric)](#563-adding-analog-sizes-numeric)
+    - [5.6.4. Adding Commands Towards the Broker](#564-adding-commands-towards-the-broker)
+    - [5.6.5. Securing the Connection to the Broker](#565-securing-the-connection-to-the-broker)
+    - [5.6.6. MQTT Slave](#566-mqtt-slave)
   - [5.7. IEC-60870-5-101](#57-iec-60870-5-101)
     - [5.7.1. General Configuration of the Communication Channel](#571-general-configuration-of-the-communication-channel)
     - [5.7.2. Adding Digital and Analog Status Entities](#572-adding-digital-and-analog-status-entities)
@@ -993,12 +997,13 @@ We recommend keeping the following default values (specific to the MMS connectio
 The IEC 61850 ed2 client in the ES200 allows automatic extraction of oscillogram files (COMTRADE standard format). The operation is based on the file transfer service implemented by the IEC 61850 standard.
 
 To set up the automatic extraction mechanism of the record files (osilograms) it is necessary to configure the following parameters:
-* PathWriteFiles - the path of the directory where the oscillogram files will be saved
-* DeviceDirectory - path to the directory in the IED structure where the oscillograms will be saved
-* PollFielsInterval - the time interval at which new record files (oscillograms) are checked for occurrence in the directory of the IED set in the previous step
-* FileTransferActive - activation of the automatic oscillogram extraction mechanism
-* FileLifeSpan - time period (h) after the files downloaded from the IED are deleted from the HW platform where the ES200 runs
-* MaxFileSize - The maximum allowed size (in bytes) for downloaded record files. This must be less than 104857600 and greater than 0.
+* FileTransferActive - activation of the automatic oscillogram extraction mechanism. The other parameters below are read only when this is ticked
+* DeviceDirectory - path to the directory in the IED structure from where the oscillograms will be taken
+* PollFilesInterval - the time interval at which new record files (oscillograms) are checked for occurrence in the directory of the IED set in the previous step. It also sets how often the ES200 removes the records that have expired. This value is required
+* FilesLifespan - time period, in hours, after which the files downloaded from the IED are deleted from the HW platform where the ES200 runs. A value below one hour, such as 0.5, is honoured. This value is required
+* MaxFilesSize - the maximum allowed size, in megabytes, for the directory that holds the downloaded record files. The ES200 keeps it between 1 MB and 40 GB, and uses 40 GB when the field is left empty. Once the directory reaches the limit, no new record is downloaded until older ones expire and are removed. The hover help still says the value must be below 100, which is out of date
+
+The ES200 keeps the downloaded records in a directory of its own on the device, one per equipment, and the path is no longer configurable. A record appears there only after its transfer has finished, so a partial file is never mistaken for a complete record, and the records survive a restart of the process.
 
 ### 5.4.3. Digital and analogue size editing
 
@@ -1013,7 +1018,8 @@ The structure of a status address according to IEC61850 is as follows:
   * Variable Name - A unique TAG is filled in for each signal. This TAG will be the internal identifier for that signal and will be used in saved processes and for the realization of automation logic
   * AddressName - IEC61850 protocol address of the entity to be monitored
   * Poll Interval - In case a quantity is not part of the data sets associated with the event reports due to the non compliant configuration of the FDI, there is the possibility to retrieve its status by repeated queries at a time interval set by this parameter
-  * TriggerDownload - Enabling this parameter associated with an entity allows the automatic extraction from the IED of the oscilloperturbogram (COMTRADE) log files when the status of that entity changes
+
+The TriggerDownload parameter, which used to start the extraction of the record files when the status of a point changed, no longer exists. The records are now downloaded only on the cycle set by PollFilesInterval, so shorten that interval on the equipments where you relied on a trigger point.
 
 ### 5.4.4. Editing commands
 
@@ -1035,7 +1041,7 @@ In case of adding an FDI (section 5.4.1) the reports are automatically added to 
 <img src="images/61850_ed2_Reports.png"></p>
 
 * IntegrityPeriod - Time interval set by the IEC61850 client in the IED, which sets the periodicity of automatic report generation by the IED regardless of whether there are changes in the associated data sets
-* GIPeriod - Activates the mechanism by which the IEC61850 ed2 client in the ES200 sends a general query message to "read" the report content from the IED in question
+* SupportGI - Activates the mechanism by which the IEC61850 ed2 client in the ES200 sends a general query message to "read" the report content from the IED in question
 * Description - Detailed description of the entity being retrieved - for internal use (e.g. Switching Equipment Report)
 * DataChange - Trigger for generating a report. The principle used, if this trigger is activated, is the generation of an event report on any change of the entity state values in the data set associated with the report
 * DataUpdate - Trigger for generating a report. The principle used, if this trigger is activated, is to generate an event report on any internal FDI update of the entity information in the dataset associated with the report
@@ -1046,6 +1052,23 @@ Warning!!! Automatic import may result in incomplete addition of the report addr
 
 The address of a report on IEC61850 has the following structure:
 * IED nameLogical Device/LLN0.type"_raport(BR orRP).DO (e.g. I09FTLD0/LLN0.BR.rcbStatUrgA)
+
+### 5.4.6. Forwarding the Record Files to an FTP Server
+
+The record files the ES200 downloads from the IED can also be forwarded to an FTP or FTPS server, set for each equipment on its own. This is the second hop of the transfer, so it needs FileTransferActive as well: without the download there is nothing to send.
+
+Tick **FTPTransfer** on the equipment, then press the **Configure FTP** button that appears, which opens the FTP Transfer Configuration dialog. The dialog holds:
+
+* ServerIp and Port - the address of the FTP server and its port, 21 by default
+* Username and Password - the credentials of the FTP server
+* PassiveMode - whether the transfer uses passive mode, which is the default
+* DeleteFilesAfterTransfer - removes the copy the ES200 keeps as soon as the server has accepted the record
+* ConnectTimeoutSeconds, ResponseTimeoutSeconds, StallTimeoutSeconds and StallMinBytesPerSec - the limits that bound every transfer, so a server that stops answering does not hold the transfer open
+* UseSecureFTP - secures the transfer with TLS. Ticking it reveals ImplicitFTPS, the Server Validation choice, Validate Server Hostname and the certificate slots, which mean the same as for MQTT and are described in section 5.6.5. The authority certificate of the server is called ServerCertificate here
+
+Before it sends anything, the ES200 reads the list of files the server already holds, so the same record is not uploaded twice and a record already on the server is not downloaded from the IED again. Each file is written on the server under a temporary name and renamed once the transfer is complete, so the server never shows a half written record. A record that fails is tried again later, with a growing pause between attempts.
+
+The IEC 61850 Ed2 process keeps working without the FTP certificates. It still connects to the IED, exchanges points and downloads records, and only the upload is off. Note that the lifespan set by FilesLifespan does not know about this, so records downloaded while the upload cannot run can be removed before they are ever sent.
 
 ## 5.5. IEC-60870-5-104
 ### 5.5.1. General Configuration of the Communication Channel
@@ -1142,47 +1165,119 @@ After adding a new IED and configuring it according to the description in sectio
 
 **#Equipment Name** - the name of the MQTT communication master. It does not affect communication with devices and helps organize information;
 
-**#Equipment Description** - the name of the MQTT communication master. It does not affect communication with devices and helps organize information.
+**#Equipment Description** - a short sentence that helps identify the purpose of the equipment. It does not affect communication;
 
-**#Broker** : IP address of the MQTT broker. In case ES200 has an installed MQTT broker, set its internal IP address. If using a CISCO device with IoS/IoX OS running an MQTT broker, the address is usually set to 192.168.2.3;
+**#Broker Hostname** - the name of the MQTT broker. Fill this in when the certificate of the broker is issued to a name;
 
-**#Port** : the TCP port for MQTT communication with MQTT clients (1883);
+**#Broker IP** - the IP address of the MQTT broker. In case ES200 has an installed MQTT broker, set its internal IP address. If using a CISCO device with IoS/IoX OS running an MQTT broker, the address is usually set to 192.168.2.3;
 
-#User&Pass – username and password for the MQTT broker if credentials are set;
+When both fields are filled in, ES200 connects to the broker by name and keeps that name pointing at that address itself, so a broker certificate issued to a DNS name is accepted on a network that has no DNS server. Fill in only one of the two when you do not need that. Write the address the same way in every MQTT equipment that reaches the same broker, because ES200 groups equipments by the value you typed and does not recognise the same broker written once as a name and once as an address;
 
-#QoS – quality of service for MQTT – the level of certainty for message delivery. This parameter must be set identically on both communication partners. We recommend using the value 0 – the client does not wait for acknowledgment of receipt from the recipient;
+**#Port** - the TCP port for MQTT communication with MQTT clients. Use 1883 for a plain connection, and the port the broker listens on for TLS, usually 8883, when the connection is secured;
 
-#KeepAlive – the waiting time for a response from the broker before considering the connection to be interrupted;
+**#User** and **#Password** - username and password for the MQTT broker if credentials are set;
 
-#ReceiveTopic – Description of the client's topic through which data is received;
+**#Client ID** - the identifier ES200 presents to the broker. A broker accepts only one connection per identifier, so two equipments that share one keep taking the connection from each other. The Dashboard fills in a new identifier when you add an MQTT equipment, and it reports two MQTT equipments on the same broker that still share one;
 
-#Plugin – different types of custom MQTT implementations can be used (Sparkplug, Veribox, or default).
+**#Secure** - shown in the property list as Use MQTTS, turns the connection to the broker into a TLS connection. With it off, ES200 speaks plain MQTT, which is the default. Ticking it shows the Configure Security button described in section 5.6.5;
+
+**#QoS** - quality of service for MQTT, the level of certainty for message delivery. This parameter must be set identically on both communication partners. We recommend using the value 0, where the client does not wait for acknowledgment of receipt from the recipient;
+
+**#KeepAlive** - the waiting time for a response from the broker before considering the connection to be interrupted;
+
+**#Subscribe Topic** - the topic filter ES200 subscribes to in order to receive point values. Leaving it empty means this equipment receives nothing from the broker. The filter must not cover a topic that this equipment, or another MQTT equipment on the same broker, publishes on. If it does, the broker sends our own messages back to us and commands run in a loop. The Dashboard reports such an overlap in the Errors panel before the configuration reaches the device, and the device disables the subscription and writes the reason in the General log;
+
+**#Publish Topic** - the base topic ES200 publishes its commands on. Each command point adds its own piece of topic to the end of it, as described in section 5.6.4;
+
+**#Plugin** - different types of custom MQTT implementations can be used (Sparkplug, Veribox, or default).
 
 
 ### 5.6.2. Adding Simple Digital Sizes (Boolean Sizes)
 
-These are completed in the **Json Boolean** section of the MQTT Master in the Dashboard.
+These are completed in the **Binary Inputs** section of the MQTT Master in the Dashboard.
 
-**#Address**  – The internal address of the information taken through MQTT in ES200. This identifier is NOT the specific MQTT protocol address; it is only used for internal ES200 processes. Changing these does not affect the retrieval in ES200 from MQTT clients (sensors, etc.) of the desired information;
+**#Address** - The internal address of the information taken through MQTT in ES200. This identifier is NOT the specific MQTT protocol address; it is only used for internal ES200 processes. Changing these does not affect the retrieval in ES200 from MQTT clients (sensors, etc.) of the desired information;
 
-**#Description** – Detailed description of the retrieved entity - for internal use (e.g., Maximum protection function level 1).
+**#Description** - Detailed description of the retrieved entity - for internal use (e.g., Maximum protection function level 1).
 
-**#Variable Name** – A unique TAG is filled in for each signal. This TAG will be the internal identifier for the respective signal and will be used in ES200 slave processes and for implementing automation logics.
+**#Variable Name** - A unique TAG is filled in for each signal. This TAG will be the internal identifier for the respective signal and will be used in ES200 slave processes and for implementing automation logics.
 
-**#JSONPointer **– can be associated with the MQTT protocol address and is in the form of a string formatted like /PT/sensorX/context (e.g., /PT10/sensor1/contact1)
+**#JSON Pointer** - says where the value of this point sits inside the message that arrives from the broker. It is an RFC 6901 path and it has to start with a slash, for example /PT10/sensor1/contact1. One message can carry the values of several points, each one found through its own JSON Pointer.
+
+A binary input point accepts only true, false, 0 and 1 from the broker. Any other number is refused and the point keeps the value it had, with the reason written in the General log.
 
 
 ### 5.6.3. Adding Analog Sizes (Numeric)
 
-These are completed in the **Json Numeric** section of the MQTT Master in the Dashboard.
+These are completed in the **Analog Inputs** section of the MQTT Master in the Dashboard.
 
-**#Address**  – The internal address of the information taken through MQTT in ES200. This identifier is NOT the specific MQTT protocol address; it is only used for internal ES200 processes. Changing these does not affect the retrieval in ES200 from MQTT clients (sensors, etc.) of the desired information;
+**#Address** - The internal address of the information taken through MQTT in ES200. This identifier is NOT the specific MQTT protocol address; it is only used for internal ES200 processes. Changing these does not affect the retrieval in ES200 from MQTT clients (sensors, etc.) of the desired information;
 
-**#Description** – Detailed description of the retrieved entity - for internal use (e.g., Maximum protection function level 1).
+**#Description** - Detailed description of the retrieved entity - for internal use (e.g., Maximum protection function level 1).
 
-**#Variable Name** – A unique TAG is filled in for each signal. This TAG will be the internal identifier for the respective signal and will be used in ES200 slave processes and for implementing automation logics.
+**#Variable Name** - A unique TAG is filled in for each signal. This TAG will be the internal identifier for the respective signal and will be used in ES200 slave processes and for implementing automation logics.
 
-**#JSONPointer **– is associated with the MQTT protocol address and is in the form of a string formatted like /PT/sensorX/temperature (e.g., /PT10/sensor1/temperature).
+**#JSON Pointer** - says where the value of this point sits inside the message that arrives from the broker, as an RFC 6901 path starting with a slash, for example /PT10/sensor1/temperature.
+
+An analog input point accepts true, false and any number. A value the configured value type of the point cannot hold is refused and the point keeps its previous value, instead of the old value travelling on as if it were new.
+
+
+### 5.6.4. Adding Commands Towards the Broker
+
+The MQTT Master can also send commands out to the broker, so an MQTT equipment can be commanded and not only read. These points are completed in the **Binary Outputs** and **Analog Outputs** sections of the MQTT Master in the Dashboard.
+
+**#Address** - The internal address of the command in ES200, used only by internal ES200 processes;
+
+**#Description** - Detailed description of the command - for internal use;
+
+**#Variable Name** - A unique TAG for each command. ES200 uses this TAG as the name in the message it publishes, so a command point without a Variable Name is skipped and the reason is written in the General log;
+
+**#Topic Pointer** - the piece of topic that ES200 adds to the end of the Publish Topic of the equipment when it sends this command, so commands for different points can reach different topics. It has to start with a slash, and it must not contain the characters + or #, because those are only valid in a subscription filter and the broker would refuse the publication. The Dashboard reports both mistakes;
+
+**#Retain Message** - asks the broker to keep the last message published for this point, so a client that connects later receives it at once. It is off by default. Turn it on only where the receiving side needs the last value, because a kept command is delivered again to every client that subscribes afterwards, long after ES200 sent it.
+
+ES200 publishes a command only for an output point. A value that arrives from the broker for an output point is not accepted as a command, and a value that arrives for an input point is never sent on to the broker as one.
+
+
+### 5.6.5. Securing the Connection to the Broker
+
+Each MQTT equipment carries its own TLS settings and its own certificates. Nothing is shared with the other MQTT equipments of the device.
+
+Tick **Secure**, shown in the property list as Use MQTTS, then press **Configure Security**. The MQTT Security Configuration dialog holds:
+
+**#Server Validation** - how ES200 decides to trust the broker it connected to. The choices are None, CA certificate, OS trust store, and OS trust store and CA certificate. The default is CA certificate. Choose OS trust store when a public authority signed the certificate of the broker, and the fourth choice while a broker is being moved from a private authority to a public one. With None the traffic is encrypted but the broker is not verified;
+
+**#Validate Server Hostname** - whether the name inside the certificate of the broker has to match the address ES200 dialled. It is on by default, and it has no effect when Server Validation is None, because checking a name without a verified chain proves nothing;
+
+**#CA Certificate** - the authority certificate ES200 validates the broker against. It is required when Server Validation uses a CA certificate;
+
+**#Use Client Certificate** - whether ES200 presents its own certificate to the broker. Ticking it reveals the two fields below;
+
+**#Client Certificate** and **#Client Key** - the certificate and the private key ES200 presents. Both have to be provided, and they have to belong together.
+
+Each of the three certificate slots takes its file in one of two ways. Either you pick the file in the Dashboard, and its content travels inside the configuration to the device, or you tick **Upload At Runtime** for that slot and send the file to the running device later, through the Update Certificates dialog of the web interface. A slot cannot be both. Files copied onto the device by hand are not used.
+
+Until the files of a slot marked for upload at runtime arrive, the equipment stays invalid and the process does not connect at all. One line in the General log names the files it is waiting for. After you upload them, the device restarts only the process that owns that equipment.
+
+The name of the equipment has to be made of letters, digits, comma, underscore and dollar, because the device builds the certificate file names from the process name and the equipment name. Rename any equipment whose name contains a space or a dash before you use certificates on it.
+
+A setting the device cannot apply stops the connection instead of quietly falling back to a plain one. When a connection keeps failing, the General log names the two settings that explain most of these cases, the Secure switch together with the port, and the certificates.
+
+
+### 5.6.6. MQTT Slave
+
+The MQTT Slave publishes the values of ES200 to a command center over a broker, and receives commands from it. It is added as a Command Center, following the procedure in section 4.2.1, and its broker, port, credentials, Client ID, QoS, KeepAlive and security settings mean the same as for the MQTT Master, including the Configure Security dialog described in section 5.6.5.
+
+The points are the mirror image of the MQTT Master:
+
+* In the **Binary Inputs** and **Analog Inputs** sections, each point is published on its own topic, built from the **Publish Topic** of the equipment plus the **Topic Pointer** of the point, with the **Master Variable Name** as the name inside the message. Each point also has its own **Retain Message** switch, off by default. A point without a Master Variable Name is not published, and the reason is written in the General log;
+* In the **Binary Outputs** and **Analog Outputs** sections, each point takes a **JSON Pointer** that says where its value sits inside the command message that arrives from the command center. One message can command several points, and a list of command objects is accepted as a batch. An output point without a JSON Pointer receives no commands.
+
+Two further settings belong to the MQTT Slave only:
+
+**#MQTT Version** - the version of the protocol used towards the broker;
+
+**#Retransmit Time** - the period at which the MQTT Slave publishes every point again, next to the messages it sends when a value changes.
 
 ## 5.7. IEC-60870-5-101
 ### 5.7.1. General Configuration of the Communication Channel

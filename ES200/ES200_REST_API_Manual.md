@@ -5,21 +5,38 @@
 - [1. ES200 Endpoints](#1-es200-endpoints)
   - [1.1. Authenticate User](#11-authenticate-user)
   - [1.2. Update User Password](#12-update-user-password)
-  - [1.3. Get Users](#13-get-users)
 - [2. WebServer Endpoints](#2-webserver-endpoints)
-  - [2.1. Login](#21-login)
-  - [2.2. Logout](#22-logout)
-  - [2.3. Fetch Log Files Names](#23-fetch-log-files-names)
-  - [2.4. Fetch Log Content](#24-fetch-log-content)
-  - [2.5. Get Master Equipments](#25-get-master-equipments)
-    - [2.5.1. Via Rest API](#251-via-rest-api)
-    - [2.5.2. Via WebSockets](#252-via-websockets)
-  - [2.6. Send Commands](#26-send-commands)
-  - [2.7. Download Database](#27-download-database)
-  - [2.8. Upload Database](#28-upload-database)
-  - [2.9. Update Certificates](#29-update-certificates)
+  - [2.1. General](#21-general)
+  - [2.2. Login](#22-login)
+  - [2.3. Authorize](#23-authorize)
+  - [2.4. Logout](#24-logout)
+  - [2.5. Fetch Log Files Names](#25-fetch-log-files-names)
+  - [2.6. Fetch Log Content](#26-fetch-log-content)
+  - [2.7. Get Master Equipments](#27-get-master-equipments)
+  - [2.8. Send Commands](#28-send-commands)
+  - [2.9. Download Database](#29-download-database)
+  - [2.10. Upload Database](#210-upload-database)
+  - [2.11. Update Device Certificates](#211-update-device-certificates)
+  - [2.12. Update Equipment Certificates](#212-update-equipment-certificates)
+  - [2.13. Get Certificates Status](#213-get-certificates-status)
+  - [2.14. Delete Equipment Certificates](#214-delete-equipment-certificates)
+- [3. WebSocket API](#3-websocket-api)
+  - [3.1. Connection](#31-connection)
+  - [3.2. Message Format](#32-message-format)
+  - [3.3. Subscribing and Unsubscribing](#33-subscribing-and-unsubscribing)
+  - [3.4. Subscription Topics](#34-subscription-topics)
+    - [3.4.1. entityViewer](#341-entityviewer)
+    - [3.4.2. esTimestamp](#342-estimestamp)
+    - [3.4.3. esConnectionStatus](#343-esconnectionstatus)
+    - [3.4.4. esVersion](#344-esversion)
+  - [3.5. Request Messages](#35-request-messages)
+    - [3.5.1. command](#351-command)
+    - [3.5.2. updatePassword](#352-updatepassword)
+  - [3.6. Example](#36-example)
 
 ## 1. ES200 Endpoints
+
+These endpoints are served by the ESRemote process on port `1732`. The WebServer uses them internally to verify credentials; they are listed here because the SEED they return is also needed for ESRemote connections.
 
 ### 1.1. Authenticate User
 
@@ -28,26 +45,26 @@
 -   **Method**: `POST`
 -   **Content-Type**: `application/json`
 -   **Description**: Authenticates a user to get the SEED value used for establishing ESRemote connections.
--   **Request Body**:
+-   **Request Body**: `password` is the uppercase hexadecimal SHA-256 of the plain text password.
 
 ```json
 {
-    "username": "admin", // string
-    "password": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918" // uppercase SHA-256 string
+    "username": "<username>", // string
+    "password": "<UPPERCASE_SHA256_OF_PASSWORD>" // uppercase SHA-256 string
 }
 ```
 
 -   **Response status codes**:
 
-    -   `200 OK`: Returns SEED value.
+    -   `200 OK`: Returns the SEED value.
     -   `400 Bad Request`: Malformed request.
     -   `401 Unauthorized`: Wrong credentials.
-    -   `411 Length Required`: Empty body.
+    -   `411 Length Required`: Empty body (no `Content-Length` header).
 
--   **Response body**:
+-   **Response body** (`text/plain`):
 
-```json
-5ADC69F6C5AADF8220850C627E367293ECE4F2C1B469BD0D519E101AEB01AB29 // 64 characters Base64 string
+```
+<64 uppercase hexadecimal characters>
 ```
 
 -   **Example**:
@@ -55,7 +72,7 @@
 ```bash
 curl -k -X POST https://localhost:1732/api/authentication \
 	-H "Content-Type: application/json" \
-	-d '{"username": "admin", "password": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918"}'
+	-d '{"username": "<username>", "password": "<UPPERCASE_SHA256_OF_PASSWORD>"}'
 ```
 
 ### 1.2. Update User Password
@@ -69,65 +86,41 @@ curl -k -X POST https://localhost:1732/api/authentication \
 
 ```json
 {
-    "username": "admin", // string
-    "currentPassword": "CURRENT_UPPERCASE_SHA256_HASH", // uppercase SHA-256 string
-    "newPassword": "NEW_UPPERCASE_SHA256_HASH" // uppercase SHA-256 string
+    "username": "<username>", // string
+    "currentPassword": "<UPPERCASE_SHA256_OF_PASSWORD>", // uppercase SHA-256 string
+    "newPassword": "<UPPERCASE_SHA256_OF_NEW_PASSWORD>" // uppercase SHA-256 string
 }
 ```
 
 -   **Response status codes**:
-    -   `200 OK`: Password updated successfully.
+    -   `200 OK`: Password updated successfully. The body is the SEED value, as for `/api/authentication`.
     -   `400 Bad Request`: Malformed request.
     -   `401 Unauthorized`: Incorrect current password.
-    -   `411 Length Required`: Empty body.
+    -   `411 Length Required`: Empty body (no `Content-Length` header).
 -   **Example**:
 
 ```bash
-# Update the current password (admin) of the current user (admin), with the new password (test)
 curl -k -X POST https://localhost:1732/api/updateUserPassword \
       -H "Content-Type: application/json" \
-      -d '{"username": "admin", "currentPassword": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918", "newPassword": "9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08"}'
-```
-
-### 1.3. Get Users
-
--   **Base URL**: `https://localhost:1732`
--   **Endpoint**: `/api/getUsers`
--   **Method**: `GET`
--   **Content-Type**: `application/json`
--   **Description**: Retrieves a list of all users.
--   **Response status codes**:
-    -   `200 OK`: Successfully retrieved user list.
-    -   `500 Internal Server Error`: Error in retrieving users.
--   **Response body**:
-
-```json
-[
-    {
-        "username": "admin" // string
-    },
-    {
-        "username": "admin2" // string
-    }
-    // ... more users
-]
-```
-
--   **Example**:
-
-```bash
-curl -k -X GET https://localhost:1732/api/getUsers
+      -d '{"username": "<username>", "currentPassword": "<UPPERCASE_SHA256_OF_PASSWORD>", "newPassword": "<UPPERCASE_SHA256_OF_NEW_PASSWORD>"}'
 ```
 
 ## 2. WebServer Endpoints
 
-### 2.1. Login
+### 2.1. General
 
--   **Base URL**: `https://localhost:3000`
+-   **Base URL**: `https://<device>:3000`. The server listens on all IPv4 and IPv6 interfaces over HTTPS, using the device TLS certificate.
+-   **Authentication**: every endpoint except `/api/login` and `/api/logout` requires the `sessionId` cookie returned by `/api/login`. A missing, unknown or expired cookie gives `401 Unauthorized` with an empty body.
+-   **Session lifetime**: 1800 seconds (30 minutes) from login. The lifetime is fixed, it is not extended by activity.
+-   **Request body limit**: 5 MB. Larger bodies are rejected with `413 Payload Too Large`. This applies to database and certificate uploads.
+-   **Cookie handling with `curl`**: store the cookie at login with `-c cookies.txt` and send it on later requests with `-b cookies.txt`. Every example below follows this pattern.
+
+### 2.2. Login
+
 -   **Endpoint**: `/api/login`
 -   **Method**: `POST`
 -   **Content-Type**: `application/json`
--   **Description**: Attempts to log in a client, returning the session cookie upon success.
+-   **Description**: Attempts to log in a client, returning the session cookie upon success. Credentials are verified against the ESRemote authentication server (section 1.1); the WebServer hashes the password before forwarding it.
 -   **Request Body**:
 
 ```json
@@ -139,9 +132,10 @@ curl -k -X GET https://localhost:1732/api/getUsers
 
 -   **Response Status Codes**:
     -   `200 OK`: Successful login, returns session cookie.
-    -   `429 Too Many Requests`: Too many failed login attempts.
+    -   `400 Bad Request`: Malformed body, or `username` / `password` missing.
     -   `401 Unauthorized`: Incorrect credentials.
-    -   `500 Internal Server Error`: Server error occurred.
+    -   `429 Too Many Requests`: The client IP is locked out after too many failed login attempts.
+    -   `500 Internal Server Error`: The ESRemote authentication server could not be reached, or the session could not be created.
 -   **Response Body**:
 
 ```json
@@ -150,60 +144,83 @@ curl -k -X GET https://localhost:1732/api/getUsers
 }
 ```
 
+-   **Response Headers**:
+    -   `Set-Cookie`: `sessionId=<32 hex characters>; Max-Age=1800; Path=/; HttpOnly; Secure; SameSite=Strict;`
 -   **Example**:
-
-```bash
-curl -k -X POST https://localhost:3000/api/login \
-    -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
-```
-
--   **Note**:
-    -   The session cookie is valid for 1800 seconds (30 minutes) by default. After this period, the session will expire, and the user will need to log in again to obtain a new session cookie.
-    -   When you use `curl` to make a login request that sets an HTTP-only cookie (containing the session ID) upon successful login, this cookie is indeed managed by `curl` for the duration of the session. However, it's important to note that `curl` does not automatically include this cookie in subsequent requests unless explicitly instructed to do so.
-    -   To ensure the cookie set by the `/api/login` endpoint is included in subsequent requests, such as `/api/logs`, you need to use `curl`'s cookie handling capabilities:
-        -   Store the Cookie: Make the login request and save the cookie to a file. This can be done using the `-c` or `--cookie-jar` option in `curl`.
-        -   Reuse the Cookie: In subsequent requests, you need to include this cookie for the server to recognize the session. This is done using the `-b` or `--cookie` option in `curl`.
 
 ```bash
 # Making a login request to get the sessionId cookie
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
      -H "Content-Type: application/json" \
-     -d '{"username": "admin", "password": "admin"}'
+     -d '{"username": "<username>", "password": "<password>"}'
 
 # Making a request that includes the sessionId cookie
 curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 ```
 
-### 2.2. Logout
+-   **Notes**:
+    -   **Lockout**: repeated failed logins from the same address are rejected with `429` for a while, even with correct credentials. A successful login clears the record.
+    -   The cookie is `HttpOnly` and `Secure`, so it is only sent over HTTPS and is not readable from browser scripts.
 
--   **Base URL**: `https://localhost:3000`
--   **Endpoint**: `/api/logout`
--   **Method**: `POST`
--   **Description**: Logs out the client and invalidates the session cookie (if present)
+### 2.3. Authorize
+
+-   **Endpoint**: `/api/authorize`
+-   **Method**: `GET`
+-   **Description**: Checks whether the session cookie is still valid and returns the user it belongs to. Useful to restore a session without logging in again.
 -   **Response Status Codes**:
-    -   `200 OK`: Successful logout.
+    -   `200 OK`: The session is valid.
+    -   `401 Unauthorized`: Missing, unknown or expired session cookie.
+-   **Response Body**:
+
+```json
+{
+    "authenticatedUser": "<username>" // string
+}
+```
+
 -   **Example**:
 
 ```bash
-curl -k -X POST https://localhost:3000/api/logout
+curl -k -b cookies.txt -X GET https://localhost:3000/api/authorize
 ```
 
-### 2.3. Fetch Log Files Names
+### 2.4. Logout
 
--   **Base URL**: `https://localhost:3000`
+-   **Endpoint**: `/api/logout`
+-   **Method**: `POST`
+-   **Description**: Logs out the client and invalidates the session cookie (if present). The request must carry a body or a `Content-Length` header; an empty body is fine.
+-   **Response Status Codes**:
+    -   `200 OK`: Successful logout. Returned even without a session cookie.
+    -   `400 Bad Request`: The request has neither a body nor a `Content-Length` header. The session stays valid.
+-   **Example**:
+
+```bash
+curl -k -b cookies.txt -X POST https://localhost:3000/api/logout -d ""
+```
+
+### 2.5. Fetch Log Files Names
+
 -   **Endpoint**: `/api/logs`
 -   **Method**: `GET`
--   **Description**: Retrieves the names of available log files.
+-   **Description**: Retrieves the available log files, grouped by category. The three categories are `General`, `Events` and `Commands`. A category whose directory holds no files is still returned, with an empty `files` array; a category whose directory does not exist is omitted.
 -   **Response Status Codes**:
     -   `200 OK`: Successfully retrieved log files names.
-    -   `204 No Content`: No log files available.
     -   `401 Unauthorized`: Invalid session cookie.
 -   **Response Body**:
 
 ```json
 {
-	logCategories": ["category1", "category2"] // string[]
+    "logCategories": [
+        {
+            "name": "General", // string: General | Events | Commands
+            "files": [
+                {
+                    "name": "MultiDataMaster", // string: display name
+                    "fileName": "MultiDataMaster" // string: value for the fileName parameter of /api/logcontent
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -213,7 +230,7 @@ curl -k -X POST https://localhost:3000/api/logout
 # Authentication
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
+    -d '{"username": "<username>", "password": "<password>"}'
 
 # Request
 curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
@@ -224,86 +241,89 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 {
     "logCategories": [
         {
-            "id": 1,
             "name": "General",
             "files": [
-                {
-                    "id": 2,
-                    "name": "ESRemote",
-                    "path": "/mnt/ramdisk/ESRemote"
-                },
-                {
-                    "id": 3,
-                    "name": "MultiDataMaster",
-                    "path": "/mnt/ramdisk/MultiDataMaster"
-                },
-                {
-                    "id": 4,
-                    "name": "Watchdog",
-                    "path": "/mnt/ramdisk/Watchdog"
-                }
+                { "name": "ESRemote", "fileName": "ESRemote" },
+                { "name": "MultiDataMaster", "fileName": "MultiDataMaster" },
+                { "name": "Watchdog", "fileName": "Watchdog" },
+                { "name": "Broker1", "fileName": "3" }
             ]
         },
         {
-            "id": 5,
             "name": "Events",
             "files": [
-                {
-                    "id": 6,
-                    "name": "MultiDataMaster",
-                    "path": "/mnt/ramdisk/Events/MultiDataMaster"
-                },
-                {
-                    "id": 7,
-                    "name": "Watchdog",
-                    "path": "/mnt/ramdisk/Events/Watchdog"
-                }
+                { "name": "MultiDataMaster", "fileName": "MultiDataMaster" },
+                { "name": "Watchdog", "fileName": "Watchdog" }
             ]
         },
         {
-            "id": 8,
             "name": "Commands",
             "files": [
-                {
-                    "id": 9,
-                    "name": "ESRemote",
-                    "path": "/mnt/ramdisk/Commands/ESRemote"
-                },
-                {
-                    "id": 10,
-                    "name": "MultiDataMaster",
-                    "path": "/mnt/ramdisk/Commands/MultiDataMaster"
-                }
+                { "name": "ESRemote", "fileName": "ESRemote" },
+                { "name": "MultiDataMaster", "fileName": "MultiDataMaster" }
             ]
         }
     ]
 }
 ```
 
-### 2.4. Fetch Log Content
+-   **Notes**:
+    -   Per-equipment log files are stored under their channel ID. For those files `fileName` is the numeric channel ID and `name` is the equipment name (several equipments on the same channel are joined with `_`). Numeric files are listed only when they match the channel of an active equipment whose process is enabled in the configuration.
+    -   Backup log files (containing `_backup_` in the name) are not listed.
+    -   Always pass `fileName`, not `name`, to `/api/logcontent`.
 
--   **Base URL**: `https://localhost:3000`
+### 2.6. Fetch Log Content
+
 -   **Endpoint**: `/api/logcontent`
 -   **Method**: `GET`
--   **Description**: Fetches the content of a specified log file.
+-   **Description**: Fetches and parses the content of a log file, including its rotated backups. The server resolves the file from the logs directory, the category and the file name; clients do not supply a path.
 -   **Query Parameters**:
 
-    -   `path` (required, string): The absolute path of the log file.
-    -   `name` (required, string): The name of the log file.
-    -   `category` (required, string): The category to which the log file belongs.
+    -   `fileName` (required, string): The `fileName` value returned by `/api/logs`.
+    -   `name` (required, string): The `name` value returned by `/api/logs`.
+    -   `category` (required, string): `General`, `Events` or `Commands`. Case sensitive.
 
 -   **Response Status Codes**:
     -   `200 OK`: Successfully retrieved log content.
-    -   `204 No Content`: Log content not available.
-    -   `400 Bad Request`: Missing or incorrect query parameters.
+    -   `400 Bad Request`: A parameter is missing or `category` is not one of the three categories.
     -   `401 Unauthorized`: Invalid session cookie.
+    -   `500 Internal Server Error`: The log file could not be read (for example an unknown `fileName`).
 -   **Response Body**:
 
 ```json
 {
-    "logContent": "Log file content here..." // string
+    "logContent": {
+        "headers": ["Log Type", "System Timestamp", "Message"], // string[]: column names for the category
+        "body": [
+            // one array per parsed line: one cell per header, then the row index
+            [
+                "General", // Log Type
+                {
+                    "timestamp": {
+                        "day": "13",
+                        "month": "12",
+                        "year": "2024",
+                        "hours": "09",
+                        "minutes": "07",
+                        "seconds": "08",
+                        "milliseconds": "875"
+                    }
+                }, // System Timestamp
+                "Process started", // Message
+                0 // row index
+            ]
+        ]
+    }
 }
 ```
+
+-   **Columns per category**:
+
+| Category   | Headers                                                                                                                          |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `General`  | `Log Type`, `System Timestamp`, `Message`                                                                                        |
+| `Events`   | `System Timestamp`, `Event Timestamp`, `Equipment`, `PointAddress`, `Type`, `OldValue`, `NewValue`, `OldValidity`, `NewValidity` |
+| `Commands` | `System Timestamp`, `Command Timestamp`, `Equipment`, `Slave`, `PointAddress`, `Type`, `Value`                                  |
 
 -   **Example**:
 
@@ -311,30 +331,27 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logs
 # Authentication
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
+    -d '{"username": "<username>", "password": "<password>"}'
 
 # Request
-# The query parameters must be correctly URL-encoded
-curl -k -b cookies.txt -X GET https://localhost:3000/api/logcontent?name=ESRemote&path=%2Fmnt%2Framdisk%2FCommands%2FESRemote&category=Commands
+curl -k -b cookies.txt -X GET "https://localhost:3000/api/logcontent?fileName=ESRemote&name=ESRemote&category=Commands"
 ```
 
 -   **Notes**:
-    -   The `path` query parameter must be correctly URL-encoded. For example, if the path is `/mnt/ramdisk/Commands/ESRemote`, it should be encoded as `%2Fmnt%2Framdisk%2FCommands%2FESRemote`.
-    -   The `name` and `category` query parameters should match the log file name and category returned by the `/api/logs` endpoint.
-    -   The log content is returned as a single string, which may contain line breaks or other formatting characters.
+    -   Every `Timestamp` column is returned as the object shown above. `milliseconds` is `"000"` when the log line has no millisecond part.
+    -   The `Log Type` cell is one of `Other`, `Error`, `PointChange`, `General`, `Command`, `Database`, `Protocol`, `Test`.
+    -   Lines that do not match the category's log format are skipped, so the row index counts parsed rows only.
+    -   The query parameters must be URL-encoded when they contain special characters.
 
-### 2.5. Get Master Equipments
+### 2.7. Get Master Equipments
 
-#### 2.5.1. Via Rest API
-
--   **Base URL**: `https://localhost:3000`
 -   **Endpoint**: `/api/points`
 -   **Method**: `GET`
--   **Description**: Retrieves the list of **Master Equipments** and their associated points. Supports filtering by `equipmentId`, `idDown`, and `pointType`.
+-   **Description**: Retrieves the list of **Master Equipments** and their associated points. Supports filtering by `equipmentId`, `idDown`, and `pointType`. For live updates use the `entityViewer` WebSocket topic (section 3.4.1).
 -   **Query Parameters**:
 
-    -   `equipmentId` (optional, number): The ID of the Master Equipment to filter points by.
-    -   `idDown` (optional, number): The register address to filter points (registers) by.
+    -   `equipmentId` (optional, number): The ID of the Master Equipment to filter points by. Must be greater than 0.
+    -   `idDown` (optional, number): The register address to filter points (registers) by. Must be greater than 0.
     -   `pointType` (optional, string): The type of point to filter by. Valid point types are:
         -   `Binary Input`
         -   `Binary Output`
@@ -346,7 +363,7 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logcontent?name=ESRemot
 -   **Response Status Codes**:
 
     -   `200 OK`: Successfully retrieved Master Equipments and points.
-    -   `204 No Content`: No data available for the given filters.
+    -   `204 No Content`: No Master Equipments are available at all (for example ESRemote is not connected yet). The body is `{"masterEquipments": []}`.
     -   `400 Bad Request`: Invalid query parameters.
     -   `401 Unauthorized`: Invalid session cookie.
 
@@ -387,7 +404,7 @@ curl -k -b cookies.txt -X GET https://localhost:3000/api/logcontent?name=ESRemot
 # Authentication
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
+    -d '{"username": "<username>", "password": "<password>"}'
 
 # Request
 curl -k -b cookies.txt -X GET "https://localhost:3000/api/points"
@@ -399,7 +416,7 @@ curl -k -b cookies.txt -X GET "https://localhost:3000/api/points"
 # Authentication
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
+    -d '{"username": "<username>", "password": "<password>"}'
 
 # Request
 curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1"
@@ -411,49 +428,362 @@ curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1"
 # Authentication
 curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
+    -d '{"username": "<username>", "password": "<password>"}'
 
 # Request
 curl -k -b cookies.txt -X GET "https://localhost:3000/api/points?equipmentId=1&idDown=10020&pointType=Binary%20Input"
 ```
 
 -   **Notes**:
-    -   When filtering by `pointType`, ensure the value matches one of the valid point types listed above.
-    -   The `idDown` parameter represents the register address of the point. Ensure it is a valid number greater than 0.
+    -   `pointType` must be spelled exactly as listed above, with a single space; a value with different spacing passes validation but matches no point.
+    -   An `equipmentId` that matches no equipment gives `200` with an empty `masterEquipments` array. `idDown` and `pointType` never remove an equipment: every equipment that passes the `equipmentId` filter is returned, with only the matching points in `points`, which may be empty.
     -   If no query parameters are provided, all available `Master Equipments` and their `points` will be returned.
     -   The query parameters should be correctly URL-encoded. For example, if the `pointType` is `Binary Input`, it should be encoded as `Binary%20Input`.
 
-#### 2.5.2. Via WebSockets
+### 2.8. Send Commands
 
-This section outlines how to connect to the WebSocket server, authenticate using a session cookie, subscribe/unsubscribe from topics, and the expected JSON message format for data updates.
-
-- **URL**: `wss://localhost:8443`
-- **Protocol**: WebSocket Secure (WSS)
-- **Authentication**: Requires a session cookie obtained from the `/api/login` HTTP endpoint.
-- **Handshake**: During the WebSocket handshake, the `sessionId` cookie must be included in the request headers.
-- **Subscribing/Unsubscribing to Topics**
+-   **Endpoint**: `/api/command`
+-   **Method**: `POST`
+-   **Content-Type**: `application/json`
+-   **Description**: Sends a command to a specific register from a **Master Equipment** in ES200.
+-   **Response Status Codes**:
+    -   `200 OK`: Command accepted and forwarded to ES200.
+    -   `400 Bad Request`: Malformed request body or invalid point type.
+    -   `401 Unauthorized`: Invalid session cookie.
+-   **Valid Point Types**:
+    -   `Binary Input`
+    -   `Binary Output`
+    -   `Analog Input`
+    -   `Analog Output`
+    -   `Double Input`
+    -   `Double Output`
+-   **Retrieving the ID of an equipment in ES200**:
+    Use `/api/points` (section 2.7): the `id` field of each entry in `masterEquipments` is the `equipmentId`. The same value is the `ID` column of the `Equipments` table in the configuration database (`.epgd`, an SQLite3 file).
+-   **Request Body**:
 
 ```json
 {
-    "type": "subscribe",
-    "topic": "entityViewer"
+    "equipmentId": 1, // number: the identifier for the equipment
+    "idDown": 150, // number: the register address
+    "pointType": "Analog Output", // string: type of point being commanded, must be one of the predefined types
+    "value": "22.5" // string: value to be set
 }
 ```
+
+-   **Response Body**: the accepted command, echoed back.
+
 ```json
 {
-    "type": "unsubscribe",
-    "topic": "entityViewer"
+    "equipmentId": 1, // number
+    "idDown": 150, // number
+    "pointType": "Analog Output", // string
+    "value": "22.5" // string
 }
 ```
 
-- **Receiving Data**
+-   **Example**:
 
-The WebSockets server pushes real-time updates when subscribed to topics.
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "<username>", "password": "<password>"}'
 
-- **Response Example**:
+# Request
+curl -k -b cookies.txt -X POST https://localhost:3000/api/command \
+    -H "Content-Type: application/json" \
+    -d '{"equipmentId": 1, "idDown": 150, "pointType": "Analog Output", "value": "22.5"}'
+```
+
+-   **Notes**:
+    -   `200 OK` means the command was forwarded to ESRemote. The server does not check that the equipment or register exists. The outcome is visible in the point's `status` and `value` returned by `/api/points`, and in the `Commands` log.
+
+### 2.9. Download Database
+
+-   **Endpoint**: `/api/database`
+-   **Method**: `GET`
+-   **Description**: Downloads the current ES200 configuration database (`.epgd` file) as a binary file.
+-   **Response Status Codes**:
+    -   `200 OK`: Successfully downloaded the database file.
+    -   `204 No Content`: The current database is empty.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `500 Internal Server Error`: Failed to retrieve the database.
+-   **Response Headers**:
+    -   `Content-Type`: `application/x-sqlite3`
+    -   `Content-Disposition`: `attachment; filename="ES200.epgd"`
+-   **Response Body**: Binary content of the SQLite3 database file.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "<username>", "password": "<password>"}'
+
+# Request - Download database and save to file
+curl -k -b cookies.txt -X GET https://localhost:3000/api/database \
+    -o ES200.epgd
+```
+
+-   **Notes**:
+    -   The downloaded file is an SQLite3 database that can be opened with any SQLite3 viewer such as [DB Browser for SQLite](https://sqlitebrowser.org/).
+    -   The database contains the ES200 configuration including equipments, points, and other settings.
+
+### 2.10. Upload Database
+
+-   **Endpoint**: `/api/database`
+-   **Method**: `POST`
+-   **Content-Type**: `application/octet-stream` or `application/x-sqlite3`
+-   **Description**: Uploads a new ES200 configuration database (`.epgd` file) to replace the current configuration. After a successful upload, all ES200 processes will be restarted to apply the new configuration.
+-   **Request Body**: Binary content of the SQLite3 database file.
+-   **Response Status Codes**:
+    -   `200 OK`: Database uploaded successfully. All processes will be restarted.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `413 Payload Too Large`: The file is larger than 5 MB.
+    -   `415 Unsupported Media Type`: Invalid or missing Content-Type header.
+    -   `500 Internal Server Error`: Empty body, or the database could not be stored.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "<username>", "password": "<password>"}'
+
+# Request - Upload database from file
+curl -k -b cookies.txt -X POST https://localhost:3000/api/database \
+    -H "Content-Type: application/octet-stream" \
+    --data-binary @ES200.epgd
+```
+
+-   **Notes**:
+    -   The uploaded file must be a valid SQLite3 database in the ES200 `.epgd` format.
+    -   After a successful upload, the Watchdog process will restart all ES200 processes to apply the new configuration. The WebServer is among them, so the session is lost and the client has to log in again.
+    -   **Warning**: Uploading an invalid or corrupted database may cause ES200 to malfunction. Always ensure you have a backup of the current configuration before uploading a new one.
+
+### 2.11. Update Device Certificates
+
+-   **Endpoint**: `/api/certificates`
+-   **Method**: `POST`
+-   **Content-Type**: `multipart/form-data`
+-   **Description**: Replaces the TLS certificate and private key of the device itself. These are the files served by the WebServer (ports 3000 and 8443) and the ESRemote authentication server (port 1732). The files are validated, written to the certificates directory, and the WebServer and ESRemote are restarted so they load the new files.
+-   **Request Body** (multipart/form-data):
+    -   `cert` (required, file): The certificate in PEM format (must contain a `BEGIN CERTIFICATE` marker).
+    -   `key` (required, file): The unencrypted private key in PEM format (must contain a `BEGIN` marker).
+    -   `ca` (optional, file): The CA certificate in PEM format.
+-   **Response Status Codes**:
+    -   `200 OK`: Certificates written. A restart of the WebServer and ESRemote has been requested.
+    -   `400 Bad Request`: Missing files, empty file contents, invalid PEM markers, or certificate/key validation failed.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `413 Payload Too Large`: The request is larger than 5 MB.
+    -   `500 Internal Server Error`: The certificates directory is missing, or the files could not be written.
+-   **Response Body** (on error): Plain text error message describing the failure reason.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "<username>", "password": "<password>"}'
+
+# Request - Upload certificate and private key
+curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
+    -F "cert=@certificate.pem" \
+    -F "key=@private_key.pem" \
+    -F "ca=@ca_certificate.pem"
+```
+
+-   **Notes**:
+    -   Both the certificate and private key must be in PEM format, and the private key must not be password protected.
+    -   The certificate and private key must match (the private key must correspond to the public key in the certificate).
+    -   The response is sent before the restart happens, but the restart follows within seconds. Clients should expect the connection to drop shortly after `200 OK`, the session to be lost, and the new certificate to be served on reconnect.
+    -   Error messages:
+        -   `missing files`: The `cert` or `key` part is absent or is not a file upload.
+        -   `empty file contents`: One or more files are empty.
+        -   `invalid pem markers`: The files don't contain valid PEM headers.
+        -   `validation failed: mismatch`: The certificate and private key don't match.
+        -   `validation failed: parse cert` / `validation failed: parse key`: Unable to parse the certificate or key.
+        -   `validation failed: the private key is encrypted; upload an unencrypted PEM key`.
+        -   `cert directory missing` / `write failed: <reason>` (status `500`).
+
+### 2.12. Update Equipment Certificates
+
+-   **Endpoint**: `/api/certificates`
+-   **Method**: `POST`
+-   **Content-Type**: `multipart/form-data`
+-   **Description**: Uploads the TLS material of one equipment that uses a secure protocol (for example an MQTT broker connection). The request is routed here instead of section 2.11 whenever the form carries a `process` or `equipment` field. Only the certificate slots that the configuration marks as `runtime` (upload at runtime) accept files; slots configured as `embedded` are owned by the configuration and reject uploads. Use `/api/certificates/status` (section 2.13) to see which slots an equipment has.
+-   **Request Body** (multipart/form-data):
+    -   `process` (required, field): The process the equipment belongs to, for example `MQTTMaster`. Only processes with TLS support are accepted (currently `MQTTSlave`, `MQTTMaster` and `IEC61850E2`); the `400` message lists them.
+    -   `equipment` (required, field): The equipment name as configured. Letters, digits, `,`, `_` and `$` are allowed.
+    -   `cert`, `key`, `ca` (files): Any subset of the equipment's slots. `cert` and `key` must be uploaded together.
+-   **Response Status Codes**:
+    -   `200 OK`: Files written.
+    -   `400 Bad Request`: Unknown process or equipment, equipment does not use certificates, no parts uploaded, a part that does not match a slot or matches an `embedded` / `notConfigured` slot, `cert` without `key` or vice versa, empty or unparsable parts, or a certificate/key mismatch.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `413 Payload Too Large`: The request is larger than 5 MB.
+    -   `500 Internal Server Error`: The files could not be written.
+-   **Response Body** (`200`):
+
 ```json
 {
-  "data": [
+    "written": ["cert", "key"], // string[]: the parts that were stored
+    "restart": "requested" // string: requested | skippedInactiveEquipment | processNotRunning
+}
+```
+
+-   **Response Body** (on error): Plain text error message describing the failure reason.
+-   **Example**:
+
+```bash
+# Authentication
+curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "<username>", "password": "<password>"}'
+
+# Request - Upload the client certificate and key of one equipment
+curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
+    -F "process=MQTTMaster" \
+    -F "equipment=Broker1" \
+    -F "cert=@broker1_client.pem" \
+    -F "key=@broker1_client.key"
+```
+
+-   **Notes**:
+    -   The files are stored as `<part>_<process>_<equipment>.pem` (`.crt` for `ca`) in the certificates directory, for example `cert_MQTTMaster_Broker1.pem`.
+    -   `restart` tells the client whether a reconnect is coming:
+        -   `requested`: The equipment is active and a restart of its process was requested.
+        -   `skippedInactiveEquipment`: The equipment is inactive in the configuration. The files are stored and used when it is activated.
+        -   `processNotRunning`: The files are stored but the process is not running, so nothing was restarted.
+    -   The same PEM checks as for the device certificates apply to each part: the key must be unencrypted, `cert` and `key` must match.
+
+### 2.13. Get Certificates Status
+
+-   **Endpoint**: `/api/certificates/status`
+-   **Method**: `GET`
+-   **Description**: Reports which certificate files are present on the device and, for every equipment with TLS enabled in the configuration, the state of each of its certificate slots.
+-   **Response Status Codes**:
+    -   `200 OK`
+    -   `401 Unauthorized`: Invalid session cookie.
+-   **Response Body**:
+
+```json
+{
+    "device": {
+        "cert": true, // boolean: device certificate file present
+        "key": true, // boolean: device private key present
+        "ca": false // boolean: device CA file present
+    },
+    "equipments": [
+        {
+            "process": "MQTTMaster", // string
+            "equipment": "Broker1", // string
+            "active": true, // boolean: equipment active in the configuration
+            "state": "waiting", // string: ready | inactive | waiting
+            "slots": [
+                {
+                    "slot": "cert", // string: part name used in the upload form
+                    "property": "ClientCertificate", // string: the configuration property this slot fills
+                    "source": "runtime", // string: notConfigured | embedded | runtime
+                    "present": false // boolean: the file exists on the device
+                }
+                // ... more slots
+            ]
+        }
+        // ... more equipments
+    ]
+}
+```
+
+-   **Example**:
+
+```bash
+curl -k -b cookies.txt -X GET https://localhost:3000/api/certificates/status
+```
+
+-   **Notes**:
+    -   `state` is `inactive` for an inactive equipment regardless of its files, `waiting` for an active equipment with at least one slot whose file is missing, and `ready` otherwise.
+
+### 2.14. Delete Equipment Certificates
+
+-   **Endpoint**: `/api/certificates`
+-   **Method**: `DELETE`
+-   **Description**: Removes the certificate files previously uploaded for one equipment. No restart is requested; a running process keeps using the material it has loaded until its next reconnect.
+-   **Query Parameters**:
+    -   `process` (required, string): The process the equipment belongs to.
+    -   `equipment` (required, string): The equipment name.
+-   **Response Status Codes**:
+    -   `200 OK`: Deletion done. `removed` lists the file names that existed and were deleted; it is empty when there was nothing to delete.
+    -   `400 Bad Request`: A parameter is missing, or the process/equipment is unknown.
+    -   `401 Unauthorized`: Invalid session cookie.
+    -   `500 Internal Server Error`: A file could not be deleted.
+-   **Response Body**:
+
+```json
+{
+    "removed": ["cert_MQTTMaster_Broker1.pem", "key_MQTTMaster_Broker1.pem"] // string[]
+}
+```
+
+-   **Example**:
+
+```bash
+curl -k -b cookies.txt -X DELETE "https://localhost:3000/api/certificates?process=MQTTMaster&equipment=Broker1"
+```
+
+## 3. WebSocket API
+
+The WebSocket server is what the WebServer's own user interface uses for live data. It is documented here so that clients that already hold a session can use the same channel.
+
+### 3.1. Connection
+
+-   **URL**: `wss://<device>:8443`. Any path is accepted. The server listens on all IPv4 and IPv6 interfaces and uses the device TLS certificate.
+-   **Authentication**: the `sessionId` cookie from `/api/login` must be sent in the `Cookie` header of the handshake request. With a missing or invalid cookie the handshake is refused: no upgrade takes place, the body is `Unauthorized`, a `Set-Cookie` header clears the cookie, and the connection is closed. Clients must treat any response other than `101` as a rejection.
+-   **Handshake response**: `101 Switching Protocols` on success.
+-   **Idle timeout**: 120 seconds. The server sends pings automatically, so an idle client stays connected as long as it answers them (browsers and most libraries do this by default).
+-   **Limits**: at most 16 MB per message. Text and binary frames are both parsed as JSON.
+-   **Data source**: the server polls ESRemote once per second. Every push described below happens at that cadence at most.
+
+### 3.2. Message Format
+
+Every message in both directions is a JSON object.
+
+-   **Client to server**: a `type` field selects the request. The remaining fields depend on the type.
+
+```json
+{ "type": "subscribe", "topic": "entityViewer" }
+```
+
+-   **Server to client**: a `topic` field names the message and `data` carries the payload.
+
+```json
+{ "topic": "esTimestamp", "data": { "esTimestamp": "09:07:08 13/12/2024" } }
+```
+
+-   Messages that are not valid JSON, lack `type`, or use an unknown `type` are logged by the server and ignored. No error is sent back.
+
+### 3.3. Subscribing and Unsubscribing
+
+```json
+{ "type": "subscribe", "topic": "entityViewer" }
+```
+
+```json
+{ "type": "unsubscribe", "topic": "entityViewer" }
+```
+
+-   A client receives pushed messages only for topics it has subscribed to. Subscribing twice to the same topic, or unsubscribing from a topic not subscribed, has no effect.
+-   Subscribing to `entityViewer` or `esVersion` immediately sends the current data as a first message (if the server has any yet).
+
+### 3.4. Subscription Topics
+
+#### 3.4.1. entityViewer
+
+The Master Equipments and their points, the same structure as `/api/points` (section 2.7) returns in `masterEquipments`. Sent on subscribe and then whenever any value changes.
+
+```json
+{
+    "topic": "entityViewer",
+    "data": [
         {
             "id": 1, // number
             "name": "MultiDataMaster", // string
@@ -474,248 +804,136 @@ The WebSockets server pushes real-time updates when subscribed to topics.
             "process": "MultiDataMaster" // string
         }
         // ... more equipments
-    ],
-    "topic": "entityViewer"
+    ]
 }
 ```
 
-- **Resonse Status Codes** (HTTP Upgrade Response):
-    - `200 OK`: Successfully connected to the WebSocket server.
-  - `401 Unauthorized`: Missing or invalid session cookie.
+#### 3.4.2. esTimestamp
 
-- **Example** (Node.js):
+The ES200 system time, pushed once per second.
+
+```json
+{
+    "topic": "esTimestamp",
+    "data": {
+        "esTimestamp": "09:07:08 13/12/2024" // string: HH:MM:SS DD/MM/YYYY, or "n/a"
+    }
+}
+```
+
+#### 3.4.3. esConnectionStatus
+
+Whether the WebServer is connected to ESRemote, pushed once per second. When `connected` is `false` no other data topic is updated.
+
+```json
+{
+    "topic": "esConnectionStatus",
+    "data": {
+        "connected": true // boolean
+    }
+}
+```
+
+#### 3.4.4. esVersion
+
+The ES200 software version. Sent once, on subscribe.
+
+```json
+{
+    "topic": "esVersion",
+    "data": "<version>" // string
+}
+```
+
+### 3.5. Request Messages
+
+These messages are handled once, when received. They do not need a subscription. Where a reply is sent, it goes only to the requesting client.
+
+#### 3.5.1. command
+
+Sends a command to a register, the same as `POST /api/command` (section 2.8). Unlike the REST endpoint, the fields are not validated here: the message is forwarded to ESRemote as is, and a malformed one is dropped there. No reply is sent; the result shows up in `entityViewer`.
+
+```json
+{
+    "type": "command",
+    "equipmentId": 1, // number
+    "idDown": 150, // number
+    "pointType": "Analog Output", // string: one of the valid point types
+    "value": "22.5" // string
+}
+```
+
+#### 3.5.2. updatePassword
+
+Changes the password of a user. Passwords are plain text; the WebServer hashes them and forwards the request to `/api/updateUserPassword` (section 1.2).
+
+```json
+{
+    "type": "updatePassword",
+    "username": "<username>", // string
+    "currentPassword": "<password>", // string
+    "newPassword": "test" // string
+}
+```
+
+Reply:
+
+```json
+{
+    "topic": "updatePassword",
+    "data": {
+        "updatePasswordStatus": 200 // number: HTTP status from section 1.2 (200, 400, 401), or 500 if ESRemote could not be reached
+    }
+}
+```
+
+### 3.6. Example
+
+Node.js client that logs in, connects, subscribes to `entityViewer` and `esConnectionStatus`, and prints every message:
 
 ```javascript
 import WebSocket from "ws";
 import axios from "axios";
 import { Agent } from "https";
 
-const TOPICS = {
-    ENTITY_VIEWER: "entityViewer",
-    SUBSCRIBE: "subscribe",
-};
+const HOST = "<device>";
 
 async function getSessionId() {
-    try {
-        const response = await axios.post(
-            "https://10.10.31.192:3000/api/login",
-            { username: "admin", password: "admin" },
-            { httpsAgent: new Agent({ rejectUnauthorized: false }) }
-        );
+    const response = await axios.post(
+        `https://${HOST}:3000/api/login`,
+        { username: "<username>", password: "<password>" },
+        { httpsAgent: new Agent({ rejectUnauthorized: false }) }
+    );
 
-        const setCookieHeader = response.headers["set-cookie"];
-        const sessionCookie = setCookieHeader?.find((c) =>
-            c.startsWith("sessionId=")
-        );
-        if (!sessionCookie) throw new Error("Session cookie not found");
-
-        return sessionCookie.split(";")[0].split("=")[1];
-    } catch (error) {
-        console.error("Failed to obtain session ID:", error);
-        process.exit(1);
+    const sessionCookie = response.headers["set-cookie"]?.find((c) => c.startsWith("sessionId="));
+    if (!sessionCookie) {
+        throw new Error("Session cookie not found");
     }
+
+    return sessionCookie.split(";")[0].split("=")[1];
 }
 
 async function connectWebSocket() {
     const sessionId = await getSessionId();
 
-    const ws = new WebSocket("wss://10.10.31.192:8443", {
+    const ws = new WebSocket(`wss://${HOST}:8443`, {
         headers: { Cookie: `sessionId=${sessionId}` },
         rejectUnauthorized: false,
     });
 
     ws.on("open", () => {
-        console.log("Connected to WebSocket server");
-        ws.send(
-            JSON.stringify({
-                type: TOPICS.SUBSCRIBE,
-                topic: TOPICS.ENTITY_VIEWER,
-            })
-        );
-        console.log("Subscribed to entityViewer topic");
+        ws.send(JSON.stringify({ type: "subscribe", topic: "entityViewer" }));
+        ws.send(JSON.stringify({ type: "subscribe", topic: "esConnectionStatus" }));
     });
 
     ws.on("message", (data) => {
-        try {
-            const json = JSON.parse(data.toString());
-            if (!json.data || !json.topic)
-                throw new Error("Invalid JSON structure");
-            console.log(JSON.stringify(json, null, 2));
-        } catch (error) {
-            console.error("Error processing message:", error);
-        }
+        const json = JSON.parse(data.toString());
+        console.log(json.topic, JSON.stringify(json.data, null, 2));
     });
 
     ws.on("error", (error) => console.error("WebSocket error:", error));
-    ws.on("close", (code, reason) =>
-        console.log(`WebSocket closed: ${code} ${reason}`)
-    );
+    ws.on("close", (code, reason) => console.log(`WebSocket closed: ${code} ${reason}`));
 }
 
 connectWebSocket();
 ```
-
-### 2.6. Send Commands
-
--   **Base URL**: `https://localhost:3000`
--   **Endpoint**: `/api/command`
--   **Method**: `POST`
--   **Content-Type**: `application/json`
--   **Description**: Sends a command to a specific register from a **Master Equipment** in ES200.
--   **Response Status Codes**:
-    -   `200 OK`: Command sent successfully.
-    -   `400 Bad Request`: Malformed request body or invalid point type.
-    -   `401 Unauthorized`: Invalid session cookie.
--   **Valid Point Types**:
-    -   `Binary Input`
-    -   `Binary Output`
-    -   `Analog Input`
-    -   `Analog Output`
-    -   `Double Input`
-    -   `Double Output`
--   **Retrieving the ID of an equipment in ES200**:
-    To retrieve the equipmentId, you need to create a configuration and then access the `.epgd` file, which is an SQLite3 database. Use an appropriate [SQLite3 viewer](https://sqlitebrowser.org/) to open the file, select the equipments table, and retrieve the ID field from there.
--   **Request Body**:
-
-```json
-{
-    "equipmentId": 1, // number: the identifier for the equipment
-    "idDown": 150, // number: the register address
-    "pointType": "Analog Input", // string: type of point being commanded, must be one of the predefined types
-    "value": "22.5" // string: value to be set
-}
-```
-
--   **Response Body**:
-
-```json
-{
-    "equipmentId": 1, // number: the identifier for the equipment
-    "idDown": 150, // number: the register address
-    "pointType": "Analog Input", // string: type of point being commanded, must be one of the predefined types
-    "value": "22.5" // string: value to be set
-}
-```
-
-Modificari 
--   **Example**:
-
-```bash
-# Authentication
-curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
-    -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
-
-# Request
-curl -k -b cookies.txt -X POST https://localhost:3000/api/command \
-    -H "Content-Type: application/json" \
-    -d '{"equipmentId": 123, "idDown": 456, "pointType": "Analog Input", "value": "22.5"}'
-```
-
-### 2.7. Download Database
-
--   **Base URL**: `https://localhost:3000`
--   **Endpoint**: `/api/database`
--   **Method**: `GET`
--   **Description**: Downloads the current ES200 configuration database (`.epgd` file) as a binary file.
--   **Response Status Codes**:
-    -   `200 OK`: Successfully downloaded the database file.
-    -   `204 No Content`: The current database is empty.
-    -   `401 Unauthorized`: Invalid session cookie.
-    -   `500 Internal Server Error`: Failed to retrieve the database.
--   **Response Headers**:
-    -   `Content-Type`: `application/x-sqlite3`
-    -   `Content-Disposition`: `attachment; filename="ES200.epgd"`
--   **Response Body**: Binary content of the SQLite3 database file.
--   **Example**:
-
-```bash
-# Authentication
-curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
-    -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
-
-# Request - Download database and save to file
-curl -k -b cookies.txt -X GET https://localhost:3000/api/database \
-    -o ES200.epgd
-```
-
--   **Notes**:
-    -   The downloaded file is an SQLite3 database that can be opened with any SQLite3 viewer such as [DB Browser for SQLite](https://sqlitebrowser.org/).
-    -   The database contains the ES200 configuration including equipments, points, and other settings.
-
-### 2.8. Upload Database
-
--   **Base URL**: `https://localhost:3000`
--   **Endpoint**: `/api/database`
--   **Method**: `POST`
--   **Content-Type**: `application/octet-stream` or `application/x-sqlite3`
--   **Description**: Uploads a new ES200 configuration database (`.epgd` file) to replace the current configuration. After a successful upload, all ES200 processes will be restarted to apply the new configuration.
--   **Request Body**: Binary content of the SQLite3 database file.
--   **Response Status Codes**:
-    -   `200 OK`: Database uploaded successfully. All processes will be restarted.
-    -   `401 Unauthorized`: Invalid session cookie.
-    -   `415 Unsupported Media Type`: Invalid or missing Content-Type header.
-    -   `500 Internal Server Error`: Failed to upload the database.
--   **Example**:
-
-```bash
-# Authentication
-curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
-    -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
-
-# Request - Upload database from file
-curl -k -b cookies.txt -X POST https://localhost:3000/api/database \
-    -H "Content-Type: application/octet-stream" \
-    --data-binary @ES200.epgd
-```
-
--   **Notes**:
-    -   The uploaded file must be a valid SQLite3 database in the ES200 `.epgd` format.
-    -   After a successful upload, the Watchdog process will restart all ES200 processes to apply the new configuration.
-    -   **Warning**: Uploading an invalid or corrupted database may cause ES200 to malfunction. Always ensure you have a backup of the current configuration before uploading a new one.
-
-### 2.9. Update Certificates
-
--   **Base URL**: `https://localhost:3000`
--   **Endpoint**: `/api/certificates`
--   **Method**: `POST`
--   **Content-Type**: `multipart/form-data`
--   **Description**: Updates the SSL/TLS certificates used by ES200 for secure communications. The endpoint accepts a certificate file and a private key file in PEM format, validates them, and forwards the update to the authentication server.
--   **Request Body** (multipart/form-data):
-    -   `cert` (required, file): The SSL certificate file in PEM format (must contain `BEGIN CERTIFICATE` marker).
-    -   `key` (required, file): The private key file in PEM format (must contain `BEGIN` marker).
-    -   `ca` (optional, file): The CA certificate file in PEM format (if applicable).
--   **Response Status Codes**:
-    -   `200 OK`: Certificates updated successfully.
-    -   `400 Bad Request`: Missing files, empty file contents, invalid PEM markers, or certificate/key validation failed.
-    -   `401 Unauthorized`: Invalid session cookie.
--   **Response Body** (on error): Plain text error message describing the failure reason.
--   **Example**:
-
-```bash
-# Authentication
-curl -k -c cookies.txt -X POST https://localhost:3000/api/login \
-    -H "Content-Type: application/json" \
-    -d '{"username": "admin", "password": "admin"}'
-
-# Request - Upload certificate and private key
-curl -k -b cookies.txt -X POST https://localhost:3000/api/certificates \
-    -F "cert=@certificate.pem" \
-    -F "key=@private_key.pem" \
-    -F "ca=@ca_certificate.pem"
-
-```
-
--   **Notes**:
-    -   Both the certificate and private key must be in PEM format.
-    -   The certificate and private key must match (the private key must correspond to the public key in the certificate).
-    -   The endpoint validates the certificate and key before applying them.
-    -   Common error messages include:
-        -   `missing files`: One or more form fields are missing.
-        -   `certificate file missing` / `private key file missing` / `ca file missing`: The file field exists but has no filename.
-        -   `empty file contents`: One or more files are empty.
-        -   `invalid pem markers`: The files don't contain valid PEM headers.
-        -   `validation failed: mismatch`: The certificate and private key don't match.
-        -   `validation failed: parse cert` / `validation failed: parse key`: Unable to parse the certificate or key.

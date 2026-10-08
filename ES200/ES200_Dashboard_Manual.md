@@ -59,6 +59,10 @@
     - [5.4.3. Digital and analogue size editing](#543-digital-and-analogue-size-editing)
     - [5.4.4. Editing commands](#544-editing-commands)
     - [5.4.5. Editing reports](#545-editing-reports)
+    - [5.4.6. File transfer (COMTRADE records) and FTP/FTPS forwarding](#546-file-transfer-comtrade-records-and-ftpftps-forwarding)
+      - [5.4.6.1. Downloading the record files from the IED](#5461-downloading-the-record-files-from-the-ied)
+      - [5.4.6.2. Forwarding the files to an FTP/FTPS server](#5462-forwarding-the-files-to-an-ftpftps-server)
+      - [5.4.6.3. FTPS security settings](#5463-ftps-security-settings)
   - [5.5. IEC-60870-5-104](#55-iec-60870-5-104)
     - [5.5.1. General Configuration of the Communication Channel](#551-general-configuration-of-the-communication-channel)
     - [5.5.2. General Configuration of the RTU](#552-general-configuration-of-the-rtu)
@@ -120,6 +124,10 @@
         - [8.2.3.2.2. DNP3Slave](#82322-dnp3slave)
       - [8.2.3.3. Differences between versions 2.0 - 2.1](#8233-differences-between-versions-20---21)
         - [8.2.3.3.1. DNP3Master](#82331-dnp3master)
+      - [8.2.3.4. Differences between versions 4.0 - 4.1](#8234-differences-between-versions-40---41)
+        - [8.2.3.4.1. IEC61850E2](#82341-iec61850e2)
+      - [8.2.3.5. Differences between versions 4.1 - 4.2](#8235-differences-between-versions-41---42)
+        - [8.2.3.5.1. IEC61850E2](#82351-iec61850e2)
   - [8.3. Change the language](#83-change-the-language)
   - [8.4. Logic block editor](#84-logic-block-editor)
     - [8.4.1. Functionality description of automation blocks](#841-functionality-description-of-automation-blocks)
@@ -978,9 +986,9 @@ Choose, individually, the addresses to be imported. We recommend choosing addres
 After adding a new IED and configuring as described above, we will have the general TCP channel level information available for editing with the IED. From this window the IP and port of the equipment connection can be changed.
 <img src="images/Add_New_IED_Channel_Properties.png"></p>
 
-The general IED communication parameters for the IEC61850-8 Ed2 (MMS) connection are configured from the window below. In the EguipmentName field fill in the IED name usually set using the IED configuration sw. Incorrectly filling in the IED name (EquipmentName) will not allow the communication link between the IEC 61850 client in the ES200 and the IED (acting as a server in the IEC 61850 standard architecture).
+The general IED communication parameters for the IEC61850-8 Ed2 (MMS) connection are configured from the "Equipment Properties" tab shown below. In the EquipmentName field fill in the IED name usually set using the IED configuration sw. Incorrectly filling in the IED name (EquipmentName) will not allow the communication link between the IEC 61850 client in the ES200 and the IED (acting as a server in the IEC 61850 standard architecture).
 
-<img src="images/Add_New_IED_61850_ed2_Equipment.png"></p>
+<img src="images/IEC61850_ed2_Equipment_Properties.png"></p>
 
 We recommend keeping the following default values (specific to the MMS connection) in this window:
 
@@ -990,15 +998,7 @@ We recommend keeping the following default values (specific to the MMS connectio
 * ApTitle
 * AeQualifier
 
-The IEC 61850 ed2 client in the ES200 allows automatic extraction of oscillogram files (COMTRADE standard format). The operation is based on the file transfer service implemented by the IEC 61850 standard.
-
-To set up the automatic extraction mechanism of the record files (osilograms) it is necessary to configure the following parameters:
-* PathWriteFiles - the path of the directory where the oscillogram files will be saved
-* DeviceDirectory - path to the directory in the IED structure where the oscillograms will be saved
-* PollFielsInterval - the time interval at which new record files (oscillograms) are checked for occurrence in the directory of the IED set in the previous step
-* FileTransferActive - activation of the automatic oscillogram extraction mechanism
-* FileLifeSpan - time period (h) after the files downloaded from the IED are deleted from the HW platform where the ES200 runs
-* MaxFileSize - The maximum allowed size (in bytes) for downloaded record files. This must be less than 104857600 and greater than 0.
+The last option of the tab, FileTransferActive, enables the automatic download of the record files (oscillograms in COMTRADE format) stored by the IED and, optionally, their forwarding to an FTP/FTPS server. This mechanism is described in section 5.4.6.
 
 ### 5.4.3. Digital and analogue size editing
 
@@ -1013,7 +1013,6 @@ The structure of a status address according to IEC61850 is as follows:
   * Variable Name - A unique TAG is filled in for each signal. This TAG will be the internal identifier for that signal and will be used in saved processes and for the realization of automation logic
   * AddressName - IEC61850 protocol address of the entity to be monitored
   * Poll Interval - In case a quantity is not part of the data sets associated with the event reports due to the non compliant configuration of the FDI, there is the possibility to retrieve its status by repeated queries at a time interval set by this parameter
-  * TriggerDownload - Enabling this parameter associated with an entity allows the automatic extraction from the IED of the oscilloperturbogram (COMTRADE) log files when the status of that entity changes
 
 ### 5.4.4. Editing commands
 
@@ -1046,6 +1045,103 @@ Warning!!! Automatic import may result in incomplete addition of the report addr
 
 The address of a report on IEC61850 has the following structure:
 * IED nameLogical Device/LLN0.type"_raport(BR orRP).DO (e.g. I09FTLD0/LLN0.BR.rcbStatUrgA)
+
+### 5.4.6. File transfer (COMTRADE records) and FTP/FTPS forwarding
+
+The IEC 61850 Ed2 client in the ES200 can download automatically the record files (oscillograms in COMTRADE format) that the IED stores in its file system, using the file transfer service of the IEC 61850 standard. The downloaded files are kept on the ES200 for a limited time and can be forwarded to an external FTP or FTPS server. Both mechanisms are configured in the "Equipment Properties" tab of the IEC61850E2 equipment (see 4.1.4): select the equipment in the equipment list and open the tab.
+
+#### 5.4.6.1. Downloading the record files from the IED
+
+Tick "FileTransferActive" (1). The parameters of the download appear below it (2), followed by the "FTP Transfer" option (3):
+
+<img src="images/IEC61850_ed2_FileTransfer_Properties.png"></p>
+
+**#FileTransferActive** – Enables the periodic download of the record files from the IED. While it is unticked nothing is read from the IED and the parameters below are hidden; unticking it resets them, together with the FTP settings, to their default values.
+
+**#DeviceDirectory** – Directory in the file system of the IED from which the files are downloaded (e.g. `COMTRADE/`). The name is specific to the IED model; check it in the documentation of the IED or by browsing the IED with an IEC 61850 client.
+
+**#PollFilesInterval [ms]** – Interval, in milliseconds, at which the directory of the IED is checked for new files (default 10000).
+
+**#FilesLifespan [h]** – Time, in hours, after which a downloaded file is deleted from the ES200 (default 12).
+
+**#MaxFilesSize [MB]** – Maximum size, in MB, allowed for the downloaded files. It must be greater than 0 and not larger than 100 (default 100).
+
+**#FTP Transfer** – Forwards the downloaded files to an external FTP/FTPS server (see 5.4.6.2). It is offered only while "FileTransferActive" is ticked.
+
+Hovering the mouse over any property label shows its help text:
+
+<img src="images/IEC61850_ed2_FileTransfer_Help_Tooltip.png"></p>
+
+**Note:** the "PathWriteFiles" property and the "TriggerDownload" column of the Measurements section, present in projects up to version 4.0, were removed in version 4.1 (see 8.2.3.4). The files are stored in a fixed location on the ES200 and the download is driven only by the periodic check of the IED directory.
+
+#### 5.4.6.2. Forwarding the files to an FTP/FTPS server
+
+Tick "FTP Transfer"; the "Configure FTP" button appears under it (3). Press it to open the "FTP Transfer Configuration" window:
+
+<img src="images/IEC61850_ed2_FTP_Dialog.png"></p>
+
+**#Server IP / Hostname** – IP address or host name of the FTP server. Mandatory.
+
+**#Port** – Port of the FTP server (default 21; implicit FTPS usually uses 990).
+
+**#Username**, **#Password** – Credentials of the FTP account.
+
+**#Connect Timeout [s]** – Maximum time to wait when connecting to the server (default 20).
+
+**#Response Timeout [s]** – Maximum time to wait for a response from the server during a transfer (default 30).
+
+**#Stall Timeout [s]**, **#Stall Min Speed [B/s]** – A transfer whose speed stays below "Stall Min Speed" for longer than "Stall Timeout" is considered dead and aborted. The defaults (60 s, 1 B/s) catch only a blocked transfer, not a slow but alive one.
+
+**#Passive Mode** – FTP uses a second connection for the file contents. In passive mode (default) the ES200 opens this data connection towards the server as well, so only outgoing connections from the ES200 are needed. In active mode the server opens the data connection back to the ES200, which fails when the ES200 sits behind a firewall or NAT. Keep it ticked unless the server does not support passive mode.
+
+**#Delete files after transfer** – Deletes the local copy of a file right after it has been transferred successfully. Otherwise the file stays on the ES200 until "FilesLifespan" expires.
+
+**#Use FTPS** – Encrypts the connection with TLS (FTPS). The security settings described in 5.4.6.3 appear when it is ticked.
+
+The window does not block the Dashboard. "OK" keeps the changes, "Cancel" (or closing the window) restores the previous values. Like every other property, the settings become active on the ES200 after the project is saved and uploaded (see 4.3). The files are uploaded to the directory of the FTP account.
+
+**Security note:** plain FTP sends the credentials and the files unencrypted. Use it only inside isolated management networks, or enable "Use FTPS".
+
+#### 5.4.6.3. FTPS security settings
+
+With "Use FTPS" ticked, the window shows the TLS settings. A server certificate issued by a private authority (the usual case inside a substation) is configured as below:
+
+<img src="images/IEC61850_ed2_FTPS_Dialog.png"></p>
+
+**#Implicit FTPS** – Uses implicit FTPS (TLS from the first byte, usually on port 990) instead of explicit FTPS (AUTH TLS, usually on port 21). Tick it only if the server requires it.
+
+**#Server Validation** – How the certificate presented by the server is checked:
+
+* *CA certificate* – the certificate is validated only against the CA certificate provided below. The usual choice for a server inside the substation;
+* *OS trust store* – the certificate is validated against the public certificate authorities included in the ES200 image. For a server with a certificate from a public authority;
+* *OS trust store and CA certificate* – either of the two above is accepted. Useful while a server is moved from one authority to the other;
+* *None* – any certificate is accepted. The transfer remains encrypted but is open to an impostor, so use it only for a test setup.
+
+<img src="images/IEC61850_ed2_FTPS_Server_Validation.png"></p>
+
+**#Validate Server Hostname** – Requires the server certificate to name the host being connected to. Untick it when the server is reached by IP address and its certificate carries only DNS names. Hidden when "Server Validation" is *None*.
+
+**#Server Certificate** – The CA certificate, in PEM format, used by the two "CA certificate" validation modes. Press "Browse" and select the file.
+
+**#Upload Server Certificate At Runtime** – The certificate is not selected here; it is uploaded later through the web interface of the ES200. The file transfers wait until the certificate arrives, while the rest of the process runs normally. Ticking this option hides the "Server Certificate" row and discards a file already selected there (a certificate cannot come from both sources). Renaming the equipment abandons an uploaded file, so it has to be uploaded again.
+
+<img src="images/IEC61850_ed2_FTPS_Runtime_Upload.png"></p>
+
+**#Use Client Certificate** – The ES200 presents a client certificate to the server, so the server can authenticate the device (in addition to the user and password). It reveals the rows below:
+
+<img src="images/IEC61850_ed2_FTPS_Client_Certificate.png"></p>
+
+**#Client Certificate**, **#Client Key** – The client certificate and its private key, both in PEM format; the key must not be encrypted. For additional security, use the runtime upload option instead.
+
+**#Upload Client Certificate And Key At Runtime** – Both files are uploaded later through the web interface of the ES200. The certificate and the key always share the same source.
+
+**Attention:** the security settings are validated while editing. The problems are listed in the Errors table (see 4.1.6) and the equipment is marked with a red counter in the equipment list (1); the Dashboard also warns before saving a project that still has errors. The checks apply while "FTP Transfer" and "Use FTPS" are ticked:
+
+* *CE023* – "Server Validation" expects a CA certificate, but none is configured (neither selected with "Browse", nor marked for runtime upload) (2);
+* *CE020* – only one of the client certificate and its key has a source;
+* *CE024* – a certificate is both selected with "Browse" and marked for runtime upload.
+
+<img src="images/IEC61850_ed2_FTPS_Validation_Error.png"></p>
 
 ## 5.5. IEC-60870-5-104
 ### 5.5.1. General Configuration of the Communication Channel
@@ -1781,6 +1877,30 @@ The following equipment properties have been added:
 
 ##### 8.2.3.3.1. DNP3Master
 QualifierCode property has been added
+
+#### 8.2.3.4. Differences between versions 4.0 - 4.1
+
+##### 8.2.3.4.1. IEC61850E2
+The following equipment properties have been removed:
+* PathWriteFiles (the downloaded files are stored in a fixed location on the ES200)
+
+The following point properties have been removed:
+* TriggerDownload (Measurements section)
+
+The following default values have been changed:
+* MaxFilesSize is expressed in MB instead of bytes; the default value is 100
+
+#### 8.2.3.5. Differences between versions 4.1 - 4.2
+
+##### 8.2.3.5.1. IEC61850E2
+The following equipment properties have been added, for forwarding the downloaded record files to an FTP/FTPS server (see 5.4.6):
+* FTPTransfer
+* ServerIp, Port, Username, Password
+* ConnectTimeoutSeconds, ResponseTimeoutSeconds, StallTimeoutSeconds, StallMinBytesPerSec
+* PassiveMode, DeleteFilesAfterTransfer
+* UseSecureFTP, ImplicitFTPS, ServerValidation, ValidateServerHostname
+* ServerCertificate, ServerCertificateUploadAtRuntime
+* UseClientCertificate, ClientCertificate, ClientCertificateUploadAtRuntime, ClientKey, ClientKeyUploadAtRuntime
 
 ## 8.3. Change the language
 

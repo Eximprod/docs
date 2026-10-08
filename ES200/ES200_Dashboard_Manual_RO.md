@@ -61,6 +61,10 @@
     - [5.4.3. Editare marimilor digitale și analogice](#543-editare-marimilor-digitale-și-analogice)
     - [5.4.4. Editarea comenzilor](#544-editarea-comenzilor)
     - [5.4.5. Editarea rapoartelor](#545-editarea-rapoartelor)
+    - [5.4.6. Transferul fișierelor (înregistrări COMTRADE) și trimiterea prin FTP/FTPS](#546-transferul-fișierelor-înregistrări-comtrade-și-trimiterea-prin-ftpftps)
+      - [5.4.6.1. Descărcarea fișierelor de înregistrare din IED](#5461-descărcarea-fișierelor-de-înregistrare-din-ied)
+      - [5.4.6.2. Trimiterea fișierelor către un server FTP/FTPS](#5462-trimiterea-fișierelor-către-un-server-ftpftps)
+      - [5.4.6.3. Setările de securitate FTPS](#5463-setările-de-securitate-ftps)
   - [5.5. IEC-60870-5-104](#55-iec-60870-5-104)
     - [5.5.1. Configurare generală a canalului de comunicație](#551-configurare-generală-a-canalului-de-comunicație)
     - [5.5.2. Configurarea generala a RTU](#552-configurarea-generala-a-rtu)
@@ -122,6 +126,10 @@
         - [8.2.3.2.2. DNP3Slave](#82322-dnp3slave)
       - [8.2.3.3. Diferenta intre 2.0 si 2.1](#8233-diferenta-intre-20-si-21)
         - [8.2.3.3.1. DNP3Master](#82331-dnp3master)
+      - [8.2.3.4. Diferențe între versiunile 4.0 - 4.1](#8234-diferențe-între-versiunile-40---41)
+        - [8.2.3.4.1. IEC61850E2](#82341-iec61850e2)
+      - [8.2.3.5. Diferențe între versiunile 4.1 - 4.2](#8235-diferențe-între-versiunile-41---42)
+        - [8.2.3.5.1. IEC61850E2](#82351-iec61850e2)
   - [8.3. Schimbarea de limba](#83-schimbarea-de-limba)
   - [8.4. Editorul de blocuri logice](#84-editorul-de-blocuri-logice)
     - [8.4.1. Descriere functionalitate blocuri de automatizare](#841-descriere-functionalitate-blocuri-de-automatizare)
@@ -1362,11 +1370,11 @@ După adaugarea unui nou IED și configurarea conform descrierii de mai sus, vom
 <img src="images/Figure_39.png">
 
 
-Parametrii generali de comunicatie cu IED pentru conexiunea IEC61850-8 Ed2 (MMS) se configurează din fereastra de mai jos. În campul EguipmentName se completeaza numele IED setat de obicei cu ajutorul sw de configurare a IED. **Completarea incorectă a numelui IED (EquipmentName) nu va permite realizarea legăturii de comunicație dintre clientul IEC 61850 din ES200 si IED (avand rol de server în arhitectura standard IEC 61850).**
+Parametrii generali de comunicatie cu IED pentru conexiunea IEC61850-8 Ed2 (MMS) se configurează din tab-ul „Equipment Properties”, prezentat mai jos. În campul EquipmentName se completeaza numele IED setat de obicei cu ajutorul sw de configurare a IED. **Completarea incorectă a numelui IED (EquipmentName) nu va permite realizarea legăturii de comunicație dintre clientul IEC 61850 din ES200 si IED (avand rol de server în arhitectura standard IEC 61850).**
 
 
 
-<img src="images/Figure_40.png">
+<img src="images/IEC61850_ed2_Equipment_Properties.png">
 
 
 **Recomandăm păstrare valorilor default urmatorii parametrii (specifici conexiunii MMS) din aceasta fereastra:**
@@ -1381,21 +1389,7 @@ Parametrii generali de comunicatie cu IED pentru conexiunea IEC61850-8 Ed2 (MMS)
 
 **AeQualifier**
 
-Clientul IEC 61850 ed2 din ES200 permite extragerea automată a fișierelor cu oscilograme (format standard COMTRADE). Operațiunea se bazează pe serviciul de transfer fisiere implementat de standardul IEC 61850.
-
-Pentru configurarea mecanismului de extragere automată a fișierelor cu inregistrari (osilograme) este necesara configurarea urmatorilor parmaterii:
-
-**PathWriteFiles** - calea directorului în care vor fi salvate fișierele cu oscilograme "**;**"
-
-**DeviceDirectory** - calea directorului din structura IED de unde vor fi preluate oscilogramele "**;**"
-
-**PollFielsInterval** - intervalul de timp la care se verifica apariția unor noi fișiere cu înregistrări (oscilograme) în directorul din IED setat la pasul anterior;
-
-**FileTransferActive** - activare mecanismului de extragere automata a oscilogramelor;
-
-**FileLifeSpan** - Perioada de timp (h) după ce fișierele descărcate de pe IED sunt șterse de pe plaforma HW unde ruleaza ES200;
-
-**MaxFileSize** - Dimensiunea maximă permisă (în octeți) pentru fișierele cu inregistrari descărcate. Aceasta trebuie să fie mai mică decât 104857600 și mai mare decât 0.
+Ultima opțiune din tab, **FileTransferActive**, activează descărcarea automată a fișierelor de înregistrare (oscilograme în format COMTRADE) stocate de IED și, opțional, trimiterea lor către un server FTP/FTPS. Acest mecanism este descris în capitolul 5.4.6.
 
 
 ### 5.4.3. Editare marimilor digitale și analogice
@@ -1418,7 +1412,6 @@ Campurile din secțiunea Measurements au următoarea semnificație:
 
 **Poll Interval** - În cazul o mărime nu face parte din seturile de date asociate rapoartelor de evenimete din cauza configurarii neconforme a IED, exista posibilitatea de preluare a stării acesteia prin interogari repetate la un interval de timp setat prin acest parametru.
 
-**TriggerDownload** - Activarea acestui parametrului asociat unei entități permite extragerea automată din IED a fișierelor de înregistrare de tip osciloperturbograma (COMTRADE) la schimbarea de stare a entității în cauză.
 
 
 
@@ -1471,6 +1464,103 @@ Adresa unui raport pe IEC61850 are urmatoarea structura:
 
 **IED nameLogical Device/LLN0.tip”_raport(BR sauRP).DO (ex: I09FTLD0/LLN0.BR.rcbStatUrgA).**
 
+
+### 5.4.6. Transferul fișierelor (înregistrări COMTRADE) și trimiterea prin FTP/FTPS
+
+Clientul IEC 61850 Ed2 din ES200 poate descărca automat fișierele de înregistrare (oscilograme în format COMTRADE) pe care IED-ul le stochează în sistemul său de fișiere, folosind serviciul de transfer de fișiere al standardului IEC 61850. Fișierele descărcate sunt păstrate pe ES200 pentru o perioadă limitată și pot fi trimise mai departe către un server FTP sau FTPS extern. Ambele mecanisme se configurează din tab-ul „Equipment Properties” al echipamentului IEC61850E2 (vezi 4.1.4): se selectează echipamentul în lista de echipamente și se deschide tab-ul.
+
+#### 5.4.6.1. Descărcarea fișierelor de înregistrare din IED
+
+Se bifează „FileTransferActive” (1). Sub acesta apar parametrii descărcării (2), urmați de opțiunea „FTP Transfer” (3):
+
+<img src="images/IEC61850_ed2_FileTransfer_Properties.png"></p>
+
+**#FileTransferActive** – Activează descărcarea periodică a fișierelor de înregistrare din IED. Cât timp este debifat nu se citește nimic din IED, iar parametrii de mai jos sunt ascunși; debifarea lui readuce acești parametri, împreună cu setările FTP, la valorile implicite.
+
+**#DeviceDirectory** – Directorul din sistemul de fișiere al IED-ului din care se descarcă fișierele (ex. `COMTRADE/`). Numele este specific modelului de IED; se verifică în documentația IED-ului sau prin parcurgerea IED-ului cu un client IEC 61850.
+
+**#PollFilesInterval [ms]** – Intervalul, în milisecunde, la care se verifică apariția unor fișiere noi în directorul IED-ului (implicit 10000).
+
+**#FilesLifespan [h]** – Timpul, în ore, după care un fișier descărcat este șters de pe ES200 (implicit 12).
+
+**#MaxFilesSize [MB]** – Dimensiunea maximă, în MB, permisă pentru fișierele descărcate. Trebuie să fie mai mare decât 0 și cel mult 100 (implicit 100).
+
+**#FTP Transfer** – Trimite fișierele descărcate către un server FTP/FTPS extern (vezi 5.4.6.2). Este oferit doar cât timp „FileTransferActive” este bifat.
+
+Trecerea mouse-ului peste eticheta oricărei proprietăți afișează textul de ajutor al acesteia:
+
+<img src="images/IEC61850_ed2_FileTransfer_Help_Tooltip.png"></p>
+
+**Notă:** proprietatea „PathWriteFiles” și coloana „TriggerDownload” din secțiunea Measurements, prezente în proiectele până la versiunea 4.0, au fost eliminate în versiunea 4.1 (vezi 8.2.3.4). Fișierele sunt stocate într-o locație fixă pe ES200, iar descărcarea este declanșată doar de verificarea periodică a directorului IED-ului.
+
+#### 5.4.6.2. Trimiterea fișierelor către un server FTP/FTPS
+
+Se bifează „FTP Transfer”; sub acesta apare butonul „Configure FTP” (3). Apăsarea lui deschide fereastra „FTP Transfer Configuration”:
+
+<img src="images/IEC61850_ed2_FTP_Dialog.png"></p>
+
+**#Server IP / Hostname** – Adresa IP sau numele de host al serverului FTP. Obligatoriu.
+
+**#Port** – Portul serverului FTP (implicit 21; FTPS implicit folosește de obicei 990).
+
+**#Username**, **#Password** – Datele de autentificare ale contului FTP.
+
+**#Connect Timeout [s]** – Timpul maxim de așteptare la conectarea la server (implicit 20).
+
+**#Response Timeout [s]** – Timpul maxim de așteptare a unui răspuns de la server în timpul unui transfer (implicit 30).
+
+**#Stall Timeout [s]**, **#Stall Min Speed [B/s]** – Un transfer a cărui viteză rămâne sub „Stall Min Speed” mai mult decât „Stall Timeout” este considerat blocat și este întrerupt. Valorile implicite (60 s, 1 B/s) prind doar un transfer blocat, nu unul lent dar în desfășurare.
+
+**#Passive Mode** – FTP folosește o a doua conexiune pentru conținutul fișierelor. În modul pasiv (implicit) și această conexiune de date este deschisă de ES200 către server, deci sunt necesare doar conexiuni ieșite din ES200. În modul activ serverul deschide conexiunea de date înapoi către ES200, ceea ce eșuează când ES200 se află în spatele unui firewall sau NAT. Se păstrează bifat, cu excepția cazului în care serverul nu suportă modul pasiv.
+
+**#Delete files after transfer** – Șterge copia locală a unui fișier imediat după ce a fost transferat cu succes. Altfel fișierul rămâne pe ES200 până la expirarea „FilesLifespan”.
+
+**#Use FTPS** – Criptează conexiunea cu TLS (FTPS). Setările de securitate descrise la 5.4.6.3 apar când este bifat.
+
+Fereastra nu blochează Dashboard-ul. „OK” păstrează modificările, „Cancel” (sau închiderea ferestrei) readuce valorile anterioare. Ca orice altă proprietate, setările devin active pe ES200 după salvarea și încărcarea proiectului (vezi 4.3). Fișierele sunt încărcate în directorul contului FTP.
+
+**Notă de securitate:** FTP simplu trimite datele de autentificare și fișierele necriptat. Se folosește doar în rețele de management izolate, altfel se activează „Use FTPS”.
+
+#### 5.4.6.3. Setările de securitate FTPS
+
+Cu „Use FTPS” bifat, fereastra afișează setările TLS. Un certificat de server emis de o autoritate privată (cazul obișnuit într-o stație) se configurează ca mai jos:
+
+<img src="images/IEC61850_ed2_FTPS_Dialog.png"></p>
+
+**#Implicit FTPS** – Folosește FTPS implicit (TLS de la primul octet, de obicei pe portul 990) în loc de FTPS explicit (AUTH TLS, de obicei pe portul 21). Se bifează doar dacă serverul o cere.
+
+**#Server Validation** – Modul în care este verificat certificatul prezentat de server:
+
+* *CA certificate* – certificatul este validat doar față de certificatul CA furnizat mai jos. Alegerea obișnuită pentru un server din stație;
+* *OS trust store* – certificatul este validat față de autoritățile de certificare publice incluse în imaginea ES200. Pentru un server cu certificat emis de o autoritate publică;
+* *OS trust store and CA certificate* – este acceptată oricare dintre cele două variante de mai sus. Util cât timp un server este mutat de la o autoritate la alta;
+* *None* – este acceptat orice certificat. Transferul rămâne criptat, dar este expus unui impostor, deci se folosește doar pentru teste.
+
+<img src="images/IEC61850_ed2_FTPS_Server_Validation.png"></p>
+
+**#Validate Server Hostname** – Cere ca certificatul serverului să conțină numele host-ului la care se face conectarea. Se debifează când serverul este accesat prin adresă IP, iar certificatul lui conține doar nume DNS. Ascuns când „Server Validation” este *None*.
+
+**#Server Certificate** – Certificatul CA, în format PEM, folosit de cele două moduri de validare „CA certificate”. Se apasă „Browse” și se selectează fișierul.
+
+**#Upload Server Certificate At Runtime** – Certificatul nu se selectează aici; este încărcat ulterior prin interfața web a ES200. Transferurile de fișiere așteaptă până la sosirea certificatului, în timp ce restul procesului rulează normal. Bifarea acestei opțiuni ascunde rândul „Server Certificate” și renunță la un fișier deja selectat acolo (un certificat nu poate proveni din ambele surse). Redenumirea echipamentului abandonează un fișier încărcat, acesta trebuind încărcat din nou.
+
+<img src="images/IEC61850_ed2_FTPS_Runtime_Upload.png"></p>
+
+**#Use Client Certificate** – ES200 prezintă serverului un certificat client, astfel încât serverul să poată autentifica dispozitivul (pe lângă utilizator și parolă). Afișează rândurile de mai jos:
+
+<img src="images/IEC61850_ed2_FTPS_Client_Certificate.png"></p>
+
+**#Client Certificate**, **#Client Key** – Certificatul client și cheia lui privată, ambele în format PEM; cheia nu trebuie să fie criptată. Pentru securitate suplimentară, se folosește în schimb opțiunea de încărcare la runtime.
+
+**#Upload Client Certificate And Key At Runtime** – Ambele fișiere sunt încărcate ulterior prin interfața web a ES200. Certificatul și cheia au întotdeauna aceeași sursă.
+
+**Atenție:** setările de securitate sunt validate în timpul editării. Problemele sunt listate în tabelul Errors (vezi 4.1.6), iar echipamentul este marcat cu un contor roșu în lista de echipamente (1); Dashboard-ul avertizează și înainte de salvarea unui proiect care mai are erori. Verificările se aplică cât timp „FTP Transfer” și „Use FTPS” sunt bifate:
+
+* *CE023* – „Server Validation” așteaptă un certificat CA, dar niciunul nu este configurat (nici selectat cu „Browse”, nici marcat pentru încărcare la runtime) (2);
+* *CE020* – doar unul dintre certificatul client și cheia lui are o sursă;
+* *CE024* – un certificat este și selectat cu „Browse”, și marcat pentru încărcare la runtime.
+
+<img src="images/IEC61850_ed2_FTPS_Validation_Error.png"></p>
 
 ## 5.5. IEC-60870-5-104
 ### 5.5.1. Configurare generală a canalului de comunicație
@@ -2463,6 +2553,31 @@ A fost scoasa proprietatea de CylicPeriod
 
 
 A fost adaugata proprietatea de QualifierCode
+
+
+#### 8.2.3.4. Diferențe între versiunile 4.0 - 4.1
+
+##### 8.2.3.4.1. IEC61850E2
+Următoarele proprietăți de echipament au fost scoase:
+* PathWriteFiles (fișierele descărcate sunt stocate într-o locație fixă pe ES200)
+
+Următoarele proprietăți de punct au fost scoase:
+* TriggerDownload (secțiunea Measurements)
+
+Următoarele valori implicite au fost schimbate:
+* MaxFilesSize este exprimată în MB în loc de octeți; valoarea implicită este 100
+
+#### 8.2.3.5. Diferențe între versiunile 4.1 - 4.2
+
+##### 8.2.3.5.1. IEC61850E2
+Următoarele proprietăți de echipament au fost adăugate, pentru trimiterea fișierelor de înregistrare descărcate către un server FTP/FTPS (vezi 5.4.6):
+* FTPTransfer
+* ServerIp, Port, Username, Password
+* ConnectTimeoutSeconds, ResponseTimeoutSeconds, StallTimeoutSeconds, StallMinBytesPerSec
+* PassiveMode, DeleteFilesAfterTransfer
+* UseSecureFTP, ImplicitFTPS, ServerValidation, ValidateServerHostname
+* ServerCertificate, ServerCertificateUploadAtRuntime
+* UseClientCertificate, ClientCertificate, ClientCertificateUploadAtRuntime, ClientKey, ClientKeyUploadAtRuntime
 
 
 ## 8.3. Schimbarea de limba

@@ -339,6 +339,8 @@ Logarea valorilor și transferul lor prin FTP se configurează integral din apli
 
 > **Notă:** vechiul meniu *Configure FTP* din interfața web a ES200 a fost eliminat; acest capitol descrie mecanismul care l-a înlocuit.
 
+> **Notă:** transferul prin FTP/FTPS al fișierelor de înregistrare (COMTRADE) descărcate de clientul IEC 61850 Ed2 este un mecanism separat, configurat din proprietățile echipamentului IEC61850E2 (butonul *Configure FTP*). Acesta este descris în [capitolul 5.4.6 al manualului Dashboard](ES200_Dashboard_Manual_RO.md#546-transferul-fișierelor-înregistrări-comtrade-și-trimiterea-prin-ftpftps).
+
 ## 4.1. Adăugarea echipamentului FTPClient
 
 - Se deschide configurația în Dashboard, apoi click dreapta pe ***Intelligent Electronic Device*** -> ***Add Device***.
